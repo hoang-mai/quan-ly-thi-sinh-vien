@@ -12,8 +12,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
@@ -76,8 +79,63 @@ public class gui51 implements Initializable {
         }
     }
 
+    @FXML
+    private ImageView canhbao1;
+    @FXML
+    private HBox closehbox;
+    @FXML
+    private HBox openhbox;
+    @FXML
+    private TextField timelimit2;
+    @FXML
+    private CheckBox enable11;
+
+    @FXML
+    private CheckBox enable22;
+
+    @FXML
+    private CheckBox enable33;
+    @FXML
+    void enable1(ActionEvent event) {
+        if (enable11.isSelected()) {
+            openhbox.setDisable(false);
+        } else {
+            openhbox.setDisable(true);
+        }
+    }
+
+    @FXML
+    void enable2(ActionEvent event) {
+        if (enable22.isSelected()) {
+            closehbox.setDisable(false);
+        } else {
+            closehbox.setDisable(true);
+        }
+    }
+
+    @FXML
+    void enable3(ActionEvent event) {
+        if (enable33.isSelected()) {
+            timelimit2.setDisable(false);
+            timelimit1.setDisable(false);
+        } else {
+            timelimit2.setDisable(true);
+            timelimit1.setDisable(true);
+        }
+    }
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        namename.textProperty().addListener((observableValue, oldvalue,newvalue) ->{
+            if (newvalue.isEmpty()) {
+                canhbao1.setVisible(true);
+            } else {
+                canhbao1.setVisible(false);
+            }
+        } );
+
         ObservableList<Integer> list1 = FXCollections.observableArrayList();
         for (int i = 1; i <= 31; i++) {
             list1.addAll(i);
