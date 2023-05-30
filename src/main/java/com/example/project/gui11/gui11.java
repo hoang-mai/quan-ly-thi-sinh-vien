@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -20,8 +21,22 @@ import java.util.ResourceBundle;
 
 public class gui11  {
 
+
     @FXML
-    private Button kiemtracuoikimonit1;
+    private Label it;
+    @FXML
+    void kiemtracuoikimonit1(ActionEvent event) {
+        try {
+            Stage ag0r1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui61/gui(6.1).fxml"));
+            Scene scene = new Scene(root);
+            ag0r1.setScene(scene);
+            ag0r1.show();
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
     @FXML
     private VBox vbox1;
 
@@ -34,7 +49,7 @@ public class gui11  {
             Stage ag0r = new Stage();
             ag0r.setScene(scene);
             ag0r.show();
-            Stage a = (Stage) kiemtracuoikimonit1.getScene().getWindow();
+            Stage a = (Stage) it.getScene().getWindow();
             a.hide();
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -71,6 +86,18 @@ public class gui11  {
         // Thêm các label mới vào VBox
         for (String value : labelValues) {
             Button button = new Button(value);
+            button.setOnAction(actionEvent -> {
+                try {
+                    Stage ag0r1 = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+                    Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui61/gui(6.1).fxml"));
+                    Scene scene = new Scene(root);
+                    ag0r1.setScene(scene);
+                    ag0r1.show();
+
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+            });
             button.setUserData(labelTag); // Đánh dấu label mới để xác định là label mới
             vbox1.getChildren().add(button); // Thêm label vào VBox
         }

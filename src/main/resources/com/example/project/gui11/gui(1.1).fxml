@@ -13,7 +13,7 @@
         <Pane layoutX="25.0" layoutY="54.0" prefHeight="119.0" prefWidth="551.0" style="-fx-border-style: DASHED;">
             <children>
                 <Button layoutX="482.0" layoutY="14.0" mnemonicParsing="false" onAction="#handle" prefHeight="29.0" prefWidth="43.0" textFill="#104ce8" />
-                <Label layoutX="27.0" prefHeight="33.0" prefWidth="31.0" text="IT" textFill="#ec3939">
+                <Label fx:id="it" layoutX="27.0" prefHeight="33.0" prefWidth="31.0" text="IT" textFill="#ec3939">
                     <font>
                         <Font size="35.0" />
                     </font>
@@ -25,7 +25,7 @@
             <children>
                 <VBox fx:id="vbox1" layoutX="45.0" layoutY="14.0" prefHeight="380.0" prefWidth="245.0" spacing="20.0">
                     <children>
-                        <Button fx:id="kiemtracuoikimonit1" prefHeight="28.0" prefWidth="226.0" text="Kiểm tra cuối kỳ môn IT4895Q">
+                        <Button onAction="#kiemtracuoikimonit1" prefHeight="28.0" prefWidth="226.0" text="Kiểm tra cuối kỳ môn IT4895Q">
                             <font>
                                 <Font size="14.0" />
                             </font>
