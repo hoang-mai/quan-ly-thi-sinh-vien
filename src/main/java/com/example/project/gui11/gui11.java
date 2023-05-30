@@ -62,7 +62,7 @@ public class gui11  {
         // Xóa các label cũ từ VBox
         List<Node> nodesToRemove = new ArrayList<>();
         for (Node node : vbox1.getChildren()) {
-            if (node instanceof Label && labelTag.equals(node.getUserData())) {
+            if (node instanceof Button && labelTag.equals(node.getUserData())) {
                 nodesToRemove.add(node);
             }
         }
@@ -70,12 +70,11 @@ public class gui11  {
 
         // Thêm các label mới vào VBox
         for (String value : labelValues) {
-          Button button = new Button(value);
+            Button button = new Button(value);
             button.setUserData(labelTag); // Đánh dấu label mới để xác định là label mới
             vbox1.getChildren().add(button); // Thêm label vào VBox
         }
     }
-
 
 
 
