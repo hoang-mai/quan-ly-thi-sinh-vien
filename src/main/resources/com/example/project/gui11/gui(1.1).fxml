@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -9,36 +8,31 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0"
-      prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.example.project.gui11.gui11">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui11.gui11">
     <children>
         <Pane layoutX="25.0" layoutY="54.0" prefHeight="119.0" prefWidth="551.0" style="-fx-border-style: DASHED;">
             <children>
-                <Button layoutX="482.0" layoutY="14.0" mnemonicParsing="false" onAction="#handle" prefHeight="29.0"
-                        prefWidth="43.0" textFill="#104ce8"/>
+                <Button layoutX="482.0" layoutY="14.0" mnemonicParsing="false" onAction="#handle" prefHeight="29.0" prefWidth="43.0" textFill="#104ce8" />
                 <Label layoutX="27.0" prefHeight="33.0" prefWidth="31.0" text="IT" textFill="#ec3939">
                     <font>
-                        <Font size="35.0"/>
+                        <Font size="35.0" />
                     </font>
                 </Label>
-                <Button layoutX="409.0" layoutY="80.0" mnemonicParsing="false" onAction="#turneditingon"
-                        text="TURN EDITING ON"/>
+                <Button layoutX="409.0" layoutY="80.0" mnemonicParsing="false" onAction="#turneditingon" text="TURN EDITING ON" />
             </children>
         </Pane>
         <Pane layoutX="25.0" layoutY="181.0" prefHeight="479.0" prefWidth="551.0" style="-fx-border-style: DASHED;">
             <children>
                 <VBox fx:id="vbox1" layoutX="45.0" layoutY="14.0" prefHeight="380.0" prefWidth="245.0" spacing="20.0">
                     <children>
-                        <Button fx:id="kiemtracuoikimonit1" prefHeight="28.0" prefWidth="226.0"
-                                text="Kiểm tra cuối kỳ môn IT4895Q">
+                        <Button fx:id="kiemtracuoikimonit1" prefHeight="28.0" prefWidth="226.0" text="Kiểm tra cuối kỳ môn IT4895Q">
                             <font>
-                                <Font size="14.0"/>
+                                <Font size="14.0" />
                             </font>
                             <graphic>
                                 <ImageView fitHeight="24.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../ImageView/iconchuv.jpg"/>
+                                        <Image url="@../ImageView/iconchuv.jpg" />
                                     </image>
                                 </ImageView>
                             </graphic>
@@ -47,7 +41,6 @@
                 </VBox>
             </children>
         </Pane>
-        <Pane prefHeight="57.0" prefWidth="600.0" style="-fx-background-color: #104ce8;"/>
-        <ButtonBar prefHeight="40.0" prefWidth="200.0"/>
+        <Pane prefHeight="57.0" prefWidth="600.0" style="-fx-background-color: #104ce8;" />
     </children>
 </Pane>

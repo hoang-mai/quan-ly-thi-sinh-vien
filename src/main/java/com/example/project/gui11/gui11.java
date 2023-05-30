@@ -1,15 +1,24 @@
 package com.example.project.gui11;
 
+import com.example.project.gui51.savedata;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class gui11 {
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+
+public class gui11  {
 
     @FXML
     private Button kiemtracuoikimonit1;
@@ -46,6 +55,28 @@ public class gui11 {
             System.out.println(e.getMessage());
         }
     }
+    public void initialize() {
+        List<String> labelValues = savedata.getLabelValues();
+        String labelTag = "oldLabel"; // Đánh dấu cho các label cũ đã được thêm vào VBox trước đó
+
+        // Xóa các label cũ từ VBox
+        List<Node> nodesToRemove = new ArrayList<>();
+        for (Node node : vbox1.getChildren()) {
+            if (node instanceof Label && labelTag.equals(node.getUserData())) {
+                nodesToRemove.add(node);
+            }
+        }
+        vbox1.getChildren().removeAll(nodesToRemove);
+
+        // Thêm các label mới vào VBox
+        for (String value : labelValues) {
+          Button button = new Button(value);
+            button.setUserData(labelTag); // Đánh dấu label mới để xác định là label mới
+            vbox1.getChildren().add(button); // Thêm label vào VBox
+        }
+    }
+
+
 
 
 }

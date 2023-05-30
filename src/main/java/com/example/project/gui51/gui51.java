@@ -4,6 +4,7 @@ import java.net.URL;
 
 import java.util.ResourceBundle;
 
+import com.example.project.gui11.gui11;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -73,6 +74,9 @@ public class gui51 implements Initializable {
             Scene scene = new Scene(root);
             ag0r1.setScene(scene);
             ag0r1.show();
+            savedata.addLabelValue(namename.getText());
+            gui11 controller=loader.getController();
+            controller.initialize();
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -89,6 +93,10 @@ public class gui51 implements Initializable {
     private TextField timelimit2;
     @FXML
     private CheckBox enable11;
+
+    public String getTimelimit2() {
+        return timelimit2.getText();
+    }
 
     @FXML
     private CheckBox enable22;
