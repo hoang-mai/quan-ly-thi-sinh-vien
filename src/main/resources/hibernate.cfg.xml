@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http:// sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory name="">
+  <!-- Database connection settings -->
+  <property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+  <property name="connection.url">jdbc:sqlserver://localhost:1433;databaseName=QuestionBank</property>
+  <property name="connection.username">sa</property>
+  <property name="connection.password">1234</property>
+  <!-- JDBC connection pool (use the built-in) -->
+  <property name="connection.pool_size">50</property>
+  <!-- SQL dialect -->
+  <property name="dialect">org.hibernate.dialect.SQLServerDialect</property>
+  <!-- Echo all executed SQL to stdout -->
+  <property name="show_sql">true</property>
+  <!-- Drop and re-create the database schema on startup -->
+  <property name="hbm2ddl.auto">update</property>
+  <mapping class="com.example.project.database.entities.User"/>
+  <mapping class="com.example.project.database.entities.Questions"/>
+  <mapping class="com.example.project.database.entities.Quiz"/>
+  <mapping class="com.example.project.database.entities.Categories"/>
+  <mapping class="com.example.project.database.entities.Choice"/>
+ </session-factory>
+</hibernate-configuration>

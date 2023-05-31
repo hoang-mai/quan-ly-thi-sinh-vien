@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui51.gui51">
+    <children>
+        <Label layoutX="38.0" layoutY="23.0" prefHeight="31.0" prefWidth="187.0" text="Adding a new Quiz" textFill="#ea0f0f">
+            <font>
+                <Font size="21.0" />
+            </font>
+        </Label>
+        <Label layoutX="38.0" layoutY="116.0" prefHeight="23.0" prefWidth="64.0" text="General" textFill="#ea0f0f">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="38.0" layoutY="163.0" prefHeight="17.0" prefWidth="45.0" text="Name" />
+        <Label layoutX="38.0" layoutY="213.0" text="Description" />
+        <ImageView fitHeight="31.0" fitWidth="20.0" layoutX="14.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../ImageView/iconchuv.jpg" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="40.0" fitWidth="20.0" layoutX="215.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../ImageView/dauhoicham.jpg" />
+            </image>
+        </ImageView>
+        <TextField fx:id="namename" layoutX="336.0" layoutY="159.0" prefHeight="25.0" prefWidth="364.0" />
+        <ImageView fx:id="canhbao1" fitHeight="48.0" fitWidth="20.0" layoutX="316.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../ImageView/dauchamthan.jpg" />
+            </image>
+        </ImageView>
+        <TextArea layoutX="336.0" layoutY="205.0" prefHeight="200.0" prefWidth="466.0" />
+        <CheckBox layoutX="336.0" layoutY="430.0" mnemonicParsing="false" text="Display description on course page" />
+        <ImageView fitHeight="40.0" fitWidth="20.0" layoutX="544.0" layoutY="426.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../ImageView/dauhoicham.jpg" />
+            </image>
+        </ImageView>
+        <Label layoutX="34.0" layoutY="475.0" text="Timing" textFill="#ea0f0f">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="34.0" layoutY="513.0" text="Open the quiz" />
+        <Label layoutX="34.0" layoutY="550.0" text="Close the quiz" />
+        <HBox fx:id="openhbox" disable="true" layoutX="336.0" layoutY="509.0" prefHeight="31.0" prefWidth="391.0" spacing="10.0">
+            <children>
+                <ComboBox fx:id="openquiz1" prefHeight="25.0" prefWidth="0.0" promptText="1" />
+                <ComboBox fx:id="openquiz2" prefHeight="26.0" prefWidth="97.0" promptText="January" />
+                <ComboBox fx:id="openquiz3" prefHeight="26.0" prefWidth="78.0" promptText="2023" />
+                <ComboBox fx:id="openquiz4" prefHeight="26.0" prefWidth="62.0" promptText="0" />
+                <ComboBox fx:id="openquiz5" prefHeight="26.0" prefWidth="58.0" promptText="0" />
+            </children>
+        </HBox>
+        <HBox fx:id="closehbox" disable="true" layoutX="336.0" layoutY="543.0" prefHeight="31.0" prefWidth="391.0" spacing="10.0">
+            <children>
+                <ComboBox fx:id="closequiz1" prefHeight="25.0" prefWidth="0.0" promptText="1" />
+                <ComboBox fx:id="closequiz2" prefHeight="26.0" prefWidth="97.0" promptText="January" />
+                <ComboBox fx:id="closequiz3" prefHeight="26.0" prefWidth="78.0" promptText="2023" />
+                <ComboBox fx:id="closequiz4" prefHeight="26.0" prefWidth="62.0" promptText="0" />
+                <ComboBox fx:id="closequiz5" prefHeight="26.0" prefWidth="58.0" promptText="0" />
+            </children>
+        </HBox>
+        <ImageView fitHeight="40.0" fitWidth="20.0" layoutX="316.0" layoutY="509.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../ImageView/dauhoicham.jpg" />
+            </image>
+        </ImageView>
+        <CheckBox fx:id="enable22" layoutX="740.0" layoutY="542.0" mnemonicParsing="false" onAction="#enable2" prefHeight="17.0" prefWidth="64.0" text="Enable">
+            <font>
+                <Font size="10.0" />
+            </font>
+        </CheckBox>
+        <CheckBox fx:id="enable11" layoutX="740.0" layoutY="503.0" mnemonicParsing="false" onAction="#enable1" prefHeight="17.0" prefWidth="64.0" text="Enable">
+            <font>
+                <Font size="10.0" />
+            </font>
+        </CheckBox>
+        <Label layoutX="34.0" layoutY="593.0" text="Time limit" />
+        <Label layoutX="34.0" layoutY="628.0" text="When time expires" />
+        <TextField fx:id="timelimit2" disable="true" layoutX="336.0" layoutY="589.0" prefHeight="25.0" prefWidth="45.0" />
+        <ComboBox fx:id="timelimit1" disable="true" layoutX="394.0" layoutY="589.0" prefHeight="25.0" prefWidth="87.0" promptText="minutes" />
+        <CheckBox fx:id="enable33" layoutX="486.0" layoutY="593.0" mnemonicParsing="false" onAction="#enable3" prefHeight="17.0" prefWidth="64.0" text="Enable">
+            <font>
+                <Font size="10.0" />
+            </font>
+        </CheckBox>
+        <ComboBox fx:id="whentim1" layoutX="336.0" layoutY="633.0" prefHeight="25.0" prefWidth="277.0" promptText="Open attempts are submitted automatically" />
+        <ImageView fitHeight="40.0" fitWidth="20.0" layoutX="316.0" layoutY="590.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../ImageView/dauhoicham.jpg" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="40.0" fitWidth="20.0" layoutX="316.0" layoutY="633.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../ImageView/dauhoicham.jpg" />
+            </image>
+        </ImageView>
+        <Button layoutX="342.0" layoutY="664.0" mnemonicParsing="false" onAction="#create" text="Create" />
+        <Button layoutX="443.0" layoutY="664.0" mnemonicParsing="false" onAction="#cancel" text="Cancel" />
+    </children>
+</Pane>

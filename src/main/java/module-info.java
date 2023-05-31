@@ -1,8 +1,12 @@
 module com.example.project {
     requires javafx.controls;
     requires javafx.fxml;
-
-
+	requires java.persistence;
+	requires java.sql;
+	requires org.hibernate.orm.core;
+	
+	opens com.example.project.database.entities to org.hibernate.orm.core;
+	
     opens com.example.project to javafx.fxml;
     exports com.example.project;
     exports com.example.project.popup;
@@ -21,4 +25,5 @@ module com.example.project {
     opens com.example.project.gui51 to javafx.fxml;
     exports com.example.project.gui61;
     opens com.example.project.gui61 to javafx.fxml;
+    
 }
