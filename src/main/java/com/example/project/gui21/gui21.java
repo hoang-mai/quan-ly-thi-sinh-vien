@@ -1,24 +1,37 @@
 package com.example.project.gui21;
 
 import com.example.project.gui32.gui32;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
-public class gui21 {
+import java.net.URL;
+import java.sql.*;
+import java.util.ResourceBundle;
+
+public class gui21 implements Initializable {
+    @FXML
+    private ComboBox<String> combobox;
+
     @FXML
     private AnchorPane anchorpane1;
     @FXML
     private ScrollPane scrollpane1;
     @FXML
     private CheckBox alsoquestion1;
+    private Connection connection;
+
 
     @FXML
     void Category(ActionEvent event) {
@@ -90,4 +103,27 @@ public class gui21 {
         }
     }
 
+    @Override
+    public void initialize(URL url1, ResourceBundle resourceBundle) {
+        try {
+            String url = "jdbc:sqlserver://localhost:1433;databaseName=QuesstionBank;user=sa;password=1234;encrypt=false";
+            connection = DriverManager.getConnection(url);
+
+            // Lấy danh sách các bảng trong cơ sở dữ liệu
+            DatabaseMetaData metaData = connection.getMetaData();
+            ResultSet tablesResultSet = metaData.getTables(null, null, null, new String[]{"TABLE"});
+            ObservableList<String> comboBoxValues = FXCollections.observableArrayList();
+
+            while (tablesResultSet.next() ) {
+                String tableName = tablesResultSet.getString(3); // Lấy tên bảng từ cột thứ 3
+                comboBoxValues.add(tableName);
+            }
+
+            // Gán danh sách giá trị cho comboBox
+            combobox.setItems(comboBoxValues);
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
