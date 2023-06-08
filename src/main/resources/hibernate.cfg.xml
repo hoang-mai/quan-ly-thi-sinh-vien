@@ -12,9 +12,9 @@
   <property name="connection.pool_size">50</property>
   <!-- SQL dialect -->
   <property name="dialect">org.hibernate.dialect.SQLServerDialect</property>
-  <!-- Echo all executed SQL to stdout -->
+  <!-- Echo all executed SQL to stdout chạy sql trong terminal-->
   <property name="show_sql">true</property>
-  <!-- Drop and re-create the database schema on startup -->
+  <!-- Drop and re-create the database schema on startup cập nhật lại dữ liệu -->
   <property name="hbm2ddl.auto">update</property>
   <mapping class="com.example.project.database.entities.User"/>
   <mapping class="com.example.project.database.entities.Questions"/>
