@@ -42,7 +42,7 @@
                 <Image url="@../ImageView/dauchamthan.jpg" />
             </image>
         </ImageView>
-        <TextArea layoutX="336.0" layoutY="205.0" prefHeight="200.0" prefWidth="466.0" />
+        <TextArea fx:id="desciption1" layoutX="336.0" layoutY="205.0" prefHeight="200.0" prefWidth="466.0" />
         <CheckBox layoutX="336.0" layoutY="430.0" mnemonicParsing="false" text="Display description on course page" />
         <ImageView fitHeight="40.0" fitWidth="20.0" layoutX="544.0" layoutY="426.0" pickOnBounds="true" preserveRatio="true">
             <image>

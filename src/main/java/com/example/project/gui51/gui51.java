@@ -1,10 +1,9 @@
 package com.example.project.gui51;
 
 import java.net.URL;
-
 import java.util.ResourceBundle;
-
-import com.example.project.gui11.gui11;
+import com.example.project.database.dao.QuizDao;
+import com.example.project.database.entities.Quiz;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -22,6 +22,8 @@ import javafx.stage.Stage;
 import javafx.scene.Node;
 
 public class gui51 implements Initializable {
+    @FXML
+    private TextArea desciption1;
     @FXML
     private ComboBox<String> closequiz2;
     @FXML
@@ -68,15 +70,17 @@ public class gui51 implements Initializable {
     @FXML
     void create(ActionEvent event) {
         try {
+            Quiz quiz=new Quiz();
+            quiz.setQuizName(namename.getText());
+            quiz.setDescription(desciption1.getText());
+            QuizDao.getInstance().save(quiz);
             Stage ag0r1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/project/gui11/gui(1.1).fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             ag0r1.setScene(scene);
             ag0r1.show();
-            savedata.addLabelValue(namename.getText());
-            gui11 controller=loader.getController();
-            controller.initialize();
+
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -93,10 +97,6 @@ public class gui51 implements Initializable {
     private TextField timelimit2;
     @FXML
     private CheckBox enable11;
-
-    public String getTimelimit2() {
-        return timelimit2.getText();
-    }
 
     @FXML
     private CheckBox enable22;

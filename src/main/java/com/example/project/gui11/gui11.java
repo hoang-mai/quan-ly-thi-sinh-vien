@@ -1,6 +1,7 @@
 package com.example.project.gui11;
 
-import com.example.project.gui51.savedata;
+import com.example.project.database.dao.QuizDao;
+import com.example.project.database.entities.Quiz;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -15,11 +16,11 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class gui11  {
+
+public class gui11 implements Initializable {
 
 
     @FXML
@@ -70,42 +71,18 @@ public class gui11  {
             System.out.println(e.getMessage());
         }
     }
-    public void initialize() {
-        List<String> labelValues = savedata.getLabelValues();
-        String labelTag = "oldLabel"; // Đánh dấu cho các label cũ đã được thêm vào VBox trước đó
 
-        // Xóa các label cũ từ VBox
-        List<Node> nodesToRemove = new ArrayList<>();
-        for (Node node : vbox1.getChildren()) {
-            if (node instanceof Button && labelTag.equals(node.getUserData())) {
-                nodesToRemove.add(node);
-            }
-        }
-        vbox1.getChildren().removeAll(nodesToRemove);
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        List<Quiz> danhsach= QuizDao.getInstance().selectALl();
+for(Quiz quiz : danhsach){
+    Button button=new Button(quiz.getQuizName());
 
-        // Thêm các label mới vào VBox
-        for (String value : labelValues) {
-            Button button = new Button(value);
-            button.setOnAction(actionEvent -> {
-                try {
-                    Stage ag0r1 = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-                    Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui61/gui(6.1).fxml"));
-                    Scene scene = new Scene(root);
-                    ag0r1.setScene(scene);
-                    ag0r1.show();
-
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
-                }
-            });
-            button.setUserData(labelTag); // Đánh dấu label mới để xác định là label mới
-            vbox1.getChildren().add(button); // Thêm label vào VBox
-        }
-    }
-
-
-
+    vbox1.getChildren().add(button);
 }
+    }
+}
+
 
 
 

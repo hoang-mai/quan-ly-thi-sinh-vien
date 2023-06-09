@@ -2,7 +2,7 @@ package com.example.project.database.entities;
 
 import java.sql.Date;
 import java.util.Set;
-
+import javax.persistence.GenerationType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @Table(name = "Quiz", schema = "dbo")
 public class Quiz {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "quiz_id")
 	private int quizId;
 
@@ -27,13 +27,13 @@ public class Quiz {
 	@Column(name = "description", nullable = false, columnDefinition = "TEXT")
 	private String description;
 
-	@Column(name = "time_open", nullable = false, columnDefinition = "DATETIME")
+	@Column(name = "time_open", nullable = true, columnDefinition = "DATETIME")
 	private Date timeOpen;
 
-	@Column(name = "time_close", nullable = false, columnDefinition = "DATETIME")
+	@Column(name = "time_close", nullable = true, columnDefinition = "DATETIME")
 	private Date timeClose;
 
-	@Column(name = "time_limit", nullable = false, columnDefinition = "DATETIME")
+	@Column(name = "time_limit", nullable = true, columnDefinition = "DATETIME")
 	private Date timeLimit;
 
 	@Column(name = "grade", nullable = false, columnDefinition = "REAL")
