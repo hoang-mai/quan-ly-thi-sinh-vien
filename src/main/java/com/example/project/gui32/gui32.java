@@ -1,6 +1,9 @@
 package com.example.project.gui32;
 
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -15,9 +18,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 public class gui32 implements Initializable {
@@ -45,6 +50,61 @@ public class gui32 implements Initializable {
 
     @FXML
     private TextField defaultmark;
+    @FXML
+    private ImageView ImageChoice1;
+    @FXML
+    private ImageView ImageChoice2;
+    @FXML
+    private ImageView imageView;
+
+    @FXML
+    public void insertImage() {
+        FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif");
+        fileChooser.getExtensionFilters().add(imageFilter);
+        File selectedFile = fileChooser.showOpenDialog(null);
+        if (selectedFile != null) {
+            try {
+                Image image = new Image(new FileInputStream(selectedFile));
+                imageView.setImage(image);
+                imageView.setVisible(true);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    @FXML
+    public void InsertImageChoice2() {
+        FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif");
+        fileChooser.getExtensionFilters().add(imageFilter);
+        File selectedFile = fileChooser.showOpenDialog(null);
+        if (selectedFile != null) {
+            try {
+                Image image = new Image(new FileInputStream(selectedFile));
+                ImageChoice2.setImage(image);
+                ImageChoice2.setVisible(true);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    @FXML
+    public void InsertImageChoice1() {
+        FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif");
+        fileChooser.getExtensionFilters().add(imageFilter);
+        File selectedFile = fileChooser.showOpenDialog(null);
+        if (selectedFile != null) {
+            try {
+                Image image = new Image(new FileInputStream(selectedFile));
+                ImageChoice1.setImage(image);
+                ImageChoice1.setVisible(true);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     @FXML
     void questiontext(KeyEvent event) {
