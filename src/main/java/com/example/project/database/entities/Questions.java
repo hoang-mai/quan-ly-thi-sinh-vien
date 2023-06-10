@@ -2,16 +2,7 @@ package com.example.project.database.entities;
 
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.Lob;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Question", schema = "dbo")
@@ -41,12 +32,15 @@ public class Questions {
 
 	@OneToMany(mappedBy = "questions")
 	private Set<Choice> choice;
+	@ManyToOne()
+	@JoinColumn(name = "category_id")
+	private Categories categories;
 
 	public Questions() {
 		
 	}
 	
-	public Questions(String questionName, String questionText, Byte[] image, String answer, Set<Quiz> quiz,
+	public Questions(String questionName, String questionText, Byte[] image, String answer,Categories categories, Set<Quiz> quiz,
 			Set<Choice> choice) {
 		super();
 		this.questionName = questionName;
@@ -55,6 +49,15 @@ public class Questions {
 		this.answer = answer;
 		this.quiz = quiz;
 		this.choice = choice;
+		this.categories=categories;
+	}
+
+	public Categories getCategories() {
+		return categories;
+	}
+
+	public void setCategories(Categories categories) {
+		this.categories = categories;
 	}
 
 	public int getQuestionId() {

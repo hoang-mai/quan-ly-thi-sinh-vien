@@ -23,19 +23,29 @@ public class Categories {
 
 	@ManyToMany(mappedBy = "categories")
 	private Set<Quiz> quiz;
+	@OneToMany(mappedBy = "categories")
+	private Set<Questions> questions;
 
-	
 	public Categories() {
 		
 	}
-	
-	public Categories(String categoryName, String categoryInfo, int questionCount, Set<Quiz> quiz) {
+
+
+
+	public Categories(String categoryName, String categoryInfo, int questionCount, Set<Quiz> quiz, Set<Questions> questions) {
 		this.categoryName = categoryName;
 		this.categoryInfo = categoryInfo;
 		this.questionCount = questionCount;
 		this.quiz = quiz;
+		this.questions=questions;
+	}
+	public Set<Questions> getQuestions() {
+		return questions;
 	}
 
+	public void setQuestions(Set<Questions> questions) {
+		this.questions = questions;
+	}
 	public int getCategoryId() {
 		return categoryId;
 	}
