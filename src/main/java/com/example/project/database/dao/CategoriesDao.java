@@ -1,7 +1,10 @@
 package com.example.project.database.dao;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import com.example.project.database.entities.Quiz;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -26,6 +29,28 @@ public class CategoriesDao {
 			transaction.commit();
 
 			return (result != null);
+
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+	}
+	//lấy danh sách categories
+	public List<Categories> selectALl(){
+		List<Categories> categories =new ArrayList<>();
+		Session session = null;
+		Transaction transaction = null;
+
+		try {
+			session = HibernateUtils.getSessionFactory().openSession();
+			transaction = session.beginTransaction();
+			categories=session.createQuery("FROM Categories", Categories.class).getResultList();
+
+			transaction.commit();
+
+			return  categories;
+
 
 		} finally {
 			if (session != null) {

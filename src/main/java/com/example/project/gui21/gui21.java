@@ -1,5 +1,7 @@
 package com.example.project.gui21;
 
+import com.example.project.database.dao.CategoriesDao;
+import com.example.project.database.entities.Categories;
 import com.example.project.gui32.gui32;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,6 +20,8 @@ import javafx.scene.Node;
 
 import java.net.URL;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class gui21 implements Initializable {
@@ -105,25 +109,11 @@ public class gui21 implements Initializable {
 
     @Override
     public void initialize(URL url1, ResourceBundle resourceBundle) {
-        try {
-            String url = "jdbc:sqlserver://localhost:1433;databaseName=QuesstionBank;user=sa;password=1234;encrypt=false";
-            connection = DriverManager.getConnection(url);
-
-            // Lấy danh sách các bảng trong cơ sở dữ liệu
-            DatabaseMetaData metaData = connection.getMetaData();
-            ResultSet tablesResultSet = metaData.getTables(null, null, null, new String[]{"TABLE"});
-            ObservableList<String> comboBoxValues = FXCollections.observableArrayList();
-
-            while (tablesResultSet.next() ) {
-                String tableName = tablesResultSet.getString(3); // Lấy tên bảng từ cột thứ 3
-                comboBoxValues.add(tableName);
-            }
-
-            // Gán danh sách giá trị cho comboBox
-            combobox.setItems(comboBoxValues);
-
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+        List<Categories> danhsachcategories= CategoriesDao.getInstance().selectALl();
+        ObservableList<String> list = FXCollections.observableArrayList();
+        for(Categories categories : danhsachcategories){
+            list.add(categories.getCategoryName());
         }
+        combobox.setItems(list);
     }
 }

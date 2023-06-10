@@ -37,18 +37,18 @@ public class QuizDao {
 	}
 	// lấy danh sách quiz
 	public List<Quiz> selectALl(){
-		List<Quiz> ketqua =new ArrayList<>();
+		List<Quiz> quiz =new ArrayList<>();
 		Session session = null;
 		Transaction transaction = null;
 
 		try {
 			session = HibernateUtils.getSessionFactory().openSession();
 			transaction = session.beginTransaction();
-			ketqua=session.createQuery("FROM Quiz", Quiz.class).getResultList();
+			quiz=session.createQuery("FROM Quiz", Quiz.class).getResultList();
 
 			transaction.commit();
 
-			return  ketqua;
+			return  quiz;
 
 
 		} finally {

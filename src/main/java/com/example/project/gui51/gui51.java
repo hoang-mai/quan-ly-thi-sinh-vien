@@ -146,33 +146,32 @@ public class gui51 implements Initializable {
 
         ObservableList<Integer> list1 = FXCollections.observableArrayList();
         for (int i = 1; i <= 31; i++) {
-            list1.addAll(i);
-            openquiz1.setItems(list1);
-            closequiz1.setItems(list1);
+            list1.add(i);
         }
+        openquiz1.setItems(list1);
+        closequiz1.setItems(list1);
         ObservableList<String> list2 = FXCollections.observableArrayList();
-
         list2.addAll("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
         openquiz2.setItems(list2);
         closequiz2.setItems(list2);
         ObservableList<Integer> list3 = FXCollections.observableArrayList();
         for (int i = 2030; i > 2000; i--) {
             list3.add(i);
-            openquiz3.setItems(list3);
-            closequiz3.setItems(list3);
         }
+        openquiz3.setItems(list3);
+        closequiz3.setItems(list3);
         ObservableList<Integer> list4 = FXCollections.observableArrayList();
         for (int i = 0; i <= 24; i++) {
-            list4.addAll(i);
-            openquiz4.setItems(list4);
-            closequiz4.setItems(list4);
+            list4.add(i);
         }
+        openquiz4.setItems(list4);
+        closequiz4.setItems(list4);
         ObservableList<Integer> list5 = FXCollections.observableArrayList();
         for (int i = 0; i <= 60; i++) {
-            list5.addAll(i);
-            openquiz5.setItems(list5);
-            closequiz5.setItems(list5);
+            list5.add(i);
         }
+        openquiz5.setItems(list5);
+        closequiz5.setItems(list5);
         timelimit1.setItems(FXCollections.observableArrayList("minutes"));
         whentim1.setItems(FXCollections.observableArrayList(" Open attempts are submitted automatically"));
 

@@ -2,12 +2,7 @@ package com.example.project.database.entities;
 
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Categories", schema = "dbo")
@@ -28,6 +23,7 @@ public class Categories {
 
 	@ManyToMany(mappedBy = "categories")
 	private Set<Quiz> quiz;
+
 	
 	public Categories() {
 		

@@ -74,10 +74,9 @@ public class gui11 implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        List<Quiz> danhsach= QuizDao.getInstance().selectALl();
-for(Quiz quiz : danhsach){
+        List<Quiz> danhsachquiz= QuizDao.getInstance().selectALl();
+for(Quiz quiz : danhsachquiz){
     Button button=new Button(quiz.getQuizName());
-
     vbox1.getChildren().add(button);
 }
     }
