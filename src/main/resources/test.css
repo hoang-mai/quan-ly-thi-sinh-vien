@@ -1,0 +1,42 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.button {
+    -fx-background-color:#fff;
+    -fx-cursor: pointer;
+}
+.button:hover {
+    -fx-opacity: 0.83;
+}
+
+.button1 {
+    -fx-text-fill: #fff;
+    -fx-background-color: #218d8d;
+}
+
+.button2 {
+    -fx-border: none;
+}
+
+.button2:hover {
+    -fx-text-fill: #dc4040;
+}
+
+.button-start {
+    -fx-text-fill: #fff;
+    -fx-background-color: #a11824;
+}
+
+.pane1 {
+    -fx-background-color: #218d8d;
+}
+
+.pane2 {
+    -fx-border-style: solid;
+    -fx-border-width: 1px;
+    -fx-border-color: #ccc;
+    -fx-background-color: #fff;
+}
