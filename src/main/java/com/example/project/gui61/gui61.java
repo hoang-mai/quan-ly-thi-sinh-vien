@@ -44,7 +44,7 @@ public class gui61 implements Initializable {
             if(dialogbutton==button1){
                 try {
                     Stage ag0r1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui33/gui(3.3).fxml"));
+                    Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui11/gui(1.1).fxml"));
                     Scene scene = new Scene(root);
                     ag0r1.setScene(scene);
                     ag0r1.show();

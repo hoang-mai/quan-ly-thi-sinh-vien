@@ -85,36 +85,44 @@ public class gui11 implements Initializable {
         stage.show();
         button2.setOnAction(actionEvent -> {
             try {
-                Stage ag0r1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
                 Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui34/gui(3.4).fxml"));
                 Scene scene = new Scene(root);
+                Stage ag0r1=new Stage();
                 ag0r1.setScene(scene);
                 ag0r1.show();
                 stage.hide();
+                Stage a = (Stage) it.getScene().getWindow();
+                a.hide();
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         });
         button1.setOnAction(actionEvent -> {
             try {
-                Stage ag0r1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
                 Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui34/gui(3.4).fxml"));
                 Scene scene = new Scene(root);
+                Stage ag0r1=new Stage();
                 ag0r1.setScene(scene);
                 ag0r1.show();
                 stage.hide();
+                Stage a = (Stage) it.getScene().getWindow();
+                a.hide();
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         });
         button.setOnAction(actionEvent -> {
             try {
-                Stage ag0r1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui21/gui(2.1).fxml"));
                 Scene scene = new Scene(root);
+                Stage ag0r1=new Stage();
                 ag0r1.setScene(scene);
                 ag0r1.show();
                 stage.hide();
+                Stage a = (Stage) it.getScene().getWindow();
+                a.hide();
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
