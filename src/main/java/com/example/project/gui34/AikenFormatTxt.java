@@ -76,6 +76,7 @@ public class AikenFormatTxt {
                             alert.show();
                             result = 0;
                             countChoice = -2;
+                            break;
                         }
                     } else if (AikenFormatTxt.getInstance().checkLine(checkLine) == -1 && countChoice == -1) {
                         countChoice = -2;
@@ -88,6 +89,7 @@ public class AikenFormatTxt {
                         alert.show();
                         result = 0;
                         countChoice = -2;
+                        break;
                     }
                 }
                 break;

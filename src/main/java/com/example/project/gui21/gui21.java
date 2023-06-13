@@ -109,11 +109,6 @@ public class gui21 implements Initializable {
 
     @Override
     public void initialize(URL url1, ResourceBundle resourceBundle) {
-        List<Categories> danhsachcategories= CategoriesDao.getInstance().selectALl();
-        ObservableList<String> list = FXCollections.observableArrayList();
-        for(Categories categories : danhsachcategories){
-            list.add(categories.getCategoryName());
-        }
-        combobox.setItems(list);
+
     }
 }

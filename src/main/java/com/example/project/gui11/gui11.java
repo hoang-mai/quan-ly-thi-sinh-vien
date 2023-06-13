@@ -62,6 +62,7 @@ public class gui11 implements Initializable {
 
     @FXML
     void handle(ActionEvent event) {
+
         Pane pane=new Pane();
         pane.setPrefSize(600,300);
         Button button=new Button("Question");
@@ -131,11 +132,7 @@ public class gui11 implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        List<Quiz> danhsachquiz= QuizDao.getInstance().selectALl();
-for(Quiz quiz : danhsachquiz){
-    Button button=new Button(quiz.getQuizName());
-    vbox1.getChildren().add(button);
-}
+
     }
 }
 

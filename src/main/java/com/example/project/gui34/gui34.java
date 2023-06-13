@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.TransferMode;
+import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 
 import javafx.scene.input.Dragboard;
@@ -19,9 +20,11 @@ public class gui34 {
     File file = new File("");
     @FXML
     private ImageView canhbao1;
+    @FXML
+    private Pane youcandraganddrop1;
 
     @FXML
-    private Label youcandraganddrop1;
+    private Label youcandraganddrop5;
 
     @FXML
     void chooseafile(ActionEvent event) {
@@ -30,7 +33,7 @@ public class gui34 {
         fileChooser.setTitle("Chọn tệp");
         file = fileChooser.showOpenDialog(canhbao1.getScene().getWindow());
 
-        youcandraganddrop1.setText(file.getName());
+        youcandraganddrop5.setText(file.getName());
         canhbao1.setVisible(false);
     }
 
@@ -52,7 +55,7 @@ public class gui34 {
             success = true;
             canhbao1.setVisible(false);
             file = db.getFiles().get(0);
-            youcandraganddrop1.setText(file.getName());
+            youcandraganddrop5.setText(file.getName());
 
         }
 
