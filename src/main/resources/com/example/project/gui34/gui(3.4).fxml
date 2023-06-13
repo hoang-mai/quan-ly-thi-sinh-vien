@@ -20,7 +20,7 @@
                 <Label layoutX="14.0" layoutY="80.0" text="General" />
                 <Label layoutX="14.0" layoutY="132.0" text="Import question from file" />
                 <Label layoutX="14.0" layoutY="239.0" text="Import" />
-                <Button alignment="CENTER" layoutX="271.0" layoutY="232.0" mnemonicParsing="false" onAction="#chooseafile" prefHeight="31.0" prefWidth="103.0" styleClass="button1" text="CHOOSE A FILE" />
+                <Button alignment="CENTER" layoutX="271.0" layoutY="232.0" mnemonicParsing="false" onAction="#chooseafile" prefHeight="24.0" prefWidth="103.0" styleClass="button1" text="CHOOSE A FILE" textAlignment="CENTER" />
                 <Label layoutX="387.0" layoutY="240.0" text="Maximum size for new files:100MB">
                     <font>
                         <Font size="10.0" />
@@ -44,7 +44,7 @@
                         <Image url="@../ImageView/gui34.jpg" />
                     </image>
                 </ImageView>
-                <Button layoutX="270.0" layoutY="457.0" mnemonicParsing="false" onAction="#import1" prefHeight="31.0" prefWidth="68.0" styleClass="button-red" text="IMPORT" />
+                <Button layoutX="270.0" layoutY="463.0" mnemonicParsing="false" onAction="#import1" prefHeight="25.0" prefWidth="68.0" styleClass="button-red" text="IMPORT" />
             </children>
         </Pane>
     </children>

@@ -21,15 +21,15 @@
                     <Pane layoutY="146.0" prefHeight="1154.0" prefWidth="600.0" styleClass="button3">
                         <children>
                             <ImageView fx:id="imageView" fitHeight="113.0" fitWidth="184.0" layoutX="336.0" layoutY="338.0" pickOnBounds="true" preserveRatio="true" />
-                            <Button layoutX="253.0" layoutY="338.0" mnemonicParsing="false" onAction="#insertImage" text="Insert Image" />
+                            <Button layoutX="253.0" layoutY="338.0" mnemonicParsing="false" onAction="#insertImage" opacity="0.8" text="Insert Image" />
                             <Pane fx:id="pane" layoutX="177.0" layoutY="733.0" prefHeight="230.0" prefWidth="292.0" style="-fx-border-color: black;">
                                 <children>
                                     <Label layoutX="10.0" layoutY="64.0" text="Choice 2" />
                                     <Label layoutX="22.0" layoutY="97.0" text="Grade" />
                                     <TextArea fx:id="choice2" layoutX="62.0" layoutY="11.0" prefHeight="68.0" prefWidth="198.0" />
-                                    <ComboBox layoutX="62.0" layoutY="93.0" prefHeight="25.0" prefWidth="60.0" />
+                                    <ComboBox layoutX="62.0" layoutY="93.0" opacity="0.8" prefHeight="25.0" prefWidth="60.0" />
                                     <ImageView fx:id="ImageChoice2" fitHeight="77.0" fitWidth="200.0" layoutX="72.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true" />
-                                    <Button layoutX="13.0" layoutY="136.0" mnemonicParsing="false" onAction="#InsertImageChoice2" text="Image" />
+                                    <Button layoutX="13.0" layoutY="136.0" mnemonicParsing="false" onAction="#InsertImageChoice2" opacity="0.8" text="Image" />
                                 </children>
                             </Pane>
                             <Pane layoutX="177.0" layoutY="476.0" prefHeight="230.0" prefWidth="292.0" style="-fx-border-color: black;">
@@ -37,8 +37,8 @@
                                     <Label layoutX="10.0" layoutY="64.0" text="Choice 1" />
                                     <Label layoutX="22.0" layoutY="97.0" text="Grade" />
                                     <TextArea fx:id="choice1" layoutX="62.0" layoutY="11.0" prefHeight="68.0" prefWidth="198.0" />
-                                    <ComboBox layoutX="62.0" layoutY="93.0" prefHeight="25.0" prefWidth="60.0" />
-                                    <Button layoutX="12.0" layoutY="136.0" mnemonicParsing="false" onAction="#InsertImageChoice1" text="Image" />
+                                    <ComboBox layoutX="62.0" layoutY="93.0" opacity="0.8" prefHeight="25.0" prefWidth="60.0" />
+                                    <Button layoutX="12.0" layoutY="136.0" mnemonicParsing="false" onAction="#InsertImageChoice1" opacity="0.8" text="Image" />
                                     <ImageView fx:id="ImageChoice1" fitHeight="77.0" fitWidth="200.0" layoutX="72.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true" />
                                 </children>
                             </Pane>
@@ -50,27 +50,27 @@
                                     <Font size="14.0" />
                                 </font>
                             </Button>
-                            <Button layoutX="412.0" layoutY="1084.0" mnemonicParsing="false" onAction="#cancel" styleClass="button1" text="Cancel">
+                            <Button layoutX="412.0" layoutY="1084.0" mnemonicParsing="false" onAction="#cancel" styleClass="button1" text="CANCEL">
                                 <font>
                                     <Font size="14.0" />
                                 </font>
                             </Button>
-                            <Button fx:id="savechangesandcontinue1" layoutX="177.0" layoutY="1022.0" mnemonicParsing="false" onAction="#savechangesandcontinue" styleClass="button1" text="Save changes and continue editing">
+                            <Button fx:id="savechangesandcontinue1" layoutX="177.0" layoutY="1022.0" mnemonicParsing="false" onAction="#savechangesandcontinue" styleClass="button1" text="SAVE CHANGES AND CONTINUE EDITING">
                                 <font>
                                     <Font size="14.0" />
                                 </font>
                             </Button>
-                            <ImageView fx:id="canhbao1" fitHeight="25.0" fitWidth="17.0" layoutX="223.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fx:id="canhbao1" fitHeight="25.0" fitWidth="17.0" layoutX="223.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../ImageView/dauchamthan.jpg" />
                                 </image>
                             </ImageView>
-                            <ImageView fx:id="canhbao2" fitHeight="25.0" fitWidth="17.0" layoutX="223.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fx:id="canhbao2" fitHeight="25.0" fitWidth="17.0" layoutX="223.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../ImageView/dauchamthan.jpg" />
                                 </image>
                             </ImageView>
-                            <ImageView fx:id="canhbao3" fitHeight="25.0" fitWidth="17.0" layoutX="223.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fx:id="canhbao3" fitHeight="25.0" fitWidth="17.0" layoutX="223.0" layoutY="393.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../ImageView/dauchamthan.jpg" />
                                 </image>

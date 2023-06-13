@@ -4,16 +4,16 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane stylesheets="@../../../../test.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="642.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui61.gui61">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="642.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui61.gui61">
     <children>
         <Pane layoutX="-2.0" prefHeight="52.0" prefWidth="591.0" />
         <Pane layoutX="2.0" layoutY="52.0" prefHeight="200.0" prefWidth="591.0" />
         <Pane layoutX="1.0" layoutY="252.0" prefHeight="387.0" prefWidth="591.0">
             <children>
-                <Button layoutX="525.0" layoutY="14.0" mnemonicParsing="false" onAction="#caidat" text="Button" />
+                <Button layoutX="525.0" layoutY="14.0" mnemonicParsing="false" onAction="#caidat" opacity="0.8" text="Button" />
             <Label layoutX="432.0" layoutY="66.0" text="Timelimit:" />
             <Label fx:id="timelimit1" layoutX="490.0" layoutY="66.0" prefHeight="17.0" prefWidth="52.0" />
-            <Button layoutX="469.0" layoutY="286.0" mnemonicParsing="false" onAction="#previewquiznow" text="Preview Quiz Now" />
+            <Button layoutX="469.0" layoutY="286.0" mnemonicParsing="false" onAction="#previewquiznow" opacity="0.8" text="Preview Quiz Now" />
             </children>
         </Pane>
     </children>

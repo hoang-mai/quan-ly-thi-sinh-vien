@@ -79,12 +79,12 @@
                 <Image url="@../ImageView/dauhoicham.jpg" />
             </image>
         </ImageView>
-        <CheckBox fx:id="enable22" layoutX="740.0" layoutY="542.0" mnemonicParsing="false" onAction="#enable2" prefHeight="17.0" prefWidth="64.0" text="Enable">
+        <CheckBox fx:id="enable22" layoutX="740.0" layoutY="550.0" mnemonicParsing="false" onAction="#enable2" prefHeight="17.0" prefWidth="64.0" text="Enable">
             <font>
                 <Font size="10.0" />
             </font>
         </CheckBox>
-        <CheckBox fx:id="enable11" layoutX="740.0" layoutY="503.0" mnemonicParsing="false" onAction="#enable1" prefHeight="17.0" prefWidth="64.0" text="Enable">
+        <CheckBox fx:id="enable11" layoutX="740.0" layoutY="513.0" mnemonicParsing="false" onAction="#enable1" prefHeight="17.0" prefWidth="64.0" text="Enable">
             <font>
                 <Font size="10.0" />
             </font>
@@ -98,7 +98,7 @@
                 <Font size="10.0" />
             </font>
         </CheckBox>
-        <ComboBox fx:id="whentim1" layoutX="336.0" layoutY="633.0" prefHeight="25.0" prefWidth="277.0" promptText="Open attempts are submitted automatically" />
+        <ComboBox fx:id="whentim1" layoutX="336.0" layoutY="633.0" opacity="0.8" prefHeight="25.0" prefWidth="277.0" promptText="Open attempts are submitted automatically" />
         <ImageView fitHeight="40.0" fitWidth="20.0" layoutX="316.0" layoutY="590.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../ImageView/dauhoicham.jpg" />
@@ -109,7 +109,7 @@
                 <Image url="@../ImageView/dauhoicham.jpg" />
             </image>
         </ImageView>
-        <Button layoutX="336.0" layoutY="677.0" mnemonicParsing="false" onAction="#create" styleClass="button-red" text="Create" />
-        <Button layoutX="455.0" layoutY="677.0" mnemonicParsing="false" onAction="#cancel" styleClass="button1" text="Cancel" />
+        <Button layoutX="363.0" layoutY="677.0" mnemonicParsing="false" onAction="#create" prefHeight="26.0" prefWidth="62.0" styleClass="button-red" text="CREATE" />
+        <Button layoutX="500.0" layoutY="677.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="64.0" styleClass="button1" text="CANCEL" />
     </children>
 </Pane>

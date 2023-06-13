@@ -48,6 +48,9 @@ public class gui61 implements Initializable {
                     Scene scene = new Scene(root);
                     ag0r1.setScene(scene);
                     ag0r1.show();
+
+                    scene.getStylesheets().add(getClass().getResource("subtest.css").toExternalForm());
+
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
