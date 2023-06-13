@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui51.gui51">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="724.0" prefWidth="804.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui51.gui51">
     <children>
         <Label layoutX="38.0" layoutY="23.0" prefHeight="31.0" prefWidth="187.0" text="Adding a new Quiz" textFill="#ea0f0f">
             <font>
@@ -109,7 +109,7 @@
                 <Image url="@../ImageView/dauhoicham.jpg" />
             </image>
         </ImageView>
-        <Button layoutX="342.0" layoutY="664.0" mnemonicParsing="false" onAction="#create" text="Create" />
-        <Button layoutX="443.0" layoutY="664.0" mnemonicParsing="false" onAction="#cancel" text="Cancel" />
+        <Button layoutX="336.0" layoutY="677.0" mnemonicParsing="false" onAction="#create" styleClass="button-red" text="Create" />
+        <Button layoutX="455.0" layoutY="677.0" mnemonicParsing="false" onAction="#cancel" styleClass="button1" text="Cancel" />
     </children>
 </Pane>

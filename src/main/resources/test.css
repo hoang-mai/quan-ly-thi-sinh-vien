@@ -1,11 +1,4 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
 .button {
-    -fx-background-color:#fff;
     -fx-cursor: pointer;
 }
 .button:hover {
@@ -13,21 +6,29 @@
 }
 
 .button1 {
-    -fx-text-fill: #fff;
+    -fx-text-fill: #e7f6f2;
     -fx-background-color: #218d8d;
+    -fx-text-transform: uppercase;
 }
 
 .button2 {
     -fx-border: none;
+    -fx-background-color: transparent;
 }
 
 .button2:hover {
     -fx-text-fill: #dc4040;
 }
 
-.button-start {
-    -fx-text-fill: #fff;
-    -fx-background-color: #a11824;
+.button3 {
+    -fx-text-fill: #218d8d;
+    -fx-background-color: transparent;
+}
+
+.button-red {
+    -fx-text-fill: #efe4e4;
+    -fx-background-color: #b61120;
+    -fx-text-transform: uppercase;
 }
 
 .pane1 {
@@ -38,5 +39,4 @@
     -fx-border-style: solid;
     -fx-border-width: 1px;
     -fx-border-color: #ccc;
-    -fx-background-color: #fff;
 }

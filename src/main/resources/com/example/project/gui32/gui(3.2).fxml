@@ -12,16 +12,16 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui32.gui32">
+<Pane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1300.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui32.gui32">
     <children>
       <ScrollPane hbarPolicy="NEVER" prefHeight="799.0" prefWidth="600.0">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1300.0" prefWidth="600.0">
                <children>
-                    <Pane layoutY="146.0" prefHeight="1154.0" prefWidth="600.0">
+                    <Pane layoutY="146.0" prefHeight="1154.0" prefWidth="600.0" styleClass="button3">
                         <children>
                             <ImageView fx:id="imageView" fitHeight="113.0" fitWidth="184.0" layoutX="336.0" layoutY="338.0" pickOnBounds="true" preserveRatio="true" />
-                            <Button layoutX="244.0" layoutY="338.0" mnemonicParsing="false" onAction="#insertImage" text="Insert Image" />
+                            <Button layoutX="253.0" layoutY="338.0" mnemonicParsing="false" onAction="#insertImage" text="Insert Image" />
                             <Pane fx:id="pane" layoutX="177.0" layoutY="733.0" prefHeight="230.0" prefWidth="292.0" style="-fx-border-color: black;">
                                 <children>
                                     <Label layoutX="10.0" layoutY="64.0" text="Choice 2" />
@@ -45,17 +45,17 @@
                             <Label layoutX="61.0" layoutY="134.0" text="Question name" />
                             <Label layoutX="61.0" layoutY="189.0" text="Question text" />
                             <Label layoutX="67.0" layoutY="409.0" text="Default mark" />
-                            <Button fx:id="savechanges1" layoutX="285.0" layoutY="1099.0" mnemonicParsing="false" onAction="#savechanges" text="Save changes">
+                            <Button fx:id="savechanges1" layoutX="180.0" layoutY="1084.0" mnemonicParsing="false" onAction="#savechanges" styleClass="button-red" text="SAVE CHANGES">
                                 <font>
                                     <Font size="14.0" />
                                 </font>
                             </Button>
-                            <Button layoutX="412.0" layoutY="1099.0" mnemonicParsing="false" onAction="#cancel" text="Cancel">
+                            <Button layoutX="412.0" layoutY="1084.0" mnemonicParsing="false" onAction="#cancel" styleClass="button1" text="Cancel">
                                 <font>
                                     <Font size="14.0" />
                                 </font>
                             </Button>
-                            <Button fx:id="savechangesandcontinue1" layoutX="259.0" layoutY="1063.0" mnemonicParsing="false" onAction="#savechangesandcontinue" text="Save changes and continue editing">
+                            <Button fx:id="savechangesandcontinue1" layoutX="177.0" layoutY="1022.0" mnemonicParsing="false" onAction="#savechangesandcontinue" styleClass="button1" text="Save changes and continue editing">
                                 <font>
                                     <Font size="14.0" />
                                 </font>
@@ -78,12 +78,12 @@
                             <TextField fx:id="defaultmark" layoutX="250.0" layoutY="401.0" prefHeight="33.0" prefWidth="51.0" />
                             <TextArea fx:id="questtionname1" layoutX="250.0" layoutY="130.0" prefHeight="25.0" prefWidth="253.0" />
                             <TextArea fx:id="questiontext1" layoutX="250.0" layoutY="189.0" prefHeight="139.0" prefWidth="253.0" />
-                            <Label fx:id="addingamultipe" layoutX="14.0" layoutY="14.0" text="Adding a Multiple choice question" textFill="#ff0000">
+                            <Label fx:id="addingamultipe" layoutX="14.0" layoutY="14.0" text="Adding a Multiple choice question" textFill="#ec3939">
                                 <font>
                                     <Font size="20.0" />
                                 </font>
                             </Label>
-                            <Button layoutX="336.0" layoutY="1025.0" mnemonicParsing="false" text="BLANKS FOR 3 MORE CHOICES">
+                            <Button layoutX="178.0" layoutY="979.0" mnemonicParsing="false" styleClass="button1" text="BLANKS FOR 3 MORE CHOICES">
                                 <font>
                                     <Font size="14.0" />
                                 </font>
