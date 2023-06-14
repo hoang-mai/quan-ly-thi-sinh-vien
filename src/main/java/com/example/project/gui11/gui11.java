@@ -1,25 +1,18 @@
 package com.example.project.gui11;
 
-import com.example.project.database.dao.QuizDao;
-import com.example.project.database.entities.Quiz;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 
@@ -59,75 +52,23 @@ public class gui11 implements Initializable {
             System.out.println(e.getMessage());
         }
     }
-
     @FXML
-    void handle(ActionEvent event) {
+    void caidat(ActionEvent event) {
+        try {
+            Stage a = (Stage) it.getScene().getWindow();
+            FXMLLoader loader= new FXMLLoader(getClass().getResource("/com/example/project/popup/popup.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage ag0r1=new Stage();
+            ag0r1.setScene(scene);
+            ag0r1.initModality(Modality.APPLICATION_MODAL);
+            ag0r1.initOwner(a);
+            ag0r1.showAndWait();
+            a.hide();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
 
-        Pane pane=new Pane();
-        pane.setPrefSize(600,300);
-        Button button=new Button("Question");
-        Button button1=new Button("Categories");
-        Button button2=new Button("Import");
-        Button button3=new Button("Export");
-        VBox vBox=new VBox();
-        vBox.setLayoutY(30);
-        vBox.setLayoutX(429);
-        vBox.getChildren().addAll(button,button1,button2,button3);
-        vBox.setAlignment(Pos.CENTER);
-        vBox.setSpacing(10);
-        Label label =new Label("Question bank");
-        label.setLayoutX(43);
-        label.setLayoutY(30);
-        label.setFont(Font.font("Arial", 16));
-        pane.getChildren().addAll(label,vBox);
-        Scene scenepane=new Scene(pane);
-        Stage stage=new Stage();
-        stage.setScene(scenepane);
-        stage.show();
-        button2.setOnAction(actionEvent -> {
-            try {
-
-                Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui34/gui(3.4).fxml"));
-                Scene scene = new Scene(root);
-                Stage ag0r1=new Stage();
-                ag0r1.setScene(scene);
-                ag0r1.show();
-                stage.hide();
-                Stage a = (Stage) it.getScene().getWindow();
-                a.hide();
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
-        });
-        button1.setOnAction(actionEvent -> {
-            try {
-
-                Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui34/gui(3.4).fxml"));
-                Scene scene = new Scene(root);
-                Stage ag0r1=new Stage();
-                ag0r1.setScene(scene);
-                ag0r1.show();
-                stage.hide();
-                Stage a = (Stage) it.getScene().getWindow();
-                a.hide();
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
-        });
-        button.setOnAction(actionEvent -> {
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui21/gui(2.1).fxml"));
-                Scene scene = new Scene(root);
-                Stage ag0r1=new Stage();
-                ag0r1.setScene(scene);
-                ag0r1.show();
-                stage.hide();
-                Stage a = (Stage) it.getScene().getWindow();
-                a.hide();
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
-        });
     }
 
     @Override
