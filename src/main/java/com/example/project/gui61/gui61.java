@@ -33,12 +33,11 @@ public class gui61 implements Initializable {
         Dialog<Void> dialog=new Dialog<>();
         dialog.setHeaderText("Start attempt");
         Label mainContentLabel = new Label("Time limit");
-        Label additionalLabel = new Label("Your attempt will have a time limit of"+"When you start,the timer will begin" +"\n"+
-                " to count down and cannot be paused. You must finish your attempt before it " +"\n"+
-                "expires.Are you sure you wish to start now ?");
+        Label additionalLabel = new Label("Your attempt will have a time limit of When you start,the timer will begin to count down and cannot be paused. You must finish your attempt before it expires.Are you sure you wish to start now ?");
 
         ButtonType button1= new ButtonType("START ATTEMPT");
         ButtonType button2= new ButtonType("CANCEL",ButtonType.CANCEL.getButtonData());
+
         dialog.getDialogPane().getButtonTypes().addAll(button1,button2);
         dialog.setResultConverter(dialogbutton->{
             if(dialogbutton==button1){
@@ -48,9 +47,6 @@ public class gui61 implements Initializable {
                     Scene scene = new Scene(root);
                     ag0r1.setScene(scene);
                     ag0r1.show();
-
-                    scene.getStylesheets().add(getClass().getResource("subtest.css").toExternalForm());
-
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }

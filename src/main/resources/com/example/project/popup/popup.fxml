@@ -6,17 +6,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="popup" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="183.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.popup.popup">
+<Pane fx:id="popup" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="183.0" prefWidth="414.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.popup.popup">
     <children>
-        <VBox alignment="CENTER" layoutX="429.0" layoutY="23.0" prefHeight="146.0" prefWidth="100.0" spacing="10.0">
+        <VBox alignment="CENTER" layoutX="269.0" layoutY="19.0" prefHeight="146.0" prefWidth="100.0" spacing="10.0">
             <children>
-                <Button mnemonicParsing="false" onAction="#questions" text="Question" textFill="#17c4c7" />
-                <Button mnemonicParsing="false" onAction="#categories" text="Categories" textFill="#17c4c7" />
-                <Button mnemonicParsing="false" onAction="#import1" text="Import" textFill="#17c4c7" />
-                <Button mnemonicParsing="false" text="Export" textFill="#17c4c7" />
+                <Button mnemonicParsing="false" onAction="#questions" styleClass="button2" text="Question" />
+                <Button mnemonicParsing="false" onAction="#categories" styleClass="button2" text="Categories" />
+                <Button mnemonicParsing="false" onAction="#import1" styleClass="button2" text="Import" />
+                <Button mnemonicParsing="false" prefWidth="50.0" styleClass="button2" text="Export" />
             </children>
         </VBox>
-        <Label layoutX="43.0" layoutY="23.0" prefHeight="41.0" prefWidth="108.0" text="Question bank" textFill="#17c4c7">
+        <Label layoutX="43.0" layoutY="23.0" prefHeight="41.0" prefWidth="108.0" text="Question bank" textFill="#218d8d">
             <font>
                 <Font size="16.0" />
             </font>

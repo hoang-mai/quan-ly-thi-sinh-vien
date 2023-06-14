@@ -61,11 +61,11 @@
                 <ComboBox fx:id="openquiz1" prefHeight="25.0" prefWidth="0.0" promptText="1" />
                 <ComboBox fx:id="openquiz2" prefHeight="26.0" prefWidth="97.0" promptText="January" />
                 <ComboBox fx:id="openquiz3" prefHeight="26.0" prefWidth="78.0" promptText="2023" />
-                <ComboBox fx:id="openquiz4" prefHeight="26.0" prefWidth="62.0" promptText="0" />
+                <ComboBox fx:id="openquiz4" opacity="0.8" prefHeight="26.0" prefWidth="62.0" promptText="0" />
                 <ComboBox fx:id="openquiz5" prefHeight="26.0" prefWidth="58.0" promptText="0" />
             </children>
         </HBox>
-        <HBox fx:id="closehbox" disable="true" layoutX="336.0" layoutY="543.0" prefHeight="31.0" prefWidth="391.0" spacing="10.0">
+        <HBox fx:id="closehbox" disable="true" layoutX="336.0" layoutY="543.0" opacity="0.8" prefHeight="31.0" prefWidth="391.0" spacing="10.0">
             <children>
                 <ComboBox fx:id="closequiz1" prefHeight="25.0" prefWidth="0.0" promptText="1" />
                 <ComboBox fx:id="closequiz2" prefHeight="26.0" prefWidth="97.0" promptText="January" />
@@ -92,7 +92,7 @@
         <Label layoutX="34.0" layoutY="593.0" text="Time limit" />
         <Label layoutX="34.0" layoutY="628.0" text="When time expires" />
         <TextField fx:id="timelimit2" disable="true" layoutX="336.0" layoutY="589.0" prefHeight="25.0" prefWidth="45.0" />
-        <ComboBox fx:id="timelimit1" disable="true" layoutX="394.0" layoutY="589.0" prefHeight="25.0" prefWidth="87.0" promptText="minutes" />
+        <ComboBox fx:id="timelimit1" disable="true" layoutX="394.0" layoutY="589.0" opacity="0.8" prefHeight="25.0" prefWidth="87.0" promptText="minutes" />
         <CheckBox fx:id="enable33" layoutX="486.0" layoutY="593.0" mnemonicParsing="false" onAction="#enable3" prefHeight="17.0" prefWidth="64.0" text="Enable">
             <font>
                 <Font size="10.0" />

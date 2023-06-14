@@ -39,6 +39,20 @@
     -fx-text-transform: uppercase;
 }
 
+.button-another {
+    -fx-text-fill: #000;
+    -fx-background-color: #e5eae9;
+    -fx-border-radius: 3px;
+    -fx-border-color: #d9e1e0;
+}
+
+.button-another:hover {
+    -fx-background-color: #f0f3f3;
+    -fx-text-fill: #252323;
+    -fx-border: none;
+    -fx-opacity: 1;
+}
+
 .pane1 {
     -fx-background-color: #218d8d;
 }
