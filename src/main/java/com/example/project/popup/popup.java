@@ -12,9 +12,10 @@ public class popup {
 
     @FXML
     private Pane popup;
-
+public int b=0;
     @FXML
     void categories(ActionEvent event) {
+        b=1;
         try {
 
             Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui33/gui(3.3).fxml"));
@@ -30,7 +31,7 @@ public class popup {
     }
 
     @FXML
-    void questions(ActionEvent event) {
+    void questions(ActionEvent event) {b=1;
         try {
 
             Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui21/gui(2.1).fxml"));
@@ -46,7 +47,7 @@ public class popup {
     }
 
     @FXML
-    void import1(ActionEvent event) {
+    void import1(ActionEvent event) {b=1;
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui34/gui(3.4).fxml"));
             Scene scene = new Scene(root);

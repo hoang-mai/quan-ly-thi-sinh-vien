@@ -1,5 +1,6 @@
 package com.example.project.gui11;
 
+import com.example.project.popup.popup;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -65,9 +66,10 @@ public class gui11 implements Initializable {
             ag0r1.setScene(scene);
             ag0r1.initModality(Modality.APPLICATION_MODAL);
             ag0r1.initOwner(a);
-            ag0r1.setOnCloseRequest(WindowEvent :: consume);
+
             ag0r1.showAndWait();
-            a.hide();
+            popup controller =loader.getController();
+           if(controller.b==1) a.hide();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

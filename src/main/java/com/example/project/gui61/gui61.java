@@ -1,20 +1,17 @@
 package com.example.project.gui61;
 
-import com.example.project.gui51.gui51;
+
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
-import javafx.scene.Node;
+
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -41,9 +38,11 @@ public class gui61 implements Initializable {
             ag0r1.setScene(scene);
             ag0r1.initModality(Modality.APPLICATION_MODAL);
             ag0r1.initOwner(a);
-            ag0r1.setOnCloseRequest(WindowEvent:: consume);
+
             ag0r1.showAndWait();
-            a.hide();
+            dialog controller = loader.getController();
+           if(controller.b==1) a.hide();
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
