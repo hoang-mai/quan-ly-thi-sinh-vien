@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -63,6 +64,7 @@ public class gui11 implements Initializable {
             ag0r1.setScene(scene);
             ag0r1.initModality(Modality.APPLICATION_MODAL);
             ag0r1.initOwner(a);
+            ag0r1.setOnCloseRequest(WindowEvent :: consume);
             ag0r1.showAndWait();
             a.hide();
         } catch (Exception e) {
