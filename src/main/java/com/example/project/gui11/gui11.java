@@ -25,12 +25,13 @@ public class gui11 implements Initializable {
     @FXML
     void kiemtracuoikimonit1(ActionEvent event) {
         try {
-            Stage ag0r1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui61/gui(6.1).fxml"));
             Scene scene = new Scene(root);
-            ag0r1.setScene(scene);
-            ag0r1.show();
-
+            Stage ag0r = new Stage();
+            ag0r.setScene(scene);
+            ag0r.show();
+            Stage a = (Stage) it.getScene().getWindow();
+            a.hide();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

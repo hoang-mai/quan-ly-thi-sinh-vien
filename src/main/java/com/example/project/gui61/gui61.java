@@ -17,6 +17,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -33,14 +34,16 @@ public class gui61 implements Initializable {
     void previewquiznow(ActionEvent event) {
         try {
             Stage a = (Stage) timelimit1.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui61/dialog.fxml"));
+            FXMLLoader loader= new FXMLLoader(getClass().getResource("/com/example/project/gui61/dialog.fxml"));
+            Parent root = loader.load();
             Scene scene = new Scene(root);
-            Stage ag0r = new Stage();
-            ag0r.setScene(scene);
-            ag0r.initModality(Modality.APPLICATION_MODAL);
-            ag0r.initOwner(a);
-            ag0r.showAndWait();
-
+            Stage ag0r1=new Stage();
+            ag0r1.setScene(scene);
+            ag0r1.initModality(Modality.APPLICATION_MODAL);
+            ag0r1.initOwner(a);
+            ag0r1.setOnCloseRequest(WindowEvent:: consume);
+            ag0r1.showAndWait();
+            a.hide();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
