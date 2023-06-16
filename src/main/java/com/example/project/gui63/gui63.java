@@ -1,4 +1,4 @@
-package com.example.project.gui62;
+package com.example.project.gui63;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,13 +8,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class gui62 {
+public class gui63 {
 
     @FXML
-    void anewquestion(ActionEvent event) {
+    void addselectedquestiontothequiz(ActionEvent event) {
         try {
             Stage ag0r1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/project/gui63/gui(6.3).fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/project/gui62/gui(6.2).fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             ag0r1.setScene(scene);
@@ -22,11 +22,6 @@ public class gui62 {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-    }
-
-    @FXML
-    void arandomquestion(ActionEvent event) {
-
     }
 
 }

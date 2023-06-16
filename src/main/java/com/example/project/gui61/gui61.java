@@ -28,7 +28,7 @@ public class gui61 implements Initializable {
     void caidat(ActionEvent event) {
         try {
             Stage ag0r1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/project/gui6.2/gui(6.2).fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/project/gui62/gui(6.2).fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             ag0r1.setScene(scene);

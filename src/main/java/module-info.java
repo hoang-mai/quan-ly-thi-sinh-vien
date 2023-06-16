@@ -28,4 +28,6 @@ module com.example.project {
     opens com.example.project.popup to javafx.fxml;
     exports com.example.project.gui62;
     opens com.example.project.gui62 to javafx.fxml;
+    exports com.example.project.gui63;
+    opens com.example.project.gui63 to javafx.fxml;
 }
