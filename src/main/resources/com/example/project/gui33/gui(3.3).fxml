@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="685.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui33.gui33">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="685.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui33.gui33">
     <children>
         <Pane layoutX="9.0" layoutY="14.0" prefHeight="48.0" prefWidth="581.0" />
         <Pane layoutX="10.0" layoutY="70.0" prefHeight="99.0" prefWidth="581.0" />
@@ -39,7 +34,7 @@
                     </image>
                 </ImageView>
                 <TextField fx:id="idnumber1" layoutX="302.0" layoutY="347.0" prefHeight="35.0" prefWidth="47.0" />
-                <Button layoutX="301.0" layoutY="412.0" mnemonicParsing="false" onAction="#addcategory" prefHeight="25.0" prefWidth="109.0" styleClass="button-red" text="ADD CATEGORY" />
+                <Button fx:id="addcategory1" disable="true" layoutX="301.0" layoutY="412.0" mnemonicParsing="false" onAction="#addcategory" prefHeight="25.0" prefWidth="109.0" styleClass="button-red" text="ADD CATEGORY" />
                 <Label layoutX="37.0" layoutY="14.0" text="Add category" textFill="#ec3939">
                <font>
                   <Font size="20.0" />

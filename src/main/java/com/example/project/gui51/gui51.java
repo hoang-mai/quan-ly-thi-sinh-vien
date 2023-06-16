@@ -12,10 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
@@ -52,7 +49,8 @@ public class gui51 implements Initializable {
     private ComboBox<String> timelimit1;
     @FXML
     private ComboBox<String> whentim1;
-
+@FXML
+private Button create1;
     @FXML
     void cancel(ActionEvent event) {
         try {
@@ -137,8 +135,10 @@ public class gui51 implements Initializable {
         namename.textProperty().addListener((observableValue, oldvalue,newvalue) ->{
             if (newvalue.isEmpty()) {
                 canhbao1.setVisible(true);
+                create1.setDisable(true);
             } else {
                 canhbao1.setVisible(false);
+                create1.setDisable(false);
             }
         } );
 

@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -45,7 +46,8 @@ public class gui33 implements Initializable {
             System.out.println(e.getMessage());
         }
     }
-
+    @FXML
+    private Button addcategory1;
     @FXML
     void categoryinfor(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
@@ -62,8 +64,10 @@ public class gui33 implements Initializable {
         name1.textProperty().addListener((Observable, oldvalue, newValue) -> {
             if (newValue.isEmpty()) {
                 canhbao1.setVisible(true);
+                addcategory1.setDisable(true);
             } else {
                 canhbao1.setVisible(false);
+                addcategory1.setDisable(false);
             }
         });
         idnumber1.textProperty().addListener((Observable, oldvalue, newValue) -> {
