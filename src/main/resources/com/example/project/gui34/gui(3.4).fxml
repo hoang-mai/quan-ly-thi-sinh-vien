@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="694.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui34.gui34">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="694.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui34.gui34">
     <children>
         <Pane layoutX="8.0" layoutY="8.0" prefHeight="46.0" prefWidth="585.0" />
         <Pane layoutX="16.0" layoutY="76.0" prefHeight="72.0" prefWidth="568.0" />
@@ -31,9 +31,9 @@
                     </image>
                 </ImageView>
                 <Button layoutX="270.0" layoutY="457.0" mnemonicParsing="false" onAction="#import1" prefHeight="31.0" prefWidth="68.0" styleClass="button-red" text="IMPORT" />
-            <Pane fx:id="youcandraganddrop1" layoutX="271.0" layoutY="279.0" onDragDropped="#youcandraganddrop2" onDragEntered="#youcandraganddrop3" onDragExited="#youcandraganddrop4" onDragOver="#youcandraganddrop" prefHeight="146.0" prefWidth="290.0">
+            <Pane fx:id="youcandraganddrop1" layoutX="271.0" layoutY="279.0" onDragDropped="#youcandraganddrop2" onDragEntered="#youcandraganddrop3" onDragExited="#youcandraganddrop4" onDragOver="#youcandraganddrop" prefHeight="146.0" prefWidth="283.0" styleClass="pane2">
                <children>
-                  <Label fx:id="youcandraganddrop5" alignment="CENTER" layoutX="21.0" layoutY="102.0" prefHeight="17.0" prefWidth="248.0" text="You can drag and drop files here to add them" />
+                  <Label fx:id="youcandraganddrop5" alignment="CENTER" layoutX="18.0" layoutY="104.0" prefHeight="17.0" prefWidth="248.0" text="You can drag and drop files here to add them" />
                   <ImageView fitHeight="72.0" fitWidth="82.0" layoutX="105.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../ImageView/import.jpg" />

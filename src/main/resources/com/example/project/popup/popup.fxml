@@ -10,10 +10,10 @@
     <children>
         <VBox alignment="CENTER" layoutX="269.0" layoutY="19.0" prefHeight="146.0" prefWidth="100.0" spacing="10.0">
             <children>
-                <Button mnemonicParsing="false" onAction="#questions" styleClass="button2" text="Question" />
-                <Button mnemonicParsing="false" onAction="#categories" styleClass="button2" text="Categories" />
-                <Button mnemonicParsing="false" onAction="#import1" styleClass="button2" text="Import" />
-                <Button mnemonicParsing="false" prefWidth="50.0" styleClass="button2" text="Export" />
+                <Button mnemonicParsing="false" onAction="#questions" styleClass="button2" text="Question" textFill="#218d8d" />
+                <Button mnemonicParsing="false" onAction="#categories" styleClass="button2" text="Categories" textFill="#218d8d" />
+                <Button mnemonicParsing="false" onAction="#import1" styleClass="button2" text="Import" textFill="#218d8d" />
+                <Button mnemonicParsing="false" prefWidth="50.0" styleClass="button2" text="Export" textFill="#218d8d" />
             </children>
         </VBox>
         <Label layoutX="43.0" layoutY="23.0" prefHeight="41.0" prefWidth="108.0" text="Question bank" textFill="#218d8d">

@@ -60,17 +60,17 @@
                                     <Font size="14.0" />
                                 </font>
                             </Button>
-                            <ImageView fx:id="canhbao1" fitHeight="25.0" fitWidth="17.0" layoutX="223.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fx:id="canhbao1" fitHeight="25.0" fitWidth="17.0" layoutX="223.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../ImageView/dauchamthan.jpg" />
                                 </image>
                             </ImageView>
-                            <ImageView fx:id="canhbao2" fitHeight="25.0" fitWidth="17.0" layoutX="223.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fx:id="canhbao2" fitHeight="25.0" fitWidth="17.0" layoutX="223.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../ImageView/dauchamthan.jpg" />
                                 </image>
                             </ImageView>
-                            <ImageView fx:id="canhbao3" fitHeight="25.0" fitWidth="17.0" layoutX="223.0" layoutY="393.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fx:id="canhbao3" fitHeight="25.0" fitWidth="17.0" layoutX="223.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../ImageView/dauchamthan.jpg" />
                                 </image>

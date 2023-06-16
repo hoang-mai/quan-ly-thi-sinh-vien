@@ -89,9 +89,9 @@
                                         <Button mnemonicParsing="false" styleClass="button3" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                         <Button mnemonicParsing="false" styleClass="button3" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                         <Button mnemonicParsing="false" styleClass="button3" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                        <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                        <Button mnemonicParsing="false" styleClass="button3" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                                         <CheckBox mnemonicParsing="false" text="CheckBox" GridPane.rowIndex="6" />
-                                        <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                        <Button mnemonicParsing="false" styleClass="button3" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                                     </children>
                                     <padding>
                                         <Insets left="10.0" />

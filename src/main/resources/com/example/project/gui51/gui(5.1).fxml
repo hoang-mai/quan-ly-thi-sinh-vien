@@ -37,14 +37,14 @@
             </image>
         </ImageView>
         <TextField fx:id="namename" layoutX="336.0" layoutY="159.0" prefHeight="25.0" prefWidth="364.0" />
-        <ImageView fx:id="canhbao1" fitHeight="48.0" fitWidth="20.0" layoutX="316.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="canhbao1" fitHeight="48.0" fitWidth="20.0" layoutX="309.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../ImageView/dauchamthan.jpg" />
             </image>
         </ImageView>
         <TextArea fx:id="desciption1" layoutX="336.0" layoutY="205.0" prefHeight="200.0" prefWidth="466.0" />
         <CheckBox layoutX="336.0" layoutY="430.0" mnemonicParsing="false" text="Display description on course page" />
-        <ImageView fitHeight="40.0" fitWidth="20.0" layoutX="544.0" layoutY="426.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="40.0" fitWidth="20.0" layoutX="548.0" layoutY="427.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../ImageView/dauhoicham.jpg" />
             </image>
@@ -74,7 +74,7 @@
                 <ComboBox fx:id="closequiz5" prefHeight="26.0" prefWidth="58.0" promptText="0" />
             </children>
         </HBox>
-        <ImageView fitHeight="40.0" fitWidth="20.0" layoutX="316.0" layoutY="509.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="40.0" fitWidth="20.0" layoutX="309.0" layoutY="510.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../ImageView/dauhoicham.jpg" />
             </image>
@@ -99,12 +99,12 @@
             </font>
         </CheckBox>
         <ComboBox fx:id="whentim1" layoutX="336.0" layoutY="633.0" opacity="0.8" prefHeight="25.0" prefWidth="277.0" promptText="Open attempts are submitted automatically" />
-        <ImageView fitHeight="40.0" fitWidth="20.0" layoutX="316.0" layoutY="590.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="40.0" fitWidth="20.0" layoutX="309.0" layoutY="590.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../ImageView/dauhoicham.jpg" />
             </image>
         </ImageView>
-        <ImageView fitHeight="40.0" fitWidth="20.0" layoutX="316.0" layoutY="633.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="40.0" fitWidth="20.0" layoutX="309.0" layoutY="633.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../ImageView/dauhoicham.jpg" />
             </image>

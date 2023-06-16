@@ -62,3 +62,7 @@
     -fx-border-width: 1px;
     -fx-border-color: #ccc;
 }
+
+.line1 {
+    -fx-opacity:0.1;
+}
