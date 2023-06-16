@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="694.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui34.gui34">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="694.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui34.gui34">
     <children>
         <Pane layoutX="8.0" layoutY="8.0" prefHeight="46.0" prefWidth="585.0" />
         <Pane layoutX="16.0" layoutY="76.0" prefHeight="72.0" prefWidth="568.0" />
@@ -40,11 +40,11 @@
                         <Image url="@../ImageView/import.jpg" />
                      </image>
                   </ImageView>
-                  <Pane layoutX="10.0" layoutY="10.0" prefHeight="127.0" prefWidth="263.0" />
+                  <Pane layoutX="10.0" layoutY="10.0" prefHeight="127.0" prefWidth="263.0" styleClass="pane3" />
                </children>
             </Pane>
-            <Line endX="453.0" layoutX="115.0" layoutY="66.0" opacity="0.2" startX="-108.60000610351562" />
-            <Line endX="453.0" layoutX="115.0" layoutY="122.0" opacity="0.2" startX="-108.60000610351562" />
+            <Line endX="435.4000244140625" layoutX="115.0" layoutY="66.0" opacity="0.2" startX="-108.60000610351562" />
+            <Line endX="436.199951171875" layoutX="115.0" layoutY="122.0" opacity="0.2" startX="-108.60000610351562" />
             </children>
         </Pane>
     </children>

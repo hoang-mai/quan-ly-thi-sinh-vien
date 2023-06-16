@@ -66,3 +66,9 @@
 .line1 {
     -fx-opacity:0.1;
 }
+
+.pane3 {
+    -fx-border-style: dashed;
+    -fx-border-width: 3px;
+    -fx-border-color: #ccc;
+}
