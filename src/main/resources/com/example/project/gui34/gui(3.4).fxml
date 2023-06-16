@@ -40,6 +40,7 @@
                         <Image url="@../ImageView/import.jpg" />
                      </image>
                   </ImageView>
+                  <Pane layoutX="10.0" layoutY="10.0" prefHeight="127.0" prefWidth="263.0" />
                </children>
             </Pane>
             <Line endX="453.0" layoutX="115.0" layoutY="66.0" opacity="0.2" startX="-108.60000610351562" />
