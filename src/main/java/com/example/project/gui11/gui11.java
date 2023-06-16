@@ -66,7 +66,6 @@ public class gui11 implements Initializable {
             ag0r1.setScene(scene);
             ag0r1.initModality(Modality.APPLICATION_MODAL);
             ag0r1.initOwner(a);
-
             ag0r1.showAndWait();
             popup controller =loader.getController();
            if(controller.b==1) a.hide();
