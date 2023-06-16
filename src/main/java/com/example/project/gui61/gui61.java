@@ -7,14 +7,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Dialog;
+
 import javafx.scene.control.Label;
 
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
+
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,7 +26,16 @@ public class gui61 implements Initializable {
     private Label timelimit1;
     @FXML
     void caidat(ActionEvent event) {
-
+        try {
+            Stage ag0r1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/project/gui6.2/gui(6.2).fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            ag0r1.setScene(scene);
+            ag0r1.show();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
     @FXML
     void previewquiznow(ActionEvent event) {
