@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="718.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui21.gui21">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="718.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui21.gui21">
     <children>
         <Pane layoutX="-1.0" prefHeight="60.0" prefWidth="600.0" styleClass="pane1" />
         <Pane layoutX="16.0" layoutY="78.0" prefHeight="60.0" prefWidth="565.0" styleClass="pane2" />
@@ -91,7 +91,6 @@
                                         <Button mnemonicParsing="false" styleClass="button3" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                                         <Button mnemonicParsing="false" styleClass="button3" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                                         <CheckBox mnemonicParsing="false" text="CheckBox" GridPane.rowIndex="6" />
-                                        <Button mnemonicParsing="false" styleClass="button3" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                                     </children>
                                     <padding>
                                         <Insets left="10.0" />
