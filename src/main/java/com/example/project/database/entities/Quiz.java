@@ -5,6 +5,7 @@ import java.util.Set;
 import javax.persistence.GenerationType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -43,7 +44,7 @@ public class Quiz {
 	@JoinColumn(name = "user_id")
 	private User user;
 
-	@ManyToMany(mappedBy = "quiz")
+	@ManyToMany(mappedBy = "quiz", fetch = FetchType.LAZY)
 	private Set<Questions> questions;
 
 	@ManyToMany

@@ -30,9 +30,9 @@ public class Questions {
 			@JoinColumn(name = "question_id") }, inverseJoinColumns = { @JoinColumn(name = "quiz_id") })
 	private Set<Quiz> quiz;
 
-	@OneToMany(mappedBy = "questions")
+	@OneToMany(mappedBy = "questions", fetch = FetchType.LAZY)
 	private Set<Choice> choice;
-	@ManyToOne()
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "category_id")
 	private Categories categories;
 

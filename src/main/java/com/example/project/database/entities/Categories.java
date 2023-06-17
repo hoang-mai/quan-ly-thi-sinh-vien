@@ -21,16 +21,14 @@ public class Categories {
 	@Column(name = "question_count")
 	private int questionCount;
 
-	@ManyToMany(mappedBy = "categories")
+	@ManyToMany(mappedBy = "categories", fetch = FetchType.LAZY)
 	private Set<Quiz> quiz;
-	@OneToMany(mappedBy = "categories")
+	@OneToMany(mappedBy = "categories", fetch = FetchType.LAZY)
 	private Set<Questions> questions;
 
 	public Categories() {
 		
 	}
-
-
 
 	public Categories(String categoryName, String categoryInfo, int questionCount, Set<Quiz> quiz, Set<Questions> questions) {
 		this.categoryName = categoryName;

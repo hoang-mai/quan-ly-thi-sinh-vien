@@ -2,6 +2,7 @@ package com.example.project.database.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,7 +21,7 @@ public class Choice {
 	@Column(name = "choice_text", nullable = false, columnDefinition = "TEXT")
 	private String choiceText;
 
-	@ManyToOne()
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "questions_id")
 	private Questions questions;
 	
