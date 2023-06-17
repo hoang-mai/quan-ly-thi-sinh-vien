@@ -16,7 +16,7 @@
                <graphic>
                   <ImageView fitHeight="29.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../ImageView/caidat.jpg" />
+                        <Image url="@../ImageView/setting.png" />
                      </image>
                   </ImageView>
                </graphic></Button>
