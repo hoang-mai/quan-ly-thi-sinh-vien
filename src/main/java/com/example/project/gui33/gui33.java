@@ -57,7 +57,18 @@ public class gui33 implements Initializable {
             categoryinfor1.positionCaret(content.length());
         }
     }
+@FXML
+void cancel(ActionEvent event){
+    try {
+        Stage ag0r = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui21/gui(2.1).fxml"));
+        Scene scene = new Scene(root);
+        ag0r.setScene(scene);
 
+    } catch (Exception e) {
+        System.out.println(e.getMessage());
+    }
+}
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         categoryinfor1.setWrapText(true);
