@@ -6,6 +6,7 @@ import java.io.File;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
@@ -18,6 +19,8 @@ import javafx.scene.input.Dragboard;
 
 public class gui34 {
     File file = new File("");
+    @FXML
+    private Button import11;
     @FXML
     private ImageView canhbao1;
     @FXML
@@ -35,6 +38,7 @@ public class gui34 {
 
         youcandraganddrop5.setText(file.getName());
         canhbao1.setVisible(false);
+        import11.setDisable(false);
     }
 
     @FXML
@@ -54,6 +58,7 @@ public class gui34 {
         if (db.hasFiles()) {
             success = true;
             canhbao1.setVisible(false);
+            import11.setDisable(false);
             file = db.getFiles().get(0);
             youcandraganddrop5.setText(file.getName());
 
