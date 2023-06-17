@@ -23,7 +23,7 @@ import javafx.stage.Stage;
 
 
 public class gui34 {
-    File file = new File("");
+    private File file = new File("");
     @FXML
     private Button import11;
     @FXML
