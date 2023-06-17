@@ -45,6 +45,7 @@
             </Pane>
             <Line endX="435.4000244140625" layoutX="115.0" layoutY="66.0" opacity="0.2" startX="-108.60000610351562" />
             <Line endX="436.199951171875" layoutX="115.0" layoutY="122.0" opacity="0.2" startX="-108.60000610351562" />
+            <Button layoutX="361.0" layoutY="460.0" mnemonicParsing="false" onAction="#cancel" text="CANCEL" />
             </children>
         </Pane>
     </children>

@@ -5,6 +5,10 @@ import java.io.File;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -15,6 +19,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 
 import javafx.scene.input.Dragboard;
+import javafx.stage.Stage;
 
 
 public class gui34 {
@@ -50,7 +55,18 @@ public class gui34 {
         event.consume();
 
     }
+@FXML
+void cancel(ActionEvent event){
+    try {
+        Stage ag0r = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui21/gui(2.1).fxml"));
+        Scene scene = new Scene(root);
+        ag0r.setScene(scene);
 
+    } catch (Exception e) {
+        System.out.println(e.getMessage());
+    }
+}
     @FXML
     void youcandraganddrop2(DragEvent event) {
         Dragboard db = event.getDragboard();
