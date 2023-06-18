@@ -5,6 +5,7 @@ module com.example.project {
     requires org.hibernate.orm.core;
     requires java.persistence;
     requires java.naming;
+    requires org.apache.poi.ooxml;
     opens com.example.project.database.entities to org.hibernate.orm.core;
     opens com.example.project to javafx.fxml;
     exports com.example.project;

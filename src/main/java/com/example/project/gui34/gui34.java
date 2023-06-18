@@ -87,8 +87,10 @@ void cancel(ActionEvent event){
 
     @FXML
     void import1(ActionEvent event) {
-        if (file.getName().endsWith(".txt") || file.getName().endsWith(".docx")) {
+        if (file.getName().endsWith(".txt") ) {
             AikenFormatTxt.getInstance().checkFormat(file.getPath());
+        } else if (file.getName().endsWith(".docx")) {
+            AikenFormatDocx.getInstance().checkFormat(file.getPath());
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
