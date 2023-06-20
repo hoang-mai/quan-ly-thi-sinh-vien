@@ -15,16 +15,18 @@ import javax.persistence.Table;
 public class Choice {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "chocie_id")
+	@Column(name = "choice_id")
 	private int choiceId;
 
-	@Column(name = "choice_text", nullable = false, columnDefinition = "TEXT")
+	@Column(name = "choice_text", nullable = false, columnDefinition = "nvarchar(1000)")
 	private String choiceText;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "questions_id")
 	private Questions questions;
-	
+
+	@Column(name = "Grade", nullable = false, columnDefinition = "int")
+	private int grade;
 	public Choice() {
 		
 	}
@@ -58,4 +60,11 @@ public class Choice {
 		this.questions = questions;
 	}
 
+	public int getGrade() {
+		return grade;
+	}
+
+	public void setGrade(int grade) {
+		this.grade = grade;
+	}
 }

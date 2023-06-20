@@ -49,7 +49,7 @@ public class TestDB {
 		quiz1.setQuestions(questions);
 		quiz1.setQuizName("Quiz1");
 		quiz1.setTimeClose(new Date(System.currentTimeMillis()));
-		quiz1.setTimeLimit(new Date(System.currentTimeMillis()));
+		//quiz1.setTimeLimit(new Date(System.currentTimeMillis()));
 		quiz1.setTimeOpen(new Date(System.currentTimeMillis()));
 		quiz1.setUser(user);
 
@@ -59,7 +59,7 @@ public class TestDB {
 		quiz2.setQuestions(questions);
 		quiz2.setQuizName("Quiz2");
 		quiz2.setTimeClose(new Date(System.currentTimeMillis()));
-		quiz2.setTimeLimit(new Date(System.currentTimeMillis()));
+		//quiz2.setTimeLimit(new Date(System.currentTimeMillis()));
 		quiz2.setTimeOpen(new Date(System.currentTimeMillis()));
 		quiz2.setUser(user);
 
@@ -84,13 +84,13 @@ public class TestDB {
 		categories2.setQuestionCount(2);
 		categories2.setQuiz(quizs);
 
-		questions1.setAnswer("A");
+		//questions1.setAnswer("A");
 		questions1.setQuestionName("Câu hỏi 1");
 		questions1.setQuestionText("Đây là câu hỏi 1");
 		questions1.setQuestionText("Nội dung câu hỏi 1");
 		questions1.setQuiz(quizs);
 
-		questions1.setAnswer("B");
+		//questions1.setAnswer("B");
 		questions1.setQuestionName("Câu hỏi 2");
 		questions1.setQuestionText("Đây là câu hỏi 2");
 		questions1.setQuestionText("Nội dung câu hỏi 2");

@@ -22,10 +22,10 @@ public class Quiz {
 	@Column(name = "quiz_id")
 	private int quizId;
 
-	@Column(name = "quiz_name", nullable = false, unique = true, columnDefinition = "TEXT")
+	@Column(name = "quiz_name", nullable = false, unique = true, columnDefinition = "NVARCHAR(100)")
 	private String quizName;
 
-	@Column(name = "description", nullable = false, columnDefinition = "TEXT")
+	@Column(name = "description", nullable = false, columnDefinition = "NVARCHAR(1000)")
 	private String description;
 
 	@Column(name = "time_open", nullable = true, columnDefinition = "DATETIME")
@@ -34,8 +34,8 @@ public class Quiz {
 	@Column(name = "time_close", nullable = true, columnDefinition = "DATETIME")
 	private Date timeClose;
 
-	@Column(name = "time_limit", nullable = true, columnDefinition = "DATETIME")
-	private Date timeLimit;
+	@Column(name = "time_limit", nullable = true, columnDefinition = "INT")
+	private int timeLimit;
 
 	@Column(name = "grade", nullable = false, columnDefinition = "REAL")
 	private double grade;
@@ -56,7 +56,7 @@ public class Quiz {
 		
 	}
 	
-	public Quiz(String quizName, String description, Date timeOpen, Date timeClose, Date timeLimit, double grade,
+	public Quiz(String quizName, String description, Date timeOpen, Date timeClose, Integer timeLimit, double grade,
 			User user, Set<Questions> questions, Set<Categories> categories) {
 		this.quizName = quizName;
 		this.description = description;
@@ -109,11 +109,11 @@ public class Quiz {
 		this.timeClose = timeClose;
 	}
 
-	public Date getTimeLimit() {
+	public Integer getTimeLimit() {
 		return timeLimit;
 	}
 
-	public void setTimeLimit(Date timeLimit) {
+	public void setTimeLimit(int timeLimit) {
 		this.timeLimit = timeLimit;
 	}
 

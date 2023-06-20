@@ -3,6 +3,8 @@ package com.example.project.gui33;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.example.project.database.dao.CategoriesDao;
+import com.example.project.database.entities.Categories;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -35,8 +37,14 @@ public class gui33 implements Initializable {
     private TextArea categoryinfor1;
 
     @FXML
+
     void addcategory(ActionEvent event) {
         try {
+            Categories categories = new Categories();
+            categories.setCategoryName(name1.getText());
+            categories.setCategoryId(Integer.parseInt(idnumber1.getText()));
+            categories.setCategoryInfo(categoryinfor1.getText());
+            CategoriesDao.getInstance().save(categories);
             Stage ag0r = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui21/gui(2.1).fxml"));
             Scene scene = new Scene(root);
@@ -89,5 +97,20 @@ void cancel(ActionEvent event){
             }
         });
     }
+    /*void cancel(ActionEvent event) {
+        try {
+            Stage ag0r1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui11/gui(1.1).fxml"));
+            Scene scene = new Scene(root);
+            ag0r1.setScene(scene);
+            ag0r1.show();
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }*/
+
+
+
 
 }

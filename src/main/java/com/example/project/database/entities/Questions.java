@@ -1,5 +1,7 @@
 package com.example.project.database.entities;
 
+import javafx.scene.image.Image;
+
 import java.util.Set;
 
 import javax.persistence.*;
@@ -11,19 +13,29 @@ public class Questions {
 	@GeneratedValue
 	@Column(name = "question_id")
 	private int questionId;
+	//@Column(name = "question_default_mark", nullable = false, columnDefinition = "DOUBLE")
+	//private double questionDefaultMark ;
 
-	@Column(name = "question_name", nullable = false, columnDefinition = "TEXT")
+	//public double getQuestionDefaultMark() {
+	//	return questionDefaultMark;
+	//}
+
+	//public void setQuestionDefaultMark(double questionDefaultMark) {
+	//	this.questionDefaultMark = questionDefaultMark;
+	//}
+
+	@Column(name = "question_name", nullable = false, columnDefinition = "NVARCHAR(100)")
 	private String questionName = "";
 
-	@Column(name = "question_text", nullable = false, columnDefinition = "TEXT")
+	@Column(name = "question_text", nullable = false, columnDefinition = "NVARCHAR(1000)")
 	private String questionText = "";
 
 	@Lob
 	@Column(name = "image")
-	private Byte[] image;
+	private Image image;
 
-	@Column(name = "answer", nullable = false, columnDefinition = "NVARCHAR(50)")
-	private String answer = "A";
+	/*@Column(name = "answer", nullable = false, columnDefinition = "NVARCHAR(50)")
+	private String answer = "A";*/
 	
 	@ManyToMany
 	@JoinTable(name = "question_quiz", schema = "dbo", joinColumns = {
@@ -32,21 +44,23 @@ public class Questions {
 
 	@OneToMany(mappedBy = "questions", fetch = FetchType.LAZY)
 	private Set<Choice> choice;
-	@ManyToOne(fetch = FetchType.LAZY)
+		@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "category_id")
 	private Categories categories;
+	@Column(name = "DefaultMark", nullable = false, columnDefinition = "INT")
+	private int defaultmark;
 
 	public Questions() {
 		
 	}
 	
-	public Questions(String questionName, String questionText, Byte[] image, String answer,Categories categories, Set<Quiz> quiz,
+	public Questions(String questionName, String questionText, Image image, String answer,Categories categories, Set<Quiz> quiz,
 			Set<Choice> choice) {
 		super();
 		this.questionName = questionName;
 		this.questionText = questionText;
 		this.image = image;
-		this.answer = answer;
+		//this.answer = answer;
 		this.quiz = quiz;
 		this.choice = choice;
 		this.categories=categories;
@@ -84,21 +98,21 @@ public class Questions {
 		this.questionText = questionText;
 	}
 
-	public Byte[] getImage() {
+	public Image getImage() {
 		return image;
 	}
 
-	public void setImage(Byte[] image) {
+	public void setImage(Image image) {
 		this.image = image;
 	}
 
-	public String getAnswer() {
+	/*public String getAnswer() {
 		return answer;
 	}
 
 	public void setAnswer(String answer) {
 		this.answer = answer;
-	}
+	}*/
 
 	public Set<Quiz> getQuiz() {
 		return quiz;
@@ -116,4 +130,11 @@ public class Questions {
 		this.choice = choice;
 	}
 
+	public int getDefaultmark() {
+		return defaultmark;
+	}
+
+	public void setDefaultmark(int defaultmark) {
+		this.defaultmark = defaultmark;
+	}
 }

@@ -12,10 +12,10 @@ public class Categories {
 	@GeneratedValue
 	private int categoryId;
 
-	@Column(name = "category_name", nullable = false, columnDefinition = "TEXT")
+	@Column(name = "category_name", nullable = false, columnDefinition = "NVARCHAR(100)")
 	private String categoryName;
 
-	@Column(name = "category_info", nullable = false, columnDefinition = "TEXT")
+	@Column(name = "category_info", nullable = false, columnDefinition = "NVARCHAR(1000)")
 	private String categoryInfo;
 
 	@Column(name = "question_count")

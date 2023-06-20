@@ -2,6 +2,7 @@ package com.example.project.gui21;
 
 import com.example.project.database.dao.CategoriesDao;
 import com.example.project.database.entities.Categories;
+import com.example.project.database.entities.Questions;
 import com.example.project.gui32.gui32;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,13 +21,12 @@ import javafx.scene.Node;
 
 import java.net.URL;
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class gui21 implements Initializable {
     @FXML
-    private ComboBox<String> combobox;
+    private static ComboBox<String> combobox;
 
     @FXML
     private AnchorPane anchorpane1;
@@ -111,4 +111,15 @@ public class gui21 implements Initializable {
     public void initialize(URL url1, ResourceBundle resourceBundle) {
 
     }
+    //gán giá trị cho combo box
+    public void setcombobox() {
+        List<Categories> danhsachcategories= CategoriesDao.getInstance().selectALl();
+        ObservableList<String> list = FXCollections.observableArrayList();
+        for(Categories categories : danhsachcategories){
+            list.add(categories.getCategoryName());
+        }
+        combobox.setItems(list);
+    }
+    //in ra list câu hỏi trong category
+
 }

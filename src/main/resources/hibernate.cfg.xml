@@ -16,7 +16,7 @@
   <!-- Echo all executed SQL to stdout chạy sql trong terminal-->
   <property name="show_sql">true</property>
   <!-- Drop and re-create the database schema on startup cập nhật lại dữ liệu -->
-  <property name="hbm2ddl.auto">update</property>
+  <property name="hibernate.hbm2ddl.auto">update</property>
   <mapping class="com.example.project.database.entities.User"/>
   <mapping class="com.example.project.database.entities.Questions"/>
   <mapping class="com.example.project.database.entities.Quiz"/>
