@@ -30,4 +30,6 @@ module com.example.project {
     opens com.example.project.gui62 to javafx.fxml;
     exports com.example.project.gui63;
     opens com.example.project.gui63 to javafx.fxml;
+    exports com.example.project.gui71;
+    opens com.example.project.gui71 to javafx.fxml;
 }

@@ -3,12 +3,16 @@ package com.example.project.gui63;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class gui63 {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class gui63 implements Initializable {
 
     @FXML
     void addselectedquestiontothequiz(ActionEvent event) {
@@ -24,4 +28,8 @@ public class gui63 {
         }
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }

@@ -100,7 +100,7 @@
                         </AnchorPane>
                     </content>
                 </ScrollPane>
-                <ComboBox fx:id="combobox" editable="true" layoutX="192.0" layoutY="128.0" onAction="#setcombobox" prefWidth="150.0" promptText="Default" />
+                <ComboBox fx:id="combobox" editable="true" layoutX="192.0" layoutY="128.0"  prefWidth="150.0" promptText="Default" />
             </children>
         </Pane>
     </children>

@@ -5,37 +5,25 @@ import org.apache.poi.xwpf.usermodel.*;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class AikenFormatDocx {
     public static AikenFormatDocx getInstance(){return new AikenFormatDocx();}
-    /**
-     * Kiểm tra dòng văn bản thuộc loại gì
-     *
-     * @param choiceLine Dòng văn bản cần kiểm tra
-     * @return 0 nếu là đáp án câu hỏi, 1 nếu là tiêu đề câu hỏi, -1 nếu là dòng
-     * trống, 2 nếu là dòng ANSWER
-     */
+
     public int checkLine(String choiceLine) {
         if (choiceLine.isEmpty()) {
             return -1;
-        } else if (Character.isUpperCase(choiceLine.charAt(0)) && choiceLine.charAt(1) == '.'
-                && choiceLine.charAt(2) == ' ') {
+        } else if (Character.isUpperCase(choiceLine.charAt(0)) && choiceLine.charAt(1) == '.' && choiceLine.charAt(2) == ' ') {
             return 0;
-        } else if (choiceLine.length() == 9 && choiceLine.substring(0, 8).equals("ANSWER: ")) {
+        } else if (choiceLine.length() == 9 && choiceLine.startsWith("ANSWER: ")) {
             return 2;
         }  else {
             return 1;
         }
     }
-    /**
-     * Kiểm tra file .docx có đúng định dạng Aiken format không
-     *
-     * @param path Đường dẫn tới file .docx cần kiểm tra định dạng
-     */
+
     public void checkFormat(String path) {
         File file = new File(path);
 
@@ -47,23 +35,34 @@ public class AikenFormatDocx {
             int countChoice = -2;
             int result = 1;
             List<String> allLine = new ArrayList<>();
-            document.getParagraphs().forEach(paragraph -> allLine.add(paragraph.getText()));
+            for (int i = 0; i < document.getParagraphs().size(); i++) {
+                XWPFParagraph paragraph = document.getParagraphs().get(i);
+                // Lấy văn bản của đoạn
+                String paragraphText = paragraph.getText();
+                // Kiểm tra xem đoạn có chứa ảnh không
+                if (paragraph.getRuns().size() > 0 && paragraph.getRuns().get(0).getEmbeddedPictures().size() > 0) {
+                    // Lấy vị trí dòng của ảnh
+                    String pictureName = paragraph.getRuns().get(0).getEmbeddedPictures().get(0).getPictureData().getFileName();
+                    allLine.add(pictureName);
+                }
+                else allLine.add(paragraphText);
+            }
             ArrayList<Character> keyChoice = new ArrayList<Character>();
-
             int numberLine = allLine.size();
-            while (true) {
                 for (int i = 0; i < numberLine; i++) {
-                    String checkLine = allLine.get(i);
-                    if (AikenFormatTxt.getInstance().checkLine(checkLine) == 1 && countChoice == -2) {
+                    String checkLine1 = allLine.get(i);
+                    if (AikenFormatTxt.getInstance().checkLine(checkLine1) == 1 && countChoice == -2) {
                         countChoice = 0;
                         keyChoice.clear();
-                        continue;
-                    } else if (AikenFormatTxt.getInstance().checkLine(checkLine) == 0 && countChoice >= 0) {
+                    } else if (checkLine1.startsWith("image") && countChoice == 0) {
+
+
+                    } else if (AikenFormatTxt.getInstance().checkLine(checkLine1) == 0 && countChoice >= 0) {
                         countChoice++;
-                        keyChoice.add(checkLine.charAt(0));
-                        continue;
-                    } else if (AikenFormatTxt.getInstance().checkLine(checkLine) == 2 && countChoice >= 2) {
-                        if (keyChoice.contains(checkLine.charAt(8))) {
+                        keyChoice.add(checkLine1.charAt(0));
+
+                    } else if (AikenFormatTxt.getInstance().checkLine(checkLine1) == 2 && countChoice >= 2) {
+                        if (keyChoice.contains(checkLine1.charAt(8))) {
                             countChoice = -1;
                             numberQuestions++;
 
@@ -75,25 +74,24 @@ public class AikenFormatDocx {
                             alert.setContentText("Error at " + (i + 1));
                             alert.show();
                             result = 0;
-                            countChoice = -2;
+
                             break;
                         }
-                    } else if (AikenFormatTxt.getInstance().checkLine(checkLine) == -1 && countChoice == -1) {
+                    } else if (AikenFormatTxt.getInstance().checkLine(checkLine1) == -1 && countChoice == -1) {
                         countChoice = -2;
-                        continue;
+
                     } else {
+                        System.out.println(checkLine1);
                         Alert alert = new Alert(Alert.AlertType.ERROR);
                         alert.setTitle("Error");
                         alert.setHeaderText(null);
                         alert.setContentText("Error at " + (i + 1));
                         alert.show();
                         result = 0;
-                        countChoice = -2;
                         break;
                     }
                 }
-                break;
-            }
+
             if (result == 1) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Success");

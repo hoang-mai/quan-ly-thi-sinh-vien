@@ -111,15 +111,4 @@ public class gui21 implements Initializable {
     public void initialize(URL url1, ResourceBundle resourceBundle) {
 
     }
-    //gán giá trị cho combo box
-    public void setcombobox() {
-        List<Categories> danhsachcategories= CategoriesDao.getInstance().selectALl();
-        ObservableList<String> list = FXCollections.observableArrayList();
-        for(Categories categories : danhsachcategories){
-            list.add(categories.getCategoryName());
-        }
-        combobox.setItems(list);
-    }
-    //in ra list câu hỏi trong category
-
 }
