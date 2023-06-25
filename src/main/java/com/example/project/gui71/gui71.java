@@ -10,7 +10,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -18,6 +23,19 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class gui71 implements Initializable {
+
+    @FXML
+    private AnchorPane anchorpane;
+    @FXML
+    private VBox vbox1;
+    @FXML
+    private ScrollPane scrollpane;
+    @FXML
+    void one(ActionEvent event) {
+
+scrollpane.setVvalue(vbox1.getLayoutY()/anchorpane.getHeight());
+
+    }
 
     @FXML
     private Label timeleft;
