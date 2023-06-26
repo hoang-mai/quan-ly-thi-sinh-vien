@@ -1,13 +1,7 @@
 package com.example.project.gui32;
 
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-import com.example.project.database.dao.QuestionsDao;
 import com.example.project.database.entities.Questions;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,6 +18,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -59,6 +55,29 @@ public class gui32 implements Initializable {
     @FXML
     private ImageView imageView;
 
+    @FXML
+    private VBox vbox;
+
+    @FXML
+    private Pane originalPane;
+
+    @FXML
+    private void addMoreChoices() {
+        for (int i = 0; i < 3; i++) {
+            Pane newPane = createNewPane();
+            vbox.getChildren().add(newPane);
+        }
+    }
+
+    private Pane createNewPane() {
+        Pane newPane = new Pane();
+        newPane.getStyleClass().addAll(originalPane.getStyleClass());
+        newPane.setStyle(originalPane.getStyle());
+        newPane.setPrefSize(originalPane.getPrefWidth(), originalPane.getPrefHeight());
+        // Copy các thành phần con của originalPane vào newPane
+        newPane.getChildren().addAll(originalPane.getChildren());
+        return newPane;
+    }
     @FXML
     public void insertImage() {
         FileChooser fileChooser = new FileChooser();
@@ -185,55 +204,3 @@ public class gui32 implements Initializable {
         }
     }
 
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        questtionname1.setWrapText(true);
-        questiontext1.setWrapText(true);
-        savechanges1.setDisable(true);
-        savechangesandcontinue1.setDisable(true);
-        questtionname1.textProperty().addListener((Observable, oldvalue, newValue) -> {
-            if (newValue.isEmpty()) {
-                canhbao1.setVisible(true);
-            } else {
-                canhbao1.setVisible(false);
-            }
-            if (questiontext1.getText().isEmpty() || newValue.isEmpty() || defaultmark.getText().isEmpty()) {
-                savechanges1.setDisable(true);
-                savechangesandcontinue1.setDisable(true);
-            } else {
-                savechanges1.setDisable(false);
-                savechangesandcontinue1.setDisable(false);
-            }
-        });
-        questiontext1.textProperty().addListener((Observable, oldvalue, newValue) -> {
-            if (newValue.isEmpty()) {
-                canhbao2.setVisible(true);
-            } else {
-                canhbao2.setVisible(false);
-            }
-            if (questtionname1.getText().isEmpty() || newValue.isEmpty() || defaultmark.getText().isEmpty()) {
-                savechanges1.setDisable(true);
-                savechangesandcontinue1.setDisable(true);
-            } else {
-                savechanges1.setDisable(false);
-                savechangesandcontinue1.setDisable(false);
-            }
-        });
-        defaultmark.textProperty().addListener((Observable, oldvalue, newValue) -> {
-            if (newValue.isEmpty()) {
-                canhbao3.setVisible(true);
-            } else {
-                canhbao3.setVisible(false);
-            }
-            if (questiontext1.getText().isEmpty() || questtionname1.getText().isEmpty() || newValue.isEmpty()) {
-                savechanges1.setDisable(true);
-                savechangesandcontinue1.setDisable(true);
-            } else {
-                savechanges1.setDisable(false);
-                savechangesandcontinue1.setDisable(false);
-            }
-        });
-
-    }
-}
