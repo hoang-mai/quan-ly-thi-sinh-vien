@@ -148,13 +148,7 @@ public class gui32 implements Initializable {
     void savechanges(ActionEvent event) {
 
         try {
-            Questions questions = new Questions();
-            questions.setQuestionName(questtionname1.getText());
-            questions.setQuestionText(questiontext1.getText());
-            questions.setDefaultmark(Integer.parseInt(defaultmark.getText()));
-            //questions.setImage(imageView.getImage());
 
-            QuestionsDao.getInstance().save(questions);
             Stage ag0r = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui21/gui(2.1).fxml"));
             Scene scene = new Scene(root);
@@ -168,13 +162,7 @@ public class gui32 implements Initializable {
     @FXML
     void savechangesandcontinue(ActionEvent event) {
         try {
-            Questions questions = new Questions();
-            questions.setQuestionName(questtionname1.getText());
-            questions.setQuestionText(questiontext1.getText());
-            questions.setDefaultmark(Integer.parseInt(defaultmark.getText()));
-            //questions.setImage(imageView.getImage());
 
-            QuestionsDao.getInstance().save(questions);
             Stage ag0r = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui32/gui(3.2).fxml"));
             Scene scene = new Scene(root);
