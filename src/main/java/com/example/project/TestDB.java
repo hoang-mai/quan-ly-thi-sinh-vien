@@ -88,13 +88,15 @@ public class TestDB {
 		questions1.setQuestionName("Câu hỏi 1");
 		questions1.setQuestionText("Đây là câu hỏi 1");
 		questions1.setQuestionText("Nội dung câu hỏi 1");
+		questions1.setCategories(categories1);
 		questions1.setQuiz(quizs);
 
 		//questions1.setAnswer("B");
-		questions1.setQuestionName("Câu hỏi 2");
-		questions1.setQuestionText("Đây là câu hỏi 2");
-		questions1.setQuestionText("Nội dung câu hỏi 2");
-		questions1.setQuiz(quizs);
+		questions2.setQuestionName("Câu hỏi 2");
+		questions2.setQuestionText("Đây là câu hỏi 2");
+		questions2.setQuestionText("Nội dung câu hỏi 2");
+		questions2.setCategories(categories1);
+		questions2.setQuiz(quizs);
 		///////////////////////////////////////////////////////
 		UserDao.getInstance().save(user);
 
