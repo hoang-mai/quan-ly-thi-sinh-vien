@@ -79,15 +79,8 @@ public class  CategoriesDao {
 			}
 		}
 	}
-	//test xuất dữ liệu
-/*	public static void main(String[] args) {
-		CategoriesDao categoriesDao = new CategoriesDao();
-		List<Categories> categories = categoriesDao.selectALl();
-		for (Categories categories1 : categories) {
-			System.out.println(categories1.getCategoryName());
-		}
-	}*/
-	//test xuất danh sách câu hỏi
+
+
 	public static void main(String[] args) {
 		String categoryname="Loại 1";
 		int questionCount=0;

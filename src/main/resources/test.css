@@ -72,3 +72,8 @@
     -fx-border-width: 3px;
     -fx-border-color: #ccc;
 }
+.black-border-button {
+    -fx-background-color: transparent;
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+}

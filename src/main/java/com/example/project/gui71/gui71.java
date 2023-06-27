@@ -23,6 +23,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class gui71 implements Initializable {
+    @FXML
+    private ToggleGroup toggleGroup;
+    @FXML
+    private Button one1;
 
     @FXML
     private AnchorPane anchorpane;
@@ -60,6 +64,12 @@ scrollpane.setVvalue(vbox1.getLayoutY()/anchorpane.getHeight());
     private  int timeRemaining;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+toggleGroup.selectedToggleProperty().addListener((observable,oldvalue,newvalue)->{
+    if (newvalue != null) {
+        // Cập nhật giao diện cho các Button
+        one1.getStyleClass().add("black-border-button");
+    }
+});
          timeRemaining = 3600;
         timeleft.setText(formatTime(timeRemaining));
         Timeline timeline = new Timeline();
