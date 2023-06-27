@@ -14,8 +14,21 @@ import java.util.ResourceBundle;
 
 public class dialog implements Initializable {
     @FXML
+    private Label label1;
+    @FXML
     private Label timelimit;
-public int b=0;
+    private int minutes;
+
+    public void setMinutes(int minutes) {
+        this.minutes = minutes;
+    }
+
+    private int b=0;
+
+    public int getB() {
+        return b;
+    }
+
     @FXML
     void cancel(ActionEvent event) {
         Stage a = (Stage) timelimit.getScene().getWindow();
@@ -40,6 +53,8 @@ public int b=0;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+label1.setText(String.format("Your attempt will have a time limit of %02d minutes. When you start,the timer will begin"+"\n"+
+        "to count down and cannot be paused. You must finish your attempt before it "+"\n"+
+        "expires.Are you sure you wish to start now ?",minutes));
     }
 }

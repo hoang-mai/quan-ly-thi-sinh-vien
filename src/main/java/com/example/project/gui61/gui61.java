@@ -51,7 +51,7 @@ public class gui61 implements Initializable {
 
             ag0r1.showAndWait();
             dialog controller = loader.getController();
-           if(controller.b==1) a.hide();
+           if(controller.getB()==1) a.hide();
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
