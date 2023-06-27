@@ -178,8 +178,7 @@ public class gui32 implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         questtionname1.setWrapText(true);
         questiontext1.setWrapText(true);
-        savechanges1.setDisable(true);
-        savechangesandcontinue1.setDisable(true);
+
         questtionname1.textProperty().addListener((Observable, oldvalue, newValue) -> {
             if (newValue.isEmpty()) {
                 canhbao1.setVisible(true);
