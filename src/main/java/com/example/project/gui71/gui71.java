@@ -10,10 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -51,15 +48,20 @@ scrollpane.setVvalue(vbox1.getLayoutY()/anchorpane.getHeight());
     }
     @FXML
     void finishattempt(ActionEvent event) {
-        try {
-            Stage ag0r = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui11/gui(1.1).fxml"));
-            Scene scene = new Scene(root);
-            ag0r.setScene(scene);
+        Dialog<Void> dialog=new Dialog<>();
+        dialog.setContentText("Do you want to finish ?");
+        ButtonType buttonType=new ButtonType("FINISH", ButtonBar.ButtonData.FINISH);
+        ButtonType buttonType1=new ButtonType("NO", ButtonBar.ButtonData.NO);
+        dialog.getDialogPane().getButtonTypes().addAll(buttonType1,buttonType);
+        dialog.setResultConverter(buttontype->{
+            if(buttontype==buttonType){
 
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+            } else if (buttontype==buttonType1) {
+                dialog.close();
+            }
+            return null;
+        });
+        dialog.show();
     }
     private  int timeRemaining;
     @Override
