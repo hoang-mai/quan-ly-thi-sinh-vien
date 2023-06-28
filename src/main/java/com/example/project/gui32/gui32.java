@@ -34,7 +34,9 @@ public class gui32 implements Initializable {
     public void setaddingamultipe(String text) {
         addingamultipe.setText(text);
     }
+public void edit(String text){
 
+}
     @FXML
     private ImageView canhbao1;
 

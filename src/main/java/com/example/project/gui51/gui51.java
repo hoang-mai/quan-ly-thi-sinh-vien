@@ -69,7 +69,11 @@ private Button create1;
     @FXML
     void create(ActionEvent event) {
         try {
-
+            Quiz quiz=new Quiz();
+            quiz.setQuizName(namename.getText());
+            quiz.setTimeLimit(Integer.parseInt(timelimit2.getText()));
+            quiz.setDescription(desciption1.getText());
+            QuizDao.getInstance().save(quiz);
             Stage ag0r1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/project/gui11/gui(1.1).fxml"));
             Parent root = loader.load();
