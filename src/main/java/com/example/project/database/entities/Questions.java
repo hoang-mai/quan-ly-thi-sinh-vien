@@ -31,13 +31,10 @@ public class Questions {
 	private String questionText = "";
 
 	@Lob
-	@Column(name = "image")
-	private Image image;
+	@Column(name = "image", nullable = true,columnDefinition = "VARBINARY(MAX)")
+	private byte[] image;
 
-	/*@Column(name = "answer", nullable = false, columnDefinition = "NVARCHAR(50)")
-	private String answer = "A";*/
-	
-	@ManyToMany
+		@ManyToMany
 	@JoinTable(name = "question_quiz", schema = "dbo", joinColumns = {
 			@JoinColumn(name = "question_id") }, inverseJoinColumns = { @JoinColumn(name = "quiz_id") })
 	private Set<Quiz> quiz;
@@ -54,7 +51,7 @@ public class Questions {
 		
 	}
 	
-	public Questions(String questionName, String questionText, Image image, String answer,Categories categories, Set<Quiz> quiz,
+	public Questions(String questionName, String questionText, byte[] image, String answer,Categories categories, Set<Quiz> quiz,
 			Set<Choice> choice) {
 		super();
 		this.questionName = questionName;
@@ -98,21 +95,15 @@ public class Questions {
 		this.questionText = questionText;
 	}
 
-	public Image getImage() {
+	public byte[] getImage() {
 		return image;
 	}
 
-	public void setImage(Image image) {
+	public void setImage(byte[] image) {
 		this.image = image;
 	}
 
-	/*public String getAnswer() {
-		return answer;
-	}
 
-	public void setAnswer(String answer) {
-		this.answer = answer;
-	}*/
 
 	public Set<Quiz> getQuiz() {
 		return quiz;
