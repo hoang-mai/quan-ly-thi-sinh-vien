@@ -13,6 +13,8 @@ import com.example.project.database.entities.Categories;
 import com.example.project.database.utils.HibernateUtils;
 
 public class  CategoriesDao {
+
+
 	public static CategoriesDao getInstance() {
 		return new CategoriesDao();
 	}
@@ -59,7 +61,7 @@ public class  CategoriesDao {
 		}
 	}
 	//truy vấn ra danh sách câu hỏi
-	public static List<Questions> selectQuestion(String categoryName) {
+	public List<Questions> selectQuestion(String categoryName) {
 		List<Questions> questions = new ArrayList<>();
 		Session session = null;
 		Transaction transaction = null;
@@ -81,15 +83,6 @@ public class  CategoriesDao {
 	}
 
 
-	public static void main(String[] args) {
-		String categoryname="Loại 1";
-		int questionCount=0;
-		List<Questions> listquestion=CategoriesDao.selectQuestion(categoryname);
-		for(Questions question : listquestion){
-			System.out.println(question.getQuestionName());
-            questionCount++;
-		}
-		System.out.println("Số lượng câu hỏi: "+questionCount);
-	}
+
 }
 
