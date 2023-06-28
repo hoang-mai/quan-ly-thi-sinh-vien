@@ -2,6 +2,7 @@ package com.example.project.gui61;
 
 
 
+import com.example.project.database.entities.Quiz;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,7 +24,18 @@ import java.util.ResourceBundle;
 public class gui61 implements Initializable {
 
     @FXML
+    private Label tenquiz;
+
+    public void Quiz1(Quiz quiz){
+        timelimit1.setText(quiz.getTimeLimit()+" minutes");
+        tenquiz.setText(quiz.getQuizName());
+    }
+
+
+    @FXML
     private Label timelimit1;
+
+
     @FXML
     void caidat(ActionEvent event) {
         try {
@@ -60,7 +72,6 @@ public class gui61 implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
     }
 }
 

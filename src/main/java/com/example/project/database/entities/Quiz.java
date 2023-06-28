@@ -1,5 +1,7 @@
 package com.example.project.database.entities;
 
+import javafx.scene.control.Label;
+
 import java.sql.Date;
 import java.util.Set;
 import javax.persistence.GenerationType;
@@ -109,12 +111,14 @@ public class Quiz {
 		this.timeClose = timeClose;
 	}
 
-	public Integer getTimeLimit() {
-		return timeLimit;
-	}
+
 
 	public void setTimeLimit(int timeLimit) {
 		this.timeLimit = timeLimit;
+	}
+
+	public int getTimeLimit() {
+		return timeLimit;
 	}
 
 	public double getGrade() {

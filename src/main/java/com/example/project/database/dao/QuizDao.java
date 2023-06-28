@@ -11,8 +11,20 @@ import com.example.project.database.entities.Quiz;
 import com.example.project.database.utils.HibernateUtils;
 
 public class QuizDao {
+	private static QuizDao instance;
+
+	private QuizDao() {
+	}
+
 	public static QuizDao getInstance() {
-		return new QuizDao();
+		if (instance == null) {
+			synchronized (QuizDao.class) {
+				if (instance == null) {
+					instance = new QuizDao();
+				}
+			}
+		}
+		return instance;
 	}
 	// lưu quiz xuống
 	public boolean save(Quiz quiz)  {
