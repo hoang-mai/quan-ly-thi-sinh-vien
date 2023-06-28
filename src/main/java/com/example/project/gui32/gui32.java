@@ -14,20 +14,20 @@ import java.io.ByteArrayOutputStream;
 import com.example.project.database.dao.QuestionsDao;
 import com.example.project.database.entities.Questions;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -38,7 +38,9 @@ public class gui32 implements Initializable {
     public void setaddingamultipe(String text) {
         addingamultipe.setText(text);
     }
+public void edit(String text){
 
+}
     @FXML
     private ImageView canhbao1;
 
@@ -187,6 +189,84 @@ public class gui32 implements Initializable {
             System.out.println(e.getMessage());
         }
     }
+
+    @FXML
+    private VBox vbox;
+
+    @FXML
+    private Pane originalPane;
+    @FXML
+    private Pane originalPane1;
+    @FXML
+    private Pane originalPane2;
+    @FXML
+    private Button addButton;
+    @FXML
+    private void addMoreChoices() {
+        for(int i=3;i<6;i++) {
+            Pane newPane = clonePane(originalPane,i);
+            int lastIndex = vbox.getChildren().size(); // Lấy kích thước hiện tại của VBox
+            vbox.getChildren().add(lastIndex - 1, newPane); // Thêm newPane vào trước vị trí cuối cùng
+        }
+    }
+
+    private Pane clonePane(Pane originalPane,int i) {
+        Pane newPane = new Pane();
+        newPane.getStyleClass().addAll(originalPane.getStyleClass());
+        newPane.setStyle(originalPane.getStyle());
+        newPane.setPrefSize(originalPane.getPrefWidth(), originalPane.getPrefHeight());
+
+        String numberString = Integer.toString(i);
+        Label label1 = new Label("Choice "+ numberString);
+        label1.setLayoutX(10);
+        label1.setLayoutY(64);
+
+        Label label2 = new Label("Grade");
+        label2.setLayoutX(22);
+        label2.setLayoutY(97);
+
+        TextArea textArea = new TextArea();
+        textArea.setLayoutX(62);
+        textArea.setLayoutY(11);
+        textArea.setPrefSize(198, 68);
+
+        ComboBox<String> comboBox = new ComboBox<>();
+        comboBox.setLayoutX(62);
+        comboBox.setLayoutY(93);
+        comboBox.getItems().addAll("Option 1", "Option 2", "Option 3");
+
+        Button button = new Button("Image");
+        button.setLayoutX(12);
+        button.setLayoutY(136);
+
+        ImageView imageView = new ImageView();
+        imageView.setLayoutX(72);
+        imageView.setLayoutY(136);
+        imageView.setFitWidth(200); // Đặt chiều rộng của ImageView
+        imageView.setFitHeight(77); // Đặt chiều cao của ImageView
+        button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                FileChooser fileChooser = new FileChooser();
+                FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif");
+                fileChooser.getExtensionFilters().add(imageFilter);
+                File selectedFile = fileChooser.showOpenDialog(null);
+                if (selectedFile != null) {
+                    try {
+                        Image image = new Image(new FileInputStream(selectedFile));
+                        imageView.setImage(image);
+                        imageView.setVisible(true);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+        newPane.getChildren().addAll(label1, label2, textArea, comboBox, button, imageView);
+
+        return newPane;
+    }
+
 
 
     @Override

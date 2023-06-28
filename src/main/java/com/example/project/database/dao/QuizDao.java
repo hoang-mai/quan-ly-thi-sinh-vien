@@ -15,7 +15,7 @@ public class QuizDao {
 		return new QuizDao();
 	}
 	// lưu quiz xuống
-	public boolean save(Quiz quiz) throws Exception {
+	public boolean save(Quiz quiz)  {
 		Session session = null;
 		Transaction transaction = null;
 
