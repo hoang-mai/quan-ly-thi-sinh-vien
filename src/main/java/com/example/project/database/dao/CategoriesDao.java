@@ -39,6 +39,27 @@ public class  CategoriesDao {
 			}
 		}
 	}
+	//chỉnh sửa categories
+	public boolean update(Categories categories) throws Exception {
+		Session session = null;
+		Transaction transaction = null;
+
+		try {
+			session = HibernateUtils.getSessionFactory().openSession();
+			transaction = session.beginTransaction();
+
+			session.update(categories);
+
+			transaction.commit();
+
+			return true;
+
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+	}
 	//lấy danh sách categories
 	public List<Categories> selectALl() {
 		List<Categories> categories = new ArrayList<>();
@@ -81,6 +102,29 @@ public class  CategoriesDao {
 			}
 		}
 	}
+	//Đưa ra category theo tên
+public Categories selectCategorybyName(String categoryName) {
+		Categories categories = new Categories();
+		Session session = null;
+		Transaction transaction = null;
+
+		try {
+			session = HibernateUtils.getSessionFactory().openSession();
+			transaction = session.beginTransaction();
+			categories = session.createQuery("FROM Categories c WHERE c.categoryName = :categoryName",
+					Categories.class).setParameter("categoryName",categoryName).getSingleResult();
+			transaction.commit();
+
+			return categories;
+
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+	}
+
+
 
 
 
