@@ -185,13 +185,23 @@ public class gui32 implements Initializable {
     @FXML
     private Button addButton;
     @FXML
+    private boolean addMoreChoicesEnabled = true;
+
+    @FXML
     private void addMoreChoices() {
-        for(int i=3;i<6;i++) {
-            Pane newPane = clonePane(originalPane,i);
-            int lastIndex = vbox.getChildren().size(); // Lấy kích thước hiện tại của VBox
-            vbox.getChildren().add(lastIndex - 1, newPane); // Thêm newPane vào trước vị trí cuối cùng
+        if (addMoreChoicesEnabled) {
+            // Thực hiện hành động
+            for (int i = 3; i < 6; i++) {
+                Pane newPane = clonePane(originalPane, i);
+                int lastIndex = vbox.getChildren().size(); // Lấy kích thước hiện tại của VBox
+                vbox.getChildren().add(lastIndex - 1, newPane); // Thêm newPane vào trước vị trí cuối cùng
+            }
+
+            // Vô hiệu hóa sự kiện addMoreChoices()
+            addMoreChoicesEnabled = false;
         }
     }
+
 
     private Pane clonePane(Pane originalPane,int i) {
         Pane newPane = new Pane();
@@ -244,7 +254,9 @@ public class gui32 implements Initializable {
                     }
                 }
             }
+
         });
+
         newPane.getChildren().addAll(label1, label2, textArea, comboBox, button, imageView);
 
         return newPane;
