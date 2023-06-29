@@ -12,19 +12,27 @@ import com.example.project.database.utils.HibernateUtils;
 
 public class QuizDao {
 	private static QuizDao instance;
+	private Quiz quiz;
+
+	public Quiz getQuiz() {
+		return quiz;
+	}
+
+	public void setQuiz(Quiz quiz) {
+		this.quiz = quiz;
+	}
 
 	private QuizDao() {
 	}
 
 	public static QuizDao getInstance() {
 		if (instance == null) {
-			synchronized (QuizDao.class) {
-				if (instance == null) {
-					instance = new QuizDao();
+			instance = new QuizDao();
 				}
-			}
-		}
 		return instance;
+	}
+	public void Quiz(Quiz quiz){
+		String name=quiz.getQuizName();
 	}
 	// lưu quiz xuống
 	public boolean save(Quiz quiz)  {

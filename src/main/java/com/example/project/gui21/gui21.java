@@ -217,9 +217,9 @@ public class gui21 implements Initializable {
 
             combobox.getSelectionModel().selectedItemProperty().addListener((observableValue, oldvalue, newvalue) -> {
                 gridpane1.getChildren().clear();
-                List<Questions> danhsachquiz = CategoriesDao.getInstance().selectQuestion(combobox.getValue());
-                for (int i = 0; i < danhsachquiz.size(); i++) {
-                    CheckBox checkBox = new CheckBox(danhsachquiz.get(i).getQuestionName());
+                List<Questions> danhsachquestion = CategoriesDao.getInstance().selectQuestion(combobox.getValue());
+                for (int i = 0; i < danhsachquestion.size(); i++) {
+                    CheckBox checkBox = new CheckBox(danhsachquestion.get(i).getQuestionName());
                     gridpane1.add(checkBox, 0, i);
                     Button button = new Button("Edit");
                     gridpane1.add(button, 1, i);

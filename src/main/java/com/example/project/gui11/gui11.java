@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.concurrent.atomic.AtomicInteger;
+
 
 
 public class gui11 implements Initializable {
@@ -78,7 +78,21 @@ public class gui11 implements Initializable {
         }
 
     }
+void quiz(ActionEvent event){
+    try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/project/gui61/gui(6.1).fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage ag0r = new Stage();
+        ag0r.setScene(scene);
+        ag0r.show();
 
+        Stage a = (Stage) it.getScene().getWindow();
+        a.hide();
+    } catch (Exception e) {
+        System.out.println(e.getMessage());
+    }
+}
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         List<Quiz> listquiz=QuizDao.getInstance().selectALl();
@@ -86,20 +100,9 @@ public class gui11 implements Initializable {
             Button button = new Button(quiz.getQuizName());
             vbox1.getChildren().add(button);
             button.setOnAction(event -> {
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/project/gui61/gui(6.1).fxml"));
-                    Parent root = loader.load();
-                    Scene scene = new Scene(root);
-                    Stage ag0r = new Stage();
-                    ag0r.setScene(scene);
-                    ag0r.show();
-                    gui61 controller=loader.getController();
-                    controller.Quiz1(quiz);
-                    Stage a = (Stage) it.getScene().getWindow();
-                    a.hide();
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
-                }
+                QuizDao.getInstance().setQuiz(quiz);
+                quiz(event);
+
             });
         }
     }
