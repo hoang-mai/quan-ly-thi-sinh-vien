@@ -16,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -25,6 +26,9 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class gui63 implements Initializable {
+    @FXML
+    private AnchorPane anchorpane;
+
     @FXML
     private ComboBox<String> combobox;
     @FXML
@@ -57,6 +61,11 @@ public class gui63 implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        anchorpane.getChildren().add(vBox);
+        vBox.setLayoutX(27);
+        vBox.setLayoutY(235);
+        vBox.setSpacing(10);
+        vBox.setPrefWidth(512);
         List<Categories> listcate = CategoriesDao.getInstance().selectALl();
         ObservableList<String> list = FXCollections.observableArrayList();
         for (Categories categories : listcate) {
@@ -67,6 +76,7 @@ public class gui63 implements Initializable {
         combobox.getSelectionModel().selectedItemProperty().addListener((observableValue, oldvalue, newvalue) -> {
             vBox.getChildren().clear();
             List<Questions> danhsachquestion = CategoriesDao.getInstance().selectQuestion(combobox.getValue());
+            anchorpane.setPrefHeight(235+40*danhsachquestion.size());
             for (int i = 0; i < danhsachquestion.size(); i++) {
                 CheckBox checkBox = new CheckBox(danhsachquestion.get(i).getQuestionName());
                 vBox.getChildren().add(checkBox);
