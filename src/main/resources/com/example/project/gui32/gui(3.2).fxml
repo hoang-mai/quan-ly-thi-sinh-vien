@@ -13,11 +13,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="3000.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui32.gui32">
+<Pane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1898.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui32.gui32">
     <children>
-      <ScrollPane hbarPolicy="NEVER" prefHeight="1006.0" prefWidth="600.0">
+      <ScrollPane hbarPolicy="NEVER" prefHeight="1077.0" prefWidth="600.0">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="2900.0" prefWidth="600.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1866.0" prefWidth="600.0">
                <children>
                     <Pane layoutX="14.0" layoutY="146.0" prefHeight="1154.0" prefWidth="600.0" styleClass="button3">
                         <children>
@@ -49,7 +49,7 @@
                                     <Font size="20.0" />
                                 </font>
                             </Label>
-                        <VBox fx:id="vbox" layoutX="247.0" layoutY="443.0" prefHeight="2900.0" prefWidth="300.0">
+                        <VBox fx:id="vbox" layoutX="247.0" layoutY="443.0" prefHeight="1900.0" prefWidth="300.0">
                            <children>
                               <Pane fx:id="originalPane" prefHeight="200.0" prefWidth="300.0" style="-fx-border-color: black;">
                                  <children>
