@@ -9,12 +9,16 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class gui62 implements Initializable {
+    @FXML
+    private ImageView hoicham1;
     @FXML
     private Label editquiz;
 
@@ -39,6 +43,10 @@ public class gui62 implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        editquiz.setText("Editing quiz: "+ QuizDao.getInstance().getQuiz().getQuizName());
+        Text text = new Text();
+        editquiz.setGraphic(text);
+        text.setText("Editing quiz: "+ QuizDao.getInstance().getQuiz().getQuizName());
+        hoicham1.setX(34+text.getLayoutBounds().getWidth());
+
     }
 }

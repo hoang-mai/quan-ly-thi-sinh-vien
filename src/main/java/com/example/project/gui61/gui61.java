@@ -4,6 +4,7 @@ package com.example.project.gui61;
 
 import com.example.project.database.dao.QuizDao;
 import com.example.project.database.entities.Quiz;
+import com.example.project.popup.popup;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +16,7 @@ import javafx.scene.Scene;
 
 import javafx.scene.control.Label;
 
+import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -65,10 +67,25 @@ public class gui61 implements Initializable {
             System.out.println(e.getMessage());
         }
     }
+    @FXML
+    void home(ActionEvent event) {
+        try {
+            Stage a = (Stage) timelimit1.getScene().getWindow();
+            FXMLLoader loader= new FXMLLoader(getClass().getResource("/com/example/project/gui11/gui(1.1).fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
 
+            a.setScene(scene);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-tenquiz.setText(QuizDao.getInstance().getQuiz().getQuizName());
+        Text text = new Text();
+        tenquiz.setGraphic(text);
+text.setText(QuizDao.getInstance().getQuiz().getQuizName());
         timelimit1.setText(QuizDao.getInstance().getQuiz().getTimeLimit()+" minutes");
     }
 }

@@ -31,9 +31,7 @@ public class QuizDao {
 				}
 		return instance;
 	}
-	public void Quiz(Quiz quiz){
-		String name=quiz.getQuizName();
-	}
+
 	// lưu quiz xuống
 	public boolean save(Quiz quiz)  {
 		Session session = null;
