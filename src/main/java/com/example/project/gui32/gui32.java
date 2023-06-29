@@ -5,7 +5,13 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+
+import com.example.project.database.dao.CategoriesDao;
+import com.example.project.database.entities.Categories;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.stage.FileChooser;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -32,6 +38,8 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 public class gui32 implements Initializable {
+    @FXML
+    private ComboBox<String> combobox;
     @FXML
     private Label addingamultipe;
 
@@ -281,6 +289,12 @@ public class gui32 implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        List<Categories> listcate = CategoriesDao.getInstance().selectALl();
+        ObservableList<String> list = FXCollections.observableArrayList();
+        for (Categories categories : listcate) {
+            list.add(categories.getCategoryName());
+        }
+        combobox.setItems(list);
         questtionname1.setWrapText(true);
         questiontext1.setWrapText(true);
 
