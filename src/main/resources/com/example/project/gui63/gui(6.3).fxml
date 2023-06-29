@@ -13,7 +13,7 @@
       <Label layoutX="11.0" layoutY="39.0" text="Add from the question bank at the end" />
       <ScrollPane layoutX="15.0" layoutY="66.0" prefHeight="547.0" prefWidth="561.0">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="609.0" prefWidth="558.0">
+          <AnchorPane fx:id="anchorpane" minHeight="0.0" minWidth="0.0" prefHeight="609.0" prefWidth="558.0">
                <children>
                   <Label layoutX="27.0" layoutY="28.0" text="Select a categories : " />
                   <ComboBox fx:id="combobox" layoutX="135.0" layoutY="24.0" prefWidth="150.0" />

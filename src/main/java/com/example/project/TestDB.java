@@ -97,14 +97,7 @@ public class TestDB {
 		questions2.setQuestionText("Nội dung câu hỏi 2");
 		questions2.setCategories(categories1);
 		questions2.setQuiz(quizs);
-		for (int i = 3; i <= 10; i++) {
-			Questions question1 = new Questions();
-			question1.setQuestionName("Câu hỏi " + i);
-			question1.setQuestionText("Nội dung câu hỏi " + i);
-			question1.setCategories(categories1);
-			question1.setDefaultmark(1);
-			QuestionsDao.getInstance().save(question1);
-		}
+
 		///////////////////////////////////////////////////////
 		UserDao.getInstance().save(user);
 
@@ -113,7 +106,14 @@ public class TestDB {
 
 		QuizDao.getInstance().save(quiz1);
 		QuizDao.getInstance().save(quiz2);
-
+		for (int i = 3; i <= 10; i++) {
+			Questions question1 = new Questions();
+			question1.setQuestionName("Câu hỏi " + i);
+			question1.setQuestionText("Nội dung câu hỏi " + i);
+			question1.setCategories(categories1);
+			question1.setDefaultmark(1);
+			QuestionsDao.getInstance().save(question1);
+		}
 		QuestionsDao.getInstance().save(questions1);
 		QuestionsDao.getInstance().save(questions2);
 

@@ -218,6 +218,7 @@ public class gui21 implements Initializable {
             combobox.getSelectionModel().selectedItemProperty().addListener((observableValue, oldvalue, newvalue) -> {
                 gridpane1.getChildren().clear();
                 List<Questions> danhsachquestion = CategoriesDao.getInstance().selectQuestion(combobox.getValue());
+                anchorpane1.setPrefHeight(46+40*danhsachquestion.size());
                 for (int i = 0; i < danhsachquestion.size(); i++) {
                     CheckBox checkBox = new CheckBox(danhsachquestion.get(i).getQuestionName());
                     gridpane1.add(checkBox, 0, i);
@@ -239,6 +240,7 @@ public class gui21 implements Initializable {
                     });
                 }
             });
+
             categoryinfor1.setWrapText(true);
             name1.textProperty().addListener((Observable, oldvalue, newValue) -> {
                 if (newValue.isEmpty()) {
