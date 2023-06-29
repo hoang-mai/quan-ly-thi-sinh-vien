@@ -20,7 +20,7 @@
                   <Label layoutX="27.0" layoutY="117.0" text="Search options" />
                   <CheckBox fx:id="alsoshowquestion1" layoutX="27.0" layoutY="150.0" mnemonicParsing="false" onAction="#alsoshowquestion" text="Also show questions from subcategories" />
                   <CheckBox layoutX="27.0" layoutY="177.0" mnemonicParsing="false" text="Also show old questions" />
-                  <CheckBox layoutX="43.0" layoutY="204.0" mnemonicParsing="false" prefHeight="5.0" prefWidth="74.0" text="Question" />
+                  <CheckBox layoutX="43.0" layoutY="204.0" mnemonicParsing="false" prefHeight="5.0" prefWidth="85.0" text="Question" />
                </children>
             </AnchorPane>
         </content>
