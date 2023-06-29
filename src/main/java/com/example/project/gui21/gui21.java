@@ -75,10 +75,7 @@ public class gui21 implements Initializable {
     @FXML
     private Label youcandraganddrop5;
 
-    @FXML
-    void addcategory(ActionEvent event) {
 
-    }
 
     @FXML
     void alsoquestion(ActionEvent event) {
@@ -91,31 +88,6 @@ public class gui21 implements Initializable {
         }
     }
 
-    @FXML
-    void cancel(ActionEvent event) {
-        try {
-            Stage ag0r = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui21/gui(2.1).fxml"));
-            Scene scene = new Scene(root);
-            ag0r.setScene(scene);
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    @FXML
-    void cancel1(ActionEvent event) {
-        try {
-            Stage ag0r = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui21/gui(2.1).fxml"));
-            Scene scene = new Scene(root);
-            ag0r.setScene(scene);
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
 
     @FXML
     void chooseafile(ActionEvent event) {
@@ -141,7 +113,6 @@ public class gui21 implements Initializable {
             Scene scene = new Scene(root);
             ag0r1.setScene(scene);
             ag0r1.show();
-
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -212,6 +183,18 @@ public class gui21 implements Initializable {
             categoryinfor1.positionCaret(content.length());
         }
     }
+    @FXML
+    void addcategory(ActionEvent event) {
+        try {
+            Categories categories = new Categories();
+            categories.setCategoryName(name1.getText());
+            categories.setCategoryId(Integer.parseInt(idnumber1.getText()));
+            categories.setCategoryInfo(categoryinfor1.getText());
+            CategoriesDao.getInstance().save(categories);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
         @Override
         public void initialize(URL url1, ResourceBundle resourceBundle) {
@@ -242,18 +225,14 @@ public class gui21 implements Initializable {
                     gridpane1.add(button, 1, i);
                     button.setOnAction(event2 -> {
                         try {
+                            Stage ag0r1 = (Stage) ((Node) event2.getSource()).getScene().getWindow();
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/project/gui32/gui(3.2).fxml"));
                             Parent root = loader.load();
                             Scene scene = new Scene(root);
-                            Stage ag0r1 = (Stage) ((Node) event2.getSource()).getScene().getWindow();
                             ag0r1.setScene(scene);
                             ag0r1.show();
-                            Stage stage = (Stage) anchorpane1.getScene().getWindow();
-                            stage.close();
                             gui32 controller = loader.getController();
                             controller.setaddingamultipe("Editing Multiple choice question");
-
-
                         } catch (Exception e) {
                             System.out.println(e.getMessage());
                         }
