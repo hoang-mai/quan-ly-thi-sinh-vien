@@ -1,5 +1,6 @@
 package com.example.project.gui71;
 
+import com.example.project.database.dao.QuizDao;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -63,7 +64,7 @@ scrollpane.setVvalue(vbox1.getLayoutY()/anchorpane.getHeight());
         });
         dialog.show();
     }
-    private  int timeRemaining;
+    private  int timeRemaining=QuizDao.getInstance().getQuiz().getTimeLimit()*60;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 toggleGroup.selectedToggleProperty().addListener((observable,oldvalue,newvalue)->{
@@ -72,7 +73,6 @@ toggleGroup.selectedToggleProperty().addListener((observable,oldvalue,newvalue)-
         one1.getStyleClass().add("black-border-button");
     }
 });
-         timeRemaining = 3600;
         timeleft.setText(formatTime(timeRemaining));
         Timeline timeline = new Timeline();
         timeline.setCycleCount(Timeline.INDEFINITE);

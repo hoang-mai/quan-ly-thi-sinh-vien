@@ -6,6 +6,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.stage.FileChooser;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 
 import com.example.project.database.dao.QuestionsDao;
 import com.example.project.database.entities.Questions;
@@ -59,6 +63,8 @@ public class gui32 implements Initializable {
     @FXML
     private ImageView imageView;
 
+    private byte[] imageData;
+
     @FXML
     public void insertImage() {
         FileChooser fileChooser = new FileChooser();
@@ -67,6 +73,10 @@ public class gui32 implements Initializable {
         File selectedFile = fileChooser.showOpenDialog(null);
         if (selectedFile != null) {
             try {
+                BufferedImage bufferedImage = ImageIO.read(selectedFile);
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                ImageIO.write(bufferedImage, "png", byteArrayOutputStream);
+                imageData = byteArrayOutputStream.toByteArray();
                 Image image = new Image(new FileInputStream(selectedFile));
                 imageView.setImage(image);
                 imageView.setVisible(true);
@@ -148,7 +158,12 @@ public class gui32 implements Initializable {
     void savechanges(ActionEvent event) {
 
         try {
-
+            Questions questions = new Questions();
+            questions.setQuestionName(questtionname1.getText());
+            questions.setQuestionText(questiontext1.getText());
+            questions.setDefaultmark(Integer.parseInt(defaultmark.getText()));
+            questions.setImage(imageData);
+            QuestionsDao.getInstance().save(questions);
             Stage ag0r = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui21/gui(2.1).fxml"));
             Scene scene = new Scene(root);

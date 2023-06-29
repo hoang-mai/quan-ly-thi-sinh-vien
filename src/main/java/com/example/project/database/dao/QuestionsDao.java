@@ -70,7 +70,7 @@ public class QuestionsDao {
 		try {
 			session = HibernateUtils.getSessionFactory().openSession();
 			transaction = session.beginTransaction();
-			questions = session.createQuery("FROM Questions where id = 1",
+			questions = session.createQuery("FROM Questions",
 					Questions.class).getResultList();
 
 			transaction.commit();
@@ -84,11 +84,50 @@ public class QuestionsDao {
 		}
 	}
 
-	public static void main(String[] args) {
+	public static Questions selectQuestionbyName(String questionName) {
+		Questions question = new Questions();
+		Session session = null;
+		Transaction transaction = null;
+
+		try {
+			session = HibernateUtils.getSessionFactory().openSession();
+			transaction = session.beginTransaction();
+			question = session.createQuery("FROM Questions WHERE questionName = :questionName",
+					Questions.class).setParameter("questionName", questionName).getSingleResult();
+			transaction.commit();
+
+			return question;
+
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+	}
+
+	public static void main(String[] args) throws Exception {
+		//QuestionsDao questionsDao = new QuestionsDao();
+		//List<Questions> questions = questionsDao.selectALl();
+		//for (Questions questions1 : questions) {
+		//	System.out.println(questions1.getQuestionName());
+		/*String questionName = "Câu hỏi 1";
+		Questions question = selectQuestionbyName(questionName);
+		System.out.println(question.getQuestionText()); */
+		//thêm 1 loạt câu hỏi
+		List<Categories> categories = CategoriesDao.getInstance().selectALl();
+		for (int i = 3; i <= 10; i++) {
+			Questions question1 = new Questions();
+			question1.setQuestionName("Câu hỏi " + i);
+			question1.setQuestionText("Nội dung câu hỏi " + i);
+			question1.setCategories(categories.get(0));
+			question1.setDefaultmark(1);
+			QuestionsDao.getInstance().save(question1);
+		}
 		QuestionsDao questionsDao = new QuestionsDao();
-		List<Questions> questions = questionsDao.printQuestion();
+		List<Questions> questions = questionsDao.selectALl();
 		for (Questions questions1 : questions) {
 			System.out.println(questions1.getQuestionName());
+
 		}
 
 	}

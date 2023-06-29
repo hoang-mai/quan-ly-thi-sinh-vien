@@ -11,11 +11,31 @@ import com.example.project.database.entities.Quiz;
 import com.example.project.database.utils.HibernateUtils;
 
 public class QuizDao {
+	private static QuizDao instance;
+	private Quiz quiz;
+
+	public Quiz getQuiz() {
+		return quiz;
+	}
+
+	public void setQuiz(Quiz quiz) {
+		this.quiz = quiz;
+	}
+
+	private QuizDao() {
+	}
+
 	public static QuizDao getInstance() {
-		return new QuizDao();
+		if (instance == null) {
+			instance = new QuizDao();
+				}
+		return instance;
+	}
+	public void Quiz(Quiz quiz){
+		String name=quiz.getQuizName();
 	}
 	// lưu quiz xuống
-	public boolean save(Quiz quiz) throws Exception {
+	public boolean save(Quiz quiz)  {
 		Session session = null;
 		Transaction transaction = null;
 

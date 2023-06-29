@@ -1,5 +1,8 @@
 package com.example.project.gui61;
 
+import com.example.project.database.dao.QuizDao;
+import com.example.project.database.entities.Quiz;
+import com.example.project.gui71.gui71;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,17 +16,15 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class dialog implements Initializable {
+
+
     @FXML
     private Label label1;
     @FXML
     private Label timelimit;
-    private int minutes;
-
-    public void setMinutes(int minutes) {
-        this.minutes = minutes;
-    }
-
+    private int minutes=QuizDao.getInstance().getQuiz().getTimeLimit();
     private int b=0;
+
 
     public int getB() {
         return b;
@@ -39,7 +40,8 @@ public class dialog implements Initializable {
     void startattempt(ActionEvent event) {
         b=1;
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui71/gui(7.1).fxml"));
+            FXMLLoader loader=new FXMLLoader(getClass().getResource("/com/example/project/gui71/gui(7.1).fxml"));
+            Parent root = loader.load();
             Scene scene = new Scene(root);
             Stage ag0r = new Stage();
             ag0r.setScene(scene);
@@ -53,8 +55,8 @@ public class dialog implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-label1.setText(String.format("Your attempt will have a time limit of %02d minutes. When you start,the timer will begin"+"\n"+
-        "to count down and cannot be paused. You must finish your attempt before it "+"\n"+
-        "expires.Are you sure you wish to start now ?",minutes));
+        label1.setText(String.format("Your attempt will have a time limit of %02d minutes. When you start,the timer will begin"+"\n"+
+                "to count down and cannot be paused. You must finish your attempt before it "+"\n"+
+                "expires.Are you sure you wish to start now ?",minutes));
     }
 }

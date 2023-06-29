@@ -2,6 +2,8 @@ package com.example.project.gui61;
 
 
 
+import com.example.project.database.dao.QuizDao;
+import com.example.project.database.entities.Quiz;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,7 +25,13 @@ import java.util.ResourceBundle;
 public class gui61 implements Initializable {
 
     @FXML
+    private Label tenquiz;
+
+    @FXML
     private Label timelimit1;
+
+
+
     @FXML
     void caidat(ActionEvent event) {
         try {
@@ -45,10 +53,10 @@ public class gui61 implements Initializable {
             Parent root = loader.load();
             Scene scene = new Scene(root);
             Stage ag0r1=new Stage();
+
             ag0r1.setScene(scene);
             ag0r1.initModality(Modality.APPLICATION_MODAL);
             ag0r1.initOwner(a);
-
             ag0r1.showAndWait();
             dialog controller = loader.getController();
            if(controller.getB()==1) a.hide();
@@ -60,7 +68,8 @@ public class gui61 implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+tenquiz.setText(QuizDao.getInstance().getQuiz().getQuizName());
+        timelimit1.setText(QuizDao.getInstance().getQuiz().getTimeLimit()+" minutes");
     }
 }
 

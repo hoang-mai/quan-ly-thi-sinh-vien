@@ -7,8 +7,6 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="697.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui63.gui63">
    <children>
@@ -18,12 +16,11 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="609.0" prefWidth="558.0">
                <children>
                   <Label layoutX="27.0" layoutY="28.0" text="Select a categories : " />
-                  <ComboBox layoutX="135.0" layoutY="24.0" prefWidth="150.0" />
+                  <ComboBox fx:id="combobox" layoutX="135.0" layoutY="24.0" prefWidth="150.0" />
                   <Label layoutX="27.0" layoutY="117.0" text="Search options" />
-                  <CheckBox layoutX="27.0" layoutY="150.0" mnemonicParsing="false" text="Also show questions from subcategories" />
+                  <CheckBox fx:id="alsoshowquestion1" layoutX="27.0" layoutY="150.0" mnemonicParsing="false" onAction="#alsoshowquestion" text="Also show questions from subcategories" />
                   <CheckBox layoutX="27.0" layoutY="177.0" mnemonicParsing="false" text="Also show old questions" />
                   <CheckBox layoutX="43.0" layoutY="204.0" mnemonicParsing="false" prefHeight="5.0" prefWidth="74.0" text="Question" />
-                  <VBox layoutX="27.0" layoutY="232.0" prefHeight="370.0" prefWidth="510.0" />
                </children>
             </AnchorPane>
         </content>
