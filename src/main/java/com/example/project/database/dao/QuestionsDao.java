@@ -53,6 +53,27 @@ public class QuestionsDao {
 			}
 		}
 	}
+	//update 1 question
+	public boolean update(Questions questions) throws Exception {
+		Session session = null;
+		Transaction transaction = null;
+
+		try {
+			session = HibernateUtils.getSessionFactory().openSession();
+			transaction = session.beginTransaction();
+
+			session.update(questions);
+
+			transaction.commit();
+
+			return true;
+
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+	}
 
 	//lấy danh sách questions
 

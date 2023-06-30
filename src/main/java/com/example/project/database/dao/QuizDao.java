@@ -79,21 +79,33 @@ public class QuizDao {
 	}
 
 	// lấy quiz theo tên quiz
-	public Quiz selectByName(String name) {
-		Quiz quiz = new Quiz();
+	public Quiz selectByName(String quizName) {
+		Quiz quiz = null;
 		Session session = null;
 		Transaction transaction = null;
 
 		try {
 			session = HibernateUtils.getSessionFactory().openSession();
 			transaction = session.beginTransaction();
-			quiz = session.createQuery("FROM Quiz WHERE name = :name", Quiz.class).setParameter("name", name).getSingleResult();
+			quiz = session.createQuery("FROM Quiz WHERE quizName = :quizName", Quiz.class).setParameter("quizName", quizName)
+					.getSingleResult();
 
 			transaction.commit();
 
 			return quiz;
+
 		} catch (HibernateException e) {
-			throw new RuntimeException(e);
+			if (transaction != null) {
+				transaction.rollback();
+			}
+			return null;
+		} finally {
+			if (session != null) {
+				session.close();
+			}
 		}
 	}
 }
+
+
+
