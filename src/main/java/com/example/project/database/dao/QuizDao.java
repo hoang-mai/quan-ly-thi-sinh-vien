@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -28,12 +29,12 @@ public class QuizDao {
 	public static QuizDao getInstance() {
 		if (instance == null) {
 			instance = new QuizDao();
-				}
+		}
 		return instance;
 	}
 
 	// lưu quiz xuống
-	public boolean save(Quiz quiz)  {
+	public boolean save(Quiz quiz) {
 		Session session = null;
 		Transaction transaction = null;
 
@@ -53,26 +54,46 @@ public class QuizDao {
 			}
 		}
 	}
+
 	// lấy danh sách quiz
-	public List<Quiz> selectALl(){
-		List<Quiz> quiz =new ArrayList<>();
+	public List<Quiz> selectALl() {
+		List<Quiz> quiz = new ArrayList<>();
 		Session session = null;
 		Transaction transaction = null;
 
 		try {
 			session = HibernateUtils.getSessionFactory().openSession();
 			transaction = session.beginTransaction();
-			quiz=session.createQuery("FROM Quiz", Quiz.class).getResultList();
+			quiz = session.createQuery("FROM Quiz", Quiz.class).getResultList();
 
 			transaction.commit();
 
-			return  quiz;
+			return quiz;
 
 
 		} finally {
 			if (session != null) {
 				session.close();
 			}
+		}
+	}
+
+	// lấy quiz theo tên quiz
+	public Quiz selectByName(String name) {
+		Quiz quiz = new Quiz();
+		Session session = null;
+		Transaction transaction = null;
+
+		try {
+			session = HibernateUtils.getSessionFactory().openSession();
+			transaction = session.beginTransaction();
+			quiz = session.createQuery("FROM Quiz WHERE name = :name", Quiz.class).setParameter("name", name).getSingleResult();
+
+			transaction.commit();
+
+			return quiz;
+		} catch (HibernateException e) {
+			throw new RuntimeException(e);
 		}
 	}
 }
