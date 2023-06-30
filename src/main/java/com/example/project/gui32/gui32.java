@@ -38,13 +38,19 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 public class gui32 implements Initializable {
+    private Boolean a;
     @FXML
     private ComboBox<String> combobox;
     @FXML
     private Label addingamultipe;
 
-    public void setaddingamultipe(String text) {
-        addingamultipe.setText(text);
+    public void setedit(String adding,String combo) {
+        a=true;
+        addingamultipe.setText(adding);
+        combobox.setValue(combo);
+        questtionname1.setText(QuestionsDao.getInstance().getQuestions().getQuestionName());
+        questiontext1.setText(QuestionsDao.getInstance().getQuestions().getQuestionText());
+        defaultmark.setText(String.valueOf(QuestionsDao.getInstance().getQuestions().getDefaultmark()));
     }
 
     @FXML
@@ -54,6 +60,7 @@ public class gui32 implements Initializable {
     private ImageView canhbao2;
     @FXML
     private TextArea questiontext1;
+
 
     @FXML
     private TextArea questtionname1;

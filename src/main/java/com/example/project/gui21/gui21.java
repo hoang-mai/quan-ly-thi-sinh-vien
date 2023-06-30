@@ -1,5 +1,6 @@
 package com.example.project.gui21;
 
+import com.example.project.database.dao.QuestionsDao;
 import com.example.project.gui32.gui32;
 import com.example.project.database.dao.CategoriesDao;
 import com.example.project.database.entities.Categories;
@@ -224,6 +225,8 @@ public class gui21 implements Initializable {
                     gridpane1.add(checkBox, 0, i);
                     Button button = new Button("Edit");
                     gridpane1.add(button, 1, i);
+
+                    int finalI = i;
                     button.setOnAction(event2 -> {
                         try {
                             Stage ag0r1 = (Stage) ((Node) event2.getSource()).getScene().getWindow();
@@ -233,7 +236,10 @@ public class gui21 implements Initializable {
                             ag0r1.setScene(scene);
                             ag0r1.show();
                             gui32 controller = loader.getController();
-                            controller.setaddingamultipe("Editing Multiple choice question");
+                            QuestionsDao.getInstance().setQuestions(danhsachquestion.get(finalI));
+                            controller.setedit("Editing Multiple choice question",combobox.getValue());
+
+
                         } catch (Exception e) {
                             System.out.println(e.getMessage());
                         }
