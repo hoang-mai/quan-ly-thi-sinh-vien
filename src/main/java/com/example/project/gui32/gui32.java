@@ -45,6 +45,11 @@ public class gui32 implements Initializable {
     @FXML
     private ComboBox<String> combobox;
     @FXML
+    private ComboBox<String> comboboxchoice1;
+
+    @FXML
+    private ComboBox<String> comboboxchoice2;
+    @FXML
     private Label addingamultipe;
 
     public void setedit(String adding,String combo) {
@@ -285,8 +290,8 @@ public class gui32 implements Initializable {
         ComboBox<String> comboBox = new ComboBox<>();
         comboBox.setLayoutX(62);
         comboBox.setLayoutY(93);
-        comboBox.getItems().addAll("Option 1", "Option 2", "Option 3");
-
+        comboBox.getItems().addAll("None", "100%", "90%","83,33333%","80%","75%","70%","66.66667%","60%","50%","40%","33.33333%","30%","25%","20%","16.66667%","14.28571%","12.5%","11.11111%","10%","5%","83,33333%","80%","75%","70%","66.66667%","60%","50%","40%","33.33333%","30%","25%","20%","16.66667%","14.28571%","12.5%","11.11111%","10%","5%","-5%","-10%","-11.11111%","-12.5%","-14.28571%","-16.66667%","-20%","-25%","-30%","-33.33333%","-40%","-50%","-60%","-66.66667%","-70%","-75%","-80%","-83,33333%");
+comboBox.setValue("None");
         Button button = new Button("Image");
         button.setLayoutX(12);
         button.setLayoutY(136);
@@ -325,6 +330,11 @@ public class gui32 implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        comboboxchoice1.getItems().addAll("None", "100%",
+                "90%","83,33333%","80%","75%","70%","66.66667%","60%","50%","40%","33.33333%","30%","25%","20%","16.66667%","14.28571%","12.5%","11.11111%","10%","5%","83,33333%","80%","75%","70%","66.66667%","60%","50%","40%","33.33333%","30%","25%","20%","16.66667%","14.28571%","12.5%","11.11111%","10%","5%","-5%","-10%","-11.11111%","-12.5%","-14.28571%","-16.66667%","-20%","-25%","-30%","-33.33333%","-40%","-50%","-60%","-66.66667%","-70%","-75%","-80%","-83,33333%");
+        comboboxchoice1.setValue("None");
+        comboboxchoice2.getItems().addAll("None", "100%", "90%","83,33333%","80%","75%","70%","66.66667%","60%","50%","40%","33.33333%","30%","25%","20%","16.66667%","14.28571%","12.5%","11.11111%","10%","5%","83,33333%","80%","75%","70%","66.66667%","60%","50%","40%","33.33333%","30%","25%","20%","16.66667%","14.28571%","12.5%","11.11111%","10%","5%","-5%","-10%","-11.11111%","-12.5%","-14.28571%","-16.66667%","-20%","-25%","-30%","-33.33333%","-40%","-50%","-60%","-66.66667%","-70%","-75%","-80%","-83,33333%");
+        comboboxchoice2.setValue("None");
         List<Categories> listcate = CategoriesDao.getInstance().selectALl();
         ObservableList<String> list = FXCollections.observableArrayList();
         for (Categories categories : listcate) {
