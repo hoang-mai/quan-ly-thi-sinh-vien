@@ -1,14 +1,6 @@
 package com.example.project.database.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Choice", schema = "dbo")
@@ -27,13 +19,27 @@ public class Choice {
 
 	@Column(name = "Grade", nullable = false, columnDefinition = "int")
 	private int grade;
+	@Lob
+	@Column(name = "image", nullable = true,columnDefinition = "VARBINARY(MAX)")
+	private byte[] image;
+
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+
 	public Choice() {
 		
 	}
 	
-	public Choice(String choiceText, Questions questions) {
+	public Choice(String choiceText, Questions questions, int grade, byte[] image) {
 		this.choiceText = choiceText;
 		this.questions = questions;
+		this.grade = grade;
+		this.image = image;
 	}
 
 	public int getChoiceId() {

@@ -55,8 +55,8 @@
                                  <children>
                                     <Label layoutX="10.0" layoutY="64.0" text="Choice 1" />
                                     <Label layoutX="22.0" layoutY="97.0" text="Grade" />
-                                    <TextArea fx:id="choice1" layoutX="62.0" layoutY="11.0" prefHeight="68.0" prefWidth="198.0" />
-                                    <ComboBox fx:id="comboboxchoice1" layoutX="62.0" layoutY="93.0" opacity="0.8" prefHeight="25.0" prefWidth="150.0" />
+                                    <TextArea fx:id="choicetext1" layoutX="62.0" layoutY="11.0" prefHeight="68.0" prefWidth="198.0" />
+                                    <ComboBox layoutX="62.0" layoutY="93.0" opacity="0.8" prefHeight="25.0" prefWidth="60.0" />
                                     <Button layoutX="12.0" layoutY="136.0" mnemonicParsing="false" onAction="#InsertImageChoice1" styleClass="button-another" text="Image" />
                                     <ImageView fx:id="ImageChoice1" fitHeight="77.0" fitWidth="200.0" layoutX="72.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true" />
                                  </children>
@@ -65,8 +65,8 @@
                                  <children>
                                     <Label layoutX="10.0" layoutY="64.0" text="Choice 2" />
                                     <Label layoutX="22.0" layoutY="97.0" text="Grade" />
-                                    <TextArea fx:id="choice2" layoutX="62.0" layoutY="11.0" prefHeight="68.0" prefWidth="198.0" />
-                                    <ComboBox fx:id="comboboxchoice2" layoutX="62.0" layoutY="93.0" opacity="0.8" prefHeight="25.0" prefWidth="150.0" />
+                                    <TextArea fx:id="choicetext2" layoutX="62.0" layoutY="11.0" prefHeight="68.0" prefWidth="198.0" />
+                                    <ComboBox layoutX="62.0" layoutY="93.0" opacity="0.8" prefHeight="25.0" prefWidth="60.0" />
                                     <ImageView fx:id="ImageChoice2" fitHeight="77.0" fitWidth="200.0" layoutX="72.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true" />
                                     <Button layoutX="13.0" layoutY="136.0" mnemonicParsing="false" onAction="#InsertImageChoice2" styleClass="button-another" text="Image" />
                                  </children>

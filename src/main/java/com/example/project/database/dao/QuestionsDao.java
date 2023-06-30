@@ -99,7 +99,7 @@ public class QuestionsDao {
 			}
 		}
 	}
-
+    //đưa ra 1 question với input là questionName
 	public static Questions selectQuestionbyName(String questionName) {
 		Questions question = new Questions();
 		Session session = null;
@@ -120,6 +120,79 @@ public class QuestionsDao {
 			}
 		}
 	}
+	//đưa ra question với input là questionId
+	public static Questions selectQuestionbyId(int questionId) {
+		Questions question = new Questions();
+		Session session = null;
+		Transaction transaction = null;
+
+		try {
+			session = HibernateUtils.getSessionFactory().openSession();
+			transaction = session.beginTransaction();
+			question = session.createQuery("FROM Questions WHERE questionId = :questionId",
+					Questions.class).setParameter("questionId", questionId).getSingleResult();
+			transaction.commit();
+
+			return question;
+
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+	}
+	//đưa ra list choice theo questionId
+	public static List<Choice> selectChoicebyQuestionId(int questionId) {
+		List<Choice> choices = new ArrayList<>();
+		Session session = null;
+		Transaction transaction = null;
+
+		try {
+			session = HibernateUtils.getSessionFactory().openSession();
+			transaction = session.beginTransaction();
+			choices = session.createQuery("FROM Choice WHERE questions.questionId = :questionId",
+					Choice.class).setParameter("questionId", questionId).getResultList();
+			transaction.commit();
+
+			return choices;
+
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+	}
+	//ỉn ra màn hình questionName, questionText, choiceText với input là questionId
+	public static void printQuestioninforbyId(int questionId) {
+		Questions question = new Questions();
+		List<Choice> choices = new ArrayList<>();
+		Session session = null;
+		Transaction transaction = null;
+
+		try {
+			session = HibernateUtils.getSessionFactory().openSession();
+			transaction = session.beginTransaction();
+			question = session.createQuery("FROM Questions WHERE questionId = :questionId",
+					Questions.class).setParameter("questionId", questionId).getSingleResult();
+			choices = session.createQuery("FROM Choice WHERE questions.questionId = :questionId",
+					Choice.class).setParameter("questionId", questionId).getResultList();
+			transaction.commit();
+			System.out.println(question.getQuestionName());
+			System.out.println(question.getQuestionText());
+			for (Choice choice : choices) {
+				System.out.println(choice.getChoiceText());
+			}
+
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+	}
+
+
+
+
 
 	public static void main(String[] args) throws Exception {
 		//QuestionsDao questionsDao = new QuestionsDao();
@@ -130,21 +203,16 @@ public class QuestionsDao {
 		Questions question = selectQuestionbyName(questionName);
 		System.out.println(question.getQuestionText()); */
 		//thêm 1 loạt câu hỏi
-		List<Categories> categories = CategoriesDao.getInstance().selectALl();
-		for (int i = 3; i <= 10; i++) {
-			Questions question1 = new Questions();
-			question1.setQuestionName("Câu hỏi " + i);
-			question1.setQuestionText("Nội dung câu hỏi " + i);
-			question1.setCategories(categories.get(0));
-			question1.setDefaultmark(1);
-			QuestionsDao.getInstance().save(question1);
-		}
-		QuestionsDao questionsDao = new QuestionsDao();
+		//List<Categories> categories = CategoriesDao.getInstance().selectALl();
+		//Questions question = QuestionsDao.selectQuestionbyId(4);
+		/*QuestionsDao questionsDao = new QuestionsDao();
 		List<Questions> questions = questionsDao.selectALl();
 		for (Questions questions1 : questions) {
 			System.out.println(questions1.getQuestionName());
 
-		}
+		}*/
+		QuestionsDao.printQuestioninforbyId(4);
 
 	}
+
 }

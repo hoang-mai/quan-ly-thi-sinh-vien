@@ -5,11 +5,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
 import com.example.project.database.dao.CategoriesDao;
+import com.example.project.database.dao.ChoiceDao;
 import com.example.project.database.entities.Categories;
+import com.example.project.database.entities.Choice;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.stage.FileChooser;
@@ -84,7 +87,16 @@ public class gui32 implements Initializable {
     private ImageView imageView;
 
     private byte[] imageData;
-
+    @FXML
+    private TextArea choicetext1;
+    @FXML
+    private TextArea choicetext2;
+    @FXML
+    private TextArea choicetext3;
+    @FXML
+    private TextArea choicetext4;
+    @FXML
+    private TextArea choicetext5;
     @FXML
     public void insertImage() {
         FileChooser fileChooser = new FileChooser();
@@ -186,6 +198,14 @@ public class gui32 implements Initializable {
             Categories categories = CategoriesDao.getInstance().selectCategorybyName(combobox.getValue());
             questions.setCategories(categories);
             QuestionsDao.getInstance().save(questions);
+            Choice choice1 = new Choice();
+            choice1.setChoiceText(choicetext1.getText());
+            choice1.setQuestions(questions);
+            ChoiceDao.getInstance().save(choice1);
+            //save choice 2
+            choice1.setChoiceText(choicetext2.getText());
+            choice1.setQuestions(questions);
+            ChoiceDao.getInstance().save(choice1);
             Stage ag0r = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui21/gui(2.1).fxml"));
             Scene scene = new Scene(root);

@@ -9,7 +9,6 @@ import javax.persistence.*;
 public class Categories {
 	@Id
 	@Column(name = "category_id")
-	@GeneratedValue
 	private int categoryId;
 
 	@Column(name = "category_name", nullable = false, columnDefinition = "NVARCHAR(100)")
@@ -25,6 +24,7 @@ public class Categories {
 	private Set<Quiz> quiz;
 	@OneToMany(mappedBy = "categories", fetch = FetchType.LAZY)
 	private Set<Questions> questions;
+
 
 	public Categories() {
 		
