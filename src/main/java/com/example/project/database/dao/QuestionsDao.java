@@ -13,8 +13,24 @@ import com.example.project.database.entities.Questions;
 import com.example.project.database.utils.HibernateUtils;
 
 public class QuestionsDao {
+	private Questions questions;
+
+	public Questions getQuestions() {
+		return questions;
+	}
+
+	public void setQuestions(Questions questions) {
+		this.questions = questions;
+	}
+	private static QuestionsDao instance;
+	private QuestionsDao() {
+	}
+
 	public static QuestionsDao getInstance() {
-		return new QuestionsDao();
+		if (instance == null) {
+			instance = new QuestionsDao();
+		}
+		return instance;
 	}
 
 	public boolean save(Questions questions) throws Exception {

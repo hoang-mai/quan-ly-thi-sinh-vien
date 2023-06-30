@@ -112,7 +112,7 @@ public class TestDB {
 			question1.setQuestionText("Nội dung câu hỏi " + i);
 			question1.setCategories(categories1);
 			question1.setDefaultmark(1);
-			QuestionsDao.getInstance().save(question1);
+			QuestionsDao.getInstance().save(questions1);
 		}
 		QuestionsDao.getInstance().save(questions1);
 		QuestionsDao.getInstance().save(questions2);
