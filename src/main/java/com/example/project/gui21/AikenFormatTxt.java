@@ -106,7 +106,7 @@ public class AikenFormatTxt {
                 alert.show();
                 for (int i = 0; i < numberLine; i++) {
                     String checkLine = allLine.get(i);
-                    System.out.println(checkLine);
+
                     if (AikenFormatTxt.getInstance().checkLine(checkLine) == 1 ) {
                         countChoice = 0;
                     } else if (AikenFormatTxt.getInstance().checkLine(checkLine) == 0 ) {
@@ -118,7 +118,7 @@ public class AikenFormatTxt {
                         questions.setCategories(categories);
                            questions.setQuestionText(allLine.get(i-countChoice-1));
                         questions.setQuestionName(allLine.get(i-countChoice-1));
-                        System.out.println(allLine.get(i-countChoice-1));
+
                             QuestionsDao.getInstance().save(questions);
                             Choice choice=new Choice();
                             for (int j=0;j<countChoice;j++){
