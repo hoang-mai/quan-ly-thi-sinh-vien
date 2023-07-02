@@ -13,7 +13,9 @@ import java.io.File;
 import java.io.FileInputStream;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class AikenFormatDocx {
     public static AikenFormatDocx getInstance(){return new AikenFormatDocx();}
@@ -40,9 +42,10 @@ public class AikenFormatDocx {
             XWPFDocument document = new XWPFDocument(fileInputStream);
 
             int numberQuestions = 0;
+            int countpicture=0;
             int countChoice = -2;
             int result = 1;
-
+            Map<Integer,XWPFPictureData> listpicture=new HashMap<>();
             List<String> allLine = new ArrayList<>();
             for (int i = 0; i < document.getParagraphs().size(); i++) {
                 XWPFParagraph paragraph = document.getParagraphs().get(i);
@@ -53,24 +56,26 @@ public class AikenFormatDocx {
                     // Lấy vị trí dòng của ảnh
                     String pictureName = paragraph.getRuns().get(0).getEmbeddedPictures().get(0).getPictureData().getFileName();
                     allLine.add(pictureName);
+                    listpicture.put(i,paragraph.getRuns().get(0).getEmbeddedPictures().get(0).getPictureData());
                 }
                 else allLine.add(paragraphText);
             }
-            ArrayList<Character> keyChoice = new ArrayList<Character>();
+                ArrayList<Character> keyChoice = new ArrayList<Character>();
             int numberLine = allLine.size();
                 for (int i = 0; i < numberLine; i++) {
-                    String checkLine1 = allLine.get(i);
-                    if (AikenFormatDocx.getInstance().checkLine(checkLine1) == 1 && countChoice == -2) {
+                    String checkLine = allLine.get(i);
+                    if (AikenFormatDocx.getInstance().checkLine(checkLine) == 1 && countChoice == -2) {
                         countChoice = 0;
+                        countpicture=0;
                         keyChoice.clear();
-                    } else if (AikenFormatDocx.getInstance().checkLine(checkLine1)==3 && countChoice == 0) {
-
-                    } else if (AikenFormatDocx.getInstance().checkLine(checkLine1) == 0 && countChoice >= 0) {
+                    } else if (AikenFormatDocx.getInstance().checkLine(checkLine)==3 && countChoice >= 0) {
+countpicture++;
+                    } else if (AikenFormatDocx.getInstance().checkLine(checkLine) == 0 && countChoice >= 0) {
                         countChoice++;
-                        keyChoice.add(checkLine1.charAt(0));
+                        keyChoice.add(checkLine.charAt(0));
 
-                    } else if (AikenFormatDocx.getInstance().checkLine(checkLine1) == 2 && countChoice >= 2) {
-                        if (keyChoice.contains(checkLine1.charAt(8))) {
+                    } else if (AikenFormatDocx.getInstance().checkLine(checkLine) == 2 && countChoice >= 2) {
+                        if (keyChoice.contains(checkLine.charAt(8))) {
                             countChoice = -1;
                             numberQuestions++;
                         } else {
@@ -83,11 +88,10 @@ public class AikenFormatDocx {
 
                             break;
                         }
-                    } else if (AikenFormatDocx.getInstance().checkLine(checkLine1) == -1 && countChoice == -1) {
+                    } else if (AikenFormatDocx.getInstance().checkLine(checkLine) == -1 && countChoice == -1) {
                         countChoice = -2;
 
                     } else {
-                        System.out.println(checkLine1);
                         Alert alert = new Alert(Alert.AlertType.ERROR);
                         alert.setTitle("Error");
                         alert.setHeaderText(null);
@@ -106,9 +110,11 @@ public class AikenFormatDocx {
                 alert.show();
                 for (int i = 0; i < numberLine; i++) {
                     String checkLine = allLine.get(i);
-                    System.out.println(checkLine);
                     if (AikenFormatDocx.getInstance().checkLine(checkLine) == 1 ) {
                         countChoice = 0;
+                        countpicture=0;
+                    } else if (AikenFormatDocx.getInstance().checkLine(checkLine)==3) {
+countpicture++;
                     } else if (AikenFormatDocx.getInstance().checkLine(checkLine) == 0 ) {
                         countChoice++;
                     } else if (AikenFormatDocx.getInstance().checkLine(checkLine) == 2 ) {
@@ -116,19 +122,30 @@ public class AikenFormatDocx {
                         questions.setDefaultmark(1);
                         Categories categories = CategoriesDao.getInstance().selectCategorybyName("Loại 1");
                         questions.setCategories(categories);
-                        questions.setQuestionText(allLine.get(i-countChoice-1));
-                        questions.setQuestionName(allLine.get(i-countChoice-1));
-                        System.out.println(allLine.get(i-countChoice-1));
+                        questions.setQuestionText(allLine.get(i-countChoice-1-countpicture));
+                        questions.setQuestionName(allLine.get(i-countChoice-1-countpicture));
+                        if(countpicture!=0){
+                            XWPFPictureData pictureData=listpicture.get(i-countChoice-countpicture);
+                            questions.setImage(pictureData.getData());
+                            countpicture--;
+                        }
                         QuestionsDao.getInstance().save(questions);
-                        Choice choice=new Choice();
                         for (int j=0;j<countChoice;j++){
+                            Choice choice=new Choice();
+                            int count =countpicture;
                             choice.setQuestions(questions);
-                            choice.setChoiceText(allLine.get(i-countChoice+j));
-                            if(checkLine.charAt(8)==allLine.get(i-countChoice+j).charAt(0)){
+                            choice.setChoiceText(allLine.get(i-countChoice+j-countpicture));
+                            if(countpicture!=0 && listpicture.containsKey(i-countChoice-countpicture+j+1)){
+                                XWPFPictureData pictureData=listpicture.get(i-countChoice-countpicture+j+1);
+                                choice.setImage(pictureData.getData());
+                                countpicture--;
+                            }
+                            if(checkLine.charAt(8)==allLine.get(i-countChoice+j-count).charAt(0)){
                                 choice.setGrade(100);
                             }
                             else choice.setGrade(0);
                             ChoiceDao.getInstance().save(choice);
+
                         }
                     } else if (AikenFormatDocx.getInstance().checkLine(checkLine) == -1 ) {
                         countChoice = -2;
