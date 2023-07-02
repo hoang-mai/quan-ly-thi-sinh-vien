@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="2067.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui32.gui32">
+<Pane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="2067.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui32.gui32">
     <children>
       <ScrollPane hbarPolicy="NEVER" prefHeight="1077.0" prefWidth="600.0">
         <content>
@@ -51,7 +51,7 @@
                             </Label>
                         <VBox fx:id="vbox" layoutX="247.0" layoutY="443.0" prefHeight="1308.0" prefWidth="300.0">
                            <children>
-                              <Pane fx:id="originalPane" prefHeight="200.0" prefWidth="300.0" style="-fx-border-color: black;">
+                              <Pane fx:id="originalPane" prefHeight="200.0" prefWidth="300.0" styleClass="pane-border-solid">
                                  <children>
                                     <Label layoutX="10.0" layoutY="64.0" text="Choice 1" />
                                     <Label layoutX="22.0" layoutY="97.0" text="Grade" />
@@ -61,7 +61,7 @@
                                     <ImageView fx:id="ImageChoice1" fitHeight="77.0" fitWidth="200.0" layoutX="72.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true" />
                                  </children>
                               </Pane>
-                              <Pane fx:id="originalPane1" prefHeight="230.0" prefWidth="300.0" style="-fx-border-color: black;">
+                              <Pane fx:id="originalPane1" prefHeight="230.0" prefWidth="300.0" styleClass="pane-border-solid">
                                  <children>
                                     <Label layoutX="10.0" layoutY="64.0" text="Choice 2" />
                                     <Label layoutX="22.0" layoutY="97.0" text="Grade" />
@@ -73,22 +73,22 @@
                               </Pane>
                               <Pane fx:id="originalPane2" prefHeight="200.0" prefWidth="200.0">
                                  <children>
-                                        <Button fx:id="addButton" layoutX="25.0" layoutY="70.0" mnemonicParsing="false" onAction="#addMoreChoices" styleClass="button1" text="BLANKS FOR 3 MORE CHOICES">
+                                        <Button fx:id="addButton" layoutX="-2.0" layoutY="70.0" mnemonicParsing="false" onAction="#addMoreChoices" styleClass="button-blue" text="BLANKS FOR 3 MORE CHOICES">
                                             <font>
                                                 <Font size="14.0" />
                                             </font>
                                         </Button>
-                                        <Button layoutX="216.0" layoutY="160.0" mnemonicParsing="false" onAction="#cancel" styleClass="button1" text="CANCEL">
+                                        <Button layoutX="182.0" layoutY="175.0" mnemonicParsing="false" onAction="#cancel" styleClass="button-blue" text="CANCEL">
                                             <font>
                                                 <Font size="14.0" />
                                             </font>
                                         </Button>
-                                        <Button fx:id="savechangesandcontinue1" layoutY="123.0" mnemonicParsing="false" onAction="#savechangesandcontinue" styleClass="button1" text="SAVE CHANGES AND CONTINUE EDITING">
+                                        <Button fx:id="savechangesandcontinue1" layoutX="-2.0" layoutY="130.0" mnemonicParsing="false" onAction="#savechangesandcontinue" styleClass="button-blue" text="SAVE CHANGES AND CONTINUE EDITING">
                                             <font>
                                                 <Font size="14.0" />
                                             </font>
                                         </Button>
-                                        <Button fx:id="savechanges1" layoutX="-2.0" layoutY="160.0" mnemonicParsing="false" onAction="#savechanges" styleClass="button-red" text="SAVE CHANGES">
+                                        <Button fx:id="savechanges1" layoutX="-2.0" layoutY="175.0" mnemonicParsing="false" onAction="#savechanges" styleClass="button-red" text="SAVE CHANGES">
                                             <font>
                                                 <Font size="14.0" />
                                             </font>

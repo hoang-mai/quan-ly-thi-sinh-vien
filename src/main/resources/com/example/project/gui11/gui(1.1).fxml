@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="694.0" prefWidth="600.0" styleClass="pane2" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui11.gui11">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="694.0" prefWidth="600.0" styleClass="pane-border-solid" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui11.gui11">
     <children>
-        <Pane layoutX="25.0" layoutY="54.0" prefHeight="119.0" prefWidth="551.0" styleClass="pane2">
+        <Pane layoutX="25.0" layoutY="54.0" prefHeight="119.0" prefWidth="551.0" styleClass="pane-border-solid">
             <children>
                 <Button layoutX="482.0" layoutY="14.0" mnemonicParsing="false" onAction="#caidat" prefHeight="29.0" prefWidth="43.0" style="-fx-background-color: transparent;" textFill="#104ce8">
                <graphic>
@@ -25,14 +25,14 @@
                         <Font size="35.0" />
                     </font>
                 </Label>
-                <Button layoutX="409.0" layoutY="80.0" mnemonicParsing="false" onAction="#turneditingon" styleClass="button1" text="TURN EDITING ON" />
+                <Button layoutX="409.0" layoutY="80.0" mnemonicParsing="false" onAction="#turneditingon" styleClass="button-blue" text="TURN EDITING ON" />
             </children>
         </Pane>
-        <Pane layoutX="25.0" layoutY="181.0" prefHeight="479.0" prefWidth="551.0" styleClass="pane2">
+        <Pane layoutX="25.0" layoutY="181.0" prefHeight="479.0" prefWidth="551.0" styleClass="pane-border-solid">
             <children>
                 <VBox fx:id="vbox1" layoutX="23.0" layoutY="14.0" prefHeight="380.0" prefWidth="245.0" spacing="20.0">
                     <children>
-                        <Button onAction="#kiemtracuoikimonit1" prefHeight="28.0" prefWidth="226.0" styleClass="button2" text="Kiểm tra cuối kỳ môn IT4895Q">
+                        <Button onAction="#kiemtracuoikimonit1" prefHeight="28.0" prefWidth="226.0" styleClass="button-text-red" text="Kiểm tra cuối kỳ môn IT4895Q">
                             <font>
                                 <Font size="14.0" />
                             </font>
@@ -48,6 +48,6 @@
                 </VBox>
             </children>
         </Pane>
-        <Pane prefHeight="57.0" prefWidth="600.0" styleClass="pane1" />
+        <Pane prefHeight="57.0" prefWidth="600.0" styleClass="pane-background" />
     </children>
 </Pane>
