@@ -70,9 +70,11 @@ public class TestDB {
 
 		choice1.setChoiceText("Lựa chọn 1");
 		choice1.setQuestions(questions1);
+		choice1.setGrade("100");
 
 		choice2.setChoiceText("Lựa chọn 2");
 		choice2.setQuestions(questions2);
+		choice2.setGrade("0");
 
 		categories1.setCategoryInfo("Đây là thể loại 1");
 		categories1.setCategoryId(1);
@@ -85,6 +87,7 @@ public class TestDB {
 		categories2.setCategoryName("Loại 2");
 		categories2.setQuestionCount(2);
 		categories2.setQuiz(quizs);
+		categories2.setCategories_parent(categories1);
 
 		//questions1.setAnswer("A");
 		questions1.setQuestionName("Câu hỏi 1");
