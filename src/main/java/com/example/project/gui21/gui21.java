@@ -80,13 +80,7 @@ public class gui21 implements Initializable {
 
     @FXML
     void alsoquestion(ActionEvent event) {
-        if (alsoquestion1.isSelected()) {
-            scrollpane1.setVisible(true);
-            anchorpane1.setVisible(true);
-        } else {
-            scrollpane1.setVisible(false);
-            anchorpane1.setVisible(false);
-        }
+
     }
 
 
@@ -103,7 +97,39 @@ public class gui21 implements Initializable {
 
     @FXML
     void comboBoxChanged(ActionEvent event) {
-
+        if(combobox.getValue()=="Default"){
+            scrollpane1.setVisible(false);
+            anchorpane1.setVisible(false);
+        }
+        else {
+            scrollpane1.setVisible(true);
+            anchorpane1.setVisible(true);
+        }
+        gridpane1.getChildren().clear();
+        List<Questions> danhsachquestion = CategoriesDao.getInstance().selectQuestion(combobox.getValue());
+        anchorpane1.setPrefHeight(46+40*danhsachquestion.size());
+        for (int i = 0; i < danhsachquestion.size(); i++) {
+            CheckBox checkBox = new CheckBox(danhsachquestion.get(i).getQuestionName());
+            gridpane1.add(checkBox, 0, i);
+            Button button = new Button("Edit");
+            gridpane1.add(button, 1, i);
+            int finalI = i;
+            button.setOnAction(event2 -> {
+                try {
+                    Stage ag0r1 = (Stage) ((Node) event2.getSource()).getScene().getWindow();
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/project/gui32/gui(3.2).fxml"));
+                    Parent root = loader.load();
+                    Scene scene = new Scene(root);
+                    ag0r1.setScene(scene);
+                    ag0r1.show();
+                    gui32 controller = loader.getController();
+                    QuestionsDao.getInstance().setQuestions(danhsachquestion.get(finalI));
+                    controller.setedit("Editing Multiple choice question",combobox.getValue());
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+            });
+        }
     }
 
     @FXML
@@ -212,41 +238,19 @@ public class gui21 implements Initializable {
             List<Categories> listcate = CategoriesDao.getInstance().selectALl();
             ObservableList<String> list = FXCollections.observableArrayList();
             for (Categories categories : listcate) {
-                list.add(categories.getCategoryName());
+                if(categories.getCategories_parent()!=null){
+                    String textcate = categories.getCategoryName();
+                    int count=0;
+                    while (textcate.charAt(count)==' ') {
+                        count++;
+                    }
+                    String whitespace=textcate.substring(0,count);
+list.add(whitespace+"  "+categories.getCategoryName());
+                }
+                else list.add(categories.getCategoryName());
+
             }
             combobox.setItems(list);
-
-            combobox.getSelectionModel().selectedItemProperty().addListener((observableValue, oldvalue, newvalue) -> {
-                gridpane1.getChildren().clear();
-                List<Questions> danhsachquestion = CategoriesDao.getInstance().selectQuestion(combobox.getValue());
-                anchorpane1.setPrefHeight(46+40*danhsachquestion.size());
-                for (int i = 0; i < danhsachquestion.size(); i++) {
-                    CheckBox checkBox = new CheckBox(danhsachquestion.get(i).getQuestionName());
-                    gridpane1.add(checkBox, 0, i);
-                    Button button = new Button("Edit");
-                    gridpane1.add(button, 1, i);
-
-                    int finalI = i;
-                    button.setOnAction(event2 -> {
-                        try {
-                            Stage ag0r1 = (Stage) ((Node) event2.getSource()).getScene().getWindow();
-                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/project/gui32/gui(3.2).fxml"));
-                            Parent root = loader.load();
-                            Scene scene = new Scene(root);
-                            ag0r1.setScene(scene);
-                            ag0r1.show();
-                            gui32 controller = loader.getController();
-                            QuestionsDao.getInstance().setQuestions(danhsachquestion.get(finalI));
-                            controller.setedit("Editing Multiple choice question",combobox.getValue());
-
-
-                        } catch (Exception e) {
-                            System.out.println(e.getMessage());
-                        }
-                    });
-                }
-            });
-
             categoryinfor1.setWrapText(true);
             name1.textProperty().addListener((Observable, oldvalue, newValue) -> {
                 if (newValue.isEmpty()) {

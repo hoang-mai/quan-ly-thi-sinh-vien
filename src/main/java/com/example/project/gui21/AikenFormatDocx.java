@@ -120,7 +120,7 @@ countpicture++;
                     } else if (AikenFormatDocx.getInstance().checkLine(checkLine) == 2 ) {
                         Questions questions=new Questions();
                         questions.setDefaultmark(1);
-                        Categories categories = CategoriesDao.getInstance().selectCategorybyName("Loại 1");
+                        Categories categories = CategoriesDao.getInstance().selectCategoryMaxQuestion();
                         questions.setCategories(categories);
                         questions.setQuestionText(allLine.get(i-countChoice-1-countpicture));
                         questions.setQuestionName(allLine.get(i-countChoice-1-countpicture));

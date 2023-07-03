@@ -79,15 +79,14 @@ public class TestDB {
 		categories1.setCategoryInfo("Đây là thể loại 1");
 		categories1.setCategoryId(1);
 		categories1.setCategoryName("Loại 1");
-		categories1.setQuestionCount(4);
 		categories1.setQuiz(quizs);
 
 		categories2.setCategoryInfo("Đây là thể loại 2");
 		categories2.setCategoryId(2);
 		categories2.setCategoryName("Loại 2");
-		categories2.setQuestionCount(2);
+
 		categories2.setQuiz(quizs);
-		categories2.setCategories_parent(categories1);
+
 
 		//questions1.setAnswer("A");
 		questions1.setQuestionName("Câu hỏi 1");
@@ -105,9 +104,27 @@ public class TestDB {
 
 		///////////////////////////////////////////////////////
 		UserDao.getInstance().save(user);
+		for(int i=3;i<10;i++){
+Categories categories3=new Categories();
+categories3.setCategoryId(i);
+categories3.setCategoryInfo("Đây là thể loại"+i);
+			categories3.setCategoryName("Loại"+i);
+			categories3.setQuiz(quizs);
+			CategoriesDao.getInstance().save(categories3);
 
+		}
 		CategoriesDao.getInstance().save(categories1);
 		CategoriesDao.getInstance().save(categories2);
+		Categories categories4=new Categories();
+		categories4.setCategoryId(10);
+		categories4.setCategoryInfo("Đây là thể loại"+10);
+		categories4.setCategoryName("Loại"+10);
+		categories4.setQuiz(quizs);
+		categories4.setCategories_parent(categories1);
+		CategoriesDao.getInstance().save(categories4);
+
+
+
 
 		QuizDao.getInstance().save(quiz1);
 		QuizDao.getInstance().save(quiz2);
