@@ -6,14 +6,14 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="217.0" prefWidth="497.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui61.dialog">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="235.0" prefWidth="497.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui61.dialog">
    <children>
       <Label layoutX="11.0" layoutY="14.0" prefHeight="27.0" prefWidth="118.0" text="Start attempt">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Line endX="360.39996337890625" layoutX="106.0" layoutY="54.0" opacity="0.42" startX="-89.20002746582031" startY="-1.1444091796875E-5" styleClass="line1" />
+      <Line endX="375.5999755859375" endY="-1.9073486328125E-5" layoutX="106.0" layoutY="54.0" startX="-89.20002746582031" startY="-1.1444091796875E-5" styleClass="line1" />
       <Label layoutX="26.0" layoutY="63.0" text="Time limit" textFill="#dc4040">
          <font>
             <Font size="14.0" />
@@ -21,9 +21,9 @@
       </Label>
       <Label fx:id="timelimit" layoutX="226.0" layoutY="98.0" prefHeight="17.0" prefWidth="18.0" />
       <Label layoutX="27.0" layoutY="143.0" />
-      <Line endX="360.20001220703125" layoutX="107.0" layoutY="168.0" opacity="0.42" startX="-88.59999084472656" startY="-1.52587890625E-5" styleClass="line1" />
-      <Button layoutX="91.0" layoutY="180.0" mnemonicParsing="false" onAction="#startattempt" styleClass="button-red" text="START ATTEMPT" />
-      <Button layoutX="259.0" layoutY="180.0" mnemonicParsing="false" onAction="#cancel" styleClass="button1" text="CANCEL" />
+      <Line endX="375.0" endY="-1.52587890625E-5" layoutX="105.0" layoutY="176.0" startX="-88.59999084472656" startY="-1.52587890625E-5" styleClass="line1" />
+      <Button layoutX="121.0" layoutY="190.0" mnemonicParsing="false" onAction="#startattempt" styleClass="button-red" text="START ATTEMPT" />
+      <Button layoutX="289.0" layoutY="190.0" mnemonicParsing="false" onAction="#cancel" styleClass="button-blue" text="CANCEL" />
       <Label fx:id="label1" layoutX="27.0" layoutY="83.0" text="Label" />
    </children>
 </Pane>

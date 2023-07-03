@@ -75,13 +75,11 @@ public class TestDB {
 		choice2.setQuestions(questions2);
 
 		categories1.setCategoryInfo("Đây là thể loại 1");
-		categories1.setCategoryId(1);
 		categories1.setCategoryName("Loại 1");
 		categories1.setQuestionCount(4);
 		categories1.setQuiz(quizs);
 
 		categories2.setCategoryInfo("Đây là thể loại 2");
-		categories2.setCategoryId(2);
 		categories2.setCategoryName("Loại 2");
 		categories2.setQuestionCount(2);
 		categories2.setQuiz(quizs);
@@ -109,12 +107,12 @@ public class TestDB {
 		QuizDao.getInstance().save(quiz1);
 		QuizDao.getInstance().save(quiz2);
 		for (int i = 3; i <= 10; i++) {
-			Questions questiontmp = new Questions();
-			questiontmp.setQuestionName("Câu hỏi " + i);
-			questiontmp.setQuestionText("Nội dung câu hỏi " + i);
-			questiontmp.setCategories(categories1);
-			questiontmp.setDefaultmark(1);
-			QuestionsDao.getInstance().save(questiontmp);
+			Questions question1 = new Questions();
+			question1.setQuestionName("Câu hỏi " + i);
+			question1.setQuestionText("Nội dung câu hỏi " + i);
+			question1.setCategories(categories1);
+			question1.setDefaultmark(1);
+			QuestionsDao.getInstance().save(questions1);
 		}
 		QuestionsDao.getInstance().save(questions1);
 		QuestionsDao.getInstance().save(questions2);

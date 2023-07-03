@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="724.0" prefWidth="804.0" style="-fx-background-color: white;" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui51.gui51">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="724.0" prefWidth="804.0" style="-fx-background-color: white;" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui51.gui51">
     <children>
-        <Label layoutX="38.0" layoutY="23.0" prefHeight="31.0" prefWidth="187.0" text="Adding a new Quiz" textFill="#ea0f0f">
+        <Label layoutX="63.0" layoutY="66.0" prefHeight="31.0" prefWidth="187.0" text="Adding a new Quiz" textFill="#ea0f0f">
             <font>
                 <Font size="21.0" />
             </font>
@@ -26,12 +26,12 @@
         </Label>
         <Label layoutX="38.0" layoutY="163.0" prefHeight="17.0" prefWidth="45.0" text="Name" />
         <Label layoutX="38.0" layoutY="213.0" text="Description" />
-        <ImageView fitHeight="31.0" fitWidth="20.0" layoutX="9.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="31.0" fitWidth="20.0" layoutX="34.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../ImageView/select.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="12.0" fitWidth="15.0" layoutX="220.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="12.0" fitWidth="15.0" layoutX="245.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../ImageView/question.png" />
             </image>
@@ -61,7 +61,7 @@
                 <ComboBox fx:id="openquiz1" prefHeight="25.0" prefWidth="0.0" promptText="1" />
                 <ComboBox fx:id="openquiz2" prefHeight="26.0" prefWidth="97.0" promptText="January" />
                 <ComboBox fx:id="openquiz3" prefHeight="26.0" prefWidth="78.0" promptText="2023" />
-                <ComboBox fx:id="openquiz4" opacity="0.8" prefHeight="26.0" prefWidth="62.0" promptText="0" />
+                <ComboBox fx:id="openquiz4" prefHeight="26.0" prefWidth="62.0" promptText="0" />
                 <ComboBox fx:id="openquiz5" prefHeight="26.0" prefWidth="58.0" promptText="0" />
             </children>
         </HBox>
@@ -92,7 +92,7 @@
         <Label layoutX="34.0" layoutY="593.0" text="Time limit" />
         <Label layoutX="34.0" layoutY="628.0" text="When time expires" />
         <TextField fx:id="timelimit2" disable="true" layoutX="336.0" layoutY="589.0" prefHeight="25.0" prefWidth="45.0" />
-        <ComboBox fx:id="timelimit1" disable="true" layoutX="394.0" layoutY="589.0" opacity="0.8" prefHeight="25.0" prefWidth="87.0" promptText="minutes" />
+        <ComboBox fx:id="timelimit1" disable="true" layoutX="394.0" layoutY="589.0" prefHeight="25.0" prefWidth="87.0" promptText="minutes" />
         <CheckBox fx:id="enable33" layoutX="486.0" layoutY="593.0" mnemonicParsing="false" onAction="#enable3" prefHeight="17.0" prefWidth="64.0" text="Enable">
             <font>
                 <Font size="10.0" />
@@ -110,7 +110,7 @@
             </image>
         </ImageView>
         <Button fx:id="create1" disable="true" layoutX="363.0" layoutY="677.0" mnemonicParsing="false" onAction="#create" prefHeight="26.0" prefWidth="62.0" styleClass="button-red" text="CREATE" />
-        <Button layoutX="500.0" layoutY="677.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="64.0" styleClass="button1" text="CANCEL" />
+        <Button layoutX="500.0" layoutY="677.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="64.0" styleClass="button-blue" text="CANCEL" />
       <ImageView fitHeight="12.0" fitWidth="15.0" layoutX="313.0" layoutY="553.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../ImageView/question.png" />

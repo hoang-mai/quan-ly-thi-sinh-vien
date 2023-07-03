@@ -6,6 +6,12 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.project.database.dao.CategoriesDao;
+import com.example.project.database.dao.ChoiceDao;
+import com.example.project.database.dao.QuestionsDao;
+import com.example.project.database.entities.Categories;
+import com.example.project.database.entities.Choice;
+import com.example.project.database.entities.Questions;
 import javafx.scene.control.Alert;
 
 
@@ -98,6 +104,36 @@ public class AikenFormatTxt {
                 alert.setHeaderText(null);
                 alert.setContentText("Success: " + numberQuestions);
                 alert.show();
+                for (int i = 0; i < numberLine; i++) {
+                    String checkLine = allLine.get(i);
+
+                    if (AikenFormatTxt.getInstance().checkLine(checkLine) == 1 ) {
+                        countChoice = 0;
+                    } else if (AikenFormatTxt.getInstance().checkLine(checkLine) == 0 ) {
+                        countChoice++;
+                    } else if (AikenFormatTxt.getInstance().checkLine(checkLine) == 2 ) {
+                        Questions questions=new Questions();
+                        questions.setDefaultmark(1);
+                        Categories categories = CategoriesDao.getInstance().selectCategorybyName("Loại 1");
+                        questions.setCategories(categories);
+                           questions.setQuestionText(allLine.get(i-countChoice-1));
+                        questions.setQuestionName(allLine.get(i-countChoice-1));
+
+                            QuestionsDao.getInstance().save(questions);
+                            Choice choice=new Choice();
+                            for (int j=0;j<countChoice;j++){
+                                choice.setQuestions(questions);
+                                choice.setChoiceText(allLine.get(i-countChoice+j));
+                                if(checkLine.charAt(8)==allLine.get(i-countChoice+j).charAt(0)){
+                                    choice.setGrade(100);
+                                }
+                                else choice.setGrade(0);
+                                ChoiceDao.getInstance().save(choice);
+                            }
+                    } else if (AikenFormatTxt.getInstance().checkLine(checkLine) == -1 ) {
+                        countChoice = -2;
+                    }
+                }
             }
 
         } catch (Exception e) {

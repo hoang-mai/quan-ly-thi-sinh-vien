@@ -52,6 +52,9 @@ public class gui32 implements Initializable {
     @FXML
     private Label addingamultipe;
 
+    public gui32() {
+    }
+
     public void setedit(String adding,String combo) {
         a=true;
         addingamultipe.setText(adding);
@@ -190,6 +193,7 @@ public class gui32 implements Initializable {
     void savechanges(ActionEvent event) {
 
         try {
+            String text;
             Questions questions = new Questions();
             questions.setQuestionName(questtionname1.getText());
             questions.setQuestionText(questiontext1.getText());
@@ -201,10 +205,16 @@ public class gui32 implements Initializable {
             Choice choice1 = new Choice();
             choice1.setChoiceText(choicetext1.getText());
             choice1.setQuestions(questions);
+            text=comboboxchoice1.getValue();
+            String gradee=text.substring(0,text.length()-1);
+            choice1.setGrade(Integer.parseInt(gradee));
             ChoiceDao.getInstance().save(choice1);
             //save choice 2
             choice1.setChoiceText(choicetext2.getText());
             choice1.setQuestions(questions);
+            text=comboboxchoice2.getValue();
+            gradee=text.substring(0,text.length()-1);
+            choice1.setGrade(Integer.parseInt(gradee));
             ChoiceDao.getInstance().save(choice1);
             Stage ag0r = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui21/gui(2.1).fxml"));
@@ -219,6 +229,8 @@ public class gui32 implements Initializable {
     @FXML
     void savechangesandcontinue(ActionEvent event) {
         try {
+            // lấy text của choice
+            String text;
             Questions questions = new Questions();
             questions.setQuestionName(questtionname1.getText());
             questions.setQuestionText(questiontext1.getText());
@@ -227,11 +239,23 @@ public class gui32 implements Initializable {
             Categories categories = CategoriesDao.getInstance().selectCategorybyName(combobox.getValue());
             questions.setCategories(categories);
             QuestionsDao.getInstance().save(questions);
-            Stage ag0r = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui32/gui(3.2).fxml"));
-            Scene scene = new Scene(root);
-            ag0r.setScene(scene);
+            Choice choice1 = new Choice();
+            choice1.setChoiceText(choicetext1.getText());
+            choice1.setQuestions(questions);
+            text=comboboxchoice1.getValue();
+            String gradee=text.substring(0,text.length()-1);
+            choice1.setGrade(Integer.parseInt(gradee));
+            ChoiceDao.getInstance().save(choice1);
+            //save choice 2
+            choice1.setChoiceText(choicetext2.getText());
+            choice1.setQuestions(questions);
+            text=comboboxchoice2.getValue();
+            gradee=text.substring(0,text.length()-1);
+            choice1.setGrade(Integer.parseInt(gradee));
+            ChoiceDao.getInstance().save(choice1);
+if(!addMoreChoicesEnabled){
 
+}
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -248,7 +272,7 @@ public class gui32 implements Initializable {
     private Pane originalPane2;
     @FXML
     private Button addButton;
-    @FXML
+    
     private boolean addMoreChoicesEnabled = true;
 
     @FXML
@@ -330,10 +354,9 @@ comboBox.setValue("None");
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        comboboxchoice1.getItems().addAll("None", "100%",
-                "90%","83,33333%","80%","75%","70%","66.66667%","60%","50%","40%","33.33333%","30%","25%","20%","16.66667%","14.28571%","12.5%","11.11111%","10%","5%","83,33333%","80%","75%","70%","66.66667%","60%","50%","40%","33.33333%","30%","25%","20%","16.66667%","14.28571%","12.5%","11.11111%","10%","5%","-5%","-10%","-11.11111%","-12.5%","-14.28571%","-16.66667%","-20%","-25%","-30%","-33.33333%","-40%","-50%","-60%","-66.66667%","-70%","-75%","-80%","-83,33333%");
+        comboboxchoice1.getItems().addAll("None","100%","90%","83,33333%","80%","75%","70%","66.66667%","60%","50%","40%","33.33333%","30%","25%","20%","16.66667%","14.28571%","12.5%","11.11111%","10%","5%","83,33333%","80%","75%","70%","66.66667%","60%","50%","40%","33.33333%","30%","25%","20%","16.66667%","14.28571%","12.5%","11.11111%","10%","5%","-5%","-10%","-11.11111%","-12.5%","-14.28571%","-16.66667%","-20%","-25%","-30%","-33.33333%","-40%","-50%","-60%","-66.66667%","-70%","-75%","-80%","-83,33333%");
         comboboxchoice1.setValue("None");
-        comboboxchoice2.getItems().addAll("None", "100%", "90%","83,33333%","80%","75%","70%","66.66667%","60%","50%","40%","33.33333%","30%","25%","20%","16.66667%","14.28571%","12.5%","11.11111%","10%","5%","83,33333%","80%","75%","70%","66.66667%","60%","50%","40%","33.33333%","30%","25%","20%","16.66667%","14.28571%","12.5%","11.11111%","10%","5%","-5%","-10%","-11.11111%","-12.5%","-14.28571%","-16.66667%","-20%","-25%","-30%","-33.33333%","-40%","-50%","-60%","-66.66667%","-70%","-75%","-80%","-83,33333%");
+        comboboxchoice2.getItems().addAll("None","100%","90%","83,33333%","80%","75%","70%","66.66667%","60%","50%","40%","33.33333%","30%","25%","20%","16.66667%","14.28571%","12.5%","11.11111%","10%","5%","83,33333%","80%","75%","70%","66.66667%","60%","50%","40%","33.33333%","30%","25%","20%","16.66667%","14.28571%","12.5%","11.11111%","10%","5%","-5%","-10%","-11.11111%","-12.5%","-14.28571%","-16.66667%","-20%","-25%","-30%","-33.33333%","-40%","-50%","-60%","-66.66667%","-70%","-75%","-80%","-83,33333%");
         comboboxchoice2.setValue("None");
         List<Categories> listcate = CategoriesDao.getInstance().selectALl();
         ObservableList<String> list = FXCollections.observableArrayList();
