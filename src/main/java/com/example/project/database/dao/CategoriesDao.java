@@ -39,6 +39,7 @@ public class  CategoriesDao {
 			}
 		}
 	}
+
 	//chỉnh sửa categories
 	public boolean update(Categories categories) throws Exception {
 		Session session = null;
@@ -60,6 +61,7 @@ public class  CategoriesDao {
 			}
 		}
 	}
+
 	//lấy danh sách categories
 	public List<Categories> selectALl() {
 		List<Categories> categories = new ArrayList<>();
@@ -81,6 +83,7 @@ public class  CategoriesDao {
 			}
 		}
 	}
+
 	//truy vấn ra danh sách câu hỏi
 	public List<Questions> selectQuestion(String categoryName) {
 		List<Questions> questions = new ArrayList<>();
@@ -102,8 +105,31 @@ public class  CategoriesDao {
 			}
 		}
 	}
+
 	//Đưa ra category theo tên
 public Categories selectCategorybyName(String categoryName) {
+	Categories categories = new Categories();
+	Session session = null;
+	Transaction transaction = null;
+
+	try {
+		session = HibernateUtils.getSessionFactory().openSession();
+		transaction = session.beginTransaction();
+		categories = session.createQuery("FROM Categories c WHERE c.categoryName = :categoryName",
+				Categories.class).setParameter("categoryName",categoryName).getSingleResult();
+		transaction.commit();
+
+		return categories;
+
+	} finally {
+		if (session != null) {
+			session.close();
+		}
+	}
+}
+
+	//đưa ra một category ngẫu nhiên
+	public Categories selectRandomCategory() {
 		Categories categories = new Categories();
 		Session session = null;
 		Transaction transaction = null;
@@ -111,8 +137,7 @@ public Categories selectCategorybyName(String categoryName) {
 		try {
 			session = HibernateUtils.getSessionFactory().openSession();
 			transaction = session.beginTransaction();
-			categories = session.createQuery("FROM Categories c WHERE c.categoryName = :categoryName",
-					Categories.class).setParameter("categoryName",categoryName).getSingleResult();
+			categories = session.createQuery("FROM Categories ORDER BY RAND()", Categories.class).setMaxResults(1).getSingleResult();
 			transaction.commit();
 
 			return categories;
@@ -122,6 +147,13 @@ public Categories selectCategorybyName(String categoryName) {
 				session.close();
 			}
 		}
+	}
+
+	//test
+	public static void main(String[] args) {
+		Categories categories = new Categories();
+		categories = CategoriesDao.getInstance().selectRandomCategory();
+        System.out.println(categories.getCategoryName());
 	}
 
 

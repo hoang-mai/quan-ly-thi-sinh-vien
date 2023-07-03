@@ -141,9 +141,9 @@ countpicture++;
                                 countpicture--;
                             }
                             if(checkLine.charAt(8)==allLine.get(i-countChoice+j-count).charAt(0)){
-                                choice.setGrade(100);
+                                choice.setGrade("100");
                             }
-                            else choice.setGrade(0);
+                            else choice.setGrade("0");
                             ChoiceDao.getInstance().save(choice);
 
                         }

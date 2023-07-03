@@ -17,8 +17,8 @@ public class Choice {
 	@JoinColumn(name = "questions_id")
 	private Questions questions;
 
-	@Column(name = "Grade", nullable = false, columnDefinition = "int")
-	private int grade;
+	@Column(name = "Grade", nullable = false, columnDefinition = "NVARCHAR(6)")
+	private String grade;
 	@Lob
 	@Column(name = "image", nullable = true,columnDefinition = "VARBINARY(MAX)")
 	private byte[] image;
@@ -35,7 +35,7 @@ public class Choice {
 		
 	}
 	
-	public Choice(String choiceText, Questions questions, int grade, byte[] image) {
+	public Choice(String choiceText, Questions questions, String grade, byte[] image) {
 		this.choiceText = choiceText;
 		this.questions = questions;
 		this.grade = grade;
@@ -66,11 +66,11 @@ public class Choice {
 		this.questions = questions;
 	}
 
-	public int getGrade() {
+	public String getGrade() {
 		return grade;
 	}
 
-	public void setGrade(int grade) {
+	public void setGrade(String grade) {
 		this.grade = grade;
 	}
 }

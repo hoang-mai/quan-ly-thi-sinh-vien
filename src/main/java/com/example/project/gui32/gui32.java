@@ -207,14 +207,14 @@ public class gui32 implements Initializable {
             choice1.setQuestions(questions);
             text=comboboxchoice1.getValue();
             String gradee=text.substring(0,text.length()-1);
-            choice1.setGrade(Integer.parseInt(gradee));
+            choice1.setGrade(gradee);
             ChoiceDao.getInstance().save(choice1);
             //save choice 2
             choice1.setChoiceText(choicetext2.getText());
             choice1.setQuestions(questions);
             text=comboboxchoice2.getValue();
             gradee=text.substring(0,text.length()-1);
-            choice1.setGrade(Integer.parseInt(gradee));
+            choice1.setGrade(gradee);
             ChoiceDao.getInstance().save(choice1);
             Stage ag0r = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui21/gui(2.1).fxml"));
@@ -244,14 +244,14 @@ public class gui32 implements Initializable {
             choice1.setQuestions(questions);
             text=comboboxchoice1.getValue();
             String gradee=text.substring(0,text.length()-1);
-            choice1.setGrade(Integer.parseInt(gradee));
+            choice1.setGrade(gradee);
             ChoiceDao.getInstance().save(choice1);
             //save choice 2
             choice1.setChoiceText(choicetext2.getText());
             choice1.setQuestions(questions);
             text=comboboxchoice2.getValue();
             gradee=text.substring(0,text.length()-1);
-            choice1.setGrade(Integer.parseInt(gradee));
+            choice1.setGrade(gradee);
             ChoiceDao.getInstance().save(choice1);
 if(!addMoreChoicesEnabled){
 

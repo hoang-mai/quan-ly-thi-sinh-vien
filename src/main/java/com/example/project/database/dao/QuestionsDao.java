@@ -184,7 +184,7 @@ public class QuestionsDao {
 		}
 	}
 	//ỉn ra màn hình questionName, questionText, choiceText với input là questionId
-	public static void printQuestioninforbyId(int questionId) {
+	public void printQuestioninforbyId(int questionId) {
 		Questions question = new Questions();
 		List<Choice> choices = new ArrayList<>();
 		Session session = null;
@@ -232,7 +232,7 @@ public class QuestionsDao {
 			System.out.println(questions1.getQuestionName());
 
 		}*/
-		QuestionsDao.printQuestioninforbyId(4);
+		QuestionsDao.getInstance().printQuestioninforbyId(4);
 
 	}
 
