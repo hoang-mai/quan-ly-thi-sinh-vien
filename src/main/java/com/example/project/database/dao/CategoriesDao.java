@@ -128,8 +128,8 @@ public Categories selectCategorybyName(String categoryName) {
 	}
 }
 
-	//đưa ra một category ngẫu nhiên
-	public Categories selectRandomCategory() {
+	//đưa ra category có nhiều câu hỏi nhất
+	public Categories selectCategoryMaxQuestion() {
 		Categories categories = new Categories();
 		Session session = null;
 		Transaction transaction = null;
@@ -137,7 +137,8 @@ public Categories selectCategorybyName(String categoryName) {
 		try {
 			session = HibernateUtils.getSessionFactory().openSession();
 			transaction = session.beginTransaction();
-			categories = session.createQuery("FROM Categories ORDER BY RAND()", Categories.class).setMaxResults(1).getSingleResult();
+			categories = session.createQuery("FROM Categories c ORDER BY c.questions.size DESC",
+					Categories.class).setMaxResults(1).getSingleResult();
 			transaction.commit();
 
 			return categories;
@@ -149,13 +150,20 @@ public Categories selectCategorybyName(String categoryName) {
 		}
 	}
 
+	//đưa ra số lượng câu hỏi có trong 1 category
+	public int CountQuestion(String categoryName) {
+		Categories categories = CategoriesDao.getInstance().selectCategorybyName(categoryName);
+		return CategoriesDao.getInstance().selectQuestion(categories.getCategoryName()).size();
+	}
+
+
 	//test
 	public static void main(String[] args) {
 		Categories categories = new Categories();
-		categories = CategoriesDao.getInstance().selectRandomCategory();
+		categories = CategoriesDao.getInstance().selectCategoryMaxQuestion();
         System.out.println(categories.getCategoryName());
+		System.out.println(CategoriesDao.getInstance().CountQuestion(categories.getCategoryName()));
 	}
-
 
 
 
