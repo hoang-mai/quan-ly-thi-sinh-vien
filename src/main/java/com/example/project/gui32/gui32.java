@@ -52,9 +52,6 @@ public class gui32 implements Initializable {
     @FXML
     private Label addingamultipe;
 
-    public gui32() {
-    }
-
     public void setedit(String adding,String combo) {
         a=true;
         addingamultipe.setText(adding);
@@ -253,9 +250,6 @@ public class gui32 implements Initializable {
             gradee=text.substring(0,text.length()-1);
             choice1.setGrade(gradee);
             ChoiceDao.getInstance().save(choice1);
-if(!addMoreChoicesEnabled){
-
-}
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
