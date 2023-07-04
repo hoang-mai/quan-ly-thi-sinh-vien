@@ -76,7 +76,18 @@ public class gui21 implements Initializable {
     @FXML
     private Label youcandraganddrop5;
 
-
+    @FXML
+    void home(ActionEvent event) {
+        try {
+            Stage ag0r1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui11/gui(1.1).fxml"));
+            Scene scene = new Scene(root);
+            ag0r1.setScene(scene);
+            ag0r1.show();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     @FXML
     void alsoquestion(ActionEvent event) {
@@ -105,8 +116,12 @@ public class gui21 implements Initializable {
             scrollpane1.setVisible(true);
             anchorpane1.setVisible(true);
         }
+        String cate=combobox.getValue().trim();
+        int mongoac=cate.length()-1;
+        if(cate.contains("(")){
+         mongoac=cate.indexOf("(");}
         gridpane1.getChildren().clear();
-        List<Questions> danhsachquestion = CategoriesDao.getInstance().selectQuestion(combobox.getValue());
+        List<Questions> danhsachquestion = CategoriesDao.getInstance().selectQuestion(cate.substring(0,mongoac));
         anchorpane1.setPrefHeight(46+40*danhsachquestion.size());
         for (int i = 0; i < danhsachquestion.size(); i++) {
             CheckBox checkBox = new CheckBox(danhsachquestion.get(i).getQuestionName());
@@ -227,58 +242,58 @@ public class gui21 implements Initializable {
         }
     }
 
-        @Override
-        public void initialize(URL url1, ResourceBundle resourceBundle) {
-            gridpane1.setPrefWidth(500);
-            gridpane1.setVgap(10);
-            anchorpane1.getChildren().add(gridpane1);
-            gridpane1.setLayoutX(14);
-            gridpane1.setLayoutY(46);
-            ColumnConstraints column1 = new ColumnConstraints();
-            column1.setPrefWidth(445);
-            ColumnConstraints column2 = new ColumnConstraints();
-            column2.setPrefWidth(55);
-            gridpane1.getColumnConstraints().addAll(column1, column2);
-            List<Categories> listcate = CategoriesDao.getInstance().selectALl();
-            ObservableList<String> list = FXCollections.observableArrayList();
-            for (Categories categories : listcate) {
-                if(categories.getCategories_parent()!=null){
-                    String textcate = categories.getCategoryName();
-                    int count=0;
-                    while (textcate.charAt(count)==' ') {
-                        count++;
-                    }
-                    String whitespace=textcate.substring(0,count);
-                    if(CategoriesDao.getInstance().CountQuestion(categories.getCategoryName())!=0)
-list.add(whitespace+"  "+categories.getCategoryName()+'('+CategoriesDao.getInstance().CountQuestion(categories.getCategoryName())+')');
-                    else list.add(whitespace+"  "+categories.getCategoryName());
+    @Override
+    public void initialize(URL url1, ResourceBundle resourceBundle) {
+        gridpane1.setPrefWidth(500);
+        gridpane1.setVgap(10);
+        anchorpane1.getChildren().add(gridpane1);
+        gridpane1.setLayoutX(14);
+        gridpane1.setLayoutY(46);
+        ColumnConstraints column1 = new ColumnConstraints();
+        column1.setPrefWidth(445);
+        ColumnConstraints column2 = new ColumnConstraints();
+        column2.setPrefWidth(55);
+        gridpane1.getColumnConstraints().addAll(column1, column2);
+        List<Categories> listcate = CategoriesDao.getInstance().selectALl();
+        ObservableList<String> list = FXCollections.observableArrayList();
+        for (Categories categories : listcate) {
+            if(categories.getCategories_parent()!=null){
+                String textcate = categories.getCategoryName();
+                int count=0;
+                while (textcate.charAt(count)==' ') {
+                    count++;
                 }
-                else {
-                    if(CategoriesDao.getInstance().CountQuestion(categories.getCategoryName())!=0)
-                    list.add(categories.getCategoryName() + '(' + CategoriesDao.getInstance().CountQuestion(categories.getCategoryName()) + ')');
-                    else list.add(categories.getCategoryName());
-                }
+                String whitespace=textcate.substring(0,count);
+                if(CategoriesDao.getInstance().CountQuestion(categories.getCategoryName())!=0) {
+                list.add(whitespace+"  "+categories.getCategoryName()+'('+CategoriesDao.getInstance().CountQuestion(categories.getCategoryName())+')');}
+                else list.add(whitespace+"  "+categories.getCategoryName());
             }
-            combobox.setItems(list);
-            categoryinfor1.setWrapText(true);
-            name1.textProperty().addListener((Observable, oldvalue, newValue) -> {
-                if (newValue.isEmpty()) {
-                    canhbao__1.setVisible(true);
-                    addcategory1.setDisable(true);
-                } else {
-                    canhbao__1.setVisible(false);
-                    addcategory1.setDisable(false);
-                }
-            });
-            idnumber1.textProperty().addListener((Observable, oldvalue, newValue) -> {
-                if (newValue.isEmpty()) {
-                    chamhoi2.setVisible(true);
-                } else {
-                    chamhoi2.setVisible(false);
-                }
-            });
-            
+            else {
+                if(CategoriesDao.getInstance().CountQuestion(categories.getCategoryName())!=0)
+                    list.add(categories.getCategoryName() + '(' + CategoriesDao.getInstance().CountQuestion(categories.getCategoryName()) + ')');
+                else list.add(categories.getCategoryName());
+            }
         }
+        combobox.setItems(list);
+        categoryinfor1.setWrapText(true);
+        name1.textProperty().addListener((Observable, oldvalue, newValue) -> {
+            if (newValue.isEmpty()) {
+                canhbao__1.setVisible(true);
+                addcategory1.setDisable(true);
+            } else {
+                canhbao__1.setVisible(false);
+                addcategory1.setDisable(false);
+            }
+        });
+        idnumber1.textProperty().addListener((Observable, oldvalue, newValue) -> {
+            if (newValue.isEmpty()) {
+                chamhoi2.setVisible(true);
+            } else {
+                chamhoi2.setVisible(false);
+            }
+        });
+
+    }
 
 
 

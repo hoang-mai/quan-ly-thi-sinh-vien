@@ -29,6 +29,19 @@
                   <Font size="28.0" />
                </font>
             </Label>
+            <Button layoutX="10.0" layoutY="50.0" mnemonicParsing="false" onAction="#home" styleClass="button-another" text="Home" />
+            <Label layoutX="59.0" layoutY="51.0" prefHeight="25.0" prefWidth="3.0" text="/">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Button layoutX="65.0" layoutY="51.0" mnemonicParsing="false" text="My course" />
+            <Label layoutX="136.0" layoutY="52.0" prefHeight="25.0" prefWidth="3.0" text="/">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Button layoutX="143.0" layoutY="52.0" mnemonicParsing="false" text="THI CUỐI KỲ" />
          </children>
       </Pane>
       <Pane layoutX="47.0" layoutY="150.0" prefHeight="469.0" prefWidth="619.0">

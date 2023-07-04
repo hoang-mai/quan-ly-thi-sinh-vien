@@ -33,11 +33,6 @@ public class gui71 implements Initializable {
     private VBox vbox1;
     @FXML
     private ScrollPane scrollpane;
-    @FXML
-    void one(ActionEvent event) {
-
-
-    }
 
     @FXML
     private Label timeleft;
