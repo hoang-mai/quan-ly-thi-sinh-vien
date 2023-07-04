@@ -218,6 +218,10 @@ public class gui21 implements Initializable {
             categories.setCategoryId(Integer.parseInt(idnumber1.getText()));
             categories.setCategoryInfo(categoryinfor1.getText());
             CategoriesDao.getInstance().save(categories);
+            name1.clear();
+
+            categoryinfor1.clear();
+            idnumber1.clear();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -245,10 +249,15 @@ public class gui21 implements Initializable {
                         count++;
                     }
                     String whitespace=textcate.substring(0,count);
-list.add(whitespace+"  "+categories.getCategoryName());
+                    if(CategoriesDao.getInstance().CountQuestion(categories.getCategoryName())!=0)
+list.add(whitespace+"  "+categories.getCategoryName()+'('+CategoriesDao.getInstance().CountQuestion(categories.getCategoryName())+')');
+                    else list.add(whitespace+"  "+categories.getCategoryName());
                 }
-                else list.add(categories.getCategoryName());
-
+                else {
+                    if(CategoriesDao.getInstance().CountQuestion(categories.getCategoryName())!=0)
+                    list.add(categories.getCategoryName() + '(' + CategoriesDao.getInstance().CountQuestion(categories.getCategoryName()) + ')');
+                    else list.add(categories.getCategoryName());
+                }
             }
             combobox.setItems(list);
             categoryinfor1.setWrapText(true);

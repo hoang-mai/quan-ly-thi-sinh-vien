@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -35,7 +36,6 @@ public class gui71 implements Initializable {
     @FXML
     void one(ActionEvent event) {
 
-scrollpane.setVvalue(vbox1.getLayoutY()/anchorpane.getHeight());
 
     }
 
@@ -65,6 +65,10 @@ scrollpane.setVvalue(vbox1.getLayoutY()/anchorpane.getHeight());
         dialog.show();
     }
     private  int timeRemaining=QuizDao.getInstance().getQuiz().getTimeLimit()*60;
+    @FXML
+    void one1(MouseEvent event) {
+        scrollpane.setVvalue(vbox1.getLayoutY()/anchorpane.getHeight());
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 toggleGroup.selectedToggleProperty().addListener((observable,oldvalue,newvalue)->{

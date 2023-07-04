@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="830.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui71.gui71">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="830.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui71.gui71">
    <children>
       <Pane prefHeight="47.0" prefWidth="830.0" />
       <Pane layoutX="-1.0" layoutY="47.0" prefHeight="92.0" prefWidth="830.0" />
@@ -86,6 +86,11 @@
                         <Insets left="3.0" />
                      </GridPane.margin>
                   </Button>
+                  <Pane onMouseClicked="#one1" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                     <children>
+                        <Label layoutX="13.0" layoutY="3.0" text="1" />
+                     </children>
+                  </Pane>
                </children>
                <padding>
                   <Insets left="5.0" />
