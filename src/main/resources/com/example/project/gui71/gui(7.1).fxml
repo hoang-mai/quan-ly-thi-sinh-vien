@@ -86,12 +86,17 @@
                         <Insets left="3.0" />
                      </GridPane.margin>
                   </Button>
+                  <Pane onMouseClicked="#one1" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                     <children>
+                        <Label layoutX="13.0" layoutY="3.0" text="1" />
+                     </children>
+                  </Pane>
                </children>
                <padding>
                   <Insets left="5.0" />
                </padding>
             </GridPane>
-            <Button layoutY="467.0" mnemonicParsing="false" onAction="#finishattempt" text="Finish attempt.." />
+            <Button layoutY="467.0" mnemonicParsing="false" onAction="#finishattempt" styleClass="button-text-blue" text="Finish attempt.." />
          </children>
       </Pane>
    </children>

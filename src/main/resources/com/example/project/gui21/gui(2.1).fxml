@@ -20,9 +20,9 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="720.0" style="-fx-background-color: no;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui21.gui21">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="720.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui21.gui21">
    <children>
-      <Pane layoutX="47.0" layoutY="32.0" prefHeight="91.0" prefWidth="619.0" style="-fx-border-color: lightgray;">
+      <Pane layoutX="47.0" layoutY="32.0" prefHeight="91.0" prefWidth="619.0" styleClass="pane-border-solid">
          <children>
             <Label layoutX="17.0" layoutY="10.0" text="IT" textFill="#dd0e0e">
                <font>
@@ -31,13 +31,13 @@
             </Label>
          </children>
       </Pane>
-      <Pane layoutX="47.0" layoutY="150.0" prefHeight="469.0" prefWidth="619.0" style="-fx-border-color: lightgray;">
+      <Pane layoutX="47.0" layoutY="150.0" prefHeight="469.0" prefWidth="619.0">
          <children>
-            <TabPane prefHeight="517.0" prefWidth="619.0" style="-fx-border-color: lightgray;" tabClosingPolicy="UNAVAILABLE">
+            <TabPane prefHeight="517.0" prefWidth="619.0" tabClosingPolicy="UNAVAILABLE">
                <tabs>
                   <Tab closable="false" text="Questions">
                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="307.0" prefWidth="396.0" style="-fx-background-color: no;">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="307.0" prefWidth="396.0">
                            <children>
                               <Label layoutX="14.0" layoutY="14.0" text="Question bank" textFill="#dd0e0e">
                                  <font>
@@ -45,11 +45,11 @@
                                  </font>
                               </Label>
                               <Label layoutX="14.0" layoutY="49.0" text="Select a category:" />
-                              <ComboBox fx:id="combobox" layoutX="119.0" layoutY="45.0" onAction="#comboBoxChanged" prefHeight="28.0" prefWidth="211.0" promptText="     Default" style="-fx-background-color: no; -fx-border-color: black;" />
+                              <ComboBox fx:id="combobox" layoutX="119.0" layoutY="45.0" onAction="#comboBoxChanged" prefHeight="28.0" prefWidth="211.0" promptText="Default" />
                               <Label layoutX="14.0" layoutY="80.0" text="The default category questions shared in context" />
                               <CheckBox fx:id="alsoquestion1" layoutX="14.0" layoutY="104.0" mnemonicParsing="false" onAction="#alsoquestion" style="box: black;" text="Also show questions from subcategories" />
                               <CheckBox layoutX="14.0" layoutY="135.0" mnemonicParsing="false" text="Also show old questions" />
-                              <Button layoutX="14.0" layoutY="162.0" mnemonicParsing="false" onAction="#createquestion" style="-fx-background-color: #1080b7;" text="CREATE A NEW QUESTION ..." textFill="#f6f2f2">
+                              <Button layoutX="14.0" layoutY="162.0" mnemonicParsing="false" onAction="#createquestion" styleClass="button-blue" text="CREATE A NEW QUESTION ..." textFill="#f6f2f2">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -88,7 +88,7 @@
                      <content>
                         <AnchorPane disable="true" minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="372.0">
                            <children>
-                              <Pane prefHeight="494.0" prefWidth="619.0" style="-fx-background-color: white;">
+                              <Pane prefHeight="494.0" prefWidth="619.0">
                                  <children>
                                     <Label layoutX="35.0" layoutY="86.0" text="Parent category" />
                                     <ComboBox layoutX="304.0" layoutY="91.0" opacity="0.8" prefWidth="150.0" promptText="Default" />
@@ -129,7 +129,7 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <Pane prefHeight="537.0" prefWidth="619.0" style="-fx-background-color: white;">
+                              <Pane prefHeight="537.0" prefWidth="619.0">
                                  <children>
                                     <Label layoutX="14.0" layoutY="14.0" text="Import question from file" />
                                     <Label layoutX="14.0" layoutY="42.0" text="File format" />
@@ -137,7 +137,7 @@
                                     <Label layoutX="14.0" layoutY="80.0" text="General" />
                                     <Label layoutX="14.0" layoutY="132.0" text="Import question from file" />
                                     <Label layoutX="14.0" layoutY="239.0" text="Import" />
-                                    <Button alignment="CENTER" layoutX="271.0" layoutY="232.0" mnemonicParsing="false" onAction="#chooseafile" prefHeight="31.0" prefWidth="103.0" styleClass="button1" text="CHOOSE A FILE" />
+                                    <Button alignment="CENTER" layoutX="271.0" layoutY="232.0" mnemonicParsing="false" onAction="#chooseafile" prefHeight="31.0" prefWidth="103.0" styleClass="button-blue" text="CHOOSE A FILE" />
                                     <Label layoutX="387.0" layoutY="240.0" text="Maximum size for new files:100MB">
                                        <font>
                                           <Font size="10.0" />
@@ -149,7 +149,7 @@
                                        </image>
                                     </ImageView>
                                     <Button fx:id="import11" disable="true" layoutX="270.0" layoutY="457.0" mnemonicParsing="false" onAction="#import1" prefHeight="31.0" prefWidth="68.0" styleClass="button-red" text="IMPORT" />
-                                    <Pane fx:id="youcandraganddrop1" layoutX="271.0" layoutY="279.0" onDragDropped="#youcandraganddrop2" onDragEntered="#youcandraganddrop3" onDragExited="#youcandraganddrop4" onDragOver="#youcandraganddrop" prefHeight="146.0" prefWidth="283.0" styleClass="pane2">
+                                    <Pane fx:id="youcandraganddrop1" layoutX="271.0" layoutY="279.0" onDragDropped="#youcandraganddrop2" onDragEntered="#youcandraganddrop3" onDragExited="#youcandraganddrop4" onDragOver="#youcandraganddrop" opacity="0.72" prefHeight="146.0" prefWidth="283.0" style="-fx-border-color: #9b9898;" styleClass="pane-border-solid">
                                        <children>
                                           <Label fx:id="youcandraganddrop5" alignment="CENTER" layoutX="18.0" layoutY="104.0" prefHeight="17.0" prefWidth="248.0" text="You can drag and drop files here to add them" />
                                           <ImageView fitHeight="72.0" fitWidth="82.0" layoutX="105.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
@@ -157,11 +157,11 @@
                                                 <Image url="@../ImageView/down-arrow.png" />
                                              </image>
                                           </ImageView>
-                                          <Pane layoutX="10.0" layoutY="10.0" prefHeight="127.0" prefWidth="263.0" styleClass="pane3" />
+                                          <Pane layoutX="10.0" layoutY="10.0" prefHeight="127.0" prefWidth="263.0" style="-fx-border-style: dashed; -fx-border-width: 3px;" styleClass="pane-border-dashed" />
                                        </children>
                                     </Pane>
-                                    <Line endX="435.4000244140625" layoutX="115.0" layoutY="66.0" opacity="0.2" startX="-108.60000610351562" />
-                                    <Line endX="436.199951171875" layoutX="115.0" layoutY="122.0" opacity="0.2" startX="-108.60000610351562" />
+                                    <Line endX="490.800048828125" layoutX="115.0" layoutY="66.0" startX="-108.60000610351562" stroke="#9b9898" strokeWidth="0.5" styleClass="line1" />
+                                    <Line endX="487.5999755859375" endY="1.52587890625E-5" layoutX="115.0" layoutY="122.0" startX="-108.60000610351562" stroke="#9b9898" strokeWidth="0.5" styleClass="line1" />
                                  </children>
                               </Pane>
                            </children>

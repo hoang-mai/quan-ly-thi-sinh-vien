@@ -17,8 +17,9 @@ public class Categories {
 	@Column(name = "category_info", nullable = false, columnDefinition = "NVARCHAR(1000)")
 	private String categoryInfo;
 
-	@Column(name = "question_count")
-	private int questionCount;
+	@ManyToOne
+	@JoinColumn(name = "category_parent", nullable = true)
+	private Categories categories_parent;
 
 	@ManyToMany(mappedBy = "categories", fetch = FetchType.LAZY)
 	private Set<Quiz> quiz;
@@ -30,13 +31,22 @@ public class Categories {
 		
 	}
 
-	public Categories(String categoryName, String categoryInfo, int questionCount, Set<Quiz> quiz, Set<Questions> questions) {
+	public Categories(String categoryName, String categoryInfo, Set<Quiz> quiz, Set<Questions> questions,Categories categories_parent) {
 		this.categoryName = categoryName;
 		this.categoryInfo = categoryInfo;
-		this.questionCount = questionCount;
 		this.quiz = quiz;
-		this.questions=questions;
+		this.questions = questions;
+		this.categories_parent=categories_parent;
 	}
+
+	public Categories getCategories_parent() {
+		return categories_parent;
+	}
+
+	public void setCategories_parent(Categories categories_parent) {
+		this.categories_parent = categories_parent;
+	}
+
 	public Set<Questions> getQuestions() {
 		return questions;
 	}
@@ -66,14 +76,6 @@ public class Categories {
 
 	public void setCategoryInfo(String categoryInfo) {
 		this.categoryInfo = categoryInfo;
-	}
-
-	public int getQuestionCount() {
-		return questionCount;
-	}
-
-	public void setQuestionCount(int questionCount) {
-		this.questionCount = questionCount;
 	}
 
 	public Set<Quiz> getQuiz() {

@@ -70,21 +70,23 @@ public class TestDB {
 
 		choice1.setChoiceText("Lựa chọn 1");
 		choice1.setQuestions(questions1);
+		choice1.setGrade("100");
 
 		choice2.setChoiceText("Lựa chọn 2");
 		choice2.setQuestions(questions2);
+		choice2.setGrade("0");
 
-		categories1.setCategoryId(0);
 		categories1.setCategoryInfo("Đây là thể loại 1");
+		categories1.setCategoryId(1);
 		categories1.setCategoryName("Loại 1");
-		categories1.setQuestionCount(4);
 		categories1.setQuiz(quizs);
 
-		categories2.setCategoryId(1);
 		categories2.setCategoryInfo("Đây là thể loại 2");
+		categories2.setCategoryId(2);
 		categories2.setCategoryName("Loại 2");
-		categories2.setQuestionCount(2);
+
 		categories2.setQuiz(quizs);
+
 
 		//questions1.setAnswer("A");
 		questions1.setQuestionName("Câu hỏi 1");
@@ -102,22 +104,37 @@ public class TestDB {
 
 		///////////////////////////////////////////////////////
 		UserDao.getInstance().save(user);
+		for(int i=3;i<10;i++){
+Categories categories3=new Categories();
+categories3.setCategoryId(i);
+categories3.setCategoryInfo("Đây là thể loại"+i);
+			categories3.setCategoryName("Loại"+i);
+			categories3.setQuiz(quizs);
+			CategoriesDao.getInstance().save(categories3);
 
+		}
 		CategoriesDao.getInstance().save(categories1);
 		CategoriesDao.getInstance().save(categories2);
+		Categories categories4=new Categories();
+		categories4.setCategoryId(10);
+		categories4.setCategoryInfo("Đây là thể loại"+10);
+		categories4.setCategoryName("Loại"+10);
+		categories4.setQuiz(quizs);
+		categories4.setCategories_parent(categories1);
+		CategoriesDao.getInstance().save(categories4);
+
+
+
 
 		QuizDao.getInstance().save(quiz1);
 		QuizDao.getInstance().save(quiz2);
-
 		for (int i = 3; i <= 10; i++) {
-			Questions question3 = new Questions();
-			question3.setQuestionName("Câu hỏi " + i);
-			question3.setQuestionText("Nội dung câu hỏi " + i);
-			question3.setCategories(categories1);
-			question3.setDefaultmark(1);
-			questions.add(question3);
-			QuestionsDao.getInstance().save(question3);
-
+			Questions questiontmp = new Questions();
+			questiontmp.setQuestionName("Câu hỏi " + i);
+			questiontmp.setQuestionText("Nội dung câu hỏi " + i);
+			questiontmp.setCategories(categories1);
+			questiontmp.setDefaultmark(1);
+			QuestionsDao.getInstance().save(questiontmp);
 		}
 		QuestionsDao.getInstance().save(questions1);
 		QuestionsDao.getInstance().save(questions2);

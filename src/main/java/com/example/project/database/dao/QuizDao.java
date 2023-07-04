@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.project.database.entities.Choice;
+import com.example.project.database.entities.Questions;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -94,18 +96,57 @@ public class QuizDao {
 
 			return quiz;
 
-		} catch (HibernateException e) {
-			if (transaction != null) {
-				transaction.rollback();
-			}
-			return null;
 		} finally {
 			if (session != null) {
 				session.close();
 			}
 		}
 	}
+
+	//in ra danh sách câu hỏi có trong quiz với input là quizName
+	public List<Questions> selectQuestion(String quizName) {
+		List<Questions> questions = new ArrayList<>();
+		quiz = QuizDao.getInstance().selectByName(quizName);
+		int quiz_id = quiz.getQuizId();
+		Session session = null;
+		Transaction transaction = null;
+
+		try {
+			session = HibernateUtils.getSessionFactory().openSession();
+			transaction = session.beginTransaction();
+			questions = session.createQuery("SELECT q FROM Questions q " +
+							"JOIN q.quiz quiz " +
+							"WHERE quiz.quizId = :quiz_id",
+					Questions.class).setParameter("quiz_id",quiz_id).getResultList();
+			transaction.commit();
+
+			return questions;
+
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+	}
+
+	//test
+	public static void main(String[] args) {
+		List<Quiz> quiz = new ArrayList<>();
+		quiz = QuizDao.getInstance().selectALl();
+		//for (Quiz quiz1 : quiz) {
+		//	System.out.println(quiz1.getQuizName());
+		//}
+		List<Questions> questions = new ArrayList<>();
+		questions = QuizDao.getInstance().selectQuestion("Quiz1");
+		for (Questions question : questions) {
+			QuestionsDao.getInstance().printQuestioninforbyId(question.getQuestionId());
+		}
+	}
+
 }
+
+
+
 
 
 
