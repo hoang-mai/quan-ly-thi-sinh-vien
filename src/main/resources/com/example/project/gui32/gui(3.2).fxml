@@ -19,9 +19,9 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="2200.0" prefWidth="600.0">
                <children>
-                    <Pane layoutX="14.0" layoutY="146.0" prefHeight="1154.0" prefWidth="600.0" styleClass="button3">
+                    <Pane layoutX="14.0" layoutY="75.0" prefHeight="1154.0" prefWidth="600.0" styleClass="button3">
                         <children>
-                            <ImageView fx:id="imageView" fitHeight="113.0" fitWidth="184.0" layoutX="336.0" layoutY="338.0" pickOnBounds="true" preserveRatio="true" />
+                            <ImageView fx:id="imageView" fitHeight="90.0" fitWidth="154.0" layoutX="347.0" layoutY="338.0" pickOnBounds="true" preserveRatio="true" />
                             <Button layoutX="253.0" layoutY="338.0" mnemonicParsing="false" onAction="#insertImage" styleClass="button-another" text="Insert Image" />
                             <Label layoutX="61.0" layoutY="134.0" text="Question name" />
                             <Label layoutX="61.0" layoutY="189.0" text="Question text" />
@@ -58,16 +58,16 @@
                                     <TextArea fx:id="choicetext1" layoutX="62.0" layoutY="11.0" prefHeight="68.0" prefWidth="198.0" />
                                     <ComboBox fx:id="comboboxchoice1" layoutX="62.0" layoutY="93.0" opacity="0.8" prefHeight="25.0" prefWidth="150.0" />
                                     <Button layoutX="12.0" layoutY="136.0" mnemonicParsing="false" onAction="#InsertImageChoice1" styleClass="button-another" text="Image" />
-                                    <ImageView fx:id="ImageChoice1" fitHeight="77.0" fitWidth="200.0" layoutX="72.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true" />
+                                    <ImageView fx:id="ImageChoice1" fitHeight="60.0" fitWidth="93.0" layoutX="117.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true" />
                                  </children>
                               </Pane>
-                              <Pane fx:id="originalPane1" prefHeight="230.0" prefWidth="300.0" style="-fx-border-color: black;">
+                              <Pane fx:id="originalPane1" prefHeight="200.0" prefWidth="300.0" style="-fx-border-color: black;">
                                  <children>
                                     <Label layoutX="10.0" layoutY="64.0" text="Choice 2" />
                                     <Label layoutX="22.0" layoutY="97.0" text="Grade" />
                                     <TextArea fx:id="choicetext2" layoutX="62.0" layoutY="11.0" prefHeight="68.0" prefWidth="198.0" />
                                     <ComboBox fx:id="comboboxchoice2" layoutX="62.0" layoutY="93.0" opacity="0.8" prefHeight="25.0" prefWidth="150.0" />
-                                    <ImageView fx:id="ImageChoice2" fitHeight="77.0" fitWidth="200.0" layoutX="72.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true" />
+                                    <ImageView fx:id="ImageChoice2" fitHeight="60.0" fitWidth="93.0" layoutX="117.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true" />
                                     <Button layoutX="13.0" layoutY="136.0" mnemonicParsing="false" onAction="#InsertImageChoice2" styleClass="button-another" text="Image" />
                                  </children>
                               </Pane>
