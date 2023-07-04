@@ -1,6 +1,8 @@
 package com.example.project.database.dao;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,7 +76,23 @@ public class  CategoriesDao {
 			categories = session.createQuery("FROM Categories", Categories.class).getResultList();
 
 			transaction.commit();
+            if (categories==null)
+			{
+				Categories tmp = new Categories();
+				tmp.setCategoryId(0);
+				// Lấy ngày tháng năm hiện tại
+				LocalDate currentDate = LocalDate.now();
 
+				// Định dạng ngày tháng
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+				// Chuyển đổi thành chuỗi
+				String dateString = currentDate.format(formatter);
+				//lưu vào category
+				tmp.setCategoryName(dateString);
+				tmp.setCategoryInfo("Tạo vào " + dateString);
+				categories.add(tmp);
+			}
 			return categories;
 
 		} finally {
@@ -155,14 +173,61 @@ public Categories selectCategorybyName(String categoryName) {
 		Categories categories = CategoriesDao.getInstance().selectCategorybyName(categoryName);
 		return CategoriesDao.getInstance().selectQuestion(categories.getCategoryName()).size();
 	}
+//get Child category
+	public List<Categories> getChildCategories(String categoryName) {
+		List<Categories> categories = new ArrayList<>();
+		Session session = null;
+		Transaction transaction = null;
+
+		try {
+			session = HibernateUtils.getSessionFactory().openSession();
+			transaction = session.beginTransaction();
+			categories = session.createQuery("FROM Categories c WHERE c.parentCategory.categoryName = :categoryName", Categories.class)
+					.setParameter("categoryName", categoryName).getResultList();
+			transaction.commit();
+
+			return categories;
+
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+	}
+	// show all questions from subcategory
+	public List<Questions> selectQuestionfromSubCategory(String categoryName) {
+		List<Questions> questions = new ArrayList<>();
+		Session session = null;
+		Transaction transaction = null;
+
+		try {
+			session = HibernateUtils.getSessionFactory().openSession();
+			transaction = session.beginTransaction();
+			questions = session.createQuery("FROM Questions q WHERE q.categories.categoryName = :categoryName OR q.categories.categories_parent.categoryName = :categoryName",
+					Questions.class).setParameter("categoryName",categoryName).getResultList();
+			transaction.commit();
+
+			return questions;
+
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+	}
+
 
 
 	//test
-	public static void main(String[] args) {
-		Categories categories = new Categories();
-		categories = CategoriesDao.getInstance().selectCategoryMaxQuestion();
-        System.out.println(categories.getCategoryName());
-		System.out.println(CategoriesDao.getInstance().CountQuestion(categories.getCategoryName()));
+	public static void main(String[] args) throws Exception {
+        List<Categories> categories = CategoriesDao.getInstance().selectALl();
+		List<Categories> treelist = new ArrayList<>();
+		for (Categories category : categories) {
+			if (category.getCategories_parent() == null) {
+				treelist.add(category);
+			}
+		}
+
 	}
 
 
