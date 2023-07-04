@@ -76,23 +76,7 @@ public class  CategoriesDao {
 			categories = session.createQuery("FROM Categories", Categories.class).getResultList();
 
 			transaction.commit();
-            if (categories==null)
-			{
-				Categories tmp = new Categories();
-				tmp.setCategoryId(0);
-				// Lấy ngày tháng năm hiện tại
-				LocalDate currentDate = LocalDate.now();
 
-				// Định dạng ngày tháng
-				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
-				// Chuyển đổi thành chuỗi
-				String dateString = currentDate.format(formatter);
-				//lưu vào category
-				tmp.setCategoryName(dateString);
-				tmp.setCategoryInfo("Tạo vào " + dateString);
-				categories.add(tmp);
-			}
 			return categories;
 
 		} finally {
@@ -158,9 +142,26 @@ public Categories selectCategorybyName(String categoryName) {
 			categories = session.createQuery("FROM Categories c ORDER BY c.questions.size DESC",
 					Categories.class).setMaxResults(1).getSingleResult();
 			transaction.commit();
+			if (categories==null)
+			{
+				categories.setCategoryId(0);
+				// Lấy ngày tháng năm hiện tại
+				LocalDate currentDate = LocalDate.now();
 
+				// Định dạng ngày tháng
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+				// Chuyển đổi thành chuỗi
+				String dateString = currentDate.format(formatter);
+				//lưu vào category
+				categories.setCategoryName(dateString);
+				categories.setCategoryInfo("Tạo vào " + dateString);
+				CategoriesDao.getInstance().save(categories);
+			}
 			return categories;
 
+		} catch (Exception e) {
+			throw new RuntimeException(e);
 		} finally {
 			if (session != null) {
 				session.close();
