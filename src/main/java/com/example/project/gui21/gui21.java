@@ -279,11 +279,13 @@ public class gui21 implements Initializable {
         name1.textProperty().addListener((Observable, oldvalue, newValue) -> {
             if (newValue.isEmpty()) {
                 canhbao__1.setVisible(true);
-                addcategory1.setDisable(true);
             } else {
                 canhbao__1.setVisible(false);
-                addcategory1.setDisable(false);
             }
+            if(newValue.isEmpty() || idnumber1.getText().isEmpty()){
+                addcategory1.setDisable(true);
+            }
+            else addcategory1.setDisable(false);
         });
         idnumber1.textProperty().addListener((Observable, oldvalue, newValue) -> {
             if (newValue.isEmpty()) {
@@ -291,6 +293,10 @@ public class gui21 implements Initializable {
             } else {
                 chamhoi2.setVisible(false);
             }
+            if(newValue.isEmpty()|| name1.getText().isEmpty()){
+                addcategory1.setDisable(true);
+            }
+            else addcategory1.setDisable(false);
         });
 
     }

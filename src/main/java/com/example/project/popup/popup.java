@@ -21,17 +21,33 @@ public class popup {
     private Pane popup;
 public int b=0;
     @FXML
-    void categories(ActionEvent event) {
+    void categories(ActionEvent event) {b=1;
+        b=1;
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui21/gui(2.1).fxml"));
-            Scene scene = new Scene(root);
-            Stage ag0r = new Stage();
-            ag0r.setScene(scene);
-            ag0r.show();
+            // Tạo FXMLLoader và tải GUI mới
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/project/gui21/gui(2.1).fxml"));
+            Parent newRoot = loader.load();
+
+            // Lấy TabPane mới từ FXMLLoader
+            TabPane newTabPane = (TabPane) newRoot.lookup("#tabPane");
+
+            // Lấy Tab cần chuyển đến
+            Tab desiredTab = newTabPane.getTabs().get(1);
+
+            // Lấy Stage hiện tại
             Stage a = (Stage) popup.getScene().getWindow();
             a.hide();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+
+            // Tạo Scene mới với TabPane mới
+            Scene newScene = new Scene(newRoot);
+            Stage currentStage=new Stage();
+            // Đặt Scene mới cho Stage hiện tại
+            currentStage.setScene(newScene);
+            currentStage.show();
+            // Chọn Tab cần chuyển đến trong TabPane mới
+            newTabPane.getSelectionModel().select(desiredTab);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -52,6 +68,7 @@ public int b=0;
 
     @FXML
     void import1(ActionEvent event) {
+        b=1;
         try {
             // Tạo FXMLLoader và tải GUI mới
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/project/gui21/gui(2.1).fxml"));
@@ -64,14 +81,15 @@ public int b=0;
             Tab desiredTab = newTabPane.getTabs().get(2);
 
             // Lấy Stage hiện tại
-            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Stage a = (Stage) popup.getScene().getWindow();
+            a.hide();
 
             // Tạo Scene mới với TabPane mới
             Scene newScene = new Scene(newRoot);
-
+Stage currentStage=new Stage();
             // Đặt Scene mới cho Stage hiện tại
             currentStage.setScene(newScene);
-
+currentStage.show();
             // Chọn Tab cần chuyển đến trong TabPane mới
             newTabPane.getSelectionModel().select(desiredTab);
         } catch (IOException e) {
