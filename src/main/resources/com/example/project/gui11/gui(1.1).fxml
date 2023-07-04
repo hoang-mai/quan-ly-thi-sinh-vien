@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="694.0" prefWidth="600.0" styleClass="pane-border-solid" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui11.gui11">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="694.0" prefWidth="600.0" styleClass="pane-border-solid" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui11.gui11">
     <children>
         <Pane layoutX="25.0" layoutY="54.0" prefHeight="119.0" prefWidth="551.0" styleClass="pane-border-solid">
             <children>
@@ -19,13 +19,27 @@
                         <Image url="@../ImageView/setting.png" />
                      </image>
                   </ImageView>
-               </graphic></Button>
+               </graphic>
+            </Button>
                 <Label fx:id="it" layoutX="27.0" prefHeight="33.0" prefWidth="31.0" text="IT" textFill="#ec3939">
                     <font>
                         <Font size="35.0" />
                     </font>
                 </Label>
                 <Button layoutX="409.0" layoutY="80.0" mnemonicParsing="false" onAction="#turneditingon" styleClass="button-blue" text="TURN EDITING ON" />
+            <Button layoutX="17.0" layoutY="60.0" mnemonicParsing="false" text="Home" />
+            <Label layoutX="64.0" layoutY="60.0" prefHeight="25.0" prefWidth="3.0" text="/">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Button layoutX="70.0" layoutY="60.0" mnemonicParsing="false" text="My course" />
+            <Label layoutX="141.0" layoutY="61.0" prefHeight="25.0" prefWidth="3.0" text="/">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Button layoutX="147.0" layoutY="60.0" mnemonicParsing="false" text="THI CUỐI KỲ" />
             </children>
         </Pane>
         <Pane layoutX="25.0" layoutY="181.0" prefHeight="479.0" prefWidth="551.0" styleClass="pane-border-solid">

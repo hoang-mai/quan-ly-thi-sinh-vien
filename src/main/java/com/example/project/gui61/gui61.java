@@ -14,6 +14,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import javafx.scene.text.Text;
@@ -25,6 +26,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class gui61 implements Initializable {
+    @FXML
+    private Button quizname;
 
     @FXML
     private Label tenquiz;
@@ -70,12 +73,11 @@ public class gui61 implements Initializable {
     @FXML
     void home(ActionEvent event) {
         try {
-            Stage a = (Stage) timelimit1.getScene().getWindow();
-            FXMLLoader loader= new FXMLLoader(getClass().getResource("/com/example/project/gui11/gui(1.1).fxml"));
-            Parent root = loader.load();
+            Stage ag0r1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui11/gui(1.1).fxml"));
             Scene scene = new Scene(root);
-
-            a.setScene(scene);
+            ag0r1.setScene(scene);
+            ag0r1.show();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -85,6 +87,7 @@ public class gui61 implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Text text = new Text();
         tenquiz.setGraphic(text);
+        quizname.setText(QuizDao.getInstance().getQuiz().getQuizName());
 text.setText(QuizDao.getInstance().getQuiz().getQuizName());
         timelimit1.setText(QuizDao.getInstance().getQuiz().getTimeLimit()+" minutes");
     }

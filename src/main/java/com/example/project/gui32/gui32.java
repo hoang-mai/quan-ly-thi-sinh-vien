@@ -52,9 +52,6 @@ public class gui32 implements Initializable {
     @FXML
     private Label addingamultipe;
 
-    public gui32() {
-    }
-
     public void setedit(String adding,String combo) {
         a=true;
         addingamultipe.setText(adding);
@@ -100,6 +97,30 @@ public class gui32 implements Initializable {
     private TextArea choicetext4;
     @FXML
     private TextArea choicetext5;
+    @FXML
+    void questionbank(ActionEvent event) {
+        try {
+            Stage ag0r1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui21/gui(2.1).fxml"));
+            Scene scene = new Scene(root);
+            ag0r1.setScene(scene);
+            ag0r1.show();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    @FXML
+    void home(ActionEvent event) {
+        try {
+            Stage ag0r1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui11/gui(1.1).fxml"));
+            Scene scene = new Scene(root);
+            ag0r1.setScene(scene);
+            ag0r1.show();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
     @FXML
     public void insertImage() {
         FileChooser fileChooser = new FileChooser();
@@ -193,6 +214,7 @@ public class gui32 implements Initializable {
     void savechanges(ActionEvent event) {
 
         try {
+            String text;
             Questions questions = new Questions();
             questions.setQuestionName(questtionname1.getText());
             questions.setQuestionText(questiontext1.getText());
@@ -201,14 +223,42 @@ public class gui32 implements Initializable {
             Categories categories = CategoriesDao.getInstance().selectCategorybyName(combobox.getValue());
             questions.setCategories(categories);
             QuestionsDao.getInstance().save(questions);
-            Choice choice1 = new Choice();
-            choice1.setChoiceText(choicetext1.getText());
-            choice1.setQuestions(questions);
-            ChoiceDao.getInstance().save(choice1);
-            //save choice 2
-            choice1.setChoiceText(choicetext2.getText());
-            choice1.setQuestions(questions);
-            ChoiceDao.getInstance().save(choice1);
+
+            ObservableList<Node> vboxChildren = vbox.getChildren();
+            for (int i = 0; i < vboxChildren.size() - 1; i++) {
+                Node node = vboxChildren.get(i);
+                if (node instanceof Pane) {
+                    Pane pane = (Pane) node;
+
+                    // Lấy giá trị choice từ các thành phần UI trong pane
+                    String choiceText = null;
+String textcombobox = null;
+                    for (Node childNode : pane.getChildren()) {
+                        if (childNode instanceof TextField) {
+                            TextField choiceField = (TextField) childNode;
+                            choiceText = choiceField.getText();
+                            break;
+                        } else if (childNode instanceof ComboBox) {
+                            ComboBox<String> comboBox = (ComboBox<String>) childNode;
+                            String selectedValue = comboBox.getValue();
+                            if (selectedValue != null) {
+                                textcombobox = selectedValue;
+                                break;
+                            }
+                        }
+                    }
+
+                    // Kiểm tra nếu choiceText không rỗng, tức là có giá trị
+                    if (choiceText != null && !choiceText.isEmpty()) {
+                        Choice choice = new Choice();
+                        choice.setChoiceText(choiceText);
+                        choice.setQuestions(questions);
+                        String grade= textcombobox.substring(0,textcombobox.length()-1);
+                        ChoiceDao.getInstance().save(choice);
+                    }
+                }
+            }
+
             Stage ag0r = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui21/gui(2.1).fxml"));
             Scene scene = new Scene(root);
@@ -222,6 +272,8 @@ public class gui32 implements Initializable {
     @FXML
     void savechangesandcontinue(ActionEvent event) {
         try {
+            // lấy text của choice
+            String text;
             Questions questions = new Questions();
             questions.setQuestionName(questtionname1.getText());
             questions.setQuestionText(questiontext1.getText());
@@ -230,11 +282,20 @@ public class gui32 implements Initializable {
             Categories categories = CategoriesDao.getInstance().selectCategorybyName(combobox.getValue());
             questions.setCategories(categories);
             QuestionsDao.getInstance().save(questions);
-            Stage ag0r = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui32/gui(3.2).fxml"));
-            Scene scene = new Scene(root);
-            ag0r.setScene(scene);
-
+            Choice choice1 = new Choice();
+            choice1.setChoiceText(choicetext1.getText());
+            choice1.setQuestions(questions);
+            text=comboboxchoice1.getValue();
+            String gradee=text.substring(0,text.length()-1);
+            choice1.setGrade(gradee);
+            ChoiceDao.getInstance().save(choice1);
+            //save choice 2
+            choice1.setChoiceText(choicetext2.getText());
+            choice1.setQuestions(questions);
+            text=comboboxchoice2.getValue();
+            gradee=text.substring(0,text.length()-1);
+            choice1.setGrade(gradee);
+            ChoiceDao.getInstance().save(choice1);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
