@@ -33,7 +33,7 @@
       </Pane>
       <Pane layoutX="47.0" layoutY="150.0" prefHeight="469.0" prefWidth="619.0">
          <children>
-            <TabPane prefHeight="517.0" prefWidth="619.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane fx:id="tabPane" prefHeight="517.0" prefWidth="619.0" tabClosingPolicy="UNAVAILABLE">
                <tabs>
                   <Tab closable="false" text="Questions">
                      <content>
