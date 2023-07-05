@@ -129,6 +129,27 @@ public class  CategoriesDao {
 			}
 		}
 	}
+	//đưa ra category theo id
+	public Categories selectCategorybyId(int categoryId) {
+		Categories categories = new Categories();
+		Session session = null;
+		Transaction transaction = null;
+
+		try {
+			session = HibernateUtils.getSessionFactory().openSession();
+			transaction = session.beginTransaction();
+			categories = session.createQuery("FROM Categories c WHERE c.categoryId = :categoryId",
+					Categories.class).setParameter("categoryId", categoryId).getSingleResult();
+			transaction.commit();
+
+			return categories;
+
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+	}
 
 	//đưa ra category có nhiều câu hỏi nhất
 	public Categories selectCategoryMaxQuestion() {
@@ -247,7 +268,7 @@ public class  CategoriesDao {
 
 	//test
 	public static void main(String[] args) throws Exception {
-		List<Categories> categories = CategoriesDao.getInstance().selectALl();
+		/* List<Categories> categories = CategoriesDao.getInstance().selectALl();
 		for (int i = 0; i < categories.size(); i++) {
 			if (CategoriesDao.getInstance().getChildCategories(categories.get(i).getCategoryName()) != null) {
 				List<Categories> categoriesList = CategoriesDao.getInstance().getChildCategories(categories.get(i).getCategoryName());
@@ -260,7 +281,9 @@ public class  CategoriesDao {
 		}
 			for (Categories categories1 : categories) {
 				System.out.println(categories1.getCategoryName());
-			}
+			}*/
+		Categories cate =  CategoriesDao.getInstance().selectCategorybyId(4);
+		System.out.println(cate.getCategoryName());
 	}
 }
 
