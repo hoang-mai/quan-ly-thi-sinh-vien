@@ -246,16 +246,17 @@ public class  CategoriesDao {
 	// show all questions from subcategory
 	public List<Questions> selectQuestionfromSubCategory(String categoryName) {
 		List<Questions> questions = new ArrayList<>();
+		questions = CategoriesDao.getInstance().selectQuestion(categoryName);
 		Session session = null;
 		Transaction transaction = null;
 
 		try {
 			session = HibernateUtils.getSessionFactory().openSession();
 			transaction = session.beginTransaction();
-			questions = session.createQuery("FROM Questions q WHERE q.categories.categoryName = :categoryName OR q.categories.categories_parent.categoryName = :categoryName",
+			List<Questions> tmp = session.createQuery("FROM Questions q WHERE (q.categories.categoryName = :categoryName) OR (q.categories.categories_parent.categoryName = :categoryName)",
 					Questions.class).setParameter("categoryName", categoryName).getResultList();
 			transaction.commit();
-
+            questions.addAll(tmp);
 			return questions;
 
 		} finally {
@@ -282,8 +283,11 @@ public class  CategoriesDao {
 			for (Categories categories1 : categories) {
 				System.out.println(categories1.getCategoryName());
 			}*/
-		Categories cate =  CategoriesDao.getInstance().selectCategorybyId(4);
-		System.out.println(cate.getCategoryName());
+
+		List<Questions> questions = CategoriesDao.getInstance().selectQuestionfromSubCategory("Loại 1");
+		for(Questions questions1 : questions){
+			System.out.println(questions1.getQuestionName());
+		}
 	}
 }
 
