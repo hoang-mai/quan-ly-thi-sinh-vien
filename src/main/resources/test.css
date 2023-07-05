@@ -5,7 +5,16 @@
 .button {
     -fx-cursor: pointer;
 }
+
 .button:hover {
+    -fx-opacity: 0.83;
+}
+
+.button-icon {
+    -fx-background-color: transparent;
+}
+
+.button-icon:hover {
     -fx-opacity: 0.83;
 }
 
@@ -29,7 +38,7 @@
     -fx-background-color: transparent;
 }
 
-.button3-text-blue:hover {
+.button-text-blue:hover {
     -fx-font-size: 12.5px;
 }
 

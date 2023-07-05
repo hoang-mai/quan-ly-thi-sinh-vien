@@ -2,43 +2,49 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="642.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui61.gui61">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="642.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui61.gui61">
     <children>
         <Pane layoutX="-2.0" prefHeight="52.0" prefWidth="591.0" />
-        <Pane layoutX="13.0" layoutY="52.0" prefHeight="102.0" prefWidth="580.0" styleClass="pane-border-solid">
+        <Pane layoutX="13.0" layoutY="52.0" prefHeight="102.0" prefWidth="574.0" styleClass="pane-border-solid">
          <children>
-            <Button layoutX="21.0" layoutY="14.0" mnemonicParsing="false" onAction="#home" styleClass="button-another" text="Home" />
-            <Label layoutX="71.0" layoutY="15.0" prefHeight="25.0" prefWidth="3.0" text="/">
+            <Button layoutX="19.0" layoutY="66.0" mnemonicParsing="false" onAction="#home" styleClass="button-text-blue" text="Home" />
+            <Label layoutX="69.0" layoutY="67.0" prefHeight="25.0" prefWidth="3.0" text="/">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button layoutX="77.0" layoutY="15.0" mnemonicParsing="false" text="My course" />
-            <Label layoutX="148.0" layoutY="15.0" prefHeight="25.0" prefWidth="3.0" text="/">
+            <Button layoutX="75.0" layoutY="67.0" mnemonicParsing="false" styleClass="button-text-blue" text="My course" />
+            <Label layoutX="146.0" layoutY="67.0" prefHeight="25.0" prefWidth="3.0" text="/">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button layoutX="154.0" layoutY="15.0" mnemonicParsing="false" text="THI CUỐI KỲ" />
-            <Label layoutX="236.0" layoutY="15.0" prefHeight="25.0" prefWidth="3.0" text="/">
+            <Button layoutX="152.0" layoutY="67.0" mnemonicParsing="false" styleClass="button-text-blue" text="THI CUỐI KỲ" />
+            <Label layoutX="234.0" layoutY="67.0" prefHeight="25.0" prefWidth="3.0" text="/">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button layoutX="242.0" layoutY="15.0" mnemonicParsing="false" text="General" />
-            <Label layoutX="299.0" layoutY="15.0" prefHeight="25.0" prefWidth="3.0" text="/">
+            <Button layoutX="240.0" layoutY="67.0" mnemonicParsing="false" styleClass="button-text-blue" text="General" />
+            <Label layoutX="297.0" layoutY="67.0" prefHeight="25.0" prefWidth="3.0" text="/">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button fx:id="quizname" layoutX="305.0" layoutY="15.0" mnemonicParsing="false" />
+            <Button fx:id="quizname" layoutX="303.0" layoutY="67.0" mnemonicParsing="false" styleClass="button-text-blue" />
+            <Label fx:id="it" layoutX="29.0" layoutY="10.0" prefHeight="33.0" prefWidth="31.0" text="IT" textFill="#ec3939">
+               <font>
+                  <Font size="35.0" />
+               </font>
+            </Label>
          </children></Pane>
-        <Pane layoutX="12.0" layoutY="166.0" prefHeight="473.0" prefWidth="580.0" styleClass="pane-border-solid">
+        <Pane layoutX="12.0" layoutY="166.0" prefHeight="473.0" prefWidth="574.0" styleClass="pane-border-solid">
             <children>
                 <Button layoutX="525.0" layoutY="14.0" mnemonicParsing="false" onAction="#caidat" style="-fx-background-color: no;">
                <graphic>
@@ -58,5 +64,26 @@
             </Label>
             </children>
         </Pane>
+        <Pane prefHeight="57.0" prefWidth="600.0" styleClass="pane-background">
+         <children>
+            <Button layoutX="14.0" layoutY="1.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="48.0" styleClass="button-icon">
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ImageView/menu.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <MenuButton layoutX="439.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="148.0" styleClass="button-icon" text="Nguyễn" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="149.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: pointer; -fx-translate-x: 85px;">
+                     <image>
+                        <Image url="@../ImageView/avatar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </MenuButton>
+         </children></Pane>
     </children>
 </Pane>

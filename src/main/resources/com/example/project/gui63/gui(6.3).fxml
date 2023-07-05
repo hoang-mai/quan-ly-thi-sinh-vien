@@ -4,16 +4,19 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui63.gui63">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui63.gui63">
    <children>
       <Label layoutX="11.0" layoutY="39.0" text="Add from the question bank at the end" />
-      <ScrollPane layoutX="15.0" layoutY="66.0" prefHeight="547.0" prefWidth="561.0">
+      <ScrollPane layoutX="15.0" layoutY="66.0" prefHeight="547.0" prefWidth="570.0">
         <content>
-          <AnchorPane fx:id="anchorpane" minHeight="0.0" minWidth="0.0" prefHeight="605.0" prefWidth="558.0">
+          <AnchorPane fx:id="anchorpane" minHeight="0.0" minWidth="0.0" prefHeight="606.0" prefWidth="586.0">
                <children>
                   <Label layoutX="27.0" layoutY="28.0" text="Select a categories : " />
                   <ComboBox fx:id="combobox" layoutX="135.0" layoutY="24.0" onAction="#changecombobox" prefWidth="150.0" />
@@ -26,5 +29,26 @@
         </content>
       </ScrollPane>
       <Button layoutX="42.0" layoutY="631.0" mnemonicParsing="false" onAction="#addselectedquestiontothequiz" styleClass="button-blue" text="ADD SELECTED QUESTIONS TO THE QUIZ" />
+       <Pane prefHeight="57.0" prefWidth="600.0" styleClass="pane-background">
+         <children>
+            <Button layoutX="14.0" layoutY="3.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="48.0" styleClass="button-icon">
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ImageView/menu.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <MenuButton layoutX="431.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="148.0" styleClass="button-icon" text="Nguyễn" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="149.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: pointer; -fx-translate-x: 85px;">
+                     <image>
+                        <Image url="@../ImageView/avatar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </MenuButton>
+         </children></Pane>
    </children>
 </Pane>

@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="724.0" prefWidth="804.0" style="-fx-background-color: white;" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui51.gui51">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="724.0" prefWidth="804.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui51.gui51">
     <children>
         <Label layoutX="63.0" layoutY="66.0" prefHeight="31.0" prefWidth="187.0" text="Adding a new Quiz" textFill="#ea0f0f">
             <font>
@@ -26,7 +19,7 @@
         </Label>
         <Label layoutX="38.0" layoutY="163.0" prefHeight="17.0" prefWidth="45.0" text="Name" />
         <Label layoutX="38.0" layoutY="213.0" text="Description" />
-        <ImageView fitHeight="31.0" fitWidth="20.0" layoutX="34.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="20.0" fitWidth="28.0" layoutX="39.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../ImageView/select.png" />
             </image>
@@ -42,7 +35,7 @@
                 <Image url="@../ImageView/chamthan.jpg" />
             </image>
         </ImageView>
-        <TextArea fx:id="desciption1" layoutX="336.0" layoutY="205.0" prefHeight="200.0" prefWidth="466.0" />
+        <TextArea fx:id="desciption1" layoutX="336.0" layoutY="205.0" prefHeight="200.0" prefWidth="444.0" />
         <CheckBox layoutX="336.0" layoutY="430.0" mnemonicParsing="false" text="Display description on course page" />
         <ImageView fitHeight="12.0" fitWidth="15.0" layoutX="552.0" layoutY="433.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -99,7 +92,7 @@
             </font>
         </CheckBox>
         <ComboBox fx:id="whentim1" layoutX="336.0" layoutY="633.0" opacity="0.8" prefHeight="25.0" prefWidth="277.0" promptText="Open attempts are submitted automatically" />
-        <ImageView fitHeight="12.0" fitWidth="15.0" layoutX="314.0" layoutY="594.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="12.0" fitWidth="15.0" layoutX="313.0" layoutY="596.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../ImageView/question.png" />
             </image>
@@ -116,5 +109,26 @@
             <Image url="@../ImageView/question.png" />
          </image>
       </ImageView>
+        <Pane prefHeight="57.0" prefWidth="804.0" styleClass="pane-background">
+         <children>
+            <Button layoutX="22.0" layoutY="3.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="48.0" styleClass="button-icon">
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ImageView/menu.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <MenuButton layoutX="632.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="148.0" styleClass="button-icon" text="Nguyễn" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="149.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: pointer; -fx-translate-x: 85px;">
+                     <image>
+                        <Image url="@../ImageView/avatar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </MenuButton>
+         </children></Pane>
     </children>
 </Pane>

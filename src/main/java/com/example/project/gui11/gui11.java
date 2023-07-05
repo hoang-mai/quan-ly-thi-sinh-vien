@@ -98,6 +98,7 @@ void quiz(ActionEvent event){
         List<Quiz> listquiz=QuizDao.getInstance().selectALl();
         for (Quiz quiz : listquiz) {
             Button button = new Button(quiz.getQuizName());
+            button.getStyleClass().add("button-text-red");
             vbox1.getChildren().add(button);
             button.setOnAction(event -> {
                 QuizDao.getInstance().setQuiz(quiz);
