@@ -86,7 +86,12 @@
             <Label layoutX="372.0" layoutY="124.0" text="Maximum grade" />
             <Button layoutX="24.0" layoutY="145.0" mnemonicParsing="false" onAction="#repaginate" prefHeight="25.0" prefWidth="87.0" text="REPAGINATE" />
             <Button layoutX="120.0" layoutY="145.0" mnemonicParsing="false" onAction="#selectmultipleitems" text="SELECT MULTIPLEITEMS" />
-            <CheckBox layoutX="423.0" layoutY="177.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="64.0" text="Shuffle" />
+            <CheckBox layoutX="472.0" layoutY="177.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="64.0" text="Shuffle" />
+            <ImageView fitHeight="25.0" fitWidth="15.0" layoutX="533.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ImageView/question.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </children>

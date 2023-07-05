@@ -104,7 +104,7 @@
                               <Pane prefHeight="494.0" prefWidth="619.0">
                                  <children>
                                     <Label layoutX="35.0" layoutY="86.0" text="Parent category" />
-                                    <ComboBox layoutX="304.0" layoutY="91.0" opacity="0.8" prefWidth="150.0" promptText="Default" />
+                                    <ComboBox fx:id="comboboxparent" layoutX="304.0" layoutY="91.0" opacity="0.8" prefWidth="150.0" promptText="Default" />
                                     <ImageView fitHeight="11.0" fitWidth="15.0" layoutX="283.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../ImageView/question.png" />

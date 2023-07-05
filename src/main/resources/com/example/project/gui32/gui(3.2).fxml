@@ -117,7 +117,7 @@
                                     </Pane>
                                  </children>
                               </VBox>
-                              <ComboBox fx:id="combobox" layoutX="249.0" layoutY="75.0" prefWidth="150.0" />
+                              <ComboBox fx:id="combobox" layoutX="249.0" layoutY="75.0" prefWidth="150.0" promptText="Default" />
                               <Label layoutX="61.0" layoutY="79.0" text="Category" />
                               <Label layoutX="26.0" layoutY="44.0" text="General" />
                               </children>

@@ -96,7 +96,7 @@ public class  CategoriesDao {
 			session = HibernateUtils.getSessionFactory().openSession();
 			transaction = session.beginTransaction();
 			questions = session.createQuery("FROM Questions q WHERE q.categories.categoryName = :categoryName",
-					Questions.class).setParameter("categoryName",categoryName).getResultList();
+					Questions.class).setParameter("categoryName", categoryName).getResultList();
 			transaction.commit();
 
 			return questions;
@@ -109,26 +109,26 @@ public class  CategoriesDao {
 	}
 
 	//Đưa ra category theo tên
-public Categories selectCategorybyName(String categoryName) {
-	Categories categories = new Categories();
-	Session session = null;
-	Transaction transaction = null;
+	public Categories selectCategorybyName(String categoryName) {
+		Categories categories = new Categories();
+		Session session = null;
+		Transaction transaction = null;
 
-	try {
-		session = HibernateUtils.getSessionFactory().openSession();
-		transaction = session.beginTransaction();
-		categories = session.createQuery("FROM Categories c WHERE c.categoryName = :categoryName",
-				Categories.class).setParameter("categoryName",categoryName).getSingleResult();
-		transaction.commit();
+		try {
+			session = HibernateUtils.getSessionFactory().openSession();
+			transaction = session.beginTransaction();
+			categories = session.createQuery("FROM Categories c WHERE c.categoryName = :categoryName",
+					Categories.class).setParameter("categoryName", categoryName).getSingleResult();
+			transaction.commit();
 
-		return categories;
+			return categories;
 
-	} finally {
-		if (session != null) {
-			session.close();
+		} finally {
+			if (session != null) {
+				session.close();
+			}
 		}
 	}
-}
 
 	//đưa ra category có nhiều câu hỏi nhất
 	public Categories selectCategoryMaxQuestion() {
@@ -142,8 +142,7 @@ public Categories selectCategorybyName(String categoryName) {
 			categories = session.createQuery("FROM Categories c ORDER BY c.questions.size DESC",
 					Categories.class).setMaxResults(1).getSingleResult();
 			transaction.commit();
-			if (categories==null)
-			{
+			if (categories == null) {
 				categories.setCategoryId(0);
 				// Lấy ngày tháng năm hiện tại
 				LocalDate currentDate = LocalDate.now();
@@ -169,12 +168,39 @@ public Categories selectCategorybyName(String categoryName) {
 		}
 	}
 
+	//đưa ra category cha
+	public Categories selectCategoryparent(String categoryName) {
+		Categories tmp = CategoriesDao.getInstance().selectCategorybyName(categoryName);
+		if (tmp.getCategories_parent() != null) {
+			Categories categories = new Categories();
+			Session session = null;
+			Transaction transaction = null;
+
+			try {
+				session = HibernateUtils.getSessionFactory().openSession();
+				transaction = session.beginTransaction();
+				categories = session.createQuery("FROM Categories c WHERE c.categoryId = :categoryId",
+						Categories.class).setParameter("categoryId", tmp.getCategories_parent().getCategoryId()).getSingleResult();
+				transaction.commit();
+
+				return categories;
+
+			} finally {
+				if (session != null) {
+					session.close();
+				}
+			}
+		}
+		return null;
+	}
+
 	//đưa ra số lượng câu hỏi có trong 1 category
 	public int CountQuestion(String categoryName) {
 		Categories categories = CategoriesDao.getInstance().selectCategorybyName(categoryName);
 		return CategoriesDao.getInstance().selectQuestion(categories.getCategoryName()).size();
 	}
-//get Child category
+
+	//get Child category
 	public List<Categories> getChildCategories(String categoryName) {
 		List<Categories> categories = new ArrayList<>();
 		Session session = null;
@@ -183,7 +209,7 @@ public Categories selectCategorybyName(String categoryName) {
 		try {
 			session = HibernateUtils.getSessionFactory().openSession();
 			transaction = session.beginTransaction();
-			categories = session.createQuery("FROM Categories c WHERE c.parentCategory.categoryName = :categoryName", Categories.class)
+			categories = session.createQuery("FROM Categories c WHERE c.categories_parent.categoryName = :categoryName", Categories.class)
 					.setParameter("categoryName", categoryName).getResultList();
 			transaction.commit();
 
@@ -195,6 +221,7 @@ public Categories selectCategorybyName(String categoryName) {
 			}
 		}
 	}
+
 	// show all questions from subcategory
 	public List<Questions> selectQuestionfromSubCategory(String categoryName) {
 		List<Questions> questions = new ArrayList<>();
@@ -205,7 +232,7 @@ public Categories selectCategorybyName(String categoryName) {
 			session = HibernateUtils.getSessionFactory().openSession();
 			transaction = session.beginTransaction();
 			questions = session.createQuery("FROM Questions q WHERE q.categories.categoryName = :categoryName OR q.categories.categories_parent.categoryName = :categoryName",
-					Questions.class).setParameter("categoryName",categoryName).getResultList();
+					Questions.class).setParameter("categoryName", categoryName).getResultList();
 			transaction.commit();
 
 			return questions;
@@ -218,23 +245,28 @@ public Categories selectCategorybyName(String categoryName) {
 	}
 
 
-
 	//test
 	public static void main(String[] args) throws Exception {
-        List<Categories> categories = CategoriesDao.getInstance().selectALl();
-		List<Categories> treelist = new ArrayList<>();
-		for (Categories category : categories) {
-			if (category.getCategories_parent() == null) {
-				treelist.add(category);
+		List<Categories> categories = CategoriesDao.getInstance().selectALl();
+		for (int i = 0; i < categories.size(); i++) {
+			if (CategoriesDao.getInstance().getChildCategories(categories.get(i).getCategoryName()) != null) {
+				List<Categories> categoriesList = CategoriesDao.getInstance().getChildCategories(categories.get(i).getCategoryName());
+				for (Categories categories1 : categoriesList) {
+					categories.removeIf(categories2 -> categories2.getCategoryName().equals(categories1.getCategoryName()));
+					categories.add(i+1,categories1);
+				}
+
 			}
 		}
-
+			for (Categories categories1 : categories) {
+				System.out.println(categories1.getCategoryName());
+			}
 	}
-
-
-
-
-
 }
+
+
+
+
+
 
 

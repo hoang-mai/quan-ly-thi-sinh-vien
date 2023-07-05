@@ -42,13 +42,23 @@ public class gui63 implements Initializable {
     private VBox vBox=new VBox();
     @FXML
     void alsoshowquestion(ActionEvent event) {
-        if (alsoshowquestion1.isSelected()) {
-            vBox.setVisible(true);
 
-        } else {
-            vBox.setVisible(false);
+    }
+    @FXML
+    void changecombobox(ActionEvent event) {
+        String cate=combobox.getValue().trim();
+        int mongoac=cate.length();
+        if(cate.contains("(")){
+            mongoac=cate.indexOf("(");}
+        List<Questions> danhsachquestion = CategoriesDao.getInstance().selectQuestion(cate.substring(0,mongoac));
+        vBox.getChildren().clear();
+        anchorpane.setPrefHeight(235+40*danhsachquestion.size());
+        for (int i = 0; i < danhsachquestion.size(); i++) {
+            CheckBox checkBox = new CheckBox(danhsachquestion.get(i).getQuestionName());
+            vBox.getChildren().add(checkBox);
         }
     }
+
 
     @FXML
     void addselectedquestiontothequiz(ActionEvent event) {
@@ -87,20 +97,42 @@ public class gui63 implements Initializable {
         vBox.setSpacing(10);
         vBox.setPrefWidth(512);
         List<Categories> listcate = CategoriesDao.getInstance().selectALl();
+        for (int i = 0; i < listcate.size(); i++) {
+            if (CategoriesDao.getInstance().getChildCategories(listcate.get(i).getCategoryName()) != null) {
+                List<Categories> categoriesList = CategoriesDao.getInstance().getChildCategories(listcate.get(i).getCategoryName());
+                for (Categories categories1 : categoriesList) {
+                    listcate.removeIf(categories2 -> categories2.getCategoryName().equals(categories1.getCategoryName()));
+                    listcate.add(i+1,categories1);
+                }
+
+            }
+        }
         ObservableList<String> list = FXCollections.observableArrayList();
         for (Categories categories : listcate) {
-            list.add(categories.getCategoryName());
-        }
-        combobox.setItems(list);
-
-        combobox.getSelectionModel().selectedItemProperty().addListener((observableValue, oldvalue, newvalue) -> {
-            vBox.getChildren().clear();
-            List<Questions> danhsachquestion = CategoriesDao.getInstance().selectQuestion(combobox.getValue());
-            anchorpane.setPrefHeight(235+40*danhsachquestion.size());
-            for (int i = 0; i < danhsachquestion.size(); i++) {
-                CheckBox checkBox = new CheckBox(danhsachquestion.get(i).getQuestionName());
-                vBox.getChildren().add(checkBox);
+            if(categories.getCategories_parent()!=null){
+                String textcate = null;
+                for(String list1 : list){
+                    if(list1.trim().startsWith(CategoriesDao.getInstance().selectCategoryparent(categories.getCategoryName()).getCategoryName())){
+                        textcate=list1;
+                        break;
+                    }
+                }
+                int count=0;
+                while (textcate.charAt(count)==' ') {
+                    count++;
+                }
+                String whitespace=textcate.substring(0,count);
+                if(CategoriesDao.getInstance().CountQuestion(categories.getCategoryName())!=0) {
+                    list.add(whitespace+"   "+categories.getCategoryName()+'('+CategoriesDao.getInstance().CountQuestion(categories.getCategoryName())+')');}
+                else list.add(whitespace+"   "+categories.getCategoryName());
             }
-        });
+            else {
+                if(CategoriesDao.getInstance().CountQuestion(categories.getCategoryName())!=0)
+                    list.add(categories.getCategoryName() + '(' + CategoriesDao.getInstance().CountQuestion(categories.getCategoryName()) + ')');
+                else list.add(categories.getCategoryName());
+            }
+        }
+
+        combobox.setItems(list);
     }
 }

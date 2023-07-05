@@ -400,9 +400,40 @@ comboBox.setValue("None");
         comboboxchoice2.getItems().addAll("None","100%","90%","83,33333%","80%","75%","70%","66.66667%","60%","50%","40%","33.33333%","30%","25%","20%","16.66667%","14.28571%","12.5%","11.11111%","10%","5%","83,33333%","80%","75%","70%","66.66667%","60%","50%","40%","33.33333%","30%","25%","20%","16.66667%","14.28571%","12.5%","11.11111%","10%","5%","-5%","-10%","-11.11111%","-12.5%","-14.28571%","-16.66667%","-20%","-25%","-30%","-33.33333%","-40%","-50%","-60%","-66.66667%","-70%","-75%","-80%","-83,33333%");
         comboboxchoice2.setValue("None");
         List<Categories> listcate = CategoriesDao.getInstance().selectALl();
+        for (int i = 0; i < listcate.size(); i++) {
+            if (CategoriesDao.getInstance().getChildCategories(listcate.get(i).getCategoryName()) != null) {
+                List<Categories> categoriesList = CategoriesDao.getInstance().getChildCategories(listcate.get(i).getCategoryName());
+                for (Categories categories1 : categoriesList) {
+                    listcate.removeIf(categories2 -> categories2.getCategoryName().equals(categories1.getCategoryName()));
+                    listcate.add(i+1,categories1);
+                }
+
+            }
+        }
         ObservableList<String> list = FXCollections.observableArrayList();
         for (Categories categories : listcate) {
-            list.add(categories.getCategoryName());
+            if(categories.getCategories_parent()!=null){
+                String textcate = null;
+                for(String list1 : list){
+                    if(list1.trim().startsWith(CategoriesDao.getInstance().selectCategoryparent(categories.getCategoryName()).getCategoryName())){
+                        textcate=list1;
+                        break;
+                    }
+                }
+                int count=0;
+                while (textcate.charAt(count)==' ') {
+                    count++;
+                }
+                String whitespace=textcate.substring(0,count);
+                if(CategoriesDao.getInstance().CountQuestion(categories.getCategoryName())!=0) {
+                    list.add(whitespace+"   "+categories.getCategoryName()+'('+CategoriesDao.getInstance().CountQuestion(categories.getCategoryName())+')');}
+                else list.add(whitespace+"   "+categories.getCategoryName());
+            }
+            else {
+                if(CategoriesDao.getInstance().CountQuestion(categories.getCategoryName())!=0)
+                    list.add(categories.getCategoryName() + '(' + CategoriesDao.getInstance().CountQuestion(categories.getCategoryName()) + ')');
+                else list.add(categories.getCategoryName());
+            }
         }
         combobox.setItems(list);
         questtionname1.setWrapText(true);

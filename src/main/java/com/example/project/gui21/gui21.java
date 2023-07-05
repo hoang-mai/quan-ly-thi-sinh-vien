@@ -25,6 +25,8 @@ import javafx.stage.Stage;
 import javafx.collections.ObservableList;
 import java.io.File;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -75,6 +77,8 @@ public class gui21 implements Initializable {
 
     @FXML
     private Label youcandraganddrop5;
+    @FXML
+    private ComboBox<String> comboboxparent;
 
     @FXML
     void home(ActionEvent event) {
@@ -117,7 +121,7 @@ public class gui21 implements Initializable {
             anchorpane1.setVisible(true);
         }
         String cate=combobox.getValue().trim();
-        int mongoac=cate.length()-1;
+        int mongoac=cate.length();
         if(cate.contains("(")){
          mongoac=cate.indexOf("(");}
         gridpane1.getChildren().clear();
@@ -228,15 +232,29 @@ public class gui21 implements Initializable {
     @FXML
     void addcategory(ActionEvent event) {
         try {
+            String cate=comboboxparent.getValue().trim();
+            System.out.println(cate);
+            int mongoac=cate.length();
+            System.out.println(mongoac);
+            if(cate.contains("(")){
+                mongoac=cate.indexOf("(");}
+            Categories categories1=CategoriesDao.getInstance().selectCategorybyName(cate.substring(0,mongoac));
+            System.out.println(categories1.getCategoryName());
             Categories categories = new Categories();
             categories.setCategoryName(name1.getText());
             categories.setCategoryId(Integer.parseInt(idnumber1.getText()));
             categories.setCategoryInfo(categoryinfor1.getText());
+            categories.setCategories_parent(categories1);
             CategoriesDao.getInstance().save(categories);
             name1.clear();
-
             categoryinfor1.clear();
             idnumber1.clear();
+                Stage ag0r1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui21/gui(2.1).fxml"));
+                Scene scene = new Scene(root);
+                ag0r1.setScene(scene);
+                ag0r1.show();
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -255,18 +273,34 @@ public class gui21 implements Initializable {
         column2.setPrefWidth(55);
         gridpane1.getColumnConstraints().addAll(column1, column2);
         List<Categories> listcate = CategoriesDao.getInstance().selectALl();
+        for (int i = 0; i < listcate.size(); i++) {
+            if (CategoriesDao.getInstance().getChildCategories(listcate.get(i).getCategoryName()) != null) {
+                List<Categories> categoriesList = CategoriesDao.getInstance().getChildCategories(listcate.get(i).getCategoryName());
+                for (Categories categories1 : categoriesList) {
+                    listcate.removeIf(categories2 -> categories2.getCategoryName().equals(categories1.getCategoryName()));
+                    listcate.add(i+1,categories1);
+                }
+
+            }
+        }
         ObservableList<String> list = FXCollections.observableArrayList();
         for (Categories categories : listcate) {
             if(categories.getCategories_parent()!=null){
-                String textcate = categories.getCategoryName();
+                String textcate = null;
+                for(String list1 : list){
+                    if(list1.trim().startsWith(CategoriesDao.getInstance().selectCategoryparent(categories.getCategoryName()).getCategoryName())){
+                        textcate=list1;
+                        break;
+                    }
+                }
                 int count=0;
                 while (textcate.charAt(count)==' ') {
                     count++;
                 }
                 String whitespace=textcate.substring(0,count);
                 if(CategoriesDao.getInstance().CountQuestion(categories.getCategoryName())!=0) {
-                list.add(whitespace+"  "+categories.getCategoryName()+'('+CategoriesDao.getInstance().CountQuestion(categories.getCategoryName())+')');}
-                else list.add(whitespace+"  "+categories.getCategoryName());
+                list.add(whitespace+"   "+categories.getCategoryName()+'('+CategoriesDao.getInstance().CountQuestion(categories.getCategoryName())+')');}
+                else list.add(whitespace+"   "+categories.getCategoryName());
             }
             else {
                 if(CategoriesDao.getInstance().CountQuestion(categories.getCategoryName())!=0)
@@ -274,6 +308,7 @@ public class gui21 implements Initializable {
                 else list.add(categories.getCategoryName());
             }
         }
+        comboboxparent.setItems(list);
         combobox.setItems(list);
         categoryinfor1.setWrapText(true);
         name1.textProperty().addListener((Observable, oldvalue, newValue) -> {
