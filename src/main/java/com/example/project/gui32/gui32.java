@@ -214,13 +214,18 @@ public class gui32 implements Initializable {
     void savechanges(ActionEvent event) {
 
         try {
+            String cate=combobox.getValue().trim();
+            int mongoac=cate.length();
+            if(cate.contains("(")){
+                mongoac=cate.indexOf("(");}
+
             String text;
             Questions questions = new Questions();
             questions.setQuestionName(questtionname1.getText());
             questions.setQuestionText(questiontext1.getText());
             questions.setDefaultmark(Integer.parseInt(defaultmark.getText()));
             questions.setImage(imageData);
-            Categories categories = CategoriesDao.getInstance().selectCategorybyName(combobox.getValue());
+            Categories categories = CategoriesDao.getInstance().selectCategorybyName(cate.substring(0,mongoac));
             questions.setCategories(categories);
             QuestionsDao.getInstance().save(questions);
 
@@ -272,6 +277,11 @@ String textcombobox = null;
     @FXML
     void savechangesandcontinue(ActionEvent event) {
         try {
+            String cate=combobox.getValue().trim();
+            int mongoac=cate.length();
+            if(cate.contains("(")){
+                mongoac=cate.indexOf("(");}
+
             // lấy text của choice
             String text;
             Questions questions = new Questions();
@@ -279,7 +289,7 @@ String textcombobox = null;
             questions.setQuestionText(questiontext1.getText());
             questions.setDefaultmark(Integer.parseInt(defaultmark.getText()));
             questions.setImage(imageData);
-            Categories categories = CategoriesDao.getInstance().selectCategorybyName(combobox.getValue());
+            Categories categories = CategoriesDao.getInstance().selectCategorybyName(cate.substring(0,mongoac));
             questions.setCategories(categories);
             QuestionsDao.getInstance().save(questions);
             Choice choice1 = new Choice();
