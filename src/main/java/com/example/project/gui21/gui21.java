@@ -92,13 +92,6 @@ public class gui21 implements Initializable {
             System.out.println(e.getMessage());
         }
     }
-
-    @FXML
-    void alsoquestion(ActionEvent event) {
-
-    }
-
-
     @FXML
     void chooseafile(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
@@ -125,7 +118,13 @@ public class gui21 implements Initializable {
         if(cate.contains("(")){
          mongoac=cate.indexOf("(");}
         gridpane1.getChildren().clear();
-        List<Questions> danhsachquestion = CategoriesDao.getInstance().selectQuestion(cate.substring(0,mongoac));
+        List<Questions> danhsachquestion=new ArrayList<>();
+        if(alsoquestion1.isSelected()){
+          danhsachquestion = CategoriesDao.getInstance().selectQuestionfromSubCategory(cate.substring(0,mongoac));
+        }
+        else  {
+          danhsachquestion = CategoriesDao.getInstance().selectQuestion(cate.substring(0,mongoac));
+        }
         anchorpane1.setPrefHeight(46+40*danhsachquestion.size());
         for (int i = 0; i < danhsachquestion.size(); i++) {
             CheckBox checkBox = new CheckBox(danhsachquestion.get(i).getQuestionName());
@@ -133,6 +132,7 @@ public class gui21 implements Initializable {
             Button button = new Button("Edit");
             gridpane1.add(button, 1, i);
             int finalI = i;
+            List<Questions> finalDanhsachquestion = danhsachquestion;
             button.setOnAction(event2 -> {
                 try {
                     Stage ag0r1 = (Stage) ((Node) event2.getSource()).getScene().getWindow();
@@ -142,8 +142,8 @@ public class gui21 implements Initializable {
                     ag0r1.setScene(scene);
                     ag0r1.show();
                     gui32 controller = loader.getController();
-                    QuestionsDao.getInstance().setQuestions(danhsachquestion.get(finalI));
-                    controller.setedit("Editing Multiple choice question",combobox.getValue());
+                    QuestionsDao.getInstance().setQuestions(finalDanhsachquestion.get(finalI));
+                    controller.setedit("Editing Multiple choice question");
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }

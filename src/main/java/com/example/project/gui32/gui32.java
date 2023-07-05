@@ -52,13 +52,14 @@ public class gui32 implements Initializable {
     @FXML
     private Label addingamultipe;
 
-    public void setedit(String adding,String combo) {
+    public void setedit(String adding) {
+        int id=QuestionsDao.getInstance().getQuestions().getCategories().getCategoryId();
         a=true;
         addingamultipe.setText(adding);
-        combobox.setValue(combo);
         questtionname1.setText(QuestionsDao.getInstance().getQuestions().getQuestionName());
         questiontext1.setText(QuestionsDao.getInstance().getQuestions().getQuestionText());
         defaultmark.setText(String.valueOf(QuestionsDao.getInstance().getQuestions().getDefaultmark()));
+        combobox.setValue(CategoriesDao.getInstance().selectCategorybyId(id).getCategoryName());
     }
 
     @FXML
