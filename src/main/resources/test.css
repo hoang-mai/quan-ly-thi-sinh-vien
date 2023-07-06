@@ -67,6 +67,13 @@
     -fx-opacity: 0.9;
 }
 
+.button-border-black {
+    -fx-background-color: transparent;
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-border-radius: 3px;
+}
+
 .line1 {
     -fx-opacity:0.5;
     -fx-stroke-width: 0.5px;
@@ -90,8 +97,9 @@
     -fx-border-color: #9b9898;
 }
 
-.black-border-button {
-    -fx-background-color: transparent;
-    -fx-border-color: black;
-    -fx-border-width: 2px;
+.pane-border-question {
+    -fx-border-style: solid;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 3px;
+    -fx-background-color: #efefef;
 }

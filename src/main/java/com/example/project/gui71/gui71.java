@@ -108,6 +108,7 @@ public class gui71 implements Initializable {
             Label label2=new Label("Marked out of"+"\n"+"1.00");
             Label label3=new Label("Flag question");
             vBox.getChildren().addAll(label,label1,label2,label3);
+            vBox.getStyleClass().add("pane-border-question");
             gridPane.add(vBox,0,i);
         }
         timeleft.setText(formatTime(timeRemaining));
