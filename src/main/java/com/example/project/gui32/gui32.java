@@ -50,6 +50,7 @@ public class gui32 implements Initializable {
     @FXML
     private Label addingamultipe;
 
+
     public void setedit(String adding) {
         int id=QuestionsDao.getInstance().getQuestions().getCategories().getCategoryId();
         a=true;
@@ -208,7 +209,18 @@ public class gui32 implements Initializable {
 
     @FXML
     private Button savechanges1;
-
+    @FXML
+    private void saveChoice(Questions questions, String choiceText, String grade) {
+        try {
+            Choice choice = new Choice();
+            choice.setChoiceText(choiceText);
+            choice.setQuestions(questions);
+            choice.setGrade(grade);
+            ChoiceDao.getInstance().save(choice);
+        } catch (Exception e) {
+            // Xử lý ngoại lệ tại đây
+        }
+    }
     @FXML
     void savechanges(ActionEvent event) {
 
@@ -236,7 +248,7 @@ public class gui32 implements Initializable {
 
                     // Lấy giá trị choice từ các thành phần UI trong pane
                     String choiceText = null;
-String textcombobox = null;
+                    String textcombobox = null;
                     for (Node childNode : pane.getChildren()) {
                         if (childNode instanceof TextField) {
                             TextField choiceField = (TextField) childNode;
@@ -273,38 +285,51 @@ String textcombobox = null;
         }
     }
 
+
     @FXML
     void savechangesandcontinue(ActionEvent event) {
         try {
-            String cate=combobox.getValue().trim();
-            int mongoac=cate.length();
-            if(cate.contains("(")){
-                mongoac=cate.indexOf("(");}
+            String cate = combobox.getValue().trim();
+            int mongoac = cate.length();
+            if (cate.contains("(")) {
+                mongoac = cate.indexOf("(");
+            }
 
-            // lấy text của choice
+            // Lấy text của choice
             String text;
             Questions questions = new Questions();
             questions.setQuestionName(questtionname1.getText());
             questions.setQuestionText(questiontext1.getText());
             questions.setDefaultmark(Integer.parseInt(defaultmark.getText()));
             questions.setImage(imageData);
-            Categories categories = CategoriesDao.getInstance().selectCategorybyName(cate.substring(0,mongoac));
+            Categories categories = CategoriesDao.getInstance().selectCategorybyName(cate.substring(0, mongoac));
             questions.setCategories(categories);
             QuestionsDao.getInstance().save(questions);
-            Choice choice1 = new Choice();
-            choice1.setChoiceText(choicetext1.getText());
-            choice1.setQuestions(questions);
-            text=comboboxchoice1.getValue();
-            String gradee=text.substring(0,text.length()-1);
-            choice1.setGrade(gradee);
-            ChoiceDao.getInstance().save(choice1);
+            saveChoice(questions, choicetext1.getText(), comboboxchoice1.getValue().substring(0, comboboxchoice1.getValue().length() - 1));
             //save choice 2
-            choice1.setChoiceText(choicetext2.getText());
-            choice1.setQuestions(questions);
-            text=comboboxchoice2.getValue();
-            gradee=text.substring(0,text.length()-1);
-            choice1.setGrade(gradee);
-            ChoiceDao.getInstance().save(choice1);
+            saveChoice(questions, choicetext2.getText(), comboboxchoice2.getValue().substring(0, comboboxchoice2.getValue().length() - 1));
+            ObservableList<Node> children = vbox.getChildren();
+
+            for (int i = 0; i < children.size() - 1; i++) {
+                Node node = children.get(i);
+                if (node instanceof Pane) {
+                    Pane pane = (Pane) node;
+                    // Kiểm tra điều kiện để xác định Pane có dữ liệu
+                    if (pane.getChildren().size() > 0) {
+                        // Lấy dữ liệu từ các thành phần con trong Pane
+                        Label label1 = (Label) pane.getChildren().get(0);
+                        TextArea textArea = (TextArea) pane.getChildren().get(2);
+                        ComboBox<String> comboBox = (ComboBox<String>) pane.getChildren().get(3);
+                        // Tiếp tục lấy dữ liệu từ các thành phần khác nếu cần
+
+                        // Sử dụng dữ liệu đã lấy để thực hiện các tác vụ khác
+                        String choiceText = textArea.getText();
+                        String grade = comboBox.getValue();
+                        saveChoice(questions, choiceText, grade.substring(0, comboBox.getValue().length() - 1));
+                        // Tiếp tục xử lý dữ liệu lấy được
+                    }
+                }
+            }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -321,7 +346,7 @@ String textcombobox = null;
     private Pane originalPane2;
     @FXML
     private Button addButton;
-    
+
     private boolean addMoreChoicesEnabled = true;
 
     @FXML
@@ -364,7 +389,7 @@ String textcombobox = null;
         comboBox.setLayoutX(62);
         comboBox.setLayoutY(93);
         comboBox.getItems().addAll("None", "100%", "90%","83,33333%","80%","75%","70%","66.66667%","60%","50%","40%","33.33333%","30%","25%","20%","16.66667%","14.28571%","12.5%","11.11111%","10%","5%","83,33333%","80%","75%","70%","66.66667%","60%","50%","40%","33.33333%","30%","25%","20%","16.66667%","14.28571%","12.5%","11.11111%","10%","5%","-5%","-10%","-11.11111%","-12.5%","-14.28571%","-16.66667%","-20%","-25%","-30%","-33.33333%","-40%","-50%","-60%","-66.66667%","-70%","-75%","-80%","-83,33333%");
-comboBox.setValue("None");
+        comboBox.setValue("None");
         Button button = new Button("Image");
         button.setLayoutX(12);
         button.setLayoutY(136);

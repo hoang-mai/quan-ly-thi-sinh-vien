@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui62.gui62">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui62.gui62">
    <children>
        <Pane layoutY="51.0" prefHeight="102.0" prefWidth="600.0" styleClass="pane-border-solid">
            <children>
@@ -50,7 +60,7 @@
          <children>
             <MenuButton layoutX="497.0" layoutY="201.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" styleClass="button-text-blue" text="ADD" textFill="#218d8d">
               <items>
-                <MenuItem mnemonicParsing="false" onAction="#anewquestion" text="a new question">
+                <MenuItem mnemonicParsing="false" text="a new question">
                      <graphic>
                         <ImageView fitHeight="17.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -58,7 +68,7 @@
                            </image>
                         </ImageView>
                      </graphic></MenuItem>
-                <MenuItem mnemonicParsing="false" text="from questtion bank">
+                <MenuItem mnemonicParsing="false" onAction="#anewquestion" text="from questtion bank">
                      <graphic>
                         <ImageView fitHeight="17.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -99,7 +109,10 @@
             <Label layoutX="108.0" layoutY="124.0" text="| This quiz open" />
             <Label fx:id="total" layoutX="440.0" layoutY="149.0" prefHeight="17.0" prefWidth="131.0" text="Label" />
             <Button layoutX="511.0" layoutY="120.0" mnemonicParsing="false" styleClass="button-blue" text="SAVE" />
-            <TextField layoutX="464.0" layoutY="120.0" prefHeight="25.0" prefWidth="41.0" />
+            <TextField layoutX="464.0" layoutY="120.0" prefHeight="25.0" prefWidth="41.0" promptText="10.00">
+               <padding>
+                  <Insets right="5.0" />
+               </padding></TextField>
             <Label layoutX="372.0" layoutY="124.0" text="Maximum grade" />
             <Button layoutX="24.0" layoutY="145.0" mnemonicParsing="false" onAction="#repaginate" prefHeight="25.0" prefWidth="87.0" styleClass="button-blue" text="REPAGINATE" />
             <Button layoutX="120.0" layoutY="145.0" mnemonicParsing="false" onAction="#selectmultipleitems" styleClass="button-blue" text="SELECT MULTIPLEITEMS" />

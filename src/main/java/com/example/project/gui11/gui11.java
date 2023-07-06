@@ -12,6 +12,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -23,7 +25,6 @@ import java.util.ResourceBundle;
 
 
 public class gui11 implements Initializable {
-
 
     @FXML
     private Label it;
@@ -97,6 +98,7 @@ void quiz(ActionEvent event){
     public void initialize(URL url, ResourceBundle resourceBundle) {
         List<Quiz> listquiz=QuizDao.getInstance().selectALl();
         for (Quiz quiz : listquiz) {
+
             Button button = new Button(quiz.getQuizName());
             button.getStyleClass().add("button-text-red");
             vbox1.getChildren().add(button);
