@@ -1,7 +1,5 @@
 package com.example.project.database.entities;
 
-import javafx.scene.control.Label;
-
 import java.sql.Date;
 import java.util.Set;
 import javax.persistence.GenerationType;
@@ -59,7 +57,7 @@ public class Quiz {
 	}
 	
 	public Quiz(String quizName, String description, Date timeOpen, Date timeClose, Integer timeLimit, double grade,
-			User user, Set<Questions> questions, Set<Categories> categories) {
+				User user, Set<Questions> questions, Set<Categories> categories) {
 		this.quizName = quizName;
 		this.description = description;
 		this.timeOpen = timeOpen;

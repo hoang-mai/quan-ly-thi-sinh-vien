@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.project.database.entities.Categories;
 import com.example.project.database.entities.Choice;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

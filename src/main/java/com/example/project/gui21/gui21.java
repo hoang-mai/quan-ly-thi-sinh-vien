@@ -26,7 +26,6 @@ import javafx.collections.ObservableList;
 import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -232,19 +231,19 @@ public class gui21 implements Initializable {
     @FXML
     void addcategory(ActionEvent event) {
         try {
-            String cate=comboboxparent.getValue().trim();
-            System.out.println(cate);
-            int mongoac=cate.length();
-            System.out.println(mongoac);
-            if(cate.contains("(")){
-                mongoac=cate.indexOf("(");}
-            Categories categories1=CategoriesDao.getInstance().selectCategorybyName(cate.substring(0,mongoac));
-            System.out.println(categories1.getCategoryName());
             Categories categories = new Categories();
             categories.setCategoryName(name1.getText());
             categories.setCategoryId(Integer.parseInt(idnumber1.getText()));
             categories.setCategoryInfo(categoryinfor1.getText());
-            categories.setCategories_parent(categories1);
+
+            if(comboboxparent.getValue()!=null){
+            String cate=comboboxparent.getValue().trim();
+            int mongoac=cate.length();
+            if(cate.contains("(")){
+                mongoac=cate.indexOf("(");}
+                Categories categories1=CategoriesDao.getInstance().selectCategorybyName(cate.substring(0,mongoac));
+                categories.setCategories_parent(categories1);}
+
             CategoriesDao.getInstance().save(categories);
             name1.clear();
             categoryinfor1.clear();
@@ -273,12 +272,12 @@ public class gui21 implements Initializable {
         column2.setPrefWidth(55);
         gridpane1.getColumnConstraints().addAll(column1, column2);
         List<Categories> listcate = CategoriesDao.getInstance().selectALl();
-        for (int i = 0; i < listcate.size(); i++) {
-            if (CategoriesDao.getInstance().getChildCategories(listcate.get(i).getCategoryName()) != null) {
-                List<Categories> categoriesList = CategoriesDao.getInstance().getChildCategories(listcate.get(i).getCategoryName());
-                for (Categories categories1 : categoriesList) {
-                    listcate.removeIf(categories2 -> categories2.getCategoryName().equals(categories1.getCategoryName()));
-                    listcate.add(i+1,categories1);
+                    for (int i = 0; i < listcate.size(); i++) {
+                        if (CategoriesDao.getInstance().getChildCategories(listcate.get(i).getCategoryName()) != null) {
+                            List<Categories> categoriesList = CategoriesDao.getInstance().getChildCategories(listcate.get(i).getCategoryName());
+                            for (Categories categories1 : categoriesList) {
+                                listcate.removeIf(categories2 -> categories2.getCategoryName().equals(categories1.getCategoryName()));
+                                listcate.add(i+1,categories1);
                 }
 
             }

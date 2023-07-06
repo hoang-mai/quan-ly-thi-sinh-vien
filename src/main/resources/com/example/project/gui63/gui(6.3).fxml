@@ -16,9 +16,9 @@
           <AnchorPane fx:id="anchorpane" minHeight="0.0" minWidth="0.0" prefHeight="605.0" prefWidth="558.0">
                <children>
                   <Label layoutX="27.0" layoutY="28.0" text="Select a categories : " />
-                  <ComboBox fx:id="combobox" layoutX="135.0" layoutY="24.0" onAction="#changecombobox" prefWidth="150.0" />
+                  <ComboBox fx:id="combobox" layoutX="135.0" layoutY="24.0" onAction="#changecombobox" prefWidth="150.0" promptText="Default" />
                   <Label layoutX="27.0" layoutY="117.0" text="Search options" />
-                  <CheckBox fx:id="alsoshowquestion1" layoutX="27.0" layoutY="150.0" mnemonicParsing="false" onAction="#alsoshowquestion" text="Also show questions from subcategories" />
+                  <CheckBox fx:id="alsoshowquestion1" layoutX="27.0" layoutY="150.0" mnemonicParsing="false" text="Also show questions from subcategories" />
                   <CheckBox layoutX="27.0" layoutY="177.0" mnemonicParsing="false" text="Also show old questions" />
                   <CheckBox layoutX="43.0" layoutY="204.0" mnemonicParsing="false" prefHeight="5.0" prefWidth="85.0" text="Question" />
                </children>

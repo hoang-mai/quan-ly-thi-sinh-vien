@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.project.database.entities.Questions;
-import com.example.project.database.entities.Quiz;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -253,7 +252,7 @@ public class  CategoriesDao {
 		try {
 			session = HibernateUtils.getSessionFactory().openSession();
 			transaction = session.beginTransaction();
-			List<Questions> tmp = session.createQuery("FROM Questions q WHERE (q.categories.categoryName = :categoryName) OR (q.categories.categories_parent.categoryName = :categoryName)",
+			List<Questions> tmp = session.createQuery("FROM Questions q WHERE q.categories.categories_parent.categoryName = :categoryName",
 					Questions.class).setParameter("categoryName", categoryName).getResultList();
 			transaction.commit();
             questions.addAll(tmp);
@@ -284,7 +283,7 @@ public class  CategoriesDao {
 				System.out.println(categories1.getCategoryName());
 			}*/
 
-		List<Questions> questions = CategoriesDao.getInstance().selectQuestionfromSubCategory("Loại 1");
+		List<Questions> questions = CategoriesDao.getInstance().selectQuestionfromSubCategory("Loại 2");
 		for(Questions questions1 : questions){
 			System.out.println(questions1.getQuestionName());
 		}

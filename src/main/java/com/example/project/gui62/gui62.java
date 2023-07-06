@@ -87,7 +87,18 @@ public class gui62 implements Initializable {
     }
     @FXML
     void arandomquestion(ActionEvent event) {
-
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/project/gui65/gui(6.5).fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage ag0r1=new Stage();
+            ag0r1.setScene(scene);
+            ag0r1.show();
+            Stage a=(Stage) vbox1.getScene().getWindow();
+            a.hide();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
     @FXML
     void home(ActionEvent event) {
@@ -115,8 +126,8 @@ List<Questions> listquestion=QuizDao.getInstance().selectQuestion(QuizDao.getIns
 countquestion.setText("Question: "+listquestion.size());
 total.setText("Total of marks: "+listquestion.size()+".00");
 int i=1;
-anchorpane1.setPrefHeight(listquestion.size()*25);
-vbox1.setPrefHeight(listquestion.size()*25);
+anchorpane1.setPrefHeight(listquestion.size()*28);
+vbox1.setPrefHeight(listquestion.size()*28);
 for(Questions questions : listquestion){
 Label label =new Label(i+":   "+questions.getQuestionName());
 i++;

@@ -6,7 +6,6 @@ import com.example.project.database.dao.QuizDao;
 import com.example.project.database.entities.Categories;
 import com.example.project.database.entities.Questions;
 import com.example.project.database.entities.Quiz;
-import com.example.project.gui32.gui32;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,19 +15,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.util.HashSet;
-import java.util.List;
-import java.util.ResourceBundle;
-import java.util.Set;
+import java.util.*;
 
 public class gui63 implements Initializable {
     @FXML
@@ -40,19 +34,22 @@ public class gui63 implements Initializable {
     private CheckBox alsoshowquestion1;
 
     private VBox vBox=new VBox();
-    @FXML
-    void alsoshowquestion(ActionEvent event) {
 
-    }
     @FXML
     void changecombobox(ActionEvent event) {
         String cate=combobox.getValue().trim();
         int mongoac=cate.length();
         if(cate.contains("(")){
             mongoac=cate.indexOf("(");}
-        List<Questions> danhsachquestion = CategoriesDao.getInstance().selectQuestion(cate.substring(0,mongoac));
+        List<Questions> danhsachquestion=new ArrayList<>();
+        if(alsoshowquestion1.isSelected()){
+            danhsachquestion = CategoriesDao.getInstance().selectQuestionfromSubCategory(cate.substring(0,mongoac));
+        }
+        else  {
+            danhsachquestion = CategoriesDao.getInstance().selectQuestion(cate.substring(0,mongoac));
+        }
         vBox.getChildren().clear();
-        anchorpane.setPrefHeight(235+40*danhsachquestion.size());
+        anchorpane.setPrefHeight(235+30*danhsachquestion.size());
         for (int i = 0; i < danhsachquestion.size(); i++) {
             CheckBox checkBox = new CheckBox(danhsachquestion.get(i).getQuestionName());
             vBox.getChildren().add(checkBox);

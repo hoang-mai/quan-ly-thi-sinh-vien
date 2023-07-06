@@ -31,7 +31,7 @@ public class Categories {
 		
 	}
 
-	public Categories(int categoryId,String categoryName, String categoryInfo, Set<Quiz> quiz, Set<Questions> questions,Categories categories_parent) {
+	public Categories(int categoryId, String categoryName, String categoryInfo, Set<Quiz> quiz, Set<Questions> questions, Categories categories_parent) {
 		this.categoryId=categoryId;
 		this.categoryName = categoryName;
 		this.categoryInfo = categoryInfo;

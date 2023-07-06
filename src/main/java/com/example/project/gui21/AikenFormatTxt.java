@@ -118,7 +118,6 @@ public class AikenFormatTxt {
                         questions.setCategories(categories);
                            questions.setQuestionText(allLine.get(i-countChoice-1));
                         questions.setQuestionName(allLine.get(i-countChoice-1));
-
                             QuestionsDao.getInstance().save(questions);
                             Choice choice=new Choice();
                             for (int j=0;j<countChoice;j++){
