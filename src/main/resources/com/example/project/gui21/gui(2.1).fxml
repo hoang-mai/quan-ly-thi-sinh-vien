@@ -6,6 +6,7 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -20,31 +21,31 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="720.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui21.gui21">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="667.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui21.gui21">
    <children>
-      <Pane layoutX="47.0" layoutY="32.0" prefHeight="91.0" prefWidth="619.0" styleClass="pane-border-solid">
+      <Pane layoutX="24.0" layoutY="53.0" prefHeight="91.0" prefWidth="619.0" styleClass="pane-border-solid">
          <children>
             <Label layoutX="17.0" layoutY="10.0" text="IT" textFill="#dd0e0e">
                <font>
                   <Font size="28.0" />
                </font>
             </Label>
-            <Button layoutX="10.0" layoutY="50.0" mnemonicParsing="false" onAction="#home" styleClass="button-another" text="Home" />
+            <Button layoutX="10.0" layoutY="50.0" mnemonicParsing="false" onAction="#home" styleClass="button-text-blue" text="Home" />
             <Label layoutX="59.0" layoutY="51.0" prefHeight="25.0" prefWidth="3.0" text="/">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button layoutX="65.0" layoutY="51.0" mnemonicParsing="false" text="My course" />
+            <Button layoutX="65.0" layoutY="51.0" mnemonicParsing="false" styleClass="button-text-blue" text="My course" />
             <Label layoutX="136.0" layoutY="52.0" prefHeight="25.0" prefWidth="3.0" text="/">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button layoutX="143.0" layoutY="52.0" mnemonicParsing="false" text="THI CUỐI KỲ" />
+            <Button layoutX="143.0" layoutY="52.0" mnemonicParsing="false" styleClass="button-text-blue" text="THI CUỐI KỲ" />
          </children>
       </Pane>
-      <Pane layoutX="47.0" layoutY="150.0" prefHeight="469.0" prefWidth="619.0">
+      <Pane layoutX="24.0" layoutY="153.0" prefHeight="469.0" prefWidth="619.0">
          <children>
             <TabPane fx:id="tabPane" prefHeight="517.0" prefWidth="619.0" tabClosingPolicy="UNAVAILABLE">
                <tabs>
@@ -104,8 +105,8 @@
                               <Pane prefHeight="494.0" prefWidth="619.0">
                                  <children>
                                     <Label layoutX="35.0" layoutY="86.0" text="Parent category" />
-                                    <ComboBox fx:id="comboboxparent" layoutX="304.0" layoutY="91.0" opacity="0.8" prefWidth="150.0" promptText="Default" />
-                                    <ImageView fitHeight="11.0" fitWidth="15.0" layoutX="283.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
+                                    <ComboBox fx:id="comboboxparent" layoutX="301.0" layoutY="91.0" opacity="0.8" prefWidth="150.0" promptText="Default" />
+                                    <ImageView fitHeight="11.0" fitWidth="15.0" layoutX="284.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../ImageView/question.png" />
                                        </image>
@@ -120,12 +121,12 @@
                                     <Label layoutX="35.0" layoutY="168.0" text="Category info" />
                                     <TextArea fx:id="categoryinfor1" layoutX="301.0" layoutY="168.0" prefHeight="164.0" prefWidth="273.0" />
                                     <Label layoutX="35.0" layoutY="351.0" text="ID number" />
-                                    <ImageView fx:id="chamhoi2" fitHeight="11.0" fitWidth="15.0" layoutX="284.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="chamhoi2" fitHeight="11.0" fitWidth="15.0" layoutX="284.0" layoutY="357.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../ImageView/question.png" />
                                        </image>
                                     </ImageView>
-                                    <TextField fx:id="idnumber1" layoutX="302.0" layoutY="347.0" prefHeight="35.0" prefWidth="47.0" />
+                                    <TextField fx:id="idnumber1" layoutX="302.0" layoutY="347.0" prefHeight="31.0" prefWidth="71.0" />
                                     <Button fx:id="addcategory1" disable="true" layoutX="301.0" layoutY="412.0" mnemonicParsing="false" onAction="#addcategory" prefHeight="25.0" prefWidth="109.0" styleClass="button-red" text="ADD CATEGORY" />
                                     <Label layoutX="37.0" layoutY="14.0" text="Add category" textFill="#ec3939">
                                        <font>
@@ -165,7 +166,7 @@
                                     <Pane fx:id="youcandraganddrop1" layoutX="271.0" layoutY="279.0" onDragDropped="#youcandraganddrop2" onDragEntered="#youcandraganddrop3" onDragExited="#youcandraganddrop4" onDragOver="#youcandraganddrop" opacity="0.72" prefHeight="146.0" prefWidth="283.0" style="-fx-border-color: #9b9898;" styleClass="pane-border-solid">
                                        <children>
                                           <Label fx:id="youcandraganddrop5" alignment="CENTER" layoutX="18.0" layoutY="104.0" prefHeight="17.0" prefWidth="248.0" text="You can drag and drop files here to add them" />
-                                          <ImageView fitHeight="72.0" fitWidth="82.0" layoutX="105.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fitHeight="72.0" fitWidth="82.0" layoutX="105.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../ImageView/down-arrow.png" />
                                              </image>
@@ -199,5 +200,25 @@
             </TabPane>
          </children>
       </Pane>
+      <Pane layoutX="-3.0" prefHeight="57.0" prefWidth="673.0" styleClass="pane-background">
+         <children>
+            <Button layoutX="23.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="48.0" styleClass="button-icon">
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ImageView/menu.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <MenuButton layoutX="509.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="148.0" styleClass="button-icon" text="Nguyễn" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="149.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: pointer; -fx-translate-x: 85px;">
+                     <image>
+                        <Image url="@../ImageView/avatar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </MenuButton>
+         </children></Pane>
    </children>
 </Pane>

@@ -1,62 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui62.gui62">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui62.gui62">
    <children>
        <Pane layoutY="51.0" prefHeight="102.0" prefWidth="600.0" styleClass="pane-border-solid">
            <children>
-               <Button layoutX="21.0" layoutY="14.0" mnemonicParsing="false" onAction="#home" styleClass="button-another" text="Home" />
-               <Label layoutX="71.0" layoutY="15.0" prefHeight="25.0" prefWidth="3.0" text="/">
+               <Button layoutX="21.0" layoutY="69.0" mnemonicParsing="false" onAction="#home" prefHeight="25.0" prefWidth="52.0" styleClass="button-text-blue" text="Home" />
+               <Label layoutX="75.0" layoutY="70.0" prefHeight="25.0" prefWidth="3.0" text="/">
                    <font>
                        <Font size="16.0" />
                    </font>
                </Label>
-               <Button layoutX="77.0" layoutY="15.0" mnemonicParsing="false" text="My course" />
-               <Label layoutX="148.0" layoutY="15.0" prefHeight="25.0" prefWidth="3.0" text="/">
+               <Button layoutX="81.0" layoutY="70.0" mnemonicParsing="false" styleClass="button-text-blue" text="My course" />
+               <Label layoutX="152.0" layoutY="70.0" prefHeight="25.0" prefWidth="3.0" text="/">
                    <font>
                        <Font size="16.0" />
                    </font>
                </Label>
-               <Button layoutX="154.0" layoutY="15.0" mnemonicParsing="false" text="THI CUỐI KỲ" />
-               <Label layoutX="236.0" layoutY="15.0" prefHeight="25.0" prefWidth="3.0" text="/">
+               <Button layoutX="158.0" layoutY="70.0" mnemonicParsing="false" styleClass="button-text-blue" text="THI CUỐI KỲ" />
+               <Label layoutX="240.0" layoutY="70.0" prefHeight="25.0" prefWidth="3.0" text="/">
                    <font>
                        <Font size="16.0" />
                    </font>
                </Label>
-               <Button layoutX="242.0" layoutY="15.0" mnemonicParsing="false" text="General" />
-               <Label layoutX="299.0" layoutY="15.0" prefHeight="25.0" prefWidth="3.0" text="/">
+               <Button layoutX="246.0" layoutY="70.0" mnemonicParsing="false" styleClass="button-text-blue" text="General" />
+               <Label layoutX="303.0" layoutY="70.0" prefHeight="25.0" prefWidth="3.0" text="/">
                    <font>
                        <Font size="16.0" />
                    </font>
                </Label>
-               <Button fx:id="quizname" layoutX="305.0" layoutY="15.0" mnemonicParsing="false" onAction="#thiquiz" text="Button" />
-            <Label fx:id="daugach" layoutX="357.0" layoutY="15.0" prefHeight="25.0" prefWidth="3.0" text="/">
+               <Button fx:id="quizname" layoutX="309.0" layoutY="70.0" mnemonicParsing="false" onAction="#thiquiz" styleClass="button-text-blue" text="Button" />
+            <Label fx:id="daugach" layoutX="361.0" layoutY="70.0" prefHeight="25.0" prefWidth="3.0" text="/">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button fx:id="buttoneditquiz" layoutX="363.0" layoutY="15.0" mnemonicParsing="false" text="Edit quiz" />
+            <Button fx:id="buttoneditquiz" layoutX="367.0" layoutY="70.0" mnemonicParsing="false" styleClass="button-text-blue" text="Edit quiz" />
+            <Label fx:id="it" layoutX="29.0" layoutY="8.0" prefHeight="33.0" prefWidth="31.0" text="IT" textFill="#ec3939">
+               <font>
+                  <Font size="35.0" />
+               </font>
+            </Label>
            </children></Pane>
       <Pane layoutY="161.0" prefHeight="480.0" prefWidth="600.0" styleClass="pane-border-solid">
          <children>
-            <MenuButton layoutX="504.0" layoutY="201.0" mnemonicParsing="false" text="ADD">
+            <MenuButton layoutX="497.0" layoutY="201.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" styleClass="button-text-blue" text="ADD" textFill="#218d8d">
               <items>
-                <MenuItem mnemonicParsing="false" onAction="#anewquestion" text="a new question" />
-                <MenuItem mnemonicParsing="false" text="from questtion bank" />
-                  <MenuItem mnemonicParsing="false" onAction="#arandomquestion" text="a random question" />
+                <MenuItem mnemonicParsing="false" onAction="#anewquestion" text="a new question">
+                     <graphic>
+                        <ImageView fitHeight="17.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ImageView/plus.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
+                <MenuItem mnemonicParsing="false" text="from questtion bank">
+                     <graphic>
+                        <ImageView fitHeight="17.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ImageView/plus.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#arandomquestion" text="a random question">
+                     <graphic>
+                        <ImageView fitHeight="17.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ImageView/plus.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></MenuItem>
               </items>
             </MenuButton>
             <Label fx:id="editquiz" layoutX="34.0" layoutY="83.0" prefHeight="32.0" prefWidth="32.0">
@@ -73,26 +90,47 @@
                   </AnchorPane>
               </content>
             </ScrollPane>
-            <ImageView fx:id="hoicham1" fitHeight="32.0" fitWidth="15.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="hoicham1" fitHeight="32.0" fitWidth="15.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: 3px;">
                <image>
                   <Image url="@../ImageView/question.png" />
                </image>
             </ImageView>
-            <Label fx:id="countquestion" layoutX="34.0" layoutY="124.0" prefHeight="17.0" prefWidth="74.0" text="Label" />
+            <Label fx:id="countquestion" layoutX="34.0" layoutY="124.0" prefHeight="17.0" prefWidth="74.0" text="Question: " />
             <Label layoutX="108.0" layoutY="124.0" text="| This quiz open" />
             <Label fx:id="total" layoutX="440.0" layoutY="149.0" prefHeight="17.0" prefWidth="131.0" text="Label" />
             <Button layoutX="511.0" layoutY="120.0" mnemonicParsing="false" styleClass="button-blue" text="SAVE" />
             <TextField layoutX="464.0" layoutY="120.0" prefHeight="25.0" prefWidth="41.0" />
             <Label layoutX="372.0" layoutY="124.0" text="Maximum grade" />
-            <Button layoutX="24.0" layoutY="145.0" mnemonicParsing="false" onAction="#repaginate" prefHeight="25.0" prefWidth="87.0" text="REPAGINATE" />
-            <Button layoutX="120.0" layoutY="145.0" mnemonicParsing="false" onAction="#selectmultipleitems" text="SELECT MULTIPLEITEMS" />
+            <Button layoutX="24.0" layoutY="145.0" mnemonicParsing="false" onAction="#repaginate" prefHeight="25.0" prefWidth="87.0" styleClass="button-blue" text="REPAGINATE" />
+            <Button layoutX="120.0" layoutY="145.0" mnemonicParsing="false" onAction="#selectmultipleitems" styleClass="button-blue" text="SELECT MULTIPLEITEMS" />
             <CheckBox layoutX="472.0" layoutY="177.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="64.0" text="Shuffle" />
-            <ImageView fitHeight="25.0" fitWidth="15.0" layoutX="533.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="25.0" fitWidth="15.0" layoutX="536.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../ImageView/question.png" />
                </image>
             </ImageView>
          </children>
       </Pane>
+       <Pane prefHeight="57.0" prefWidth="600.0" styleClass="pane-background">
+         <children>
+            <Button layoutX="9.0" layoutY="3.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="48.0" styleClass="button-icon">
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ImageView/menu.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <MenuButton layoutX="434.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="148.0" styleClass="button-icon" text="Nguyễn" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="149.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: pointer; -fx-translate-x: 85px;">
+                     <image>
+                        <Image url="@../ImageView/avatar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </MenuButton>
+         </children></Pane>
    </children>
 </Pane>
