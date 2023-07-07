@@ -21,9 +21,9 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="667.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui21.gui21">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="667.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui21.gui21">
    <children>
-      <Pane layoutX="24.0" layoutY="53.0" prefHeight="91.0" prefWidth="619.0" styleClass="pane-border-solid">
+      <Pane layoutX="24.0" layoutY="48.0" prefHeight="91.0" prefWidth="619.0" style="-fx-background-color: white;" styleClass="pane-border-solid">
          <children>
             <Label layoutX="17.0" layoutY="10.0" text="IT" textFill="#dd0e0e">
                <font>
@@ -45,9 +45,9 @@
             <Button layoutX="143.0" layoutY="52.0" mnemonicParsing="false" styleClass="button-text-blue" text="THI CUỐI KỲ" />
          </children>
       </Pane>
-      <Pane layoutX="24.0" layoutY="153.0" prefHeight="469.0" prefWidth="619.0">
+      <Pane layoutX="24.0" layoutY="158.0" prefHeight="512.0" prefWidth="619.0" style="-fx-border-color: lightgray; -fx-background-color: white;">
          <children>
-            <TabPane fx:id="tabPane" prefHeight="517.0" prefWidth="619.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane fx:id="tabPane" layoutX="6.0" layoutY="5.0" prefHeight="512.0" prefWidth="606.0" style="-fx-border-color: lightgray;" tabClosingPolicy="UNAVAILABLE">
                <tabs>
                   <Tab closable="false" text="Questions">
                      <content>
@@ -100,7 +100,7 @@
                   </Tab>
                   <Tab text="Categories">
                      <content>
-                        <AnchorPane disable="true" minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="372.0">
+                        <AnchorPane disable="true" minHeight="0.0" minWidth="0.0" prefHeight="466.0" prefWidth="617.0">
                            <children>
                               <Pane prefHeight="494.0" prefWidth="619.0">
                                  <children>
