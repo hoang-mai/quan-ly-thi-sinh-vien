@@ -157,13 +157,14 @@ gridPane1.setLayoutY(96);
                 radioButton.setToggleGroup(toggleGroup);
                 vBox1.getChildren().add(radioButton);
             }
-            vBox1.getStyleClass().add("pane-border-question");
+            vBox1.getStyleClass().add("pane-background-question");
             gridPane.add(pane,0,i);
             gridPane.add(vBox1,1,i);
             Pane pane1 =new Pane();
-            pane1.getStyleClass().add("pane-border-question");
+            pane1.getStyleClass().add("pane-border-question-number");
             Pane pane2=new Pane();
             pane1.getChildren().add(pane2);
+            pane2.getStyleClass().add("pane-background-question-number");
 
             pane1.setPrefHeight(30);
             pane1.setPrefWidth(24);

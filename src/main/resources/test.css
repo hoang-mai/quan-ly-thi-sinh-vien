@@ -97,9 +97,26 @@
     -fx-border-color: #9b9898;
 }
 
+.pane-border-question-number {
+    -fx-border-color: #ccc;
+    -fx-border-radius: 3px;
+    -fx-background-color: #efefef;
+}
+
+.pane-background-question-number {
+    -fx-border-color: #303030;
+    -fx-border-radius: 3px;
+    -fx-background-color: #303030;
+}
+
 .pane-border-question {
     -fx-border-style: solid;
     -fx-border-color: #ccc;
     -fx-border-radius: 3px;
-    -fx-background-color: #efefef;
+}
+
+.pane-background-question {
+    -fx-border-color: #d7e7e6;
+    -fx-border-radius: 3px;
+    -fx-background-color: #d7e7e6;
 }
