@@ -42,6 +42,14 @@ public class gui65 implements Initializable {
     @FXML
     void addrandomquestiontothequiz(ActionEvent event) {
         try {
+            if(comboboxcategory.getValue()=="Default"||comboboxrandomquestion.getValue()==null){
+                Stage ag0r1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui62/gui(6.2).fxml"));
+                Scene scene = new Scene(root);
+                ag0r1.setScene(scene);
+                ag0r1.show();
+            }
+            else {
             int countquestion=comboboxrandomquestion.getValue();
             Random random=new Random();
             String cate=comboboxcategory.getValue().trim();
@@ -69,13 +77,14 @@ public class gui65 implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui62/gui(6.2).fxml"));
             Scene scene = new Scene(root);
             ag0r1.setScene(scene);
-            ag0r1.show();
+            ag0r1.show();}
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
     @FXML
     void changecomboboxcategory(ActionEvent event) {
+
         String cate=comboboxcategory.getValue().trim();
         int mongoac=cate.length();
         if(cate.contains("(")){

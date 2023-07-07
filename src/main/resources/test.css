@@ -111,7 +111,7 @@
 
 .pane-border-question {
     -fx-border-style: solid;
-    -fx-border-color: #ccc;
+    -fx-black: #ccc;
     -fx-border-radius: 3px;
 }
 

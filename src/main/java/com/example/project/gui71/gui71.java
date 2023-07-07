@@ -16,12 +16,15 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.ByteArrayInputStream;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -130,6 +133,27 @@ gridPane1.setLayoutY(96);
         gridPane1.setHgap(5);
         gridPane1.setVgap(5);
         for (int i=1;i<=listquestion.size();i++){
+            Pane pane1 =new Pane();
+            pane1.getStyleClass().add("pane-border-question-number");
+            Pane pane2=new Pane();
+            pane1.getChildren().add(pane2);
+
+
+            pane1.setPrefHeight(30);
+            pane1.setPrefWidth(24);
+            pane2.setPrefSize(19,15);
+            Label label5=new Label(""+i);
+            pane1.getChildren().add(label5);
+            label5.setLayoutY(1);
+            label5.setLayoutX(5);
+            pane2.setLayoutY(15);
+            pane2.setLayoutX(0);
+            gridPane1.add(pane1,j,k);
+            j++;
+            if(j==8){
+                k++;
+                j=0;
+            }
             Pane pane=new Pane();
             VBox vBox=new VBox();
             vBox.setSpacing(5);
@@ -149,38 +173,59 @@ gridPane1.setLayoutY(96);
             label4.setPrefWidth(485);
             label4.setText(listquestion.get(i-1).getQuestionText());
             vBox1.getChildren().add(label4);
+            if(listquestion.get(i-1).getImage()!=null){
+                byte[] image =listquestion.get(i-1).getImage();
+                Image image1=new Image(new ByteArrayInputStream(image));
+                ImageView imageView=new ImageView(image1);
+                vBox1.getChildren().add(imageView);
+                vBox1.setMargin(imageView,new Insets(10,10,20,10));
+            }else {vBox1.setMargin(label4,new Insets(10,10,20,10));}
             List<Choice> listchoice= QuestionsDao.getInstance().selectChoicebyQuestionId(listquestion.get(i-1).getQuestionId());
+            boolean a=false;
+            for(Choice choice :listchoice){
+                if(choice.getGrade()!= "100"|| choice.getGrade()!="0"){
+                    a=true;
+                }
+            }
+            if (!a) {
             ToggleGroup toggleGroup=new ToggleGroup();
             for(Choice choice :listchoice){
                 RadioButton radioButton=new RadioButton(choice.getChoiceText());
                 radioButton.setWrapText(true);
                 radioButton.setToggleGroup(toggleGroup);
                 vBox1.getChildren().add(radioButton);
+                if(choice.getImage()!=null){
+                byte[] image11 =choice.getImage();
+                Image image111=new Image(new ByteArrayInputStream(image11));
+                ImageView imageView1111=new ImageView(image111);
+                vBox1.getChildren().add(imageView1111);}
+            }
+            toggleGroup.selectedToggleProperty().addListener((observable, oldValue, newValue)->{
+                if(newValue.isSelected()){
+                pane2.getStyleClass().add("pane-background-question-number");}
+
+            });}
+            else {
+                for(Choice choice :listchoice){
+                    CheckBox checkBox=new CheckBox(choice.getChoiceText());
+                    checkBox.setWrapText(true);
+                    vBox1.getChildren().add(checkBox);
+                    if(choice.getImage()!=null){
+                        byte[] image11 =choice.getImage();
+                        Image image111=new Image(new ByteArrayInputStream(image11));
+                        ImageView imageView1111=new ImageView(image111);
+                        vBox1.getChildren().add(imageView1111);}
+                    checkBox.selectedProperty().addListener((observable, oldValue, newValue)->{
+                        if(checkBox.isSelected()){
+                            pane2.getStyleClass().add("pane-background-question-number");
+                        }
+                    });
+                }
             }
             vBox1.getStyleClass().add("pane-background-question");
             gridPane.add(pane,0,i);
             gridPane.add(vBox1,1,i);
-            Pane pane1 =new Pane();
-            pane1.getStyleClass().add("pane-border-question-number");
-            Pane pane2=new Pane();
-            pane1.getChildren().add(pane2);
-            pane2.getStyleClass().add("pane-background-question-number");
 
-            pane1.setPrefHeight(30);
-            pane1.setPrefWidth(24);
-            pane2.setPrefSize(20,15);
-            Label label5=new Label(""+i);
-            pane1.getChildren().add(label5);
-            label5.setLayoutY(1);
-            label5.setLayoutX(5);
-            pane2.setLayoutY(15);
-            pane2.setLayoutX(0);
-            gridPane1.add(pane1,j,k);
-            j++;
-            if(j==8){
-                k++;
-                j=0;
-            }
         }
 
 
