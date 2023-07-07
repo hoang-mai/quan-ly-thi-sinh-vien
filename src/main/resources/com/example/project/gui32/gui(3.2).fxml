@@ -6,6 +6,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -15,7 +16,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1069.0" prefWidth="715.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui32.gui32">
     <children>
-      <ScrollPane hbarPolicy="NEVER" prefHeight="902.0" prefWidth="715.0">
+      <ScrollPane hbarPolicy="NEVER" prefHeight="884.0" prefWidth="715.0">
         <content>
           <AnchorPane fx:id="anchorPane" minHeight="0.0" minWidth="0.0" prefHeight="1600.0" prefWidth="717.0">
                <children>
@@ -76,7 +77,11 @@
                                           <Label layoutX="10.0" layoutY="64.0" text="Choice 1" />
                                           <Label layoutX="22.0" layoutY="97.0" text="Grade" />
                                           <TextArea fx:id="choicetext1" layoutX="62.0" layoutY="11.0" prefHeight="68.0" prefWidth="198.0" />
-                                          <ComboBox fx:id="comboboxchoice1" layoutX="62.0" layoutY="93.0" opacity="0.8" prefHeight="25.0" prefWidth="150.0" />
+                                          <ComboBox fx:id="comboboxchoice1" layoutX="62.0" layoutY="93.0" opacity="0.8" prefHeight="25.0" prefWidth="150.0">
+                                             <effect>
+                                                <ColorAdjust brightness="0.03" contrast="0.09" hue="1.0" saturation="-1.0" />
+                                             </effect>
+                                          </ComboBox>
                                           <Button layoutX="12.0" layoutY="136.0" mnemonicParsing="false" onAction="#InsertImageChoice1" styleClass="button-another" text="Image" />
                                           <ImageView fx:id="ImageChoice1" fitHeight="77.0" fitWidth="200.0" layoutX="72.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true" />
                                        </children>
@@ -86,7 +91,11 @@
                                           <Label layoutX="10.0" layoutY="64.0" text="Choice 2" />
                                           <Label layoutX="22.0" layoutY="97.0" text="Grade" />
                                           <TextArea fx:id="choicetext2" layoutX="62.0" layoutY="11.0" prefHeight="68.0" prefWidth="198.0" />
-                                          <ComboBox fx:id="comboboxchoice2" layoutX="62.0" layoutY="93.0" opacity="0.8" prefHeight="25.0" prefWidth="150.0" />
+                                          <ComboBox fx:id="comboboxchoice2" layoutX="62.0" layoutY="93.0" opacity="0.8" prefHeight="25.0" prefWidth="150.0">
+                                             <effect>
+                                                <ColorAdjust brightness="0.03" contrast="0.09" hue="1.0" saturation="-1.0" />
+                                             </effect>
+                                          </ComboBox>
                                           <ImageView fx:id="ImageChoice2" fitHeight="77.0" fitWidth="200.0" layoutX="72.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true" />
                                           <Button layoutX="13.0" layoutY="136.0" mnemonicParsing="false" onAction="#InsertImageChoice2" styleClass="button-another" text="Image" />
                                        </children>
@@ -117,7 +126,11 @@
                                     </Pane>
                                  </children>
                               </VBox>
-                              <ComboBox fx:id="combobox" layoutX="249.0" layoutY="75.0" prefWidth="150.0" />
+                              <ComboBox fx:id="combobox" layoutX="249.0" layoutY="75.0" prefWidth="150.0">
+                                 <effect>
+                                    <ColorAdjust brightness="0.03" contrast="0.09" hue="1.0" saturation="-1.0" />
+                                 </effect>
+                              </ComboBox>
                               <Label layoutX="61.0" layoutY="79.0" text="Category" />
                               <Label layoutX="26.0" layoutY="44.0" text="General" />
                               </children>

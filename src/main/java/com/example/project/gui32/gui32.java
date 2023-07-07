@@ -14,6 +14,7 @@ import com.example.project.database.entities.Categories;
 import com.example.project.database.entities.Choice;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.effect.ColorAdjust;
 import javafx.stage.FileChooser;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -326,6 +327,7 @@ String textcombobox = null;
 
     @FXML
     private void addMoreChoices() {
+
         if (addMoreChoicesEnabled) {
             // Thực hiện hành động
             for (int i = 3; i < 6; i++) {
@@ -341,6 +343,11 @@ String textcombobox = null;
 
 
     private Pane clonePane(Pane originalPane,int i) {
+        ColorAdjust colorAdjust = new ColorAdjust();
+        colorAdjust.setHue(1.0);
+        colorAdjust.setSaturation(-1.0);
+        colorAdjust.setBrightness(0.03);
+        colorAdjust.setContrast(0.09);
         Pane newPane = new Pane();
         newPane.getStyleClass().addAll(originalPane.getStyleClass());
         newPane.setStyle(originalPane.getStyle());
@@ -365,6 +372,7 @@ String textcombobox = null;
         comboBox.setLayoutY(93);
         comboBox.getItems().addAll("None", "100%", "90%","83,33333%","80%","75%","70%","66.66667%","60%","50%","40%","33.33333%","30%","25%","20%","16.66667%","14.28571%","12.5%","11.11111%","10%","5%","83,33333%","80%","75%","70%","66.66667%","60%","50%","40%","33.33333%","30%","25%","20%","16.66667%","14.28571%","12.5%","11.11111%","10%","5%","-5%","-10%","-11.11111%","-12.5%","-14.28571%","-16.66667%","-20%","-25%","-30%","-33.33333%","-40%","-50%","-60%","-66.66667%","-70%","-75%","-80%","-83,33333%");
 comboBox.setValue("None");
+        comboBox.setEffect(colorAdjust);
         Button button = new Button("Image");
         button.setLayoutX(12);
         button.setLayoutY(136);
