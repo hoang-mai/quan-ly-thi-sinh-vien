@@ -1,6 +1,8 @@
 package com.example.project.gui71;
 
+import com.example.project.database.dao.QuestionsDao;
 import com.example.project.database.dao.QuizDao;
+import com.example.project.database.entities.Choice;
 import com.example.project.database.entities.Questions;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -26,6 +28,8 @@ import java.util.ResourceBundle;
 
 public class gui71 implements Initializable {
     @FXML
+    private Pane panecountquiz;
+    @FXML
     private Button quizname;
     @FXML
     private Button buttoneditquiz;
@@ -41,6 +45,7 @@ public class gui71 implements Initializable {
     @FXML
     private ScrollPane scrollpane;
     private GridPane gridPane=new GridPane();
+    private GridPane gridPane1=new GridPane();
 
     @FXML
     private Label timeleft;
@@ -90,27 +95,89 @@ public class gui71 implements Initializable {
         List<Questions> listquestion=QuizDao.getInstance().selectQuestion(QuizDao.getInstance().getQuiz().getQuizName());
         gridPane.setPrefWidth(618);
         ColumnConstraints column1 = new ColumnConstraints();
-        column1.setPrefWidth(142);
+        column1.setPrefWidth(125);
         ColumnConstraints column2 = new ColumnConstraints();
-        column2.setPrefWidth(476);
+        column2.setPrefWidth(493);
         gridPane.getColumnConstraints().addAll(column1, column2);
         anchorpane.getChildren().add(gridPane);
         gridPane.setLayoutY(56);
         gridPane.setLayoutX(0);
         gridPane.setVgap(10);
         gridPane.setPadding(new Insets(0, 0, 0, 10));
+int j=0;
+int k=0;
+panecountquiz.getChildren().add(gridPane1);
+gridPane1.setPrefWidth(196);
+gridPane1.setLayoutY(96);
 
+        ColumnConstraints column3 = new ColumnConstraints();
+        column3.setPrefWidth(24);
+        ColumnConstraints column4 = new ColumnConstraints();
+        column4.setPrefWidth(24);
+        ColumnConstraints column5 = new ColumnConstraints();
+        column5.setPrefWidth(25);
+        ColumnConstraints column6 = new ColumnConstraints();
+        column6.setPrefWidth(24);
+        ColumnConstraints column7 = new ColumnConstraints();
+        column7.setPrefWidth(25);
+        ColumnConstraints column8 = new ColumnConstraints();
+        column8.setPrefWidth(24);
+        ColumnConstraints column9 = new ColumnConstraints();
+        column9.setPrefWidth(25);
+        ColumnConstraints column10 = new ColumnConstraints();
+        column10.setPrefWidth(25);
+        gridPane1.getColumnConstraints().addAll(column3,column4,column5,column6,column7,column8,column9,column10);
+        gridPane1.setHgap(5);
+        gridPane1.setVgap(5);
         for (int i=1;i<=listquestion.size();i++){
+            Pane pane=new Pane();
             VBox vBox=new VBox();
             vBox.setSpacing(5);
+            vBox.setPadding(new Insets(10,10,10,10));
             Label label=new Label("Question"+i);
             Label label1=new Label("Not yet"+"\n"+"answered");
             Label label2=new Label("Marked out of"+"\n"+"1.00");
             Label label3=new Label("Flag question");
             vBox.getChildren().addAll(label,label1,label2,label3);
             vBox.getStyleClass().add("pane-border-question");
-            gridPane.add(vBox,0,i);
+            pane.getChildren().add(vBox);
+            VBox vBox1=new VBox();
+            vBox1.setSpacing(5);
+            vBox1.setPadding(new Insets(10,10,10,10));
+            Label label4=new Label();
+            label4.setWrapText(true);
+            label4.setPrefWidth(485);
+            label4.setText(listquestion.get(i-1).getQuestionText());
+            vBox1.getChildren().add(label4);
+            List<Choice> listchoice= QuestionsDao.getInstance().selectChoicebyQuestionId(listquestion.get(i-1).getQuestionId());
+            ToggleGroup toggleGroup=new ToggleGroup();
+            for(Choice choice :listchoice){
+                RadioButton radioButton=new RadioButton(choice.getChoiceText());
+                radioButton.setWrapText(true);
+                radioButton.setToggleGroup(toggleGroup);
+                vBox1.getChildren().add(radioButton);
+            }
+            vBox1.getStyleClass().add("pane-border-question");
+            gridPane.add(pane,0,i);
+            gridPane.add(vBox1,1,i);
+            Pane pane1 =new Pane();
+            pane1.getStyleClass().add("pane-border-question");
+            pane1.setPrefHeight(30);
+            pane1.setPrefWidth(24);
+            Label label5=new Label(""+i);
+            pane1.getChildren().add(label5);
+            label5.setLayoutY(1);
+            label5.setLayoutX(5);
+            gridPane1.add(pane1,j,k);
+            j++;
+            if(j==8){
+                k++;
+                j=0;
+            }
         }
+
+
+        anchorpane.setPrefHeight(10000);
         timeleft.setText(formatTime(timeRemaining));
         Timeline timeline = new Timeline();
         timeline.setCycleCount(Timeline.INDEFINITE);
