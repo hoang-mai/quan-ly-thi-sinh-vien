@@ -98,7 +98,7 @@
 }
 
 .pane-border-question-number {
-    -fx-border-color: #ccc;
+    -fx-border-color: black;
     -fx-border-radius: 3px;
     -fx-background-color: #efefef;
 }

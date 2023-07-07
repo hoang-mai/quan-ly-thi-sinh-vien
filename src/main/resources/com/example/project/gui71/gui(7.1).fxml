@@ -38,7 +38,7 @@
             </ImageView>
          </children>
       </Pane>
-       <Pane prefHeight="57.0" prefWidth="830.0" styleClass="pane-background">
+      <Pane prefHeight="57.0" prefWidth="830.0" styleClass="pane-background">
          <children>
             <Button layoutX="25.0" layoutY="3.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="48.0" styleClass="button-icon">
                <graphic>
@@ -58,7 +58,8 @@
                   </ImageView>
                </graphic>
             </MenuButton>
-         </children></Pane>
+         </children>
+       </Pane>
       <Pane layoutY="57.0" prefHeight="71.0" prefWidth="830.0" styleClass="pane-border-solid">
          <children>
             <Button layoutX="21.0" layoutY="50.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" styleClass="button-text-blue" text="Home" />
