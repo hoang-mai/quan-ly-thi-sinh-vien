@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="642.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui61.gui61">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="642.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui61.gui61">
     <children>
         <Pane layoutX="-2.0" prefHeight="52.0" prefWidth="591.0" />
         <Pane layoutX="13.0" layoutY="52.0" prefHeight="102.0" prefWidth="574.0" styleClass="pane-border-solid">
@@ -62,6 +62,24 @@
                   <Font size="19.0" />
                </font>
             </Label>
+            <Label layoutX="387.0" layoutY="96.0" text="Grading method: Last attempt" />
+            <Label layoutX="20.0" layoutY="142.0" text="Summary of your previous attempts">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Pane layoutY="163.0" prefHeight="40.0" prefWidth="574.0">
+               <children>
+                  <Label layoutX="139.0" layoutY="12.0" text="Attempt" />
+                  <Label layoutX="343.0" layoutY="12.0" text="State" />
+               </children>
+            </Pane>
+            <Pane layoutY="201.0" prefHeight="40.0" prefWidth="574.0">
+               <children>
+                  <Label layoutX="139.0" layoutY="12.0" text="Preview" />
+                  <Label layoutX="342.0" layoutY="12.0" text="Never submitted" />
+               </children>
+            </Pane>
             </children>
         </Pane>
         <Pane prefHeight="57.0" prefWidth="600.0" styleClass="pane-background">

@@ -1,8 +1,11 @@
 package com.example.project.gui65;
 
 import com.example.project.database.dao.CategoriesDao;
+import com.example.project.database.dao.QuestionsDao;
+import com.example.project.database.dao.QuizDao;
 import com.example.project.database.entities.Categories;
 import com.example.project.database.entities.Questions;
+import com.example.project.database.entities.Quiz;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,9 +23,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class gui65 implements Initializable {
     @FXML
@@ -37,9 +38,33 @@ public class gui65 implements Initializable {
 
     @FXML
     private CheckBox includequestions;
+
     @FXML
     void addrandomquestiontothequiz(ActionEvent event) {
         try {
+            int countquestion=comboboxrandomquestion.getValue();
+            Random random=new Random();
+            String cate=comboboxcategory.getValue().trim();
+            int mongoac=cate.length();
+            if(cate.contains("(")){
+                mongoac=cate.indexOf("(");}
+            List<Questions> danhsachquestion=new ArrayList<>();
+            if(includequestions.isSelected()){
+                danhsachquestion = CategoriesDao.getInstance().selectQuestionfromSubCategory(cate.substring(0,mongoac));
+            }
+            else  {
+                danhsachquestion = CategoriesDao.getInstance().selectQuestion(cate.substring(0,mongoac));
+            }
+            for (int i=0;i<countquestion;i++){
+                int random1=random.nextInt(danhsachquestion.size());
+                Questions questions=danhsachquestion.get(random1);
+                Set<Quiz> quiz = new HashSet<Quiz>();
+                quiz.add(QuizDao.getInstance().selectByName(QuizDao.getInstance().getQuiz().getQuizName()));
+                questions.setQuiz(quiz);
+                // thêm vào database
+                QuestionsDao.getInstance().update(questions);
+                danhsachquestion.remove(random1);
+            }
             Stage ag0r1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui62/gui(6.2).fxml"));
             Scene scene = new Scene(root);
@@ -62,7 +87,7 @@ public class gui65 implements Initializable {
         else  {
             danhsachquestion = CategoriesDao.getInstance().selectQuestion(cate.substring(0,mongoac));
         }
-        System.out.println(danhsachquestion.size());
+
         ObservableList<Integer> listcomboboxrandomquestion = FXCollections.observableArrayList();
         for(int i = 1; i<=danhsachquestion.size(); i++){
             listcomboboxrandomquestion.add(Integer.valueOf(i));

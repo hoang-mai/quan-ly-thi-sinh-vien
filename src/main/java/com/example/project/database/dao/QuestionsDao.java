@@ -162,7 +162,7 @@ public class QuestionsDao {
 		}
 	}
 	//đưa ra list choice theo questionId
-	public static List<Choice> selectChoicebyQuestionId(int questionId) {
+	public List<Choice> selectChoicebyQuestionId(int questionId) {
 		List<Choice> choices = new ArrayList<>();
 		Session session = null;
 		Transaction transaction = null;
