@@ -162,12 +162,18 @@ gridPane1.setLayoutY(96);
             gridPane.add(vBox1,1,i);
             Pane pane1 =new Pane();
             pane1.getStyleClass().add("pane-border-question");
+            Pane pane2=new Pane();
+            pane1.getChildren().add(pane2);
+
             pane1.setPrefHeight(30);
             pane1.setPrefWidth(24);
+            pane2.setPrefSize(20,15);
             Label label5=new Label(""+i);
             pane1.getChildren().add(label5);
             label5.setLayoutY(1);
             label5.setLayoutX(5);
+            pane2.setLayoutY(15);
+            pane2.setLayoutX(0);
             gridPane1.add(pane1,j,k);
             j++;
             if(j==8){
