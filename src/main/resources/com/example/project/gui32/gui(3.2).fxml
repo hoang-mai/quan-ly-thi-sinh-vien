@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1069.0" prefWidth="715.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui32.gui32">
+<Pane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1069.0" prefWidth="715.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui32.gui32">
     <children>
       <ScrollPane hbarPolicy="NEVER" prefHeight="884.0" prefWidth="715.0">
         <content>
@@ -71,7 +71,7 @@
                                           <Font size="20.0" />
                                       </font>
                                   </Label>
-                              <VBox fx:id="vbox" layoutX="247.0" layoutY="443.0" prefHeight="1308.0" prefWidth="300.0">
+                              <VBox fx:id="vbox" layoutX="247.0" layoutY="443.0" prefHeight="1400.0" prefWidth="300.0">
                                  <children>
                                     <Pane fx:id="originalPane" prefHeight="230.0" prefWidth="300.0" styleClass="pane-border-solid">
                                        <children>

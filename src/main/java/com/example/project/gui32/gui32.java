@@ -14,6 +14,7 @@ import com.example.project.database.entities.Categories;
 import com.example.project.database.entities.Choice;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.effect.ColorAdjust;
 import javafx.stage.FileChooser;
 import javax.imageio.ImageIO;
@@ -87,6 +88,8 @@ public class gui32 implements Initializable {
     private ImageView imageView;
 
     private byte[] imageData;
+    private byte[] imageData1;
+    private byte[] imageData2;
     @FXML
     private TextArea choicetext1;
     @FXML
@@ -148,7 +151,10 @@ public class gui32 implements Initializable {
         fileChooser.getExtensionFilters().add(imageFilter);
         File selectedFile = fileChooser.showOpenDialog(null);
         if (selectedFile != null) {
-            try {
+            try {BufferedImage bufferedImage = ImageIO.read(selectedFile);
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                ImageIO.write(bufferedImage, "png", byteArrayOutputStream);
+                imageData2 = byteArrayOutputStream.toByteArray();
                 Image image = new Image(new FileInputStream(selectedFile));
                 ImageChoice2.setImage(image);
                 ImageChoice2.setVisible(true);
@@ -164,7 +170,10 @@ public class gui32 implements Initializable {
         fileChooser.getExtensionFilters().add(imageFilter);
         File selectedFile = fileChooser.showOpenDialog(null);
         if (selectedFile != null) {
-            try {
+            try {BufferedImage bufferedImage = ImageIO.read(selectedFile);
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                ImageIO.write(bufferedImage, "png", byteArrayOutputStream);
+                imageData1 = byteArrayOutputStream.toByteArray();
                 Image image = new Image(new FileInputStream(selectedFile));
                 ImageChoice1.setImage(image);
                 ImageChoice1.setVisible(true);
@@ -209,57 +218,64 @@ public class gui32 implements Initializable {
 
     @FXML
     private Button savechanges1;
+    private void saveChoice(Questions questions, String choiceText, String grade,byte[] image) {
+        try {
+            Choice choice = new Choice();
+            choice.setChoiceText(choiceText);
+            choice.setQuestions(questions);
+            if(grade=="Non"){
+                grade="0";
+            }
+            choice.setImage(image);
+            choice.setGrade(grade);
+            ChoiceDao.getInstance().save(choice);
+        } catch (Exception e) {
+            // Xử lý ngoại lệ tại đây
+        }
+    }
 
     @FXML
     void savechanges(ActionEvent event) {
 
         try {
-            String cate=combobox.getValue().trim();
-            int mongoac=cate.length();
-            if(cate.contains("(")){
-                mongoac=cate.indexOf("(");}
+            String cate = combobox.getValue().trim();
+            int mongoac = cate.length();
+            if (cate.contains("(")) {
+                mongoac = cate.indexOf("(");
+            }
 
+            // Lấy text của choice
             String text;
             Questions questions = new Questions();
             questions.setQuestionName(questtionname1.getText());
             questions.setQuestionText(questiontext1.getText());
             questions.setDefaultmark(Integer.parseInt(defaultmark.getText()));
             questions.setImage(imageData);
-            Categories categories = CategoriesDao.getInstance().selectCategorybyName(cate.substring(0,mongoac));
+            Categories categories = CategoriesDao.getInstance().selectCategorybyName(cate.substring(0, mongoac));
             questions.setCategories(categories);
             QuestionsDao.getInstance().save(questions);
+            saveChoice(questions, choicetext1.getText(), comboboxchoice1.getValue().substring(0, comboboxchoice1.getValue().length() - 1),imageData1);
+            //save choice 2
+            saveChoice(questions, choicetext2.getText(), comboboxchoice2.getValue().substring(0, comboboxchoice2.getValue().length() - 1),imageData2);
+            ObservableList<Node> children = vbox.getChildren();
 
-            ObservableList<Node> vboxChildren = vbox.getChildren();
-            for (int i = 0; i < vboxChildren.size() - 1; i++) {
-                Node node = vboxChildren.get(i);
+            for (int i = 0; i < children.size() - 1; i++) {
+                Node node = children.get(i);
                 if (node instanceof Pane) {
                     Pane pane = (Pane) node;
+                    // Kiểm tra điều kiện để xác định Pane có dữ liệu
+                    if (pane.getChildren().size() > 0) {
+                        // Lấy dữ liệu từ các thành phần con trong Pane
+                        Label label1 = (Label) pane.getChildren().get(0);
+                        TextArea textArea = (TextArea) pane.getChildren().get(2);
+                        ComboBox<String> comboBox = (ComboBox<String>) pane.getChildren().get(3);
+                        // Tiếp tục lấy dữ liệu từ các thành phần khác nếu cần
 
-                    // Lấy giá trị choice từ các thành phần UI trong pane
-                    String choiceText = null;
-String textcombobox = null;
-                    for (Node childNode : pane.getChildren()) {
-                        if (childNode instanceof TextField) {
-                            TextField choiceField = (TextField) childNode;
-                            choiceText = choiceField.getText();
-                            break;
-                        } else if (childNode instanceof ComboBox) {
-                            ComboBox<String> comboBox = (ComboBox<String>) childNode;
-                            String selectedValue = comboBox.getValue();
-                            if (selectedValue != null) {
-                                textcombobox = selectedValue;
-                                break;
-                            }
-                        }
-                    }
-
-                    // Kiểm tra nếu choiceText không rỗng, tức là có giá trị
-                    if (choiceText != null && !choiceText.isEmpty()) {
-                        Choice choice = new Choice();
-                        choice.setChoiceText(choiceText);
-                        choice.setQuestions(questions);
-                        String grade= textcombobox.substring(0,textcombobox.length()-1);
-                        ChoiceDao.getInstance().save(choice);
+                        // Sử dụng dữ liệu đã lấy để thực hiện các tác vụ khác
+                        String choiceText = textArea.getText();
+                        String grade = comboBox.getValue();
+                        saveChoice(questions, choiceText, grade.substring(0, comboBox.getValue().length() - 1));
+                        // Tiếp tục xử lý dữ liệu lấy được
                     }
                 }
             }
@@ -274,42 +290,56 @@ String textcombobox = null;
         }
     }
 
+
     @FXML
     void savechangesandcontinue(ActionEvent event) {
         try {
-            String cate=combobox.getValue().trim();
-            int mongoac=cate.length();
-            if(cate.contains("(")){
-                mongoac=cate.indexOf("(");}
+            String cate = combobox.getValue().trim();
+            int mongoac = cate.length();
+            if (cate.contains("(")) {
+                mongoac = cate.indexOf("(");
+            }
 
-            // lấy text của choice
+            // Lấy text của choice
             String text;
             Questions questions = new Questions();
             questions.setQuestionName(questtionname1.getText());
             questions.setQuestionText(questiontext1.getText());
             questions.setDefaultmark(Integer.parseInt(defaultmark.getText()));
             questions.setImage(imageData);
-            Categories categories = CategoriesDao.getInstance().selectCategorybyName(cate.substring(0,mongoac));
+            Categories categories = CategoriesDao.getInstance().selectCategorybyName(cate.substring(0, mongoac));
             questions.setCategories(categories);
             QuestionsDao.getInstance().save(questions);
-            Choice choice1 = new Choice();
-            choice1.setChoiceText(choicetext1.getText());
-            choice1.setQuestions(questions);
-            text=comboboxchoice1.getValue();
-            String gradee=text.substring(0,text.length()-1);
-            choice1.setGrade(gradee);
-            ChoiceDao.getInstance().save(choice1);
+            saveChoice(questions, choicetext1.getText(), comboboxchoice1.getValue().substring(0, comboboxchoice1.getValue().length() - 1),imageData1);
             //save choice 2
-            choice1.setChoiceText(choicetext2.getText());
-            choice1.setQuestions(questions);
-            text=comboboxchoice2.getValue();
-            gradee=text.substring(0,text.length()-1);
-            choice1.setGrade(gradee);
-            ChoiceDao.getInstance().save(choice1);
+            saveChoice(questions, choicetext2.getText(), comboboxchoice2.getValue().substring(0, comboboxchoice2.getValue().length() - 1),imageData2);
+            ObservableList<Node> children = vbox.getChildren();
+
+            for (int i = 0; i < children.size() - 1; i++) {
+                Node node = children.get(i);
+                if (node instanceof Pane) {
+                    Pane pane = (Pane) node;
+                    // Kiểm tra điều kiện để xác định Pane có dữ liệu
+                    if (pane.getChildren().size() > 0) {
+                        // Lấy dữ liệu từ các thành phần con trong Pane
+                        Label label1 = (Label) pane.getChildren().get(0);
+                        TextArea textArea = (TextArea) pane.getChildren().get(2);
+                        ComboBox<String> comboBox = (ComboBox<String>) pane.getChildren().get(3);
+                        // Tiếp tục lấy dữ liệu từ các thành phần khác nếu cần
+
+                        // Sử dụng dữ liệu đã lấy để thực hiện các tác vụ khác
+                        String choiceText = textArea.getText();
+                        String grade = comboBox.getValue();
+                        saveChoice(questions, choiceText, grade.substring(0, comboBox.getValue().length() - 1));
+                        // Tiếp tục xử lý dữ liệu lấy được
+                    }
+                }
+            }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
+
 
     @FXML
     private VBox vbox;
@@ -322,18 +352,19 @@ String textcombobox = null;
     private Pane originalPane2;
     @FXML
     private Button addButton;
-    
+    @FXML
+    private AnchorPane anchorPane;
     private boolean addMoreChoicesEnabled = true;
 
     @FXML
     private void addMoreChoices() {
-
+        anchorPane.setPrefHeight(2200);
         if (addMoreChoicesEnabled) {
             // Thực hiện hành động
             for (int i = 3; i < 6; i++) {
                 Pane newPane = clonePane(originalPane, i);
                 int lastIndex = vbox.getChildren().size(); // Lấy kích thước hiện tại của VBox
-                vbox.getChildren().add(lastIndex - 1, newPane); // Thêm newPane vào trước vị trí cuối cùng
+                vbox.getChildren().add(lastIndex-1 , newPane); // Thêm newPane vào trước vị trí cuối cùng
             }
 
             // Vô hiệu hóa sự kiện addMoreChoices()
@@ -343,11 +374,6 @@ String textcombobox = null;
 
 
     private Pane clonePane(Pane originalPane,int i) {
-        ColorAdjust colorAdjust = new ColorAdjust();
-        colorAdjust.setHue(1.0);
-        colorAdjust.setSaturation(-1.0);
-        colorAdjust.setBrightness(0.03);
-        colorAdjust.setContrast(0.09);
         Pane newPane = new Pane();
         newPane.getStyleClass().addAll(originalPane.getStyleClass());
         newPane.setStyle(originalPane.getStyle());
@@ -372,7 +398,6 @@ String textcombobox = null;
         comboBox.setLayoutY(93);
         comboBox.getItems().addAll("None", "100%", "90%","83,33333%","80%","75%","70%","66.66667%","60%","50%","40%","33.33333%","30%","25%","20%","16.66667%","14.28571%","12.5%","11.11111%","10%","5%","83,33333%","80%","75%","70%","66.66667%","60%","50%","40%","33.33333%","30%","25%","20%","16.66667%","14.28571%","12.5%","11.11111%","10%","5%","-5%","-10%","-11.11111%","-12.5%","-14.28571%","-16.66667%","-20%","-25%","-30%","-33.33333%","-40%","-50%","-60%","-66.66667%","-70%","-75%","-80%","-83,33333%");
 comboBox.setValue("None");
-        comboBox.setEffect(colorAdjust);
         Button button = new Button("Image");
         button.setLayoutX(12);
         button.setLayoutY(136);
