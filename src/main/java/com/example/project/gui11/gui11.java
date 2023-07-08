@@ -98,8 +98,12 @@ void quiz(ActionEvent event){
     public void initialize(URL url, ResourceBundle resourceBundle) {
         List<Quiz> listquiz=QuizDao.getInstance().selectALl();
         for (Quiz quiz : listquiz) {
-
+            Image image = new Image(getClass().getResourceAsStream("/com/example/project/ImageView/select.png"));
+            ImageView imageView = new ImageView(image);
             Button button = new Button(quiz.getQuizName());
+            imageView.setFitWidth(15);
+            imageView.setFitHeight(18);
+button.setGraphic(imageView);
             button.getStyleClass().add("button-text-red");
             vbox1.getChildren().add(button);
             button.setOnAction(event -> {
