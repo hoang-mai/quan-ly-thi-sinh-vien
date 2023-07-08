@@ -99,11 +99,11 @@ public class gui71 implements Initializable {
         daugach.setLayoutX(quizname.getLayoutX()+text.getLayoutBounds().getWidth()+10);
         buttoneditquiz.setLayoutX(quizname.getLayoutX()+6+text.getLayoutBounds().getWidth()+4);
         List<Questions> listquestion=QuizDao.getInstance().selectQuestion(QuizDao.getInstance().getQuiz().getQuizName());
-        gridPane.setPrefWidth(610);
+        gridPane.setPrefWidth(600);
         ColumnConstraints column1 = new ColumnConstraints();
         column1.setPrefWidth(125);
         ColumnConstraints column2 = new ColumnConstraints();
-        column2.setPrefWidth(485);
+        column2.setPrefWidth(475);
         gridPane.getColumnConstraints().addAll(column1, column2);
         anchorpane.getChildren().add(gridPane);
         gridPane.setLayoutY(56);
