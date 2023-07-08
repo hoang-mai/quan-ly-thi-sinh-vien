@@ -132,10 +132,7 @@ public class gui32 implements Initializable {
         File selectedFile = fileChooser.showOpenDialog(null);
         if (selectedFile != null) {
             try {
-                BufferedImage bufferedImage = ImageIO.read(selectedFile);
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                ImageIO.write(bufferedImage, "png", byteArrayOutputStream);
-                imageData = byteArrayOutputStream.toByteArray();
+                imageData = readImageAsByteArray(selectedFile);
                 Image image = new Image(new FileInputStream(selectedFile));
                 imageView.setImage(image);
                 imageView.setVisible(true);
@@ -152,10 +149,8 @@ public class gui32 implements Initializable {
         File selectedFile = fileChooser.showOpenDialog(null);
         if (selectedFile != null) {
             try {
-                BufferedImage bufferedImage = ImageIO.read(selectedFile);
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                ImageIO.write(bufferedImage, "png", byteArrayOutputStream);
-                imageData1.put(2,byteArrayOutputStream.toByteArray());
+
+                imageData1.put(2,readImageAsByteArray(selectedFile));
                 Image image = new Image(new FileInputStream(selectedFile));
                 ImageChoice2.setImage(image);
                 ImageChoice2.setVisible(true);
@@ -172,10 +167,8 @@ public class gui32 implements Initializable {
         File selectedFile = fileChooser.showOpenDialog(null);
         if (selectedFile != null) {
             try {
-                BufferedImage bufferedImage = ImageIO.read(selectedFile);
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                ImageIO.write(bufferedImage, "png", byteArrayOutputStream);
-                imageData1.put(1,byteArrayOutputStream.toByteArray());
+
+                imageData1.put(1,readImageAsByteArray(selectedFile));
                 Image image = new Image(new FileInputStream(selectedFile));
                 ImageChoice1.setImage(image);
                 ImageChoice1.setVisible(true);
@@ -220,6 +213,19 @@ public class gui32 implements Initializable {
 
     @FXML
     private Button savechanges1;
+    private byte[] readImageAsByteArray(File file) throws IOException {
+        try (FileInputStream fis = new FileInputStream(file);
+             ByteArrayOutputStream bos = new ByteArrayOutputStream()) {
+
+            byte[] buffer = new byte[4096];
+            int bytesRead;
+            while ((bytesRead = fis.read(buffer)) != -1) {
+                bos.write(buffer, 0, bytesRead);
+            }
+
+            return bos.toByteArray();
+        }
+    }
 
     private void saveChoice(Questions questions, String choiceText, String grade,byte[] imageData) {
         try {
@@ -415,10 +421,7 @@ comboBox.setValue("None");
                 File selectedFile = fileChooser.showOpenDialog(null);
                 if (selectedFile != null) {
                     try {
-                        BufferedImage bufferedImage = ImageIO.read(selectedFile);
-                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                        ImageIO.write(bufferedImage, "png", byteArrayOutputStream);
-                        imageData1.put(i,byteArrayOutputStream.toByteArray());
+                        imageData1.put(i,readImageAsByteArray(selectedFile));
                         Image image = new Image(new FileInputStream(selectedFile));
                         imageView.setImage(image);
                         imageView.setPreserveRatio(true);
