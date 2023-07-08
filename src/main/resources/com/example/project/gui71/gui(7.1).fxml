@@ -11,56 +11,41 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="830.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui71.gui71">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="856.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui71.gui71">
    <children>
-      <Pane prefHeight="47.0" prefWidth="830.0" />
-      <ScrollPane fx:id="scrollpane" hbarPolicy="NEVER" layoutY="157.0" prefHeight="541.0" prefWidth="633.0" vbarPolicy="NEVER">
+      <Pane prefHeight="57.0" prefWidth="856.0" />
+      <ScrollPane fx:id="scrollpane" hbarPolicy="NEVER" layoutX="10.0" layoutY="151.0" prefHeight="547.0" prefWidth="619.0" styleClass="pane-border-solid" vbarPolicy="NEVER">
         <content>
-          <AnchorPane fx:id="anchorpane" minHeight="0.0" minWidth="0.0" prefHeight="541.0" prefWidth="618.0">
+          <AnchorPane fx:id="anchorpane" minHeight="0.0" minWidth="0.0" prefHeight="542.0" prefWidth="607.0">
                <children>
-                  <Label fx:id="timeleft" layoutX="487.0" layoutY="14.0" prefHeight="18.0" prefWidth="108.0" />
+                  <Pane layoutX="464.0" layoutY="14.0" prefHeight="31.0" prefWidth="127.0" style="-fx-border-color: red; -fx-border-radius: 3px;">
+                     <children>
+                        <Label fx:id="timeleft" layoutX="10.0" layoutY="8.0" prefHeight="18.0" prefWidth="108.0" />
+                     </children>
+                  </Pane>
                </children>
             </AnchorPane>
         </content>
       </ScrollPane>
-      <Pane fx:id="panecountquiz" layoutX="634.0" layoutY="158.0" prefHeight="522.0" prefWidth="197.0">
+      <Pane fx:id="panecountquiz" layoutX="638.0" layoutY="151.0" prefHeight="454.0" prefWidth="208.0" styleClass="pane-border-solid">
          <children>
-            <Label prefHeight="53.0" prefWidth="195.0" text="Quiz navigation">
+            <Label prefHeight="53.0" prefWidth="208.0" style="-fx-background-color: #ccc;" styleClass="pane-border-solid" text="Quiz navigation" textFill="#ec3939">
                <padding>
                   <Insets left="10.0" />
                </padding>
+               <font>
+                  <Font size="13.5" />
+               </font>
             </Label>
-            <Button layoutY="467.0" mnemonicParsing="false" onAction="#finishattempt" styleClass="button-text-blue" text="Finish attempt.." />
-            <ImageView fitHeight="31.0" fitWidth="149.0" layoutX="-71.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: pointer; -fx-translate-x: 85px;">
+            <Button layoutY="404.0" mnemonicParsing="false" onAction="#finishattempt" styleClass="button-text-blue" text="Finish attempt.." />
+            <ImageView fitHeight="31.0" fitWidth="149.0" layoutX="-71.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: pointer; -fx-translate-x: 85px;">
                <image>
-                  <Image url="@../ImageView/avatar.png" />
+                  <Image url="@../ImageView/avatar_color.png" />
                </image>
             </ImageView>
          </children>
       </Pane>
-      <Pane prefHeight="57.0" prefWidth="830.0" styleClass="pane-background">
-         <children>
-            <Button layoutX="25.0" layoutY="3.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="48.0" styleClass="button-icon">
-               <graphic>
-                  <ImageView fitHeight="31.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../ImageView/menu.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <MenuButton layoutX="639.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="148.0" styleClass="button-icon" text="Nguyễn" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="31.0" fitWidth="149.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: pointer; -fx-translate-x: 85px;">
-                     <image>
-                        <Image url="@../ImageView/avatar.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </MenuButton>
-         </children>
-       </Pane>
-      <Pane layoutY="57.0" prefHeight="71.0" prefWidth="830.0" styleClass="pane-border-solid">
+      <Pane layoutX="10.0" layoutY="54.0" prefHeight="84.0" prefWidth="836.0" styleClass="pane-border-solid">
          <children>
             <Button layoutX="21.0" layoutY="50.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" styleClass="button-text-blue" text="Home" />
             <Label layoutX="75.0" layoutY="50.0" prefHeight="25.0" prefWidth="3.0" text="/">
@@ -100,5 +85,27 @@
             </Label>
          </children>
       </Pane>
+      <Pane prefHeight="57.0" prefWidth="856.0" styleClass="pane-background">
+         <children>
+            <Button layoutX="25.0" layoutY="3.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="48.0" styleClass="button-icon">
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ImageView/menu.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <MenuButton layoutX="676.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="148.0" styleClass="button-icon" text="Nguyễn" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="149.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: pointer; -fx-translate-x: 85px;">
+                     <image>
+                        <Image url="@../ImageView/avatar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </MenuButton>
+         </children>
+       </Pane>
    </children>
 </Pane>

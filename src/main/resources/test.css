@@ -104,18 +104,20 @@
 }
 
 .pane-background-question-number {
-    -fx-border-color: #303030;
+    -fx-border-style: solid;
     -fx-border-radius: 3px;
-    -fx-background-color: #303030;
+    -fx-background-color: #383838;
+    -fx-border-color: #383838;
 }
 
 .pane-border-question {
-    -fx-border-style: solid;
-    -fx-black: #ccc;
     -fx-border-radius: 3px;
+    -fx-border-color: #eaeaea;
+    -fx-background-color: #eaeaea;
 }
 
 .pane-background-question {
+    -fx-border-style: solid;
     -fx-border-color: #d7e7e6;
     -fx-border-radius: 3px;
     -fx-background-color: #d7e7e6;

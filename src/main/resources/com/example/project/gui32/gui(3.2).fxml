@@ -15,9 +15,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="715.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui32.gui32">
+<Pane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="787.0" prefWidth="715.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui32.gui32">
     <children>
-      <ScrollPane hbarPolicy="NEVER" prefHeight="1000.0" prefWidth="715.0">
+      <ScrollPane hbarPolicy="NEVER" prefHeight="784.0" prefWidth="715.0">
         <content>
           <AnchorPane fx:id="anchorPane" minHeight="0.0" minWidth="0.0" prefHeight="1600.0" prefWidth="717.0">
                <children>
@@ -135,30 +135,30 @@
                                     </ComboBox>
                                     <ImageView fx:id="ImageChoice2" fitHeight="77.0" fitWidth="200.0" layoutX="72.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true" />
                                     <Button layoutX="13.0" layoutY="136.0" mnemonicParsing="false" onAction="#InsertImageChoice2" styleClass="button-another" text="Image" />
-                                 </children>
-                              </Pane>
-                              <Pane fx:id="originalPane2" prefHeight="230.0" prefWidth="302.0">
-                                 <children>
-                                        <Button fx:id="addButton" layoutY="92.0" mnemonicParsing="false" onAction="#addMoreChoices" styleClass="button-blue" text="BLANKS FOR 3 MORE CHOICES">
-                                            <font>
-                                                <Font size="14.0" />
-                                            </font>
-                                        </Button>
-                                        <Button layoutX="182.0" layoutY="175.0" mnemonicParsing="false" onAction="#cancel" styleClass="button-blue" text="CANCEL">
-                                            <font>
-                                                <Font size="14.0" />
-                                            </font>
-                                        </Button>
-                                        <Button fx:id="savechangesandcontinue1" layoutY="131.0" mnemonicParsing="false" onAction="#savechangesandcontinue" styleClass="button-blue" text="SAVE CHANGES AND CONTINUE EDITING">
-                                            <font>
-                                                <Font size="14.0" />
-                                            </font>
-                                        </Button>
-                                        <Button fx:id="savechanges1" layoutY="175.0" mnemonicParsing="false" onAction="#savechanges" styleClass="button-red" text="SAVE CHANGES">
-                                            <font>
-                                                <Font size="14.0" />
-                                            </font>
-                                        </Button>
+                                    <Pane fx:id="originalPane2" layoutX="-1.0" layoutY="175.0" prefHeight="230.0" prefWidth="302.0">
+                                       <children>
+                                              <Button fx:id="addButton" layoutY="92.0" mnemonicParsing="false" onAction="#addMoreChoices" styleClass="button-blue" text="BLANKS FOR 3 MORE CHOICES">
+                                                  <font>
+                                                      <Font size="14.0" />
+                                                  </font>
+                                              </Button>
+                                              <Button layoutX="182.0" layoutY="175.0" mnemonicParsing="false" onAction="#cancel" styleClass="button-blue" text="CANCEL">
+                                                  <font>
+                                                      <Font size="14.0" />
+                                                  </font>
+                                              </Button>
+                                              <Button fx:id="savechangesandcontinue1" layoutY="131.0" mnemonicParsing="false" onAction="#savechangesandcontinue" styleClass="button-blue" text="SAVE CHANGES AND CONTINUE EDITING">
+                                                  <font>
+                                                      <Font size="14.0" />
+                                                  </font>
+                                              </Button>
+                                              <Button fx:id="savechanges1" layoutY="175.0" mnemonicParsing="false" onAction="#savechanges" styleClass="button-red" text="SAVE CHANGES">
+                                                  <font>
+                                                      <Font size="14.0" />
+                                                  </font>
+                                              </Button>
+                                       </children>
+                                    </Pane>
                                  </children>
                               </Pane>
                            </children>
