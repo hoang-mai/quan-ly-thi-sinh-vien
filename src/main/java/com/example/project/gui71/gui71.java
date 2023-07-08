@@ -189,7 +189,7 @@ gridPane1.setLayoutY(96);
             List<Choice> listchoice= QuestionsDao.getInstance().selectChoicebyQuestionId(listquestion.get(i-1).getQuestionId());
             boolean a=true;
             for(Choice choice :listchoice){
-                if(Objects.equals(choice.getGrade(), "100") || Objects.equals(choice.getGrade(), "0"))
+                if(Objects.equals(choice.getGrade(), "100%") || Objects.equals(choice.getGrade(), "None"))
                     a=true;
                 else {a=false;
                 break;}

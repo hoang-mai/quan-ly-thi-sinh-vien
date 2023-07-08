@@ -114,7 +114,7 @@
                                     <Label layoutX="10.0" layoutY="64.0" text="Choice 1" />
                                     <Label layoutX="22.0" layoutY="97.0" text="Grade" />
                                     <TextArea fx:id="choicetext1" layoutX="62.0" layoutY="11.0" prefHeight="68.0" prefWidth="198.0" />
-                                    <ComboBox fx:id="comboboxchoice1" layoutX="62.0" layoutY="93.0" opacity="0.8" prefHeight="25.0" prefWidth="150.0">
+                                    <ComboBox fx:id="comboboxchoice1" layoutX="62.0" layoutY="93.0" opacity="0.8" prefHeight="25.0" prefWidth="150.0" promptText="None">
                                        <effect>
                                           <ColorAdjust brightness="0.03" contrast="0.09" hue="1.0" saturation="-1.0" />
                                        </effect>
@@ -128,7 +128,7 @@
                                     <Label layoutX="10.0" layoutY="64.0" text="Choice 2" />
                                     <Label layoutX="22.0" layoutY="97.0" text="Grade" />
                                     <TextArea fx:id="choicetext2" layoutX="62.0" layoutY="11.0" prefHeight="68.0" prefWidth="198.0" />
-                                    <ComboBox fx:id="comboboxchoice2" layoutX="62.0" layoutY="93.0" opacity="0.8" prefHeight="25.0" prefWidth="150.0">
+                                    <ComboBox fx:id="comboboxchoice2" layoutX="62.0" layoutY="93.0" opacity="0.8" prefHeight="25.0" prefWidth="150.0" promptText="None">
                                        <effect>
                                           <ColorAdjust brightness="0.03" contrast="0.09" hue="1.0" saturation="-1.0" />
                                        </effect>
