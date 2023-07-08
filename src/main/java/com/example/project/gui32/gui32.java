@@ -5,9 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
-import java.util.Objects;
-import java.util.ResourceBundle;
+import java.util.*;
 
 import com.example.project.database.dao.CategoriesDao;
 import com.example.project.database.dao.ChoiceDao;
@@ -91,8 +89,7 @@ public class gui32 implements Initializable {
     private ImageView imageView;
 
     private byte[] imageData;
-    private byte[] imageData1;
-    private byte[] imageData2;
+    private Map<Integer,byte[]> imageData1=new HashMap<>();
     @FXML
     private TextArea choicetext1;
     @FXML
@@ -154,10 +151,11 @@ public class gui32 implements Initializable {
         fileChooser.getExtensionFilters().add(imageFilter);
         File selectedFile = fileChooser.showOpenDialog(null);
         if (selectedFile != null) {
-            try {BufferedImage bufferedImage = ImageIO.read(selectedFile);
+            try {
+                BufferedImage bufferedImage = ImageIO.read(selectedFile);
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 ImageIO.write(bufferedImage, "png", byteArrayOutputStream);
-                imageData2 = byteArrayOutputStream.toByteArray();
+                imageData1.put(2,byteArrayOutputStream.toByteArray());
                 Image image = new Image(new FileInputStream(selectedFile));
                 ImageChoice2.setImage(image);
                 ImageChoice2.setVisible(true);
@@ -173,10 +171,11 @@ public class gui32 implements Initializable {
         fileChooser.getExtensionFilters().add(imageFilter);
         File selectedFile = fileChooser.showOpenDialog(null);
         if (selectedFile != null) {
-            try {BufferedImage bufferedImage = ImageIO.read(selectedFile);
+            try {
+                BufferedImage bufferedImage = ImageIO.read(selectedFile);
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 ImageIO.write(bufferedImage, "png", byteArrayOutputStream);
-                imageData1 = byteArrayOutputStream.toByteArray();
+                imageData1.put(1,byteArrayOutputStream.toByteArray());
                 Image image = new Image(new FileInputStream(selectedFile));
                 ImageChoice1.setImage(image);
                 ImageChoice1.setVisible(true);
@@ -221,34 +220,8 @@ public class gui32 implements Initializable {
 
     @FXML
     private Button savechanges1;
-    private byte[] convertImageToByteArray(Image image) {
-        try {
-            PixelReader pixelReader = image.getPixelReader();
-            int width = (int) image.getWidth();
-            int height = (int) image.getHeight();
 
-            byte[] imageData = new byte[width * height * 4]; // Mảng byte để lưu dữ liệu hình ảnh RGBA
-
-            int pixelIndex = 0;
-            for (int y = 0; y < height; y++) {
-                for (int x = 0; x < width; x++) {
-                    int argb = ((PixelReader) pixelReader).getArgb(x, y);
-                    // Lưu dữ liệu của mỗi pixel vào mảng byte
-                    imageData[pixelIndex++] = (byte) ((argb >> 16) & 0xFF); // Giá trị Red
-                    imageData[pixelIndex++] = (byte) ((argb >> 8) & 0xFF); // Giá trị Green
-                    imageData[pixelIndex++] = (byte) (argb & 0xFF); // Giá trị Blue
-                    imageData[pixelIndex++] = (byte) ((argb >> 24) & 0xFF); // Giá trị Alpha
-                }
-            }
-
-            return imageData;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    private void saveChoice(Questions questions, String choiceText, String grade,Image image) {
+    private void saveChoice(Questions questions, String choiceText, String grade,byte[] imageData) {
         try {
             Choice choice = new Choice();
             choice.setChoiceText(choiceText);
@@ -257,7 +230,6 @@ public class gui32 implements Initializable {
                 grade="0";
             }
             choice.setGrade(grade);
-            byte[] imageData = convertImageToByteArray(image);
             choice.setImage(imageData);
             ChoiceDao.getInstance().save(choice);
         } catch (Exception e) {
@@ -295,8 +267,6 @@ public class gui32 implements Initializable {
 
                         TextArea textArea = (TextArea) pane.getChildren().get(2);
                         ComboBox<String> comboBox = (ComboBox<String>) pane.getChildren().get(3);
-                        ImageView imageView = (ImageView) pane.getChildren().get(5);
-
 
                         // Tiếp tục lấy dữ liệu từ các thành phần khác nếu cần
 
@@ -304,7 +274,7 @@ public class gui32 implements Initializable {
                         String choiceText = textArea.getText();
                         if(Objects.equals(choiceText, ""))continue;
                         String grade = comboBox.getValue();
-                        Image image = imageView.getImage();
+                        byte[] image=imageData1.get(i+1);
                         saveChoice(questions, choiceText, grade.substring(0, comboBox.getValue().length() - 1),image);
                         // Tiếp tục xử lý dữ liệu lấy được
                     }
@@ -351,14 +321,13 @@ public class gui32 implements Initializable {
                         // Lấy dữ liệu từ các thành phần con trong Pane
                         TextArea textArea = (TextArea) pane.getChildren().get(2);
                         ComboBox<String> comboBox = (ComboBox<String>) pane.getChildren().get(3);
-                        ImageView imageView = (ImageView) pane.getChildren().get(5);
                         // Tiếp tục lấy dữ liệu từ các thành phần khác nếu cần
 
                         // Sử dụng dữ liệu đã lấy để thực hiện các tác vụ khác
                         String choiceText = textArea.getText();
                         if(choiceText==null)continue;
                         String grade = comboBox.getValue();
-                        Image image = imageView.getImage();
+                        byte[] image=imageData1.get(i+1);
                         saveChoice(questions, choiceText, grade.substring(0, comboBox.getValue().length() - 1),image);
                         // Tiếp tục xử lý dữ liệu lấy được
                     }
@@ -446,6 +415,10 @@ comboBox.setValue("None");
                 File selectedFile = fileChooser.showOpenDialog(null);
                 if (selectedFile != null) {
                     try {
+                        BufferedImage bufferedImage = ImageIO.read(selectedFile);
+                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                        ImageIO.write(bufferedImage, "png", byteArrayOutputStream);
+                        imageData1.put(i,byteArrayOutputStream.toByteArray());
                         Image image = new Image(new FileInputStream(selectedFile));
                         imageView.setImage(image);
                         imageView.setPreserveRatio(true);
