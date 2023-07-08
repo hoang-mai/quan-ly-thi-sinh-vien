@@ -155,14 +155,14 @@ public class  CategoriesDao {
 		Categories categories = new Categories();
 		Session session = null;
 		Transaction transaction = null;
-
 		try {
 			session = HibernateUtils.getSessionFactory().openSession();
 			transaction = session.beginTransaction();
+			Long count = session.createQuery("SELECT COUNT(*) FROM Categories", Long.class).getSingleResult();
+			if (count >0 ) {
 			categories = session.createQuery("FROM Categories c ORDER BY c.questions.size DESC",
-					Categories.class).setMaxResults(1).getSingleResult();
-			transaction.commit();
-			if (categories == null) {
+					Categories.class).setMaxResults(1).getSingleResult(); }
+			else  {
 				categories.setCategoryId(0);
 				// Lấy ngày tháng năm hiện tại
 				LocalDate currentDate = LocalDate.now();
@@ -177,6 +177,7 @@ public class  CategoriesDao {
 				categories.setCategoryInfo("Tạo vào " + dateString);
 				CategoriesDao.getInstance().save(categories);
 			}
+			transaction.commit();
 			return categories;
 
 		} catch (Exception e) {
