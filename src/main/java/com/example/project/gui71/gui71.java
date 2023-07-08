@@ -135,28 +135,8 @@ gridPane1.setLayoutY(96);
         gridPane1.getColumnConstraints().addAll(column3,column4,column5,column6,column7,column8,column9,column10);
         gridPane1.setHgap(5);
         gridPane1.setVgap(5);
+
         for (int i=1;i<=listquestion.size();i++){
-            Pane pane1 =new Pane();
-            pane1.getStyleClass().add("pane-border-question-number");
-            Pane pane2=new Pane();
-            pane1.getChildren().add(pane2);
-
-
-            pane1.setPrefHeight(30);
-            pane1.setPrefWidth(24);
-            pane2.setPrefSize(19,15);
-            Label label5=new Label(""+i);
-            pane1.getChildren().add(label5);
-            label5.setLayoutY(1);
-            label5.setLayoutX(5);
-            pane2.setLayoutY(15);
-            pane2.setLayoutX(0);
-            gridPane1.add(pane1,j,k);
-            j++;
-            if(j==8){
-                k++;
-                j=0;
-            }
             Pane pane=new Pane();
             VBox vBox=new VBox();
             vBox.setSpacing(5);
@@ -174,6 +154,26 @@ gridPane1.setLayoutY(96);
             vBox.getChildren().addAll(label,label1,label2,label3);
             vBox.getStyleClass().add("pane-border-question");
             pane.getChildren().add(vBox);
+            Pane pane1 =new Pane();
+            pane1.getStyleClass().add("pane-border-question-number");
+            Pane pane2=new Pane();
+            pane1.getChildren().add(pane2);
+            pane1.setPrefHeight(30);
+            pane1.setPrefWidth(24);
+            pane2.setPrefSize(19,15);
+            Label label5=new Label(""+i);
+            pane1.getChildren().add(label5);
+            label5.setLayoutY(1);
+            label5.setLayoutX(5);
+            pane2.setLayoutY(15);
+            pane2.setLayoutX(0);
+            gridPane1.add(pane1,j,k);
+            j++;
+            if(j==8){
+                k++;
+                j=0;
+            }
+
             VBox vBox1=new VBox();
             vBox1.setSpacing(5);
             vBox1.setPadding(new Insets(10,10,10,10));
