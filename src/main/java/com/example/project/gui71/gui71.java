@@ -27,6 +27,7 @@ import javafx.util.Duration;
 import java.io.ByteArrayInputStream;
 import java.net.URL;
 import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class gui71 implements Initializable {
@@ -181,13 +182,14 @@ gridPane1.setLayoutY(96);
                 vBox1.setMargin(imageView,new Insets(10,10,20,10));
             }else {vBox1.setMargin(label4,new Insets(10,10,20,10));}
             List<Choice> listchoice= QuestionsDao.getInstance().selectChoicebyQuestionId(listquestion.get(i-1).getQuestionId());
-            boolean a=false;
+            boolean a=true;
             for(Choice choice :listchoice){
-                if(choice.getGrade()!= "100"|| choice.getGrade()!="0"){
+                if(Objects.equals(choice.getGrade(), "100") || Objects.equals(choice.getGrade(), "0"))
                     a=true;
-                }
+                else {a=false;
+                break;}
             }
-            if (!a) {
+            if (a) {
             ToggleGroup toggleGroup=new ToggleGroup();
             for(Choice choice :listchoice){
                 RadioButton radioButton=new RadioButton(choice.getChoiceText());
