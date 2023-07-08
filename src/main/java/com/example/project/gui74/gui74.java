@@ -1,17 +1,15 @@
-package com.example.project.gui71;
+package com.example.project.gui74;
 
 import com.example.project.database.dao.QuestionsDao;
 import com.example.project.database.dao.QuizDao;
 import com.example.project.database.entities.Choice;
 import com.example.project.database.entities.Questions;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -21,7 +19,6 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 import java.io.ByteArrayInputStream;
 import java.net.URL;
@@ -29,65 +26,60 @@ import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class gui71 implements Initializable {
-    @FXML
-    private Pane panecountquiz;
-    @FXML
-    private Button quizname;
-    @FXML
-    private Button buttoneditquiz;
-
-    @FXML
-    private Label daugach;
-    @FXML
-    private Button one1;
+public class gui74 implements Initializable {
 
     @FXML
     private AnchorPane anchorpane;
 
     @FXML
+    private Button buttoneditquiz;
+
+    @FXML
+    private Label complete;
+
+    @FXML
+    private Label daugach;
+
+    @FXML
+    private Label grade;
+
+    @FXML
+    private Label it;
+
+    @FXML
+    private Label mark;
+
+    @FXML
+    private Pane panecountquiz;
+
+    @FXML
+    private Button quizname;
+
+    @FXML
     private ScrollPane scrollpane;
+
+    @FXML
+    private Label start;
+
+    @FXML
+    private Label state;
+
+    @FXML
+    private Label time;
+    @FXML
+    void finishreview(ActionEvent event) {
+        try {
+            Stage ag0r1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui11/gui(1.1).fxml"));
+            Scene scene = new Scene(root);
+            ag0r1.setScene(scene);
+            ag0r1.show();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
     private GridPane gridPane=new GridPane();
     private GridPane gridPane1=new GridPane();
-
-    @FXML
-    private Label timeleft;
-    private String formatTime(int timeInSeconds) {
-        int hours = timeInSeconds / 3600;
-        int minutes = (timeInSeconds % 3600) / 60;
-        int seconds = timeInSeconds % 60;
-        return String.format("Time left %02d:%02d:%02d", hours, minutes, seconds);
-    }
-    @FXML
-    void finishattempt(ActionEvent event) {
-        Dialog<Void> dialog=new Dialog<>();
-        dialog.setContentText("Do you want to finish ?");
-        ButtonType buttonType=new ButtonType("FINISH", ButtonBar.ButtonData.FINISH);
-        ButtonType buttonType1=new ButtonType("NO", ButtonBar.ButtonData.NO);
-        dialog.getDialogPane().getButtonTypes().addAll(buttonType1,buttonType);
-        dialog.setResultConverter(buttontype->{
-            if(buttontype==buttonType){
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/project/gui74/gui(7.4).fxml"));
-                    Parent root = loader.load();
-                    Scene scene = new Scene(root);
-                    Stage ag0r = new Stage();
-                    ag0r.setScene(scene);
-                    ag0r.show();
-                    Stage a = (Stage) quizname.getScene().getWindow();
-                    a.hide();
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
-                }
-            } else if (buttontype==buttonType1) {
-                dialog.close();
-            }
-            return null;
-        });
-        dialog.show();
-    }
-    private  int timeRemaining=QuizDao.getInstance().getQuiz().getTimeLimit()*60;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Text text = new Text();
@@ -107,11 +99,11 @@ public class gui71 implements Initializable {
         gridPane.setLayoutX(0);
         gridPane.setVgap(10);
         gridPane.setPadding(new Insets(0, 0, 0, 10));
-int j=0;
-int k=0;
-panecountquiz.getChildren().add(gridPane1);
-gridPane1.setPrefWidth(196);
-gridPane1.setLayoutY(96);
+        int j=0;
+        int k=0;
+        panecountquiz.getChildren().add(gridPane1);
+        gridPane1.setPrefWidth(196);
+        gridPane1.setLayoutY(96);
 
         ColumnConstraints column3 = new ColumnConstraints();
         column3.setPrefWidth(24);
@@ -192,26 +184,26 @@ gridPane1.setLayoutY(96);
                 if(Objects.equals(choice.getGrade(), "100") || Objects.equals(choice.getGrade(), "0"))
                     a=true;
                 else {a=false;
-                break;}
+                    break;}
             }
             if (a) {
-            ToggleGroup toggleGroup=new ToggleGroup();
-            for(Choice choice :listchoice){
-                RadioButton radioButton=new RadioButton(choice.getChoiceText());
-                radioButton.setWrapText(true);
-                radioButton.setToggleGroup(toggleGroup);
-                vBox1.getChildren().add(radioButton);
-                if(choice.getImage()!=null){
-                byte[] image11 =choice.getImage();
-                Image image111=new Image(new ByteArrayInputStream(image11));
-                ImageView imageView1111=new ImageView(image111);
-                vBox1.getChildren().add(imageView1111);}
-            }
-            toggleGroup.selectedToggleProperty().addListener((observable, oldValue, newValue)->{
-                if(newValue.isSelected()){
-                pane2.getStyleClass().add("pane-background-question-number");}
+                ToggleGroup toggleGroup=new ToggleGroup();
+                for(Choice choice :listchoice){
+                    RadioButton radioButton=new RadioButton(choice.getChoiceText());
+                    radioButton.setWrapText(true);
+                    radioButton.setToggleGroup(toggleGroup);
+                    vBox1.getChildren().add(radioButton);
+                    if(choice.getImage()!=null){
+                        byte[] image11 =choice.getImage();
+                        Image image111=new Image(new ByteArrayInputStream(image11));
+                        ImageView imageView1111=new ImageView(image111);
+                        vBox1.getChildren().add(imageView1111);}
+                }
+                toggleGroup.selectedToggleProperty().addListener((observable, oldValue, newValue)->{
+                    if(newValue.isSelected()){
+                        pane2.getStyleClass().add("pane-background-question-number");}
 
-            });}
+                });}
             else {
                 for(Choice choice :listchoice){
                     CheckBox checkBox=new CheckBox(choice.getChoiceText());
@@ -235,22 +227,5 @@ gridPane1.setLayoutY(96);
 
         }
         anchorpane.setPrefHeight(10000);
-        timeleft.setText(formatTime(timeRemaining));
-        Timeline timeline = new Timeline();
-        timeline.setCycleCount(Timeline.INDEFINITE);
-        timeline.getKeyFrames().add(
-                new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent event) {
-                        timeRemaining--;
-                        timeleft.setText(formatTime(timeRemaining));
-                        if (timeRemaining<= 0) {
-                            timeline.stop();
-                        }
-                    }
-                })
-        );
-        timeline.play();
-
     }
 }

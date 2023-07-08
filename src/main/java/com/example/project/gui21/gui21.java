@@ -272,22 +272,23 @@ public class gui21 implements Initializable {
         column2.setPrefWidth(55);
         gridpane1.getColumnConstraints().addAll(column1, column2);
         List<Categories> listcate = CategoriesDao.getInstance().selectALl();
-                    for (int i = 0; i < listcate.size(); i++) {
-                        if (CategoriesDao.getInstance().getChildCategories(listcate.get(i).getCategoryName()) != null) {
-                            List<Categories> categoriesList = CategoriesDao.getInstance().getChildCategories(listcate.get(i).getCategoryName());
-                            for (Categories categories1 : categoriesList) {
-                                listcate.removeIf(categories2 -> categories2.getCategoryName().equals(categories1.getCategoryName()));
-                                listcate.add(i+1,categories1);
+            for (int i = 0; i < listcate.size(); i++) {
+                if (listcate.get(i).getCategories_parent()!=null){
+                    for(int j=0;j<i;j++){
+                        if(listcate.get(i).getCategories_parent()==listcate.get(j)){
+                            Categories categories1=listcate.get(i);
+                            listcate.remove(i);
+                            listcate.add(j+1,categories1);
+                        }
+                    }
                 }
-
-            }
         }
         ObservableList<String> list = FXCollections.observableArrayList();
         for (Categories categories : listcate) {
             if(categories.getCategories_parent()!=null){
                 String textcate = null;
                 for(String list1 : list){
-                    if(list1.trim().startsWith(CategoriesDao.getInstance().selectCategoryparent(categories.getCategoryName()).getCategoryName())){
+                    if(list1.trim().startsWith(categories.getCategories_parent().getCategoryName())){
                         textcate=list1;
                         break;
                     }

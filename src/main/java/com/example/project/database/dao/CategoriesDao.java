@@ -268,25 +268,23 @@ public class  CategoriesDao {
 
 	//test
 	public static void main(String[] args) throws Exception {
-		/* List<Categories> categories = CategoriesDao.getInstance().selectALl();
+		List<Categories> categories = CategoriesDao.getInstance().selectALl();
 		for (int i = 0; i < categories.size(); i++) {
-			if (CategoriesDao.getInstance().getChildCategories(categories.get(i).getCategoryName()) != null) {
-				List<Categories> categoriesList = CategoriesDao.getInstance().getChildCategories(categories.get(i).getCategoryName());
-				for (Categories categories1 : categoriesList) {
-					categories.removeIf(categories2 -> categories2.getCategoryName().equals(categories1.getCategoryName()));
-					categories.add(i+1,categories1);
+			if (categories.get(i).getCategories_parent()!=null){
+				for(int j=0;j<i;j++){
+					if(categories.get(i).getCategories_parent()==categories.get(j)){
+						Categories categories1=categories.get(i);
+						categories.remove(i);
+						categories.add(j+1,categories1);
+					}
 				}
-
 			}
 		}
 			for (Categories categories1 : categories) {
 				System.out.println(categories1.getCategoryName());
-			}*/
+			}
 
-		List<Questions> questions = CategoriesDao.getInstance().selectQuestionfromSubCategory("Loại 2");
-		for(Questions questions1 : questions){
-			System.out.println(questions1.getQuestionName());
-		}
+
 	}
 }
 

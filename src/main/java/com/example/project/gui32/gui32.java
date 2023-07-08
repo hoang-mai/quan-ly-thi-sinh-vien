@@ -54,6 +54,9 @@ public class gui32 implements Initializable {
     private Label addingamultipe;
 
     public void setedit(String adding) {
+        anchorPane.setPrefHeight(2200);
+        vbox.setPrefHeight(1150);
+        addMoreChoicesEnabled = false;
         int id=QuestionsDao.getInstance().getQuestions().getCategories().getCategoryId();
         a=true;
         addingamultipe.setText(adding);
@@ -61,6 +64,36 @@ public class gui32 implements Initializable {
         questiontext1.setText(QuestionsDao.getInstance().getQuestions().getQuestionText());
         defaultmark.setText(String.valueOf(QuestionsDao.getInstance().getQuestions().getDefaultmark()));
         combobox.setValue(CategoriesDao.getInstance().selectCategorybyId(id).getCategoryName());
+        int j=QuestionsDao.getInstance().getQuestions().getQuestionId();
+        List<Choice> choices=QuestionsDao.getInstance().selectChoicebyQuestionId(j);
+ChoiceDao.getInstance().setChoices(choices);
+        for (int i = 3; i < 6; i++) {
+            Pane newPane = clonePane(originalPane, i);
+            int lastIndex = vbox.getChildren().size(); // Lấy kích thước hiện tại của VBox
+            vbox.getChildren().add(lastIndex - 1, newPane); // Thêm newPane vào trước vị trí cuối cùng
+        }
+        ObservableList<Node> children = vbox.getChildren();
+
+        for (int i = 0; i < choices.size(); i++) {
+            Node node = children.get(i);
+            if (node instanceof Pane) {
+                Pane pane = (Pane) node;
+
+                TextArea textArea = (TextArea) pane.getChildren().get(2);
+                ComboBox<String> comboBox = (ComboBox<String>) pane.getChildren().get(3);
+                Choice choice = choices.get(i);
+                textArea.setText(choice.getChoiceText());
+                comboBox.setValue(choice.getGrade());
+
+                // Tiếp tục xử lý dữ liệu lấy được
+
+            }
+        }
+
+
+
+
+
     }
 
     @FXML
@@ -94,12 +127,7 @@ public class gui32 implements Initializable {
     private TextArea choicetext1;
     @FXML
     private TextArea choicetext2;
-    @FXML
-    private TextArea choicetext3;
-    @FXML
-    private TextArea choicetext4;
-    @FXML
-    private TextArea choicetext5;
+
     @FXML
     void questionbank(ActionEvent event) {
         try {
@@ -153,6 +181,7 @@ public class gui32 implements Initializable {
                 imageData1.put(2,readImageAsByteArray(selectedFile));
                 Image image = new Image(new FileInputStream(selectedFile));
                 ImageChoice2.setImage(image);
+                ImageChoice2.setPreserveRatio(true);
                 ImageChoice2.setVisible(true);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -171,6 +200,7 @@ public class gui32 implements Initializable {
                 imageData1.put(1,readImageAsByteArray(selectedFile));
                 Image image = new Image(new FileInputStream(selectedFile));
                 ImageChoice1.setImage(image);
+                ImageChoice1.setPreserveRatio(true);
                 ImageChoice1.setVisible(true);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -227,17 +257,20 @@ public class gui32 implements Initializable {
         }
     }
 
-    private void saveChoice(Questions questions, String choiceText, String grade,byte[] imageData) {
+    private void saveChoice(Questions questions, String choiceText, String grade,byte[] imageData,int i) {
         try {
             Choice choice = new Choice();
             choice.setChoiceText(choiceText);
             choice.setQuestions(questions);
-            if(Objects.equals(grade, "Non")){
-                grade="0";
-            }
             choice.setGrade(grade);
             choice.setImage(imageData);
-            ChoiceDao.getInstance().save(choice);
+            if(addingamultipe.getText().startsWith("Add")){
+                ChoiceDao.getInstance().save(choice);}
+            else {int j=ChoiceDao.getInstance().getChoices().get(i).getChoiceId();
+                choice.setChoiceId(j);
+ChoiceDao.getInstance().update(choice);
+            }
+
         } catch (Exception e) {
             // Xử lý ngoại lệ tại đây
         }
@@ -258,9 +291,16 @@ public class gui32 implements Initializable {
             questions.setQuestionText(questiontext1.getText());
             questions.setDefaultmark(Integer.parseInt(defaultmark.getText()));
             questions.setImage(imageData);
+
             Categories categories = CategoriesDao.getInstance().selectCategorybyName(cate.substring(0, mongoac));
             questions.setCategories(categories);
-            QuestionsDao.getInstance().save(questions);
+            if(addingamultipe.getText().startsWith("Add")){
+                QuestionsDao.getInstance().save(questions);}
+            else {
+                int j=QuestionsDao.getInstance().getQuestions().getQuestionId();
+                questions.setQuestionId(j);
+                QuestionsDao.getInstance().update(questions);
+            }
             ObservableList<Node> children = vbox.getChildren();
 
             for (int i = 0; i < children.size() - 1; i++) {
@@ -281,7 +321,7 @@ public class gui32 implements Initializable {
                         if(Objects.equals(choiceText, ""))continue;
                         String grade = comboBox.getValue();
                         byte[] image=imageData1.get(i+1);
-                        saveChoice(questions, choiceText, grade.substring(0, comboBox.getValue().length() - 1),image);
+                        saveChoice(questions, choiceText, grade,image,i);
                         // Tiếp tục xử lý dữ liệu lấy được
                     }
                 }
@@ -315,7 +355,14 @@ public class gui32 implements Initializable {
             questions.setImage(imageData);
             Categories categories = CategoriesDao.getInstance().selectCategorybyName(cate.substring(0, mongoac));
             questions.setCategories(categories);
-            QuestionsDao.getInstance().save(questions);
+
+            if(addingamultipe.getText().startsWith("Add")){
+            QuestionsDao.getInstance().save(questions);}
+            else {
+                int j=QuestionsDao.getInstance().getQuestions().getQuestionId();
+                questions.setQuestionId(j);
+                QuestionsDao.getInstance().update(questions);
+            }
             ObservableList<Node> children = vbox.getChildren();
 
             for (int i = 0; i < children.size() - 1; i++) {
@@ -334,7 +381,7 @@ public class gui32 implements Initializable {
                         if(choiceText==null)continue;
                         String grade = comboBox.getValue();
                         byte[] image=imageData1.get(i+1);
-                        saveChoice(questions, choiceText, grade.substring(0, comboBox.getValue().length() - 1),image);
+                        saveChoice(questions, choiceText, grade,image,i);
                         // Tiếp tục xử lý dữ liệu lấy được
                     }
                 }
@@ -394,6 +441,7 @@ public class gui32 implements Initializable {
         label2.setLayoutY(97);
 
         TextArea textArea = new TextArea();
+        textArea.setWrapText(true);
         textArea.setLayoutX(62);
         textArea.setLayoutY(11);
         textArea.setPrefSize(198, 68);
@@ -444,18 +492,19 @@ comboBox.setValue("None");
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         comboboxchoice1.getItems().addAll("None","100%","90%","83,33333%","80%","75%","70%","66.66667%","60%","50%","40%","33.33333%","30%","25%","20%","16.66667%","14.28571%","12.5%","11.11111%","10%","5%","-5%","-10%","-11.11111%","-12.5%","-14.28571%","-16.66667%","-20%","-25%","-30%","-33.33333%","-40%","-50%","-60%","-66.66667%","-70%","-75%","-80%","-83,33333%");
-        comboboxchoice1.setValue("None");
+
         comboboxchoice2.getItems().addAll("None","100%","90%","83,33333%","80%","75%","70%","66.66667%","60%","50%","40%","33.33333%","30%","25%","20%","16.66667%","14.28571%","12.5%","11.11111%","10%","5%","-5%","-10%","-11.11111%","-12.5%","-14.28571%","-16.66667%","-20%","-25%","-30%","-33.33333%","-40%","-50%","-60%","-66.66667%","-70%","-75%","-80%","-83,33333%");
-        comboboxchoice2.setValue("None");
+
         List<Categories> listcate = CategoriesDao.getInstance().selectALl();
         for (int i = 0; i < listcate.size(); i++) {
-            if (CategoriesDao.getInstance().getChildCategories(listcate.get(i).getCategoryName()) != null) {
-                List<Categories> categoriesList = CategoriesDao.getInstance().getChildCategories(listcate.get(i).getCategoryName());
-                for (Categories categories1 : categoriesList) {
-                    listcate.removeIf(categories2 -> categories2.getCategoryName().equals(categories1.getCategoryName()));
-                    listcate.add(i+1,categories1);
+            if (listcate.get(i).getCategories_parent()!=null){
+                for(int j=0;j<i;j++){
+                    if(listcate.get(i).getCategories_parent()==listcate.get(j)){
+                        Categories categories1=listcate.get(i);
+                        listcate.remove(i);
+                        listcate.add(j+1,categories1);
+                    }
                 }
-
             }
         }
         ObservableList<String> list = FXCollections.observableArrayList();
@@ -463,7 +512,7 @@ comboBox.setValue("None");
             if(categories.getCategories_parent()!=null){
                 String textcate = null;
                 for(String list1 : list){
-                    if(list1.trim().startsWith(CategoriesDao.getInstance().selectCategoryparent(categories.getCategoryName()).getCategoryName())){
+                    if(list1.trim().startsWith(categories.getCategories_parent().getCategoryName())){
                         textcate=list1;
                         break;
                     }
@@ -483,6 +532,9 @@ comboBox.setValue("None");
                 else list.add(categories.getCategoryName());
             }
         }
+        choicetext1.setWrapText(true);
+        choicetext2.setWrapText(true);
+
         combobox.setItems(list);
         questtionname1.setWrapText(true);
         questiontext1.setWrapText(true);

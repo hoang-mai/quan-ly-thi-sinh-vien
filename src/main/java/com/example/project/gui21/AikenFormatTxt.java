@@ -124,9 +124,9 @@ public class AikenFormatTxt {
                                 choice.setQuestions(questions);
                                 choice.setChoiceText(allLine.get(i-countChoice+j));
                                 if(checkLine.charAt(8)==allLine.get(i-countChoice+j).charAt(0)){
-                                    choice.setGrade("100");
+                                    choice.setGrade("100%");
                                 }
-                                else choice.setGrade("0");
+                                else choice.setGrade("None");
                                 ChoiceDao.getInstance().save(choice);
                             }
                     } else if (AikenFormatTxt.getInstance().checkLine(checkLine) == -1 ) {
