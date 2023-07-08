@@ -285,6 +285,7 @@ public class gui21 implements Initializable {
         }
         ObservableList<String> list = FXCollections.observableArrayList();
         for (Categories categories : listcate) {
+            int j=CategoriesDao.getInstance().CountQuestion(categories.getCategoryName());
             if(categories.getCategories_parent()!=null){
                 String textcate = null;
                 for(String list1 : list){
@@ -298,13 +299,14 @@ public class gui21 implements Initializable {
                     count++;
                 }
                 String whitespace=textcate.substring(0,count);
-                if(CategoriesDao.getInstance().CountQuestion(categories.getCategoryName())!=0) {
-                list.add(whitespace+"   "+categories.getCategoryName()+'('+CategoriesDao.getInstance().CountQuestion(categories.getCategoryName())+')');}
+
+                if(j!=0) {
+                list.add(whitespace+"   "+categories.getCategoryName()+'('+j+')');}
                 else list.add(whitespace+"   "+categories.getCategoryName());
             }
             else {
-                if(CategoriesDao.getInstance().CountQuestion(categories.getCategoryName())!=0)
-                    list.add(categories.getCategoryName() + '(' + CategoriesDao.getInstance().CountQuestion(categories.getCategoryName()) + ')');
+                if(j!=0)
+                    list.add(categories.getCategoryName() + '(' + j + ')');
                 else list.add(categories.getCategoryName());
             }
         }
