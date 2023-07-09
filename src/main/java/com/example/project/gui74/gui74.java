@@ -130,7 +130,7 @@ public class gui74 implements Initializable {
                     vBox.getChildren().get(j).setDisable(true);
                 }
                 Label label = new Label(listan.get(i+1));
-                label.getStyleClass().add("pane-background-question");
+                label.getStyleClass().add("pane-correct-answer");
                 label.setPrefWidth(480);
 
                 label.setWrapText(true);

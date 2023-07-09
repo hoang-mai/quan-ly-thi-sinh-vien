@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="694.0" prefWidth="600.0" styleClass="pane-border-solid" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui11.gui11">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="694.0" prefWidth="600.0" styleClass="pane-border-solid" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui11.gui11">
     <children>
-        <Pane layoutX="25.0" layoutY="54.0" prefHeight="119.0" prefWidth="551.0" styleClass="pane-border-solid">
+        <Pane layoutX="12.0" layoutY="54.0" prefHeight="119.0" prefWidth="576.0" styleClass="pane-border-solid">
             <children>
-                <Button layoutX="482.0" layoutY="14.0" mnemonicParsing="false" onAction="#caidat" prefHeight="29.0" prefWidth="43.0" styleClass="button-icon" textFill="#2d967a">
+                <Button layoutX="506.0" layoutY="16.0" mnemonicParsing="false" onAction="#caidat" prefHeight="30.0" prefWidth="37.0" styleClass="button-icon" textFill="#2d967a">
                <graphic>
                   <ImageView fitHeight="29.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -27,23 +27,28 @@
                         <Font size="35.0" />
                     </font>
                 </Label>
-                <Button layoutX="411.0" layoutY="76.0" mnemonicParsing="false" onAction="#turneditingon" styleClass="button-blue" text="TURN EDITING ON" />
-            <Button layoutX="17.0" layoutY="81.0" mnemonicParsing="false" styleClass="button-text-blue" text="Home" />
-            <Label layoutX="64.0" layoutY="81.0" prefHeight="25.0" prefWidth="3.0" text="/">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Button layoutX="70.0" layoutY="81.0" mnemonicParsing="false" styleClass="button-text-blue" text="My course" />
-            <Label layoutX="141.0" layoutY="82.0" prefHeight="25.0" prefWidth="3.0" text="/">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Button layoutX="147.0" layoutY="81.0" mnemonicParsing="false" styleClass="button-text-blue" text="THI CUỐI KỲ" />
+                <Button layoutX="429.0" layoutY="76.0" mnemonicParsing="false" onAction="#turneditingon" styleClass="button-blue" text="TURN EDITING ON" />
+                <Button layoutX="24.0" layoutY="76.0" mnemonicParsing="false" styleClass="button-text-blue" text="Home" />
+                <Label layoutX="74.0" layoutY="77.0" prefHeight="25.0" prefWidth="3.0" text="/">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+                <Button layoutX="80.0" layoutY="77.0" mnemonicParsing="false" styleClass="button-text-blue" text="My course" />
+                <Label layoutX="151.0" layoutY="77.0" prefHeight="25.0" prefWidth="3.0" text="/">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+                <Button layoutX="157.0" layoutY="77.0" mnemonicParsing="false" styleClass="button-text-blue" text="THI CUỐI KỲ" />
+                <Label layoutX="239.0" layoutY="77.0" prefHeight="25.0" prefWidth="3.0" text="/">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
             </children>
         </Pane>
-        <Pane layoutX="25.0" layoutY="181.0" prefHeight="479.0" prefWidth="551.0" styleClass="pane-border-solid">
+        <Pane layoutX="12.0" layoutY="185.0" prefHeight="498.0" prefWidth="576.0" styleClass="pane-border-solid">
             <children>
                 <VBox fx:id="vbox1" layoutX="23.0" layoutY="14.0" prefHeight="380.0" prefWidth="245.0" spacing="20.0">
                     <children>
