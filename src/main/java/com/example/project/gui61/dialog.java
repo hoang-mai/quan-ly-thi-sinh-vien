@@ -100,12 +100,45 @@ void exportToPDF(ActionEvent event){
             List<Questions> questionsList=QuizDao.getInstance().selectQuestion(QuizDao.getInstance().getQuiz().getQuizName());
             // Replace the following line with code to get the content from the exam questions
             for(int i=0;i<questionsList.size();i++){
-                contentStream.showText(questionsList.get(i).getQuestionText());
+                String text=questionsList.get(i).getQuestionText();
+                int k=0;
+               while (text.length()>85){
+                   if(k+85>text.length()){
+                       contentStream.showText(text.substring(k,text.length()-1));
+                       break;
+                       }
+                    else {
+                       String text1=text.substring(k,k+85);
+                       int l=text1.lastIndexOf(" ")+k;
+                        contentStream.showText(text.substring(k,l));
+                    k=l;
+                    }
+                   contentStream.newLineAtOffset(0, -15);
+
+                }
+               if(text.length()<=85) {contentStream.showText(text);}
                 contentStream.newLineAtOffset(0, -20);
                 List<Choice> choiceList=QuestionsDao.getInstance().selectChoicebyQuestionId(questionsList.get(i).getQuestionId());
                 for(int j=0;j<choiceList.size();j++){
-                    contentStream.showText(choiceList.get(j).getChoiceText());
+                    String text2=choiceList.get(j).getChoiceText();
+                    int m=0;
+                    while (text2.length()>85){
+                        if(m+85>text2.length()){
+                            contentStream.showText(text2.substring(m,text2.length()-1));
+                            break;
+                        }
+                        else {
+                            String text3=text2.substring(m,m+85);
+                            int n=text3.lastIndexOf(" ")+m;
+                            contentStream.showText(text2.substring(m,n));
+                           m=n;
+                        }
+                        contentStream.newLineAtOffset(0, -15);
+
+                    }
+                    if(text2.length()<=85) {contentStream.showText(text2);}
                     contentStream.newLineAtOffset(0, -15);
+
                 }
 
             }
