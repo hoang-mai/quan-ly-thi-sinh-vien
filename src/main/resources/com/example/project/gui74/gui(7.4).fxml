@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="856.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui74.gui74">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="856.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui74.gui74">
    <children>
       <Pane prefHeight="57.0" prefWidth="856.0" />
       <ScrollPane fx:id="scrollpane" hbarPolicy="NEVER" layoutX="10.0" layoutY="151.0" prefHeight="547.0" prefWidth="619.0" styleClass="pane-border-solid" vbarPolicy="NEVER">
@@ -27,7 +27,7 @@
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="460.79998779296875" minWidth="10.0" prefWidth="396.0" />
                     </columnConstraints>
                     <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -35,42 +35,60 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label prefHeight="18.0" text="Started on">
+                        <Label prefHeight="18.0" prefWidth="210.0" styleClass="pane-border-question" text="Started on" textFill="#ec3939">
                            <padding>
                               <Insets left="135.0" />
                            </padding>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
                         </Label>
-                        <Label prefHeight="18.0" text="State" GridPane.rowIndex="1">
+                        <Label prefHeight="18.0" prefWidth="278.0" style="-fx-background-color: #efeeee;" text="State" textFill="#ec3939" GridPane.rowIndex="1">
                            <padding>
                               <Insets left="162.0" />
                            </padding>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
                         </Label>
-                        <Label prefHeight="18.0" text="Completed on" GridPane.rowIndex="2">
+                        <Label prefHeight="19.0" prefWidth="210.0" styleClass="pane-border-question" text="Completed on" textFill="#ec3939" GridPane.rowIndex="2">
                            <padding>
                               <Insets left="113.0" />
                            </padding>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
                         </Label>
-                        <Label text="Time taken" GridPane.rowIndex="3">
+                        <Label prefHeight="18.0" prefWidth="214.0" style="-fx-background-color: #efeeee;" text="Time taken" textFill="#ec3939" GridPane.rowIndex="3">
                            <padding>
                               <Insets left="129.0" />
                            </padding>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
                         </Label>
-                        <Label text="Marks" GridPane.rowIndex="4">
+                        <Label prefHeight="34.0" prefWidth="196.0" styleClass="pane-border-question" text="Marks" textFill="#ec3939" GridPane.rowIndex="4">
                            <padding>
                               <Insets left="154.0" />
                            </padding>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
                         </Label>
-                        <Label text="Grade" GridPane.rowIndex="5">
+                        <Label prefHeight="66.0" prefWidth="196.0" style="-fx-background-color: #efeeee;" text="Grade" textFill="#ec3939" GridPane.rowIndex="5">
                            <padding>
                               <Insets left="154.0" />
                            </padding>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
                         </Label>
-                        <Label fx:id="start" text="Label" GridPane.columnIndex="1" />
-                        <Label text="Finished" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Label fx:id="complete" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label fx:id="time" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Label fx:id="mark" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <Label fx:id="grade" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label fx:id="start" prefHeight="18.0" prefWidth="402.0" style="-fx-background-color: #efeeee;" text="Label" GridPane.columnIndex="1" />
+                        <Label prefHeight="18.0" prefWidth="426.0" styleClass="pane-border-question" text="Finished" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="complete" prefHeight="18.0" prefWidth="544.0" style="-fx-background-color: #efeeee;" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="time" prefHeight="18.0" prefWidth="509.0" styleClass="pane-border-question" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="mark" prefHeight="45.0" prefWidth="396.0" style="-fx-background-color: #efeeee;" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label fx:id="grade" prefHeight="68.0" prefWidth="396.0" styleClass="pane-border-question" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                      </children>
                   </GridPane>
                </children></AnchorPane>
@@ -78,7 +96,7 @@
       </ScrollPane>
       <Pane fx:id="panecountquiz" layoutX="638.0" layoutY="151.0" prefHeight="454.0" prefWidth="208.0" styleClass="pane-border-solid">
          <children>
-            <Label prefHeight="53.0" prefWidth="208.0" style="-fx-background-color: #ccc;" styleClass="pane-border-solid" text="Quiz navigation" textFill="#ec3939">
+            <Label prefHeight="53.0" prefWidth="208.0" style="-fx-background-color: #eaeaea;" styleClass="pane-border-solid" text="Quiz navigation" textFill="#ec3939">
                <padding>
                   <Insets left="10.0" />
                </padding>
@@ -87,7 +105,7 @@
                </font>
             </Label>
             <Button layoutY="404.0" mnemonicParsing="false" onAction="#finishreview" styleClass="button-text-blue" text="Finish review" />
-            <ImageView fitHeight="31.0" fitWidth="149.0" layoutX="-71.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: pointer; -fx-translate-x: 85px;">
+            <ImageView fitHeight="31.0" fitWidth="149.0" layoutX="-71.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: pointer; -fx-translate-x: 85px;">
                <image>
                   <Image url="@../ImageView/avatar_color.png" />
                </image>
