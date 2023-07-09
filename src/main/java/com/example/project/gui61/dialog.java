@@ -1,5 +1,6 @@
 package com.example.project.gui61;
 
+import com.example.project.database.dao.QuestionsDao;
 import com.example.project.database.dao.QuizDao;
 import com.example.project.database.entities.Quiz;
 import com.example.project.gui71.gui71;
@@ -13,6 +14,9 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class dialog implements Initializable {
@@ -48,6 +52,11 @@ public class dialog implements Initializable {
             ag0r.show();
             Stage a = (Stage) timelimit.getScene().getWindow();
             a.hide();
+            LocalDateTime currentDateTime = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE, dd MMMM yyyy, h:mm a", Locale.ENGLISH);
+            String formattedDateTime = currentDateTime.format(formatter);
+            QuestionsDao.getInstance().setTime(formattedDateTime);
+            QuestionsDao.getInstance().setDuring(currentDateTime);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

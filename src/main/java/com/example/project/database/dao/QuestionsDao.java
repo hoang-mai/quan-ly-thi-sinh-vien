@@ -1,10 +1,14 @@
 package com.example.project.database.dao;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.example.project.database.entities.Choice;
+import javafx.scene.layout.GridPane;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -12,6 +16,54 @@ import com.example.project.database.entities.Questions;
 import com.example.project.database.utils.HibernateUtils;
 
 public class QuestionsDao {
+	private LocalDateTime during;
+
+	public LocalDateTime getDuring() {
+		return during;
+	}
+
+	public void setDuring(LocalDateTime during) {
+		this.during = during;
+	}
+
+	private String time;
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
+
+	private GridPane gridPane;
+	private GridPane gridPane1;
+	private Map<Integer,String> answer=new HashMap<>();
+
+	public Map<Integer, String> getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(Map<Integer, String> answer) {
+		this.answer = answer;
+	}
+
+	public GridPane getGridPane1() {
+		return gridPane1;
+	}
+
+	public void setGridPane1(GridPane gridPane1) {
+		this.gridPane1 = gridPane1;
+	}
+
+	public GridPane getGridPane() {
+		return gridPane;
+	}
+
+	public void setGridPane(GridPane gridPane) {
+		this.gridPane = gridPane;
+	}
+
 	private Questions questions;
 
 	public Questions getQuestions() {

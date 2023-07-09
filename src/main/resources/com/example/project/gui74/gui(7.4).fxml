@@ -66,7 +66,7 @@
                            </padding>
                         </Label>
                         <Label fx:id="start" text="Label" GridPane.columnIndex="1" />
-                        <Label fx:id="state" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label text="Finished" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label fx:id="complete" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Label fx:id="time" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                         <Label fx:id="mark" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />

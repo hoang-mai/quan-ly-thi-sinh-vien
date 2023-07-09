@@ -4,6 +4,7 @@ import com.example.project.database.dao.QuestionsDao;
 import com.example.project.database.dao.QuizDao;
 import com.example.project.database.entities.Choice;
 import com.example.project.database.entities.Questions;
+import com.example.project.gui74.gui74;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -25,9 +26,9 @@ import javafx.util.Duration;
 
 import java.io.ByteArrayInputStream;
 import java.net.URL;
-import java.util.List;
-import java.util.Objects;
-import java.util.ResourceBundle;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 public class gui71 implements Initializable {
     @FXML
@@ -39,8 +40,6 @@ public class gui71 implements Initializable {
 
     @FXML
     private Label daugach;
-    @FXML
-    private Button one1;
 
     @FXML
     private AnchorPane anchorpane;
@@ -76,6 +75,11 @@ public class gui71 implements Initializable {
                     ag0r.show();
                     Stage a = (Stage) quizname.getScene().getWindow();
                     a.hide();
+                    LocalDateTime currentDateTime = LocalDateTime.now();
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE, dd MMMM yyyy, h:mm a", Locale.ENGLISH);
+                    String formattedDateTime1 = currentDateTime.format(formatter);
+                    gui74 controller=loader.getController();
+                    controller.finsh(formattedDateTime1,currentDateTime, total);
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
@@ -87,7 +91,7 @@ public class gui71 implements Initializable {
         dialog.show();
     }
     private  int timeRemaining=QuizDao.getInstance().getQuiz().getTimeLimit()*60;
-
+private double total=0;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Text text = new Text();
@@ -132,8 +136,9 @@ gridPane1.setLayoutY(96);
         gridPane1.getColumnConstraints().addAll(column3,column4,column5,column6,column7,column8,column9,column10);
         gridPane1.setHgap(5);
         gridPane1.setVgap(5);
-
+        Map<Integer,String> listanswer=new HashMap<>();
         for (int i=1;i<=listquestion.size();i++){
+            // tạo vbox trong gridPane(i,0)
             Pane pane=new Pane();
             VBox vBox=new VBox();
             vBox.setSpacing(5);
@@ -151,6 +156,7 @@ gridPane1.setLayoutY(96);
             vBox.getChildren().addAll(label,label1,label2,label3);
             vBox.getStyleClass().add("pane-border-question");
             pane.getChildren().add(vBox);
+            // tạo pane trong gridpane 1
             Pane pane1 =new Pane();
             pane1.getStyleClass().add("pane-border-question-number");
             Pane pane2=new Pane();
@@ -170,13 +176,15 @@ gridPane1.setLayoutY(96);
                 k++;
                 j=0;
             }
-
+// tạo pane trong gripane(i,1)
+            GridPane gridPane2=new GridPane();
             VBox vBox1=new VBox();
+            vBox1.setPrefWidth(480);
             vBox1.setSpacing(5);
             vBox1.setPadding(new Insets(10,10,10,10));
             Label label4=new Label();
             label4.setWrapText(true);
-            label4.setPrefWidth(485);
+            label4.setPrefWidth(480);
             label4.setText(listquestion.get(i-1).getQuestionText());
             vBox1.getChildren().add(label4);
             if(listquestion.get(i-1).getImage()!=null){
@@ -198,9 +206,21 @@ gridPane1.setLayoutY(96);
             ToggleGroup toggleGroup=new ToggleGroup();
             for(Choice choice :listchoice){
                 RadioButton radioButton=new RadioButton(choice.getChoiceText());
+                radioButton.setPrefWidth(480);
                 radioButton.setWrapText(true);
                 radioButton.setToggleGroup(toggleGroup);
                 vBox1.getChildren().add(radioButton);
+                if(Objects.equals(choice.getGrade(), "100%")){
+                    listanswer.put(i,"The correct answer is :"+choice.getChoiceText());
+                }
+                radioButton.selectedProperty().addListener((observable, oldValue, newValue)->{
+                    if(radioButton.isSelected()){
+                       if(Objects.equals(choice.getGrade(), "100%"))total=total+1;
+                    }
+                    else {
+                        if(Objects.equals(choice.getGrade(), "100%"))total=total-1;
+                    }
+                });
                 if(choice.getImage()!=null){
                 byte[] image11 =choice.getImage();
                 Image image111=new Image(new ByteArrayInputStream(image11));
@@ -213,9 +233,14 @@ gridPane1.setLayoutY(96);
 
             });}
             else {
+                String te= "";
                 for(Choice choice :listchoice){
                     CheckBox checkBox=new CheckBox(choice.getChoiceText());
                     checkBox.setWrapText(true);
+                    if(!choice.getGrade().startsWith("-") &&!choice.getGrade().startsWith("N")){
+                       te=te+", "+choice.getChoiceText();
+                    }
+
                     vBox1.getChildren().add(checkBox);
                     if(choice.getImage()!=null){
                         byte[] image11 =choice.getImage();
@@ -224,16 +249,31 @@ gridPane1.setLayoutY(96);
                         vBox1.getChildren().add(imageView1111);}
                     checkBox.selectedProperty().addListener((observable, oldValue, newValue)->{
                         if(checkBox.isSelected()){
+                            String string=choice.getGrade().substring(0,choice.getGrade().length()-1);
+                            if(!Objects.equals(string, "Non")){ double l= Double.parseDouble(string);
+                            total=total+l/100;
+                            }}
+                            else {
+                                String string = choice.getGrade().substring(0, choice.getGrade().length() - 1);
+                                if (!Objects.equals(string, "Non")) {
+                                    double l = Double.parseDouble(string);
+                                    total = total - l / 100;
+                                }
+                            }
                             pane2.getStyleClass().add("pane-background-question-number");
-                        }
-                    });
+                        });
                 }
+                listanswer.put(i,"The correct answer is :"+te);
             }
             vBox1.getStyleClass().add("pane-background-question");
+            gridPane2.getChildren().add(vBox1);
             gridPane.add(pane,0,i);
-            gridPane.add(vBox1,1,i);
+            gridPane.add(gridPane2,1,i);
 
         }
+        QuestionsDao.getInstance().setAnswer(listanswer);
+       QuestionsDao.getInstance().setGridPane(gridPane);
+        QuestionsDao.getInstance().setGridPane1(gridPane1);
         anchorpane.setPrefHeight(10000);
         timeleft.setText(formatTime(timeRemaining));
         Timeline timeline = new Timeline();
