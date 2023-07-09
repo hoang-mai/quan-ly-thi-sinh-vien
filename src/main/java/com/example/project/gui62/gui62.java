@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -130,6 +131,11 @@ anchorpane1.setPrefHeight(listquestion.size()*28);
 vbox1.setPrefHeight(listquestion.size()*28);
 for(Questions questions : listquestion){
 Label label =new Label(i+":   "+questions.getQuestionName());
+    Image image1111 = new Image(getClass().getResourceAsStream("/com/example/project/ImageView/list.png"));
+    ImageView imageView1 = new ImageView(image1111);
+    imageView1.setFitWidth(15);
+    imageView1.setFitHeight(18);
+    label.setGraphic(imageView1);
 i++;
 vbox1.getChildren().add(label);
 }

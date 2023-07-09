@@ -17,6 +17,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -52,6 +54,11 @@ public class gui63 implements Initializable {
         anchorpane.setPrefHeight(235+30*danhsachquestion.size());
         for (int i = 0; i < danhsachquestion.size(); i++) {
             CheckBox checkBox = new CheckBox(danhsachquestion.get(i).getQuestionName());
+            Image image1111 = new Image(getClass().getResourceAsStream("/com/example/project/ImageView/list.png"));
+            ImageView imageView1 = new ImageView(image1111);
+            imageView1.setFitWidth(15);
+            imageView1.setFitHeight(18);
+            checkBox.setGraphic(imageView1);
             vBox.getChildren().add(checkBox);
         }
     }

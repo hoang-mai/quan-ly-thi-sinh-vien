@@ -19,6 +19,8 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Pagination;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -114,6 +116,11 @@ public class gui65 implements Initializable {
 
             for (int i = startIndex; i < endIndex; i++) {
                 Label label = new Label(finalDanhsachquestion.get(i).getQuestionId()+": "+finalDanhsachquestion.get(i).getQuestionName());
+                Image image1111 = new Image(getClass().getResourceAsStream("/com/example/project/ImageView/list.png"));
+                ImageView imageView1 = new ImageView(image1111);
+                imageView1.setFitWidth(15);
+                imageView1.setFitHeight(18);
+                label.setGraphic(imageView1);
                 page.getChildren().add(label);
             }
             return page;
