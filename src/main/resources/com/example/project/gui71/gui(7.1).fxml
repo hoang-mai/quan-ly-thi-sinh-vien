@@ -14,9 +14,9 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="856.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui71.gui71">
    <children>
       <Pane prefHeight="57.0" prefWidth="856.0" />
-      <ScrollPane fx:id="scrollpane" hbarPolicy="NEVER" layoutX="10.0" layoutY="151.0" prefHeight="547.0" prefWidth="619.0" styleClass="pane-border-solid" vbarPolicy="NEVER">
+      <ScrollPane fx:id="scrollpane" hbarPolicy="NEVER" layoutX="10.0" layoutY="151.0" prefHeight="537.0" prefWidth="616.0" styleClass="pane-border-solid" vbarPolicy="NEVER">
         <content>
-          <AnchorPane fx:id="anchorpane" minHeight="0.0" minWidth="0.0" prefHeight="542.0" prefWidth="607.0">
+          <AnchorPane fx:id="anchorpane" minHeight="0.0" minWidth="0.0" prefHeight="534.0" prefWidth="607.0">
                <children>
                   <Pane layoutX="464.0" layoutY="14.0" prefHeight="31.0" prefWidth="127.0" style="-fx-border-color: red; -fx-border-radius: 3px;">
                      <children>
@@ -29,7 +29,7 @@
       </ScrollPane>
       <Pane fx:id="panecountquiz" layoutX="638.0" layoutY="151.0" prefHeight="454.0" prefWidth="208.0" styleClass="pane-border-solid">
          <children>
-            <Label prefHeight="53.0" prefWidth="208.0" style="-fx-background-color: #ccc;" styleClass="pane-border-solid" text="Quiz navigation" textFill="#ec3939">
+            <Label prefHeight="53.0" prefWidth="208.0" style="-fx-background-color: #eaeaea;" styleClass="pane-border-solid" text="Quiz navigation" textFill="#ec3939">
                <padding>
                   <Insets left="10.0" />
                </padding>
@@ -38,7 +38,7 @@
                </font>
             </Label>
             <Button layoutY="404.0" mnemonicParsing="false" onAction="#finishattempt" styleClass="button-text-blue" text="Finish attempt.." />
-            <ImageView fitHeight="31.0" fitWidth="149.0" layoutX="-71.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: pointer; -fx-translate-x: 85px;">
+            <ImageView fitHeight="31.0" fitWidth="149.0" layoutX="-71.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: pointer; -fx-translate-x: 85px;">
                <image>
                   <Image url="@../ImageView/avatar_color.png" />
                </image>

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="642.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui61.gui61">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="642.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui61.gui61">
     <children>
         <Pane layoutX="-2.0" prefHeight="52.0" prefWidth="591.0" />
         <Pane layoutX="13.0" layoutY="52.0" prefHeight="102.0" prefWidth="574.0" styleClass="pane-border-solid">
@@ -31,7 +31,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button layoutX="240.0" layoutY="67.0" mnemonicParsing="false" styleClass="button-text-blue" text="General" />
+            <Button layoutX="240.0" layoutY="67.0" mnemonicParsing="false" styleClass="button-text-blue" text="General" textFill="#9feac8" />
             <Label layoutX="297.0" layoutY="67.0" prefHeight="25.0" prefWidth="3.0" text="/">
                <font>
                   <Font size="16.0" />
@@ -63,20 +63,26 @@
                </font>
             </Label>
             <Label layoutX="387.0" layoutY="96.0" text="Grading method: Last attempt" />
-            <Label layoutX="20.0" layoutY="142.0" text="Summary of your previous attempts">
+            <Label layoutX="20.0" layoutY="142.0" text="Summary of your previous attempts" textFill="#ec3939">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Pane layoutY="163.0" prefHeight="40.0" prefWidth="574.0">
+            <Pane layoutX="26.0" layoutY="168.0" prefHeight="40.0" prefWidth="513.0" styleClass="pane-background">
                <children>
-                  <Label layoutX="139.0" layoutY="12.0" text="Attempt" />
-                  <Label layoutX="343.0" layoutY="12.0" text="State" />
+                  <Label layoutX="129.0" layoutY="12.0" text="Attempt" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
+                  <Label layoutX="343.0" layoutY="12.0" text="State" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
                </children>
             </Pane>
-            <Pane layoutY="201.0" prefHeight="40.0" prefWidth="574.0">
+            <Pane layoutX="26.0" layoutY="206.0" prefHeight="40.0" prefWidth="513.0" style="-fx-background-color: #ccc;">
                <children>
-                  <Label layoutX="139.0" layoutY="12.0" text="Preview" />
+                  <Label layoutX="129.0" layoutY="12.0" text="Preview" />
                   <Label layoutX="342.0" layoutY="12.0" text="Never submitted" />
                </children>
             </Pane>

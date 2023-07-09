@@ -15,9 +15,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui62.gui62">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui62.gui62">
    <children>
-       <Pane layoutY="51.0" prefHeight="102.0" prefWidth="600.0" styleClass="pane-border-solid">
+       <Pane layoutX="12.0" layoutY="54.0" prefHeight="102.0" prefWidth="576.0" styleClass="pane-border-solid">
            <children>
                <Button layoutX="21.0" layoutY="69.0" mnemonicParsing="false" onAction="#home" prefHeight="25.0" prefWidth="52.0" styleClass="button-text-blue" text="Home" />
                <Label layoutX="75.0" layoutY="70.0" prefHeight="25.0" prefWidth="3.0" text="/">
@@ -56,46 +56,59 @@
                </font>
             </Label>
            </children></Pane>
-      <Pane layoutY="161.0" prefHeight="480.0" prefWidth="600.0" styleClass="pane-border-solid">
+      <Pane layoutX="12.0" layoutY="165.0" prefHeight="465.0" prefWidth="576.0" styleClass="pane-border-solid">
          <children>
-            <MenuButton layoutX="497.0" layoutY="201.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" styleClass="button-text-blue" text="ADD" textFill="#218d8d">
-              <items>
-                <MenuItem mnemonicParsing="false" text="a new question">
-                     <graphic>
-                        <ImageView fitHeight="17.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../ImageView/plus.png" />
-                           </image>
-                        </ImageView>
-                     </graphic></MenuItem>
-                <MenuItem mnemonicParsing="false" onAction="#anewquestion" text="from questtion bank">
-                     <graphic>
-                        <ImageView fitHeight="17.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../ImageView/plus.png" />
-                           </image>
-                        </ImageView>
-                     </graphic></MenuItem>
-                  <MenuItem mnemonicParsing="false" onAction="#arandomquestion" text="a random question">
-                     <graphic>
-                        <ImageView fitHeight="17.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../ImageView/plus.png" />
-                           </image>
-                        </ImageView>
-                     </graphic></MenuItem>
-              </items>
-            </MenuButton>
+            <Pane layoutX="8.0" layoutY="181.0" prefHeight="51.0" prefWidth="566.0" style="-fx-background-color: #e5eae9;">
+               <children>
+                  <MenuButton layoutX="494.0" layoutY="26.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" style="-fx-background-color: transparent;" text="Add" textFill="#218d8d">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="a new question">
+                           <graphic>
+                              <ImageView fitHeight="17.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../ImageView/plus.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </MenuItem>
+                      <MenuItem mnemonicParsing="false" onAction="#anewquestion" text="from questtion bank">
+                           <graphic>
+                              <ImageView fitHeight="17.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../ImageView/plus.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#arandomquestion" text="a random question">
+                           <graphic>
+                              <ImageView fitHeight="17.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../ImageView/plus.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </MenuItem>
+                    </items>
+                  </MenuButton>
+                  <CheckBox layoutX="462.0" layoutY="6.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="64.0" text="Shuffle" />
+                  <ImageView fitHeight="25.0" fitWidth="15.0" layoutX="529.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ImageView/question.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
             <Label fx:id="editquiz" layoutX="34.0" layoutY="83.0" prefHeight="32.0" prefWidth="32.0">
                <font>
                   <Font size="21.0" />
                </font>
             </Label>
-            <ScrollPane hbarPolicy="NEVER" layoutX="8.0" layoutY="232.0" prefHeight="244.0" prefWidth="566.0">
+            <ScrollPane hbarPolicy="NEVER" layoutX="8.0" layoutY="232.0" prefHeight="232.0" prefWidth="566.0" style="-fx-background-color: transparent;">
               <content>
-                <AnchorPane fx:id="anchorpane1" minHeight="0.0" minWidth="0.0" prefHeight="273.0" prefWidth="564.0">
+                <AnchorPane fx:id="anchorpane1" minHeight="0.0" minWidth="0.0" prefHeight="281.0" prefWidth="564.0" style="-fx-background-color: transparent;">
                      <children>
-                        <VBox fx:id="vbox1" prefHeight="274.0" prefWidth="566.0" spacing="10.0" />
+                        <VBox fx:id="vbox1" prefHeight="244.0" prefWidth="566.0" spacing="10.0" />
                      </children>
                   </AnchorPane>
               </content>
@@ -116,12 +129,6 @@
             <Label layoutX="372.0" layoutY="124.0" text="Maximum grade" />
             <Button layoutX="24.0" layoutY="145.0" mnemonicParsing="false" onAction="#repaginate" prefHeight="25.0" prefWidth="87.0" styleClass="button-blue" text="REPAGINATE" />
             <Button layoutX="120.0" layoutY="145.0" mnemonicParsing="false" onAction="#selectmultipleitems" styleClass="button-blue" text="SELECT MULTIPLEITEMS" />
-            <CheckBox layoutX="472.0" layoutY="177.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="64.0" text="Shuffle" />
-            <ImageView fitHeight="25.0" fitWidth="15.0" layoutX="536.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../ImageView/question.png" />
-               </image>
-            </ImageView>
          </children>
       </Pane>
        <Pane prefHeight="57.0" prefWidth="600.0" styleClass="pane-background">
