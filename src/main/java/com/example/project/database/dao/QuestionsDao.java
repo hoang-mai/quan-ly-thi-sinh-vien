@@ -266,25 +266,6 @@ public class QuestionsDao {
 
 
 
-	public static void main(String[] args) throws Exception {
-		//QuestionsDao questionsDao = new QuestionsDao();
-		//List<Questions> questions = questionsDao.selectALl();
-		//for (Questions questions1 : questions) {
-		//	System.out.println(questions1.getQuestionName());
-		/*String questionName = "Câu hỏi 1";
-		Questions question = selectQuestionbyName(questionName);
-		System.out.println(question.getQuestionText()); */
-		//thêm 1 loạt câu hỏi
-		//List<Categories> categories = CategoriesDao.getInstance().selectALl();
-		//Questions question = QuestionsDao.selectQuestionbyId(4);
-		/*QuestionsDao questionsDao = new QuestionsDao();
-		List<Questions> questions = questionsDao.selectALl();
-		for (Questions questions1 : questions) {
-			System.out.println(questions1.getQuestionName());
 
-		}*/
-		QuestionsDao.getInstance().printQuestioninforbyId(4);
-
-	}
 
 }

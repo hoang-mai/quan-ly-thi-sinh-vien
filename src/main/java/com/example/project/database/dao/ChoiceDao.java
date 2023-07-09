@@ -115,13 +115,7 @@ public class ChoiceDao {
 			}
 		}
 	}
-	public static void main(String[] args) {
-		ChoiceDao choicesDao = new ChoiceDao();
-		List<Choice> choices = choicesDao.selectALl();
-		for (Choice choice1 : choices) {
-			System.out.println(choice1.getChoiceText());
-		}
-	}
+
 }
 
 

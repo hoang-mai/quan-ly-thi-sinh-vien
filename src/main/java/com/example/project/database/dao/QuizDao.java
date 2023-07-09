@@ -128,18 +128,7 @@ public class QuizDao {
 	}
 
 	//test
-	public static void main(String[] args) {
-		List<Quiz> quiz = new ArrayList<>();
-		quiz = QuizDao.getInstance().selectALl();
-		//for (Quiz quiz1 : quiz) {
-		//	System.out.println(quiz1.getQuizName());
-		//}
-		List<Questions> questions = new ArrayList<>();
-		questions = QuizDao.getInstance().selectQuestion("Quiz1");
-		for (Questions question : questions) {
-			QuestionsDao.getInstance().printQuestioninforbyId(question.getQuestionId());
-		}
-	}
+
 
 }
 

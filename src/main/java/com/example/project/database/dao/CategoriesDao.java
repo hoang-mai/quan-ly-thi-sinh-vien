@@ -268,25 +268,7 @@ public class  CategoriesDao {
 
 
 	//test
-	public static void main(String[] args) throws Exception {
-		List<Categories> categories = CategoriesDao.getInstance().selectALl();
-		for (int i = 0; i < categories.size(); i++) {
-			if (categories.get(i).getCategories_parent()!=null){
-				for(int j=0;j<i;j++){
-					if(categories.get(i).getCategories_parent()==categories.get(j)){
-						Categories categories1=categories.get(i);
-						categories.remove(i);
-						categories.add(j+1,categories1);
-					}
-				}
-			}
-		}
-			for (Categories categories1 : categories) {
-				System.out.println(categories1.getCategoryName());
-			}
 
-
-	}
 }
 
 
