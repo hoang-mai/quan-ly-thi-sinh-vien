@@ -12,12 +12,12 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui63.gui63">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="694.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui63.gui63">
    <children>
       <Label layoutX="11.0" layoutY="39.0" text="Add from the question bank at the end" />
-      <ScrollPane layoutX="15.0" layoutY="103.0" prefHeight="523.0" prefWidth="570.0" styleClass="pane-border-solid">
+      <ScrollPane layoutX="15.0" layoutY="107.0" prefHeight="530.0" prefWidth="570.0" styleClass="pane-border-solid">
         <content>
-          <AnchorPane fx:id="anchorpane" minHeight="0.0" minWidth="0.0" prefHeight="618.0" prefWidth="586.0" style="-fx-background-color: transparent;">
+          <AnchorPane fx:id="anchorpane" minHeight="0.0" minWidth="0.0" prefHeight="618.0" prefWidth="566.0" style="-fx-background-color: transparent;">
                <children>
                   <Label layoutX="27.0" layoutY="28.0" text="Select a categories : " />
                   <ComboBox fx:id="combobox" layoutX="135.0" layoutY="24.0" onAction="#changecombobox" prefWidth="150.0" />
@@ -29,32 +29,33 @@
             </AnchorPane>
         </content>
       </ScrollPane>
-      <Button layoutX="42.0" layoutY="635.0" mnemonicParsing="false" onAction="#addselectedquestiontothequiz" styleClass="button-blue" text="ADD SELECTED QUESTIONS TO THE QUIZ" />
-       <Pane prefHeight="57.0" prefWidth="600.0" styleClass="pane-background">
-         <children>
-            <Button layoutX="14.0" layoutY="3.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="48.0" styleClass="button-icon">
-               <graphic>
-                  <ImageView fitHeight="31.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../ImageView/menu.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <MenuButton layoutX="431.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="148.0" styleClass="button-icon" text="Nguyễn" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="31.0" fitWidth="149.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: pointer; -fx-translate-x: 85px;">
-                     <image>
-                        <Image url="@../ImageView/avatar.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </MenuButton>
-         </children></Pane>
+      <Button layoutX="42.0" layoutY="649.0" mnemonicParsing="false" onAction="#addselectedquestiontothequiz" styleClass="button-blue" text="ADD SELECTED QUESTIONS TO THE QUIZ" />
       <Label layoutX="22.0" layoutY="70.0" text="Add from the question bank at the end" textFill="#ec3939">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
+       <Pane prefHeight="57.0" prefWidth="600.0" styleClass="pane-background">
+           <children>
+               <Button layoutX="14.0" layoutY="1.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="48.0" styleClass="button-icon">
+                   <graphic>
+                       <ImageView fitHeight="31.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                               <Image url="@../ImageView/menu.png" />
+                           </image>
+                       </ImageView>
+                   </graphic>
+               </Button>
+               <MenuButton layoutX="439.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="148.0" styleClass="button-icon" text="Nguyễn" textFill="WHITE">
+                   <graphic>
+                       <ImageView fitHeight="31.0" fitWidth="149.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: pointer; -fx-translate-x: 85px;">
+                           <image>
+                               <Image url="@../ImageView/avatar.png" />
+                           </image>
+                       </ImageView>
+                   </graphic>
+               </MenuButton>
+           </children>
+       </Pane>
    </children>
 </Pane>

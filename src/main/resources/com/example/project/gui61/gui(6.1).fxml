@@ -8,43 +8,44 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="642.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui61.gui61">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="694.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui61.gui61">
     <children>
         <Pane layoutX="-2.0" prefHeight="52.0" prefWidth="591.0" />
-        <Pane layoutX="13.0" layoutY="52.0" prefHeight="102.0" prefWidth="574.0" styleClass="pane-border-solid">
+        <Pane layoutX="12.0" layoutY="54.0" prefHeight="119.0" prefWidth="576.0" styleClass="pane-border-solid">
          <children>
-            <Button layoutX="19.0" layoutY="66.0" mnemonicParsing="false" onAction="#home" styleClass="button-text-blue" text="Home" />
-            <Label layoutX="69.0" layoutY="67.0" prefHeight="25.0" prefWidth="3.0" text="/">
+             <Label fx:id="it" layoutX="27.0" layoutY="9.0" prefHeight="33.0" prefWidth="31.0" text="IT" textFill="#ec3939">
+                 <font>
+                     <Font size="35.0" />
+                 </font>
+             </Label>
+             <Button layoutX="24.0" layoutY="76.0" mnemonicParsing="false" onAction="#home" styleClass="button-text-blue" text="Home" />
+             <Label layoutX="74.0" layoutY="77.0" prefHeight="25.0" prefWidth="3.0" text="/">
+                 <font>
+                     <Font size="16.0" />
+                 </font>
+             </Label>
+             <Button layoutX="80.0" layoutY="77.0" mnemonicParsing="false" styleClass="button-text-blue" text="My course" />
+             <Label layoutX="151.0" layoutY="77.0" prefHeight="25.0" prefWidth="3.0" text="/">
+                 <font>
+                     <Font size="16.0" />
+                 </font>
+             </Label>
+             <Button layoutX="157.0" layoutY="77.0" mnemonicParsing="false" styleClass="button-text-blue" text="THI CUỐI KỲ" />
+             <Label layoutX="239.0" layoutY="77.0" prefHeight="25.0" prefWidth="3.0" text="/">
+                 <font>
+                     <Font size="16.0" />
+                 </font>
+             </Label>
+            <Button layoutX="245.0" layoutY="77.0" mnemonicParsing="false" styleClass="button-text-blue" text="General" textFill="#9feac8" />
+            <Label layoutX="302.0" layoutY="77.0" prefHeight="25.0" prefWidth="3.0" text="/">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button layoutX="75.0" layoutY="67.0" mnemonicParsing="false" styleClass="button-text-blue" text="My course" />
-            <Label layoutX="146.0" layoutY="67.0" prefHeight="25.0" prefWidth="3.0" text="/">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Button layoutX="152.0" layoutY="67.0" mnemonicParsing="false" styleClass="button-text-blue" text="THI CUỐI KỲ" />
-            <Label layoutX="234.0" layoutY="67.0" prefHeight="25.0" prefWidth="3.0" text="/">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Button layoutX="240.0" layoutY="67.0" mnemonicParsing="false" styleClass="button-text-blue" text="General" textFill="#9feac8" />
-            <Label layoutX="297.0" layoutY="67.0" prefHeight="25.0" prefWidth="3.0" text="/">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Button fx:id="quizname" layoutX="303.0" layoutY="67.0" mnemonicParsing="false" styleClass="button-text-blue" />
-            <Label fx:id="it" layoutX="29.0" layoutY="10.0" prefHeight="33.0" prefWidth="31.0" text="IT" textFill="#ec3939">
-               <font>
-                  <Font size="35.0" />
-               </font>
-            </Label>
+            <Button fx:id="quizname" layoutX="308.0" layoutY="77.0" mnemonicParsing="false" styleClass="button-text-blue" />
+
          </children></Pane>
-        <Pane layoutX="12.0" layoutY="166.0" prefHeight="473.0" prefWidth="574.0" styleClass="pane-border-solid">
+        <Pane layoutX="12.0" layoutY="184.0" prefHeight="499.0" prefWidth="576.0" styleClass="pane-border-solid">
             <children>
                 <Button layoutX="525.0" layoutY="14.0" mnemonicParsing="false" onAction="#caidat" style="-fx-background-color: no;">
                <graphic>
@@ -54,21 +55,21 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Label layoutX="432.0" layoutY="66.0" text="Timelimit:" />
+            <Label layoutX="425.0" layoutY="66.0" text="Timelimit:" />
             <Label fx:id="timelimit1" layoutX="490.0" layoutY="66.0" prefHeight="17.0" prefWidth="83.0" />
-            <Button layoutX="432.0" layoutY="288.0" mnemonicParsing="false" onAction="#previewquiznow" styleClass="button-blue" text="PREVIEW QUIZ NOW" />
+            <Button layoutX="432.0" layoutY="290.0" mnemonicParsing="false" onAction="#previewquiznow" styleClass="button-blue" text="PREVIEW QUIZ NOW" />
             <Label fx:id="tenquiz" layoutX="20.0" layoutY="19.0" prefHeight="27.0" prefWidth="183.0">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
             <Label layoutX="387.0" layoutY="96.0" text="Grading method: Last attempt" />
-            <Label layoutX="20.0" layoutY="142.0" text="Summary of your previous attempts" textFill="#ec3939">
+            <Label layoutX="26.0" layoutY="147.0" text="Summary of your previous attempts" textFill="#ec3939">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Pane layoutX="26.0" layoutY="168.0" prefHeight="40.0" prefWidth="513.0" styleClass="pane-background">
+            <Pane layoutX="26.0" layoutY="176.0" prefHeight="40.0" prefWidth="513.0" styleClass="pane-background">
                <children>
                   <Label layoutX="129.0" layoutY="12.0" text="Attempt" textFill="WHITE">
                      <font>
@@ -80,7 +81,7 @@
                      </font></Label>
                </children>
             </Pane>
-            <Pane layoutX="26.0" layoutY="206.0" prefHeight="40.0" prefWidth="513.0" style="-fx-background-color: #ccc;">
+            <Pane layoutX="26.0" layoutY="214.0" prefHeight="40.0" prefWidth="513.0" style="-fx-background-color: #ccc;">
                <children>
                   <Label layoutX="129.0" layoutY="12.0" text="Preview" />
                   <Label layoutX="342.0" layoutY="12.0" text="Never submitted" />
@@ -89,25 +90,26 @@
             </children>
         </Pane>
         <Pane prefHeight="57.0" prefWidth="600.0" styleClass="pane-background">
-         <children>
-            <Button layoutX="14.0" layoutY="1.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="48.0" styleClass="button-icon">
-               <graphic>
-                  <ImageView fitHeight="31.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../ImageView/menu.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <MenuButton layoutX="439.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="148.0" styleClass="button-icon" text="Nguyễn" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="31.0" fitWidth="149.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: pointer; -fx-translate-x: 85px;">
-                     <image>
-                        <Image url="@../ImageView/avatar.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </MenuButton>
-         </children></Pane>
+            <children>
+                <Button layoutX="14.0" layoutY="1.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="48.0" styleClass="button-icon">
+                    <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../ImageView/menu.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <MenuButton layoutX="439.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="148.0" styleClass="button-icon" text="Nguyễn" textFill="WHITE">
+                    <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="149.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: pointer; -fx-translate-x: 85px;">
+                            <image>
+                                <Image url="@../ImageView/avatar.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </MenuButton>
+            </children>
+        </Pane>
     </children>
 </Pane>

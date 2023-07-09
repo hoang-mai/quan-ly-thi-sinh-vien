@@ -1,43 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="856.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui74.gui74">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="856.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui74.gui74">
    <children>
       <Pane prefHeight="57.0" prefWidth="856.0" />
-      <ScrollPane fx:id="scrollpane" hbarPolicy="NEVER" layoutX="10.0" layoutY="151.0" prefHeight="547.0" prefWidth="619.0" styleClass="pane-border-solid" vbarPolicy="NEVER">
+      <ScrollPane fx:id="scrollpane" hbarPolicy="NEVER" layoutX="10.0" layoutY="162.0" prefHeight="524.0" prefWidth="618.0" styleClass="pane-border-solid" vbarPolicy="NEVER">
          <content>
-            <AnchorPane fx:id="anchorpane" minHeight="0.0" minWidth="0.0" prefHeight="542.0" prefWidth="607.0">
+            <AnchorPane fx:id="anchorpane" minHeight="0.0" minWidth="0.0" prefHeight="519.0" prefWidth="616.0">
                <children>
-                  <GridPane layoutX="14.0" layoutY="14.0" prefHeight="118.0" prefWidth="592.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="291.20001220703125" minWidth="10.0" prefWidth="196.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="460.79998779296875" minWidth="10.0" prefWidth="396.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <GridPane layoutX="14.0" layoutY="14.0" prefHeight="118.0" prefWidth="584.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="291.20001220703125" minWidth="10.0" prefWidth="201.5999755859375" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="460.79998779296875" minWidth="10.0" prefWidth="382.4000244140625" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
                      <children>
                         <Label prefHeight="18.0" prefWidth="210.0" styleClass="pane-border-question" text="Started on" textFill="#ec3939">
                            <padding>
-                              <Insets left="128.0" />
+                              <Insets left="135.0" />
                            </padding>
                            <font>
                               <Font name="System Bold" size="12.0" />
@@ -45,7 +37,7 @@
                         </Label>
                         <Label prefHeight="18.0" prefWidth="278.0" style="-fx-background-color: #efeeee;" text="State" textFill="#ec3939" GridPane.rowIndex="1">
                            <padding>
-                              <Insets left="158.0" />
+                              <Insets left="162.0" />
                            </padding>
                            <font>
                               <Font name="System Bold" size="12.0" />
@@ -53,7 +45,7 @@
                         </Label>
                         <Label prefHeight="19.0" prefWidth="210.0" styleClass="pane-border-question" text="Completed on" textFill="#ec3939" GridPane.rowIndex="2">
                            <padding>
-                              <Insets left="106.0" />
+                              <Insets left="113.0" />
                            </padding>
                            <font>
                               <Font name="System Bold" size="12.0" />
@@ -61,7 +53,7 @@
                         </Label>
                         <Label prefHeight="18.0" prefWidth="214.0" style="-fx-background-color: #efeeee;" text="Time taken" textFill="#ec3939" GridPane.rowIndex="3">
                            <padding>
-                              <Insets left="124.0" />
+                              <Insets left="129.0" />
                            </padding>
                            <font>
                               <Font name="System Bold" size="12.0" />
@@ -69,7 +61,7 @@
                         </Label>
                         <Label prefHeight="34.0" prefWidth="196.0" styleClass="pane-border-question" text="Marks" textFill="#ec3939" GridPane.rowIndex="4">
                            <padding>
-                              <Insets left="152.0" />
+                              <Insets left="154.0" />
                            </padding>
                            <font>
                               <Font name="System Bold" size="12.0" />
@@ -94,7 +86,7 @@
                </children></AnchorPane>
          </content>
       </ScrollPane>
-      <Pane fx:id="panecountquiz" layoutX="638.0" layoutY="151.0" prefHeight="454.0" prefWidth="208.0" styleClass="pane-border-solid">
+      <Pane fx:id="panecountquiz" layoutX="638.0" layoutY="161.0" prefHeight="454.0" prefWidth="208.0" styleClass="pane-border-solid">
          <children>
             <Label prefHeight="53.0" prefWidth="208.0" style="-fx-background-color: #eaeaea;" styleClass="pane-border-solid" text="Quiz navigation" textFill="#ec3939">
                <padding>
@@ -112,44 +104,44 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="10.0" layoutY="54.0" prefHeight="84.0" prefWidth="836.0" styleClass="pane-border-solid">
+      <Pane layoutX="10.0" layoutY="54.0" prefHeight="96.0" prefWidth="836.0" styleClass="pane-border-solid">
          <children>
-            <Button layoutX="21.0" layoutY="50.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" styleClass="button-text-blue" text="Home" />
-            <Label layoutX="75.0" layoutY="50.0" prefHeight="25.0" prefWidth="3.0" text="/">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Button layoutX="81.0" layoutY="50.0" mnemonicParsing="false" styleClass="button-text-blue" text="My course" />
-            <Label layoutX="152.0" layoutY="50.0" prefHeight="25.0" prefWidth="3.0" text="/">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Button layoutX="158.0" layoutY="50.0" mnemonicParsing="false" styleClass="button-text-blue" text="THI CUỐI KỲ" />
-            <Label layoutX="240.0" layoutY="50.0" prefHeight="25.0" prefWidth="3.0" text="/">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Button layoutX="246.0" layoutY="50.0" mnemonicParsing="false" styleClass="button-text-blue" text="General" />
-            <Label layoutX="303.0" layoutY="50.0" prefHeight="25.0" prefWidth="3.0" text="/">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Button fx:id="quizname" layoutX="309.0" layoutY="50.0" mnemonicParsing="false" styleClass="button-text-blue" text="Button" />
-            <Label fx:id="daugach" layoutX="361.0" layoutY="50.0" prefHeight="25.0" prefWidth="3.0" text="/">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Button fx:id="buttoneditquiz" layoutX="367.0" layoutY="50.0" mnemonicParsing="false" styleClass="button-text-blue" text="Preview" />
-            <Label fx:id="it" layoutX="29.0" layoutY="8.0" prefHeight="33.0" prefWidth="31.0" text="IT" textFill="#ec3939">
+            <Label fx:id="it" layoutX="27.0" layoutY="9.0" prefHeight="33.0" prefWidth="31.0" text="IT" textFill="#ec3939">
                <font>
                   <Font size="35.0" />
                </font>
             </Label>
+            <Button layoutX="21.0" layoutY="59.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" styleClass="button-text-blue" text="Home" />
+            <Label layoutX="75.0" layoutY="59.0" prefHeight="25.0" prefWidth="3.0" text="/">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Button layoutX="81.0" layoutY="59.0" mnemonicParsing="false" styleClass="button-text-blue" text="My course" />
+            <Label layoutX="152.0" layoutY="59.0" prefHeight="25.0" prefWidth="3.0" text="/">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Button layoutX="158.0" layoutY="59.0" mnemonicParsing="false" styleClass="button-text-blue" text="THI CUỐI KỲ" />
+            <Label layoutX="240.0" layoutY="59.0" prefHeight="25.0" prefWidth="3.0" text="/">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Button layoutX="246.0" layoutY="59.0" mnemonicParsing="false" styleClass="button-text-blue" text="General" />
+            <Label layoutX="306.0" layoutY="59.0" prefHeight="25.0" prefWidth="3.0" text="/">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Button fx:id="quizname" layoutX="312.0" layoutY="59.0" mnemonicParsing="false" styleClass="button-text-blue" text="Button" />
+            <Label fx:id="daugach" layoutX="364.0" layoutY="59.0" prefHeight="25.0" prefWidth="6.0" text="/">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Button fx:id="buttoneditquiz" layoutX="372.0" layoutY="59.0" mnemonicParsing="false" styleClass="button-text-blue" text="Preview" textFill="#e7d9bf" />
          </children>
       </Pane>
       <Pane prefHeight="57.0" prefWidth="856.0" styleClass="pane-background">

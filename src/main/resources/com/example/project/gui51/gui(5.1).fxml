@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="724.0" prefWidth="804.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui51.gui51">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="856.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui51.gui51">
     <children>
         <Label layoutX="63.0" layoutY="66.0" prefHeight="31.0" prefWidth="187.0" text="Adding a new Quiz" textFill="#ea0f0f">
             <font>
@@ -35,21 +44,21 @@
                 <Image url="@../ImageView/chamthan.jpg" />
             </image>
         </ImageView>
-        <TextArea fx:id="desciption1" layoutX="336.0" layoutY="205.0" prefHeight="200.0" prefWidth="444.0" />
-        <CheckBox layoutX="336.0" layoutY="430.0" mnemonicParsing="false" text="Display description on course page" />
-        <ImageView fitHeight="12.0" fitWidth="15.0" layoutX="552.0" layoutY="433.0" pickOnBounds="true" preserveRatio="true">
+        <TextArea fx:id="desciption1" layoutX="336.0" layoutY="205.0" prefHeight="183.0" prefWidth="426.0" />
+        <CheckBox layoutX="336.0" layoutY="402.0" mnemonicParsing="false" text="Display description on course page" />
+        <ImageView fitHeight="12.0" fitWidth="15.0" layoutX="552.0" layoutY="405.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../ImageView/question.png" />
             </image>
         </ImageView>
-        <Label layoutX="34.0" layoutY="475.0" text="Timing" textFill="#ea0f0f">
+        <Label layoutX="34.0" layoutY="441.0" text="Timing" textFill="#ea0f0f">
             <font>
                 <Font size="15.0" />
             </font>
         </Label>
-        <Label layoutX="34.0" layoutY="513.0" text="Open the quiz" />
-        <Label layoutX="34.0" layoutY="550.0" text="Close the quiz" />
-        <HBox fx:id="openhbox" disable="true" layoutX="336.0" layoutY="509.0" prefHeight="31.0" prefWidth="391.0" spacing="10.0">
+        <Label layoutX="34.0" layoutY="479.0" text="Open the quiz" />
+        <Label layoutX="34.0" layoutY="519.0" text="Close the quiz" />
+        <HBox fx:id="openhbox" disable="true" layoutX="336.0" layoutY="475.0" prefHeight="31.0" prefWidth="391.0" spacing="10.0">
             <children>
                 <ComboBox fx:id="openquiz1" prefHeight="25.0" prefWidth="0.0" promptText="1" />
                 <ComboBox fx:id="openquiz2" prefHeight="26.0" prefWidth="97.0" promptText="January" />
@@ -58,7 +67,7 @@
                 <ComboBox fx:id="openquiz5" prefHeight="26.0" prefWidth="58.0" promptText="0" />
             </children>
         </HBox>
-        <HBox fx:id="closehbox" disable="true" layoutX="336.0" layoutY="543.0" opacity="0.8" prefHeight="31.0" prefWidth="391.0" spacing="10.0">
+        <HBox fx:id="closehbox" disable="true" layoutX="336.0" layoutY="512.0" opacity="0.8" prefHeight="31.0" prefWidth="391.0" spacing="10.0">
             <children>
                 <ComboBox fx:id="closequiz1" prefHeight="25.0" prefWidth="0.0" promptText="1" />
                 <ComboBox fx:id="closequiz2" prefHeight="26.0" prefWidth="97.0" promptText="January" />
@@ -67,68 +76,70 @@
                 <ComboBox fx:id="closequiz5" prefHeight="26.0" prefWidth="58.0" promptText="0" />
             </children>
         </HBox>
-        <ImageView fitHeight="12.0" fitWidth="15.0" layoutX="313.0" layoutY="516.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="12.0" fitWidth="15.0" layoutX="313.0" layoutY="482.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../ImageView/question.png" />
             </image>
         </ImageView>
-        <CheckBox fx:id="enable22" layoutX="740.0" layoutY="550.0" mnemonicParsing="false" onAction="#enable2" prefHeight="17.0" prefWidth="64.0" text="Enable">
+        <CheckBox fx:id="enable22" layoutX="740.0" layoutY="519.0" mnemonicParsing="false" onAction="#enable2" prefHeight="17.0" prefWidth="64.0" text="Enable">
             <font>
                 <Font size="10.0" />
             </font>
         </CheckBox>
-        <CheckBox fx:id="enable11" layoutX="740.0" layoutY="513.0" mnemonicParsing="false" onAction="#enable1" prefHeight="17.0" prefWidth="64.0" text="Enable">
+        <CheckBox fx:id="enable11" layoutX="740.0" layoutY="479.0" mnemonicParsing="false" onAction="#enable1" prefHeight="17.0" prefWidth="64.0" text="Enable">
             <font>
                 <Font size="10.0" />
             </font>
         </CheckBox>
-        <Label layoutX="34.0" layoutY="593.0" text="Time limit" />
-        <Label layoutX="34.0" layoutY="628.0" text="When time expires" />
-        <TextField fx:id="timelimit2" disable="true" layoutX="336.0" layoutY="589.0" prefHeight="25.0" prefWidth="45.0" />
-        <ComboBox fx:id="timelimit1" disable="true" layoutX="394.0" layoutY="589.0" prefHeight="25.0" prefWidth="87.0" promptText="minutes" />
-        <CheckBox fx:id="enable33" layoutX="486.0" layoutY="593.0" mnemonicParsing="false" onAction="#enable3" prefHeight="17.0" prefWidth="64.0" text="Enable">
+        <Label layoutX="34.0" layoutY="555.0" text="Time limit" />
+        <Label layoutX="34.0" layoutY="584.0" text="When time expires" />
+        <TextField fx:id="timelimit2" disable="true" layoutX="336.0" layoutY="551.0" prefHeight="25.0" prefWidth="45.0" />
+        <ComboBox fx:id="timelimit1" disable="true" layoutX="394.0" layoutY="551.0" prefHeight="25.0" prefWidth="87.0" promptText="minutes" />
+        <CheckBox fx:id="enable33" layoutX="486.0" layoutY="555.0" mnemonicParsing="false" onAction="#enable3" prefHeight="17.0" prefWidth="64.0" text="Enable">
             <font>
                 <Font size="10.0" />
             </font>
         </CheckBox>
-        <ComboBox fx:id="whentim1" layoutX="336.0" layoutY="633.0" opacity="0.8" prefHeight="25.0" prefWidth="277.0" promptText="Open attempts are submitted automatically" />
-        <ImageView fitHeight="12.0" fitWidth="15.0" layoutX="313.0" layoutY="596.0" pickOnBounds="true" preserveRatio="true">
+        <ComboBox fx:id="whentim1" layoutX="336.0" layoutY="589.0" opacity="0.8" prefHeight="25.0" prefWidth="277.0" promptText="Open attempts are submitted automatically" />
+        <ImageView fitHeight="12.0" fitWidth="15.0" layoutX="313.0" layoutY="558.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../ImageView/question.png" />
             </image>
         </ImageView>
-        <ImageView fitHeight="12.0" fitWidth="15.0" layoutX="313.0" layoutY="638.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="12.0" fitWidth="15.0" layoutX="313.0" layoutY="594.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../ImageView/question.png" />
             </image>
         </ImageView>
-        <Button fx:id="create1" disable="true" layoutX="363.0" layoutY="677.0" mnemonicParsing="false" onAction="#create" prefHeight="26.0" prefWidth="62.0" styleClass="button-red" text="CREATE" />
-        <Button layoutX="500.0" layoutY="677.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="64.0" styleClass="button-blue" text="CANCEL" />
-      <ImageView fitHeight="12.0" fitWidth="15.0" layoutX="313.0" layoutY="553.0" pickOnBounds="true" preserveRatio="true">
+        <Button fx:id="create1" disable="true" layoutX="363.0" layoutY="644.0" mnemonicParsing="false" onAction="#create" prefHeight="26.0" prefWidth="62.0" styleClass="button-red" text="CREATE" />
+        <Button layoutX="500.0" layoutY="644.0" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="64.0" styleClass="button-blue" text="CANCEL" />
+      <ImageView fitHeight="12.0" fitWidth="15.0" layoutX="313.0" layoutY="522.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../ImageView/question.png" />
          </image>
       </ImageView>
-        <Pane prefHeight="57.0" prefWidth="804.0" styleClass="pane-background">
-         <children>
-            <Button layoutX="22.0" layoutY="3.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="48.0" styleClass="button-icon">
-               <graphic>
-                  <ImageView fitHeight="31.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../ImageView/menu.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <MenuButton layoutX="632.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="148.0" styleClass="button-icon" text="Nguyễn" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="31.0" fitWidth="149.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: pointer; -fx-translate-x: 85px;">
-                     <image>
-                        <Image url="@../ImageView/avatar.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </MenuButton>
-         </children></Pane>
+        <Pane prefHeight="57.0" prefWidth="856.0" styleClass="pane-background">
+            <children>
+                <Button layoutX="25.0" layoutY="3.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="48.0" styleClass="button-icon">
+                    <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../ImageView/menu.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <MenuButton layoutX="676.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="148.0" styleClass="button-icon" text="Nguyễn" textFill="WHITE">
+                    <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="149.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: pointer; -fx-translate-x: 85px;">
+                            <image>
+                                <Image url="@../ImageView/avatar.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </MenuButton>
+            </children>
+        </Pane>
+      <Line endX="687.5999755859375" endY="-3.0517578125E-5" layoutX="134.0" layoutY="433.0" startX="-99.60000610351562" startY="-1.52587890625E-5" stroke="#9b9898" strokeWidth="0.5" styleClass="line1" />
     </children>
 </Pane>

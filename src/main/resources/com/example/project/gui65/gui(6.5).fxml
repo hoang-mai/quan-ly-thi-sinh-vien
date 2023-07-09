@@ -18,18 +18,18 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="683.0" prefWidth="600.0" styleClass="pane-border-solid" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui65.gui65">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="694.0" prefWidth="600.0" styleClass="pane-border-solid" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui65.gui65">
    <children>
       <Button layoutX="41.0" layoutY="644.0" mnemonicParsing="false" onAction="#addrandomquestiontothequiz" styleClass="button-blue" text="ADD RANDOM QUESTIONS TO THE QUIZ" />
       <ScrollPane hbarPolicy="NEVER" layoutY="105.0" prefHeight="521.0" prefWidth="600.0">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="573.0" prefWidth="599.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="574.0" prefWidth="588.0">
                <children>
-                  <TabPane prefHeight="574.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+                  <TabPane prefHeight="529.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
                     <tabs>
                       <Tab text="Existing category">
                         <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="576.0">
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="546.0" prefWidth="594.0">
                                  <children>
                                     <Label layoutX="27.0" layoutY="28.0" text="Category" />
                                     <ComboBox fx:id="comboboxcategory" layoutX="225.0" layoutY="24.0" onAction="#changecomboboxcategory" prefHeight="26.0" prefWidth="243.0" promptText="Default">
@@ -39,11 +39,11 @@
                                     <CheckBox fx:id="includequestions" layoutX="225.0" layoutY="59.0" mnemonicParsing="false" text="Include questions from subcategories too" />
                                     <Label layoutX="27.0" layoutY="112.0" prefHeight="50.0" prefWidth="110.0" text="Number of random questions" wrapText="true" />
                                     <ComboBox fx:id="comboboxrandomquestion" layoutX="225.0" layoutY="130.0" prefHeight="26.0" prefWidth="74.0">
-                                       <effect>
-                                          <ColorAdjust brightness="0.03" contrast="0.09" hue="1.0" saturation="-1.0" />
-                                       </effect></ComboBox>
+                                       <cursor>
+                                          <Cursor fx:constant="DEFAULT" />
+                                       </cursor></ComboBox>
                                     <Label layoutX="27.0" layoutY="190.0" text="Questions matching this filter" />
-                                    <Pagination fx:id="questionsmatching" layoutX="19.0" layoutY="208.0" pageCount="1" prefHeight="303.0" prefWidth="562.0" />
+                                    <Pagination fx:id="questionsmatching" layoutX="19.0" layoutY="208.0" pageCount="1" prefHeight="303.0" prefWidth="558.0" />
                                  </children>
                               </AnchorPane>
                         </content>
@@ -73,27 +73,27 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Pane prefHeight="57.0" prefWidth="600.0" styleClass="pane-background">
-         <children>
-            <Button layoutX="14.0" layoutY="3.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="48.0" styleClass="button-icon">
-               <graphic>
-                  <ImageView fitHeight="31.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../ImageView/menu.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <MenuButton layoutX="431.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="148.0" styleClass="button-icon" text="Nguyễn" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="31.0" fitWidth="149.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: pointer; -fx-translate-x: 85px;">
-                     <image>
-                        <Image url="@../ImageView/avatar.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </MenuButton>
-         </children>
-      </Pane>
+       <Pane prefHeight="57.0" prefWidth="600.0" styleClass="pane-background">
+           <children>
+               <Button layoutX="14.0" layoutY="1.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="48.0" styleClass="button-icon">
+                   <graphic>
+                       <ImageView fitHeight="31.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                               <Image url="@../ImageView/menu.png" />
+                           </image>
+                       </ImageView>
+                   </graphic>
+               </Button>
+               <MenuButton layoutX="439.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="148.0" styleClass="button-icon" text="Nguyễn" textFill="WHITE">
+                   <graphic>
+                       <ImageView fitHeight="31.0" fitWidth="149.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: pointer; -fx-translate-x: 85px;">
+                           <image>
+                               <Image url="@../ImageView/avatar.png" />
+                           </image>
+                       </ImageView>
+                   </graphic>
+               </MenuButton>
+           </children>
+       </Pane>
    </children>
 </Pane>

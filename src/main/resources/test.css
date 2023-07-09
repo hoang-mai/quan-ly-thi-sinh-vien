@@ -122,3 +122,10 @@
     -fx-border-radius: 3px;
     -fx-background-color: #d7e7e6;
 }
+
+.pane-correct-answer{
+    -fx-border-style: solid;
+    -fx-border-color: #f4ecdf;
+    -fx-border-radius: 3px;
+    -fx-background-color: #f4ecdf;
+}

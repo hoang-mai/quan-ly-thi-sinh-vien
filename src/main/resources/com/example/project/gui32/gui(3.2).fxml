@@ -1,113 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.ColorAdjust?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="787.0" prefWidth="715.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui32.gui32">
+<Pane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="694.0" prefWidth="600.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui32.gui32">
     <children>
-      <ScrollPane hbarPolicy="NEVER" prefHeight="919.0" prefWidth="715.0">
+      <ScrollPane hbarPolicy="NEVER" prefHeight="694.0" prefWidth="600.0">
         <content>
-          <AnchorPane fx:id="anchorPane" minHeight="0.0" minWidth="0.0" prefHeight="1600.0" prefWidth="717.0">
+          <AnchorPane fx:id="anchorPane" minHeight="0.0" minWidth="0.0" prefHeight="1312.0" prefWidth="598.0">
                <children>
-                    <Pane layoutX="42.0" layoutY="51.0" prefHeight="91.0" prefWidth="619.0" styleClass="pane-border-solid">
+                    <Pane layoutX="12.0" layoutY="54.0" prefHeight="119.0" prefWidth="563.0" styleClass="pane-border-solid">
                         <children>
-                            <Label layoutX="17.0" layoutY="10.0" text="IT" textFill="#dd0e0e">
+                            <Label fx:id="it" layoutX="27.0" layoutY="9.0" prefHeight="33.0" prefWidth="31.0" text="IT" textFill="#ec3939">
                                 <font>
-                                    <Font size="28.0" />
+                                    <Font size="35.0" />
                                 </font>
                             </Label>
-                            <Button layoutX="10.0" layoutY="50.0" mnemonicParsing="false" onAction="#home" styleClass="button-text-blue" text="Home" />
-                            <Label layoutX="59.0" layoutY="51.0" prefHeight="25.0" prefWidth="3.0" text="/">
-                                <font>
-                                    <Font size="16.0" />
-                                </font>
-                            </Label>
-                            <Button layoutX="65.0" layoutY="51.0" mnemonicParsing="false" styleClass="button-text-blue" text="My course" />
-                            <Label layoutX="136.0" layoutY="52.0" prefHeight="25.0" prefWidth="3.0" text="/">
+                            <Button layoutX="24.0" layoutY="76.0" mnemonicParsing="false" onAction="#home" styleClass="button-text-blue" text="Home" />
+                            <Label layoutX="74.0" layoutY="77.0" prefHeight="25.0" prefWidth="3.0" text="/">
                                 <font>
                                     <Font size="16.0" />
                                 </font>
                             </Label>
-                            <Button layoutX="143.0" layoutY="52.0" mnemonicParsing="false" styleClass="button-text-blue" text="THI CUỐI KỲ" />
-                        <Button layoutX="231.0" layoutY="52.0" mnemonicParsing="false" onAction="#questionbank" styleClass="button-text-blue" text="QuestionBank" />
-                        <Label layoutX="225.0" layoutY="52.0" prefHeight="25.0" prefWidth="3.0" text="/">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                        <Button layoutX="328.0" layoutY="51.0" mnemonicParsing="false" styleClass="button-text-blue" text="Edit a Multiple choice question" />
-                        <Label layoutX="322.0" layoutY="51.0" prefHeight="25.0" prefWidth="3.0" text="/">
+                            <Button layoutX="80.0" layoutY="77.0" mnemonicParsing="false" styleClass="button-text-blue" text="My course" />
+                            <Label layoutX="151.0" layoutY="77.0" prefHeight="25.0" prefWidth="3.0" text="/">
+                                <font>
+                                    <Font size="16.0" />
+                                </font>
+                            </Label>
+                            <Button layoutX="157.0" layoutY="77.0" mnemonicParsing="false" styleClass="button-text-blue" text="THI CUỐI KỲ" />
+                            <Label layoutX="239.0" layoutY="77.0" prefHeight="25.0" prefWidth="3.0" text="/">
+                                <font>
+                                    <Font size="16.0" />
+                                </font>
+                            </Label>
+                        <Button layoutX="243.0" layoutY="76.0" mnemonicParsing="false" onAction="#questionbank" styleClass="button-text-blue" text="QuestionBank" />
+                        <Button layoutX="335.0" layoutY="76.0" mnemonicParsing="false" styleClass="button-text-blue" text="Edit a Multiple choice question" />
+                        <Label layoutX="329.0" layoutY="76.0" prefHeight="25.0" prefWidth="3.0" text="/">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Label>
                         </children>
                     </Pane>
-                  <Pane layoutX="-7.0" layoutY="-5.0" prefHeight="58.0" prefWidth="722.0" styleClass="pane-background">
-                     <children>
-                        <Button layoutX="25.0" layoutY="3.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="48.0" styleClass="button-icon">
-                           <graphic>
-                              <ImageView fitHeight="31.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../ImageView/menu.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <MenuButton layoutX="549.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="148.0" styleClass="button-icon" text="Nguyễn" textFill="WHITE">
-                           <graphic>
-                              <ImageView fitHeight="31.0" fitWidth="149.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: pointer; -fx-translate-x: 85px;">
-                                 <image>
-                                    <Image url="@../ImageView/avatar.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </MenuButton>
-                     </children>
-                  </Pane>
-                    <Pane layoutX="42.0" layoutY="158.0" prefHeight="1048.0" prefWidth="618.0" styleClass="button3">
+                    <Pane layoutX="12.0" layoutY="187.0" prefHeight="1113.0" prefWidth="562.0" styleClass="pane-border-solid">
                         <children>
                             <ImageView fx:id="imageView" fitHeight="103.0" fitWidth="184.0" layoutX="336.0" layoutY="338.0" pickOnBounds="true" preserveRatio="true" />
-                            <Button layoutX="253.0" layoutY="338.0" mnemonicParsing="false" onAction="#insertImage" styleClass="button-another" text="Insert Image" />
-                            <Label layoutX="61.0" layoutY="134.0" text="Question name" />
-                            <Label layoutX="61.0" layoutY="189.0" text="Question text" />
-                            <Label layoutX="67.0" layoutY="409.0" text="Default mark" />
-                            <ImageView fx:id="canhbao1" fitHeight="15.0" fitWidth="17.0" layoutX="229.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
+                            <Button layoutX="228.0" layoutY="338.0" mnemonicParsing="false" onAction="#insertImage" styleClass="button-another" text="Insert Image" />
+                            <Label layoutX="33.0" layoutY="136.0" text="Question name" />
+                            <Label layoutX="33.0" layoutY="191.0" text="Question text" />
+                            <Label layoutX="39.0" layoutY="411.0" text="Default mark" />
+                            <ImageView fx:id="canhbao1" fitHeight="15.0" fitWidth="17.0" layoutX="204.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../ImageView/chamthan.jpg" />
                                 </image>
                             </ImageView>
-                            <ImageView fx:id="canhbao2" fitHeight="15.0" fitWidth="17.0" layoutX="229.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fx:id="canhbao2" fitHeight="15.0" fitWidth="17.0" layoutX="204.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../ImageView/chamthan.jpg" />
                                 </image>
                             </ImageView>
-                            <ImageView fx:id="canhbao3" fitHeight="15.0" fitWidth="17.0" layoutX="229.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true">
+                            <ImageView fx:id="canhbao3" fitHeight="15.0" fitWidth="17.0" layoutX="204.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true">
                                 <image>
                                     <Image url="@../ImageView/chamthan.jpg" />
                                 </image>
                             </ImageView>
-                            <TextField fx:id="defaultmark" layoutX="250.0" layoutY="401.0" prefHeight="33.0" prefWidth="51.0" />
-                            <TextArea fx:id="questtionname1" layoutX="250.0" layoutY="130.0" prefHeight="25.0" prefWidth="253.0" />
-                            <TextArea fx:id="questiontext1" layoutX="250.0" layoutY="189.0" prefHeight="139.0" prefWidth="253.0" />
+                            <TextField fx:id="defaultmark" layoutX="225.0" layoutY="401.0" prefHeight="33.0" prefWidth="51.0" />
+                            <TextArea fx:id="questtionname1" layoutX="225.0" layoutY="130.0" prefHeight="25.0" prefWidth="253.0" />
+                            <TextArea fx:id="questiontext1" layoutX="225.0" layoutY="189.0" prefHeight="139.0" prefWidth="253.0" />
                             <Label fx:id="addingamultipe" layoutX="14.0" layoutY="14.0" text="Adding a Multiple choice question" textFill="#ec3939">
                                 <font>
                                     <Font size="20.0" />
                                 </font>
                             </Label>
-                        <VBox fx:id="vbox" layoutX="247.0" layoutY="443.0" prefHeight="690.0" prefWidth="300.0">
+                        <VBox fx:id="vbox" layoutX="224.0" layoutY="449.0" prefHeight="690.0" prefWidth="300.0">
                            <children>
                               <Pane fx:id="originalPane" prefHeight="250.0" prefWidth="300.0" styleClass="pane-border-solid">
                                  <children>
@@ -135,46 +104,68 @@
                                     </ComboBox>
                                     <Button layoutX="13.0" layoutY="136.0" mnemonicParsing="false" onAction="#InsertImageChoice2" styleClass="button-another" text="Image" />
                                     <ImageView fx:id="ImageChoice2" fitHeight="77.0" fitWidth="200.0" layoutX="72.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true" />
-                                 </children>
-                              </Pane>
-                              <Pane fx:id="originalPane2" prefHeight="230.0" prefWidth="302.0">
-                                 <children>
-                                        <Button fx:id="addButton" layoutY="92.0" mnemonicParsing="false" onAction="#addMoreChoices" styleClass="button-blue" text="BLANKS FOR 3 MORE CHOICES">
-                                            <font>
-                                                <Font size="14.0" />
-                                            </font>
-                                        </Button>
-                                        <Button layoutX="182.0" layoutY="175.0" mnemonicParsing="false" onAction="#cancel" styleClass="button-blue" text="CANCEL">
-                                            <font>
-                                                <Font size="14.0" />
-                                            </font>
-                                        </Button>
-                                        <Button fx:id="savechangesandcontinue1" layoutY="131.0" mnemonicParsing="false" onAction="#savechangesandcontinue" styleClass="button-blue" text="SAVE CHANGES AND CONTINUE EDITING">
-                                            <font>
-                                                <Font size="14.0" />
-                                            </font>
-                                        </Button>
-                                        <Button fx:id="savechanges1" layoutY="175.0" mnemonicParsing="false" onAction="#savechanges" styleClass="button-red" text="SAVE CHANGES">
-                                            <font>
-                                                <Font size="14.0" />
-                                            </font>
-                                        </Button>
+                                    <Pane fx:id="originalPane2" layoutX="-1.0" layoutY="198.0" prefHeight="230.0" prefWidth="302.0">
+                                       <children>
+                                              <Button fx:id="addButton" layoutY="92.0" mnemonicParsing="false" onAction="#addMoreChoices" styleClass="button-blue" text="BLANKS FOR 3 MORE CHOICES">
+                                                  <font>
+                                                      <Font size="14.0" />
+                                                  </font>
+                                              </Button>
+                                              <Button layoutX="182.0" layoutY="175.0" mnemonicParsing="false" onAction="#cancel" styleClass="button-blue" text="CANCEL">
+                                                  <font>
+                                                      <Font size="14.0" />
+                                                  </font>
+                                              </Button>
+                                              <Button fx:id="savechangesandcontinue1" layoutY="131.0" mnemonicParsing="false" onAction="#savechangesandcontinue" styleClass="button-blue" text="SAVE CHANGES AND CONTINUE EDITING">
+                                                  <font>
+                                                      <Font size="14.0" />
+                                                  </font>
+                                              </Button>
+                                              <Button fx:id="savechanges1" layoutY="175.0" mnemonicParsing="false" onAction="#savechanges" styleClass="button-red" text="SAVE CHANGES">
+                                                  <font>
+                                                      <Font size="14.0" />
+                                                  </font>
+                                              </Button>
+                                       </children>
+                                    </Pane>
                                  </children>
                               </Pane>
                            </children>
                         </VBox>
-                        <ComboBox fx:id="combobox" layoutX="249.0" layoutY="75.0" prefWidth="150.0">
+                        <ComboBox fx:id="combobox" layoutX="224.0" layoutY="75.0" prefWidth="150.0">
                            <effect>
                               <ColorAdjust brightness="0.03" contrast="0.09" hue="1.0" saturation="-1.0" />
                            </effect>
                         </ComboBox>
-                        <Label layoutX="61.0" layoutY="79.0" text="Category" />
-                        <Label layoutX="26.0" layoutY="44.0" text="General" textFill="#ec3939" />
+                        <Label layoutX="33.0" layoutY="81.0" text="Category" />
+                        <Label layoutX="33.0" layoutY="54.0" text="General" textFill="#ec3939" />
                         </children>
                     </Pane>
                </children>
             </AnchorPane>
         </content>
       </ScrollPane>
+        <Pane prefHeight="57.0" prefWidth="600.0" styleClass="pane-background">
+            <children>
+                <Button layoutX="14.0" layoutY="1.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="48.0" styleClass="button-icon">
+                    <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../ImageView/menu.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <MenuButton layoutX="439.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="148.0" styleClass="button-icon" text="Nguyễn" textFill="WHITE">
+                    <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="149.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: pointer; -fx-translate-x: 85px;">
+                            <image>
+                                <Image url="@../ImageView/avatar.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </MenuButton>
+            </children>
+        </Pane>
     </children>
 </Pane>

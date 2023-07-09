@@ -8,12 +8,12 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="235.0" prefWidth="497.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui61.dialog">
    <children>
-      <Label layoutX="11.0" layoutY="14.0" prefHeight="27.0" prefWidth="118.0" text="Start attempt">
+      <Label layoutX="17.0" layoutY="14.0" prefHeight="27.0" prefWidth="118.0" text="Start attempt" textFill="#ec3939">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Line endX="375.5999755859375" endY="-1.9073486328125E-5" layoutX="106.0" layoutY="54.0" startX="-89.20002746582031" startY="-1.1444091796875E-5" styleClass="line1" />
+      <Line endX="375.5999755859375" endY="-1.9073486328125E-5" layoutX="106.0" layoutY="54.0" startX="-87.60002136230469" startY="-1.9073486328125E-5" styleClass="line1" />
       <Label layoutX="26.0" layoutY="63.0" text="Time limit" textFill="#dc4040">
          <font>
             <Font size="14.0" />
