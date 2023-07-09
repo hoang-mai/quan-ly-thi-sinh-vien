@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="856.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui74.gui74">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="856.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui74.gui74">
    <children>
       <Pane prefHeight="57.0" prefWidth="856.0" />
       <ScrollPane fx:id="scrollpane" hbarPolicy="NEVER" layoutX="10.0" layoutY="151.0" prefHeight="547.0" prefWidth="619.0" styleClass="pane-border-solid" vbarPolicy="NEVER">
@@ -37,7 +37,7 @@
                      <children>
                         <Label prefHeight="18.0" prefWidth="210.0" styleClass="pane-border-question" text="Started on" textFill="#ec3939">
                            <padding>
-                              <Insets left="135.0" />
+                              <Insets left="128.0" />
                            </padding>
                            <font>
                               <Font name="System Bold" size="12.0" />
@@ -45,7 +45,7 @@
                         </Label>
                         <Label prefHeight="18.0" prefWidth="278.0" style="-fx-background-color: #efeeee;" text="State" textFill="#ec3939" GridPane.rowIndex="1">
                            <padding>
-                              <Insets left="162.0" />
+                              <Insets left="158.0" />
                            </padding>
                            <font>
                               <Font name="System Bold" size="12.0" />
@@ -53,7 +53,7 @@
                         </Label>
                         <Label prefHeight="19.0" prefWidth="210.0" styleClass="pane-border-question" text="Completed on" textFill="#ec3939" GridPane.rowIndex="2">
                            <padding>
-                              <Insets left="113.0" />
+                              <Insets left="106.0" />
                            </padding>
                            <font>
                               <Font name="System Bold" size="12.0" />
@@ -61,7 +61,7 @@
                         </Label>
                         <Label prefHeight="18.0" prefWidth="214.0" style="-fx-background-color: #efeeee;" text="Time taken" textFill="#ec3939" GridPane.rowIndex="3">
                            <padding>
-                              <Insets left="129.0" />
+                              <Insets left="124.0" />
                            </padding>
                            <font>
                               <Font name="System Bold" size="12.0" />
@@ -69,7 +69,7 @@
                         </Label>
                         <Label prefHeight="34.0" prefWidth="196.0" styleClass="pane-border-question" text="Marks" textFill="#ec3939" GridPane.rowIndex="4">
                            <padding>
-                              <Insets left="154.0" />
+                              <Insets left="152.0" />
                            </padding>
                            <font>
                               <Font name="System Bold" size="12.0" />
