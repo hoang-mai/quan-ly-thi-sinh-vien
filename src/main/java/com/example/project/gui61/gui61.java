@@ -58,7 +58,6 @@ public class gui61 implements Initializable {
             Parent root = loader.load();
             Scene scene = new Scene(root);
             Stage ag0r1=new Stage();
-
             ag0r1.setScene(scene);
             ag0r1.initModality(Modality.APPLICATION_MODAL);
             ag0r1.initOwner(a);

@@ -84,11 +84,14 @@ public class gui74 implements Initializable {
     @FXML
     void finishreview(ActionEvent event) {
         try {
-            Stage ag0r1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
             Parent root = FXMLLoader.load(getClass().getResource("/com/example/project/gui11/gui(1.1).fxml"));
             Scene scene = new Scene(root);
+            Stage ag0r1=new Stage();
             ag0r1.setScene(scene);
             ag0r1.show();
+            Stage a=(Stage) time.getScene().getWindow();
+            a.hide();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

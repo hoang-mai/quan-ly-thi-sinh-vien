@@ -51,8 +51,9 @@ public class gui32 implements Initializable {
     private Label addingamultipe;
     private byte[] imageData;
     public void setedit(String adding) {
-        anchorPane.setPrefHeight(2200);
+        anchorPane.setPrefHeight(2000);
         vbox.setPrefHeight(1250);
+        paneadd.setPrefHeight(1800);
         addMoreChoicesEnabled = false;
         int id=QuestionsDao.getInstance().getQuestions().getCategories().getCategoryId();
         a=true;
@@ -96,7 +97,8 @@ imageView1.setImage(image1);}
         }
 
     }
-
+    @FXML
+    private Pane paneadd;
     @FXML
     private ImageView canhbao1;
 
@@ -414,7 +416,8 @@ imageView1.setImage(image1);}
 
     @FXML
     private void addMoreChoices() {
-        anchorPane.setPrefHeight(2200);
+        anchorPane.setPrefHeight(2000);
+        paneadd.setPrefHeight(1800);
         vbox.setPrefHeight(1250);
         if (addMoreChoicesEnabled) {
             // Thực hiện hành động

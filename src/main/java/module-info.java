@@ -7,6 +7,7 @@ module com.example.project {
     requires java.persistence;
     requires java.naming;
     requires org.apache.poi.ooxml;
+    requires org.apache.pdfbox;
     opens com.example.project.database.entities to org.hibernate.orm.core;
     opens com.example.project to javafx.fxml;
     exports com.example.project;

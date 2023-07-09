@@ -98,7 +98,7 @@ private double total=0;
         quizname.setText(QuizDao.getInstance().getQuiz().getQuizName());
         text.setText(QuizDao.getInstance().getQuiz().getQuizName());
         daugach.setLayoutX(quizname.getLayoutX()+text.getLayoutBounds().getWidth()+10);
-        buttoneditquiz.setLayoutX(quizname.getLayoutX()+6+text.getLayoutBounds().getWidth()+4);
+        buttoneditquiz.setLayoutX(quizname.getLayoutX()+10+text.getLayoutBounds().getWidth()+4);
         List<Questions> listquestion=QuizDao.getInstance().selectQuestion(QuizDao.getInstance().getQuiz().getQuizName());
         gridPane.setPrefWidth(600);
         ColumnConstraints column1 = new ColumnConstraints();
