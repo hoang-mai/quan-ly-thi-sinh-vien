@@ -73,6 +73,26 @@ public class ChoiceDao {
 			}
 		}
 	}
+	public boolean Delete(Choice choice) throws Exception {
+		Session session = null;
+		Transaction transaction = null;
+
+		try {
+			session = HibernateUtils.getSessionFactory().openSession();
+			transaction = session.beginTransaction();
+
+			session.delete(choice);
+
+			transaction.commit();
+
+			return true;
+
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+	}
 	//lấy danh sách các choice
 	public List<Choice> selectALl(){
 		List<Choice> choices =new ArrayList<>();

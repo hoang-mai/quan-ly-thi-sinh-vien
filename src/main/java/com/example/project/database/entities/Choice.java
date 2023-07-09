@@ -17,7 +17,7 @@ public class Choice {
 	@JoinColumn(name = "questions_id")
 	private Questions questions;
 
-	@Column(name = "Grade", nullable = false, columnDefinition = "NVARCHAR(6)")
+	@Column(name = "Grade", nullable = false, columnDefinition = "NVARCHAR(MAX)")
 	private String grade;
 	@Lob
 	@Column(name = "image", nullable = true,columnDefinition = "VARBINARY(MAX)")

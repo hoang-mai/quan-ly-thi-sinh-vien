@@ -1,9 +1,7 @@
 package com.example.project.gui32;
 
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.*;
 
@@ -20,7 +18,6 @@ import javafx.stage.FileChooser;
 import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageInputStream;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
 
 import com.example.project.database.dao.QuestionsDao;
 import com.example.project.database.entities.Questions;
@@ -52,10 +49,10 @@ public class gui32 implements Initializable {
     private ComboBox<String> comboboxchoice2;
     @FXML
     private Label addingamultipe;
-
+    private byte[] imageData;
     public void setedit(String adding) {
         anchorPane.setPrefHeight(2200);
-        vbox.setPrefHeight(1150);
+        vbox.setPrefHeight(1250);
         addMoreChoicesEnabled = false;
         int id=QuestionsDao.getInstance().getQuestions().getCategories().getCategoryId();
         a=true;
@@ -64,6 +61,10 @@ public class gui32 implements Initializable {
         questiontext1.setText(QuestionsDao.getInstance().getQuestions().getQuestionText());
         defaultmark.setText(String.valueOf(QuestionsDao.getInstance().getQuestions().getDefaultmark()));
         combobox.setValue(CategoriesDao.getInstance().selectCategorybyId(id).getCategoryName());
+        if(QuestionsDao.getInstance().getQuestions().getImage()!=null){
+            imageData=QuestionsDao.getInstance().getQuestions().getImage();
+        Image image=new Image(new ByteArrayInputStream(QuestionsDao.getInstance().getQuestions().getImage()));
+        imageView.setImage(image);}
         int j=QuestionsDao.getInstance().getQuestions().getQuestionId();
         List<Choice> choices=QuestionsDao.getInstance().selectChoicebyQuestionId(j);
 ChoiceDao.getInstance().setChoices(choices);
@@ -75,6 +76,7 @@ ChoiceDao.getInstance().setChoices(choices);
         ObservableList<Node> children = vbox.getChildren();
 
         for (int i = 0; i < choices.size(); i++) {
+            imageData1.put(i+1,choices.get(i).getImage());
             Node node = children.get(i);
             if (node instanceof Pane) {
                 Pane pane = (Pane) node;
@@ -84,15 +86,14 @@ ChoiceDao.getInstance().setChoices(choices);
                 Choice choice = choices.get(i);
                 textArea.setText(choice.getChoiceText());
                 comboBox.setValue(choice.getGrade());
-
+                if(choice.getImage()!=null){
+Image image1 =new Image(new ByteArrayInputStream(choice.getImage()));
+ImageView imageView1=(ImageView) pane.getChildren().get(5);
+imageView1.setImage(image1);}
                 // Tiếp tục xử lý dữ liệu lấy được
 
             }
         }
-
-
-
-
 
     }
 
@@ -121,7 +122,7 @@ ChoiceDao.getInstance().setChoices(choices);
     @FXML
     private ImageView imageView;
 
-    private byte[] imageData;
+
     private Map<Integer,byte[]> imageData1=new HashMap<>();
     @FXML
     private TextArea choicetext1;
@@ -265,10 +266,16 @@ ChoiceDao.getInstance().setChoices(choices);
             choice.setGrade(grade);
             choice.setImage(imageData);
             if(addingamultipe.getText().startsWith("Add")){
-                ChoiceDao.getInstance().save(choice);}
-            else {int j=ChoiceDao.getInstance().getChoices().get(i).getChoiceId();
+                if(!Objects.equals(choiceText, "")) ChoiceDao.getInstance().save(choice);}
+            else {
+                if(i<ChoiceDao.getInstance().getChoices().size()){
+                int j=ChoiceDao.getInstance().getChoices().get(i).getChoiceId();
                 choice.setChoiceId(j);
-ChoiceDao.getInstance().update(choice);
+                if(Objects.equals(choiceText, "")) ChoiceDao.getInstance().Delete(choice);
+                ChoiceDao.getInstance().update(choice);}
+                else {
+                    if(!Objects.equals(choiceText, "")) ChoiceDao.getInstance().save(choice);
+                        }
             }
 
         } catch (Exception e) {
@@ -303,7 +310,7 @@ ChoiceDao.getInstance().update(choice);
             }
             ObservableList<Node> children = vbox.getChildren();
 
-            for (int i = 0; i < children.size() - 1; i++) {
+            for (int i = 0; i < children.size() -1; i++) {
                 Node node = children.get(i);
                 if (node instanceof Pane) {
                     Pane pane = (Pane) node;
@@ -318,7 +325,6 @@ ChoiceDao.getInstance().update(choice);
 
                         // Sử dụng dữ liệu đã lấy để thực hiện các tác vụ khác
                         String choiceText = textArea.getText();
-                        if(Objects.equals(choiceText, ""))continue;
                         String grade = comboBox.getValue();
                         byte[] image=imageData1.get(i+1);
                         saveChoice(questions, choiceText, grade,image,i);
@@ -365,7 +371,7 @@ ChoiceDao.getInstance().update(choice);
             }
             ObservableList<Node> children = vbox.getChildren();
 
-            for (int i = 0; i < children.size() - 1; i++) {
+            for (int i = 0; i < children.size()-1 ; i++) {
                 Node node = children.get(i);
                 if (node instanceof Pane) {
                     Pane pane = (Pane) node;
@@ -378,7 +384,6 @@ ChoiceDao.getInstance().update(choice);
 
                         // Sử dụng dữ liệu đã lấy để thực hiện các tác vụ khác
                         String choiceText = textArea.getText();
-                        if(choiceText==null)continue;
                         String grade = comboBox.getValue();
                         byte[] image=imageData1.get(i+1);
                         saveChoice(questions, choiceText, grade,image,i);
@@ -410,7 +415,7 @@ ChoiceDao.getInstance().update(choice);
     @FXML
     private void addMoreChoices() {
         anchorPane.setPrefHeight(2200);
-        vbox.setPrefHeight(1150);
+        vbox.setPrefHeight(1250);
         if (addMoreChoicesEnabled) {
             // Thực hiện hành động
             for (int i = 3; i < 6; i++) {
