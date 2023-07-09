@@ -163,7 +163,7 @@ gridPane1.setLayoutY(96);
             pane1.getChildren().add(pane2);
             pane1.setPrefHeight(30);
             pane1.setPrefWidth(24);
-            pane2.setPrefSize(19,15);
+            pane2.setPrefSize(20,15);
             Label label5=new Label(""+i);
             pane1.getChildren().add(label5);
             label5.setLayoutY(1);
@@ -238,7 +238,7 @@ gridPane1.setLayoutY(96);
                     CheckBox checkBox=new CheckBox(choice.getChoiceText());
                     checkBox.setWrapText(true);
                     if(!choice.getGrade().startsWith("-") &&!choice.getGrade().startsWith("N")){
-                       te=te+", "+choice.getChoiceText();
+                       te=te+" "+choice.getChoiceText();
                     }
 
                     vBox1.getChildren().add(checkBox);
