@@ -25,6 +25,7 @@ import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
 import org.apache.pdfbox.pdmodel.font.PDType0Font;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -79,6 +80,11 @@ public class dialog implements Initializable {
             System.out.println(e.getMessage());
         }
     }
+    private PDPage createNewPage(PDDocument document) {
+        PDPage page = new PDPage(PDRectangle.A4);
+        document.addPage(page);
+        return page;
+    }
 @FXML
 void exportToPDF(ActionEvent event){
     FileChooser fileChooser = new FileChooser();
@@ -94,30 +100,54 @@ void exportToPDF(ActionEvent event){
             PDPageContentStream contentStream = new PDPageContentStream(document, page);
             contentStream.setFont(PDType0Font.load(document, getClass().getResourceAsStream("/arial.ttf")), 12);
             contentStream.beginText();
-            float maxY = page.getMediaBox().getHeight(); // Lấy tọa độ y lớn nhất trên trang
-            contentStream.newLineAtOffset(50, maxY - 50); // Đặt văn bản cách viền trên của trang 50 đơn vị
-
+            float maxY = page.getMediaBox().getHeight();
+            contentStream.newLineAtOffset(10, maxY - 50); // Đặt văn bản cách viền trên của trang 50 đơn vị
+            maxY-=50;
             List<Questions> questionsList=QuizDao.getInstance().selectQuestion(QuizDao.getInstance().getQuiz().getQuizName());
             // Replace the following line with code to get the content from the exam questions
             for(int i=0;i<questionsList.size();i++){
+                if(maxY<150||( questionsList.get(i).getImage()!=null&& maxY<250)){
+                    contentStream.endText();
+                    contentStream.close();
+                    PDPage nextPage = createNewPage(document);
+                    contentStream = new PDPageContentStream(document, nextPage);
+                    contentStream.setFont(PDType0Font.load(document, getClass().getResourceAsStream("/arial.ttf")), 12);
+                    maxY=page.getMediaBox().getHeight();
+                    contentStream.beginText();
+                    contentStream.newLineAtOffset(10, maxY - 50);
+                    maxY=maxY-50;
+                }
                 String text=questionsList.get(i).getQuestionText();
                 int k=0;
                while (text.length()>85){
                    if(k+85>text.length()){
                        contentStream.showText(text.substring(k,text.length()-1));
+                       contentStream.newLineAtOffset(0, -20);
+                       maxY-=20;
                        break;
                        }
                     else {
                        String text1=text.substring(k,k+85);
                        int l=text1.lastIndexOf(" ")+k;
                         contentStream.showText(text.substring(k,l));
+                       contentStream.newLineAtOffset(0, -15);
+                       maxY-=15;
                     k=l;
                     }
-                   contentStream.newLineAtOffset(0, -15);
-
                 }
-               if(text.length()<=85) {contentStream.showText(text);}
-                contentStream.newLineAtOffset(0, -20);
+               if(text.length()<=85) {contentStream.showText(text);
+                   contentStream.newLineAtOffset(0, -20);
+                   maxY-=20;
+               }
+               if(questionsList.get(i).getImage()!=null){
+                   contentStream.endText();
+                   PDImageXObject image = PDImageXObject.createFromByteArray(document, questionsList.get(i).getImage(), null);
+                   contentStream.drawImage(image, 50, maxY-150,140,150); // Vẽ ảnh vào trang PDF
+                    contentStream.beginText();
+                   contentStream.newLineAtOffset(0, maxY-150-15);
+                   maxY=maxY-150-15;
+
+               }
                 List<Choice> choiceList=QuestionsDao.getInstance().selectChoicebyQuestionId(questionsList.get(i).getQuestionId());
                 for(int j=0;j<choiceList.size();j++){
                     String text2=choiceList.get(j).getChoiceText();
@@ -125,30 +155,39 @@ void exportToPDF(ActionEvent event){
                     while (text2.length()>85){
                         if(m+85>text2.length()){
                             contentStream.showText(text2.substring(m,text2.length()-1));
+                            contentStream.newLineAtOffset(0, -20);
+                            maxY-=20;
                             break;
                         }
                         else {
                             String text3=text2.substring(m,m+85);
                             int n=text3.lastIndexOf(" ")+m;
                             contentStream.showText(text2.substring(m,n));
+                            contentStream.newLineAtOffset(0, -15);
+                            maxY-=15;
                            m=n;
                         }
+                    }
+                    if(text2.length()<=85) {contentStream.showText(text2);
                         contentStream.newLineAtOffset(0, -15);
+                        maxY-=15;
+                    }
+                    if(choiceList.get(j).getImage()!=null){
+                        contentStream.endText();
+                        PDImageXObject image = PDImageXObject.createFromByteArray(document, choiceList.get(j).getImage(), null);
+                        contentStream.drawImage(image, 50, maxY-150,140,150); // Vẽ ảnh vào trang PDF
+                        contentStream.beginText();
+                        contentStream.newLineAtOffset(0, maxY-150-15);
+                        maxY=maxY-150-15;
 
                     }
-                    if(text2.length()<=85) {contentStream.showText(text2);}
-                    contentStream.newLineAtOffset(0, -15);
-
                 }
 
             }
 
-            // Write each line to the PDF
-
 
             contentStream.endText();
             contentStream.close();
-
             document.save(selectedFile);
             System.out.println("PDF exported successfully to: " + selectedFile.getAbsolutePath());
         } catch (IOException e) {
