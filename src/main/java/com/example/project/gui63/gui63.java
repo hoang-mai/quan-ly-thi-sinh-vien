@@ -56,8 +56,8 @@ public class gui63 implements Initializable {
             CheckBox checkBox = new CheckBox(danhsachquestion.get(i).getQuestionName());
             Image image1111 = new Image(getClass().getResourceAsStream("/com/example/project/ImageView/list.png"));
             ImageView imageView1 = new ImageView(image1111);
-            imageView1.setFitWidth(15);
-            imageView1.setFitHeight(18);
+            imageView1.setFitWidth(12);
+            imageView1.setFitHeight(12);
             checkBox.setGraphic(imageView1);
             vBox.getChildren().add(checkBox);
         }
@@ -100,6 +100,7 @@ public class gui63 implements Initializable {
         vBox.setLayoutY(235);
         vBox.setSpacing(10);
         vBox.setPrefWidth(512);
+        vBox.setStyle("-fx-background-color: #eaeaea;");
         List<Categories> listcate = CategoriesDao.getInstance().selectALl();
         for (int i = 0; i < listcate.size(); i++) {
             if (listcate.get(i).getCategories_parent()!=null){

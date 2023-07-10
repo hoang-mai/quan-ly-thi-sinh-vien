@@ -118,8 +118,8 @@ public class gui65 implements Initializable {
                 Label label = new Label(finalDanhsachquestion.get(i).getQuestionId()+": "+finalDanhsachquestion.get(i).getQuestionName());
                 Image image1111 = new Image(getClass().getResourceAsStream("/com/example/project/ImageView/list.png"));
                 ImageView imageView1 = new ImageView(image1111);
-                imageView1.setFitWidth(15);
-                imageView1.setFitHeight(18);
+                imageView1.setFitWidth(12);
+                imageView1.setFitHeight(12);
                 label.setGraphic(imageView1);
                 page.getChildren().add(label);
             }
