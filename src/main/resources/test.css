@@ -104,6 +104,7 @@
     -fx-border-radius: 3px;
     -fx-background-color: #383838;
     -fx-border-color: #383838;
+    -fx-width: 100%;
 }
 
 .pane-border-question {
@@ -124,4 +125,10 @@
     -fx-border-color: #f4ecdf;
     -fx-border-radius: 3px;
     -fx-background-color: #f4ecdf;
+    -fx-padding: 10px;
 }
+
+.vbox1 {
+    -fx-padding: 15px 20px;
+}
+

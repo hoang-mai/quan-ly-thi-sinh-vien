@@ -87,7 +87,7 @@ public class gui61 implements Initializable {
         Text text = new Text();
         tenquiz.setGraphic(text);
         quizname.setText(QuizDao.getInstance().getQuiz().getQuizName());
-text.setText(QuizDao.getInstance().getQuiz().getQuizName());
+        text.setText(QuizDao.getInstance().getQuiz().getQuizName());
         timelimit1.setText(QuizDao.getInstance().getQuiz().getTimeLimit()+" minutes");
     }
 }

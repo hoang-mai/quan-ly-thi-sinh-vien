@@ -198,8 +198,8 @@ void exportToPDF(ActionEvent event){
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        label1.setText(String.format("Your attempt will have a time limit of %02d minutes. When you start,the timer will begin"+"\n"+
-                "to count down and cannot be paused. You must finish your attempt before it "+"\n"+
-                "expires.Are you sure you wish to start now ?",minutes));
+        label1.setText(String.format("Your attempt will have a time limit of %02d minutes. When you start, the timer will begin"+"\n"+
+                "to count down and cannot be paused. You must finish your attempt before it expires."+"\n"+
+                "Are you sure you wish to start now ?",minutes));
     }
 }

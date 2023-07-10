@@ -100,7 +100,8 @@ public class gui63 implements Initializable {
         vBox.setLayoutY(235);
         vBox.setSpacing(10);
         vBox.setPrefWidth(512);
-        vBox.setStyle("-fx-background-color: #eaeaea;");
+        vBox.getStyleClass().add("vbox1");
+        vBox.getStyleClass().add("pane-border-solid");
         List<Categories> listcate = CategoriesDao.getInstance().selectALl();
         for (int i = 0; i < listcate.size(); i++) {
             if (listcate.get(i).getCategories_parent()!=null){

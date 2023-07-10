@@ -129,6 +129,7 @@ public class gui21 implements Initializable {
             CheckBox checkBox = new CheckBox(danhsachquestion.get(i).getQuestionName());
             gridpane1.add(checkBox, 0, i);
             Button button = new Button("Edit");
+            button.getStyleClass().add("button-text-blue");
             gridpane1.add(button, 1, i);
             int finalI = i;
             List<Questions> finalDanhsachquestion = danhsachquestion;

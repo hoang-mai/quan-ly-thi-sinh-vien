@@ -159,6 +159,7 @@ gridPane1.setLayoutY(96);
             // tạo pane trong gridpane 1
             Pane pane1 =new Pane();
             pane1.getStyleClass().add("pane-border-question-number");
+            pane1.setLayoutX(15);
             Pane pane2=new Pane();
             pane1.getChildren().add(pane2);
             pane1.setPrefHeight(30);
