@@ -264,7 +264,7 @@ gridPane1.setLayoutY(96);
                             pane2.getStyleClass().add("pane-background-question-number");
                         });
                 }
-                listanswer.put(i,"The correct answer is :"+te);
+                listanswer.put(i,"The correct answer is: "+te);
             }
             vBox1.getStyleClass().add("pane-background-question");
             gridPane2.getChildren().add(vBox1);

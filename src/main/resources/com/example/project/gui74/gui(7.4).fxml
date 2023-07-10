@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="856.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui74.gui74">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="698.0" prefWidth="856.0" stylesheets="@../../../../test.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project.gui74.gui74">
    <children>
       <Pane prefHeight="57.0" prefWidth="856.0" />
       <ScrollPane fx:id="scrollpane" hbarPolicy="NEVER" layoutX="10.0" layoutY="162.0" prefHeight="524.0" prefWidth="618.0" styleClass="pane-border-solid" vbarPolicy="NEVER">
@@ -27,7 +35,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Label prefHeight="18.0" prefWidth="210.0" styleClass="pane-border-question" text="Started on" textFill="#ec3939">
+                        <Label alignment="TOP_RIGHT" prefHeight="18.0" prefWidth="210.0" styleClass="pane-border-question" text="Started on" textFill="#ec3939">
                            <padding>
                               <Insets left="135.0" />
                            </padding>
@@ -35,7 +43,7 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="18.0" prefWidth="278.0" style="-fx-background-color: #efeeee;" text="State" textFill="#ec3939" GridPane.rowIndex="1">
+                        <Label alignment="TOP_RIGHT" prefHeight="18.0" prefWidth="278.0" style="-fx-background-color: #efeeee;" text="State" textFill="#ec3939" GridPane.rowIndex="1">
                            <padding>
                               <Insets left="162.0" />
                            </padding>
@@ -43,7 +51,7 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="19.0" prefWidth="210.0" styleClass="pane-border-question" text="Completed on" textFill="#ec3939" GridPane.rowIndex="2">
+                        <Label alignment="TOP_RIGHT" prefHeight="19.0" prefWidth="210.0" styleClass="pane-border-question" text="Completed on" textFill="#ec3939" GridPane.rowIndex="2">
                            <padding>
                               <Insets left="113.0" />
                            </padding>
@@ -51,7 +59,7 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="18.0" prefWidth="214.0" style="-fx-background-color: #efeeee;" text="Time taken" textFill="#ec3939" GridPane.rowIndex="3">
+                        <Label alignment="TOP_RIGHT" prefHeight="18.0" prefWidth="214.0" style="-fx-background-color: #efeeee;" text="Time taken" textFill="#ec3939" GridPane.rowIndex="3">
                            <padding>
                               <Insets left="129.0" />
                            </padding>
@@ -59,7 +67,7 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="34.0" prefWidth="196.0" styleClass="pane-border-question" text="Marks" textFill="#ec3939" GridPane.rowIndex="4">
+                        <Label alignment="TOP_RIGHT" prefHeight="21.0" prefWidth="205.0" styleClass="pane-border-question" text="Marks" textFill="#ec3939" GridPane.rowIndex="4">
                            <padding>
                               <Insets left="154.0" />
                            </padding>
@@ -67,7 +75,7 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="66.0" prefWidth="196.0" style="-fx-background-color: #efeeee;" text="Grade" textFill="#ec3939" GridPane.rowIndex="5">
+                        <Label alignment="TOP_RIGHT" prefHeight="21.0" prefWidth="209.0" style="-fx-background-color: #efeeee;" text="Grade" textFill="#ec3939" GridPane.rowIndex="5">
                            <padding>
                               <Insets left="154.0" />
                            </padding>
