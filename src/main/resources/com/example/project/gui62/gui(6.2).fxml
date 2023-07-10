@@ -49,7 +49,7 @@
            </children></Pane>
       <Pane layoutX="12.0" layoutY="185.0" prefHeight="494.0" prefWidth="576.0" styleClass="pane-border-solid">
          <children>
-            <Pane layoutX="23.0" layoutY="181.0" prefHeight="51.0" prefWidth="532.0" style="-fx-background-color: #e5eae9;">
+            <Pane layoutX="7.0" layoutY="181.0" prefHeight="51.0" prefWidth="566.0" style="-fx-background-color: #e5eae9;">
                <children>
                   <MenuButton layoutX="473.0" layoutY="26.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" style="-fx-background-color: transparent;" text="Add" textFill="#218d8d">
                     <items>
@@ -100,9 +100,9 @@
                   <Font size="21.0" />
                </font>
             </Label>
-            <ScrollPane hbarPolicy="NEVER" layoutX="8.0" layoutY="232.0" prefHeight="261.0" prefWidth="566.0" style="-fx-background-color: transparent;">
+            <ScrollPane layoutX="8.0" layoutY="232.0" prefHeight="261.0" prefWidth="566.0" style="-fx-background-color: transparent;">
               <content>
-                <AnchorPane fx:id="anchorpane1" minHeight="0.0" minWidth="0.0" prefHeight="282.0" prefWidth="564.0" style="-fx-background-color: transparent;">
+                <AnchorPane fx:id="anchorpane1" minHeight="0.0" minWidth="0.0" prefHeight="316.0" prefWidth="566.0" style="-fx-background-color: transparent;">
                      <children>
                         <VBox fx:id="vbox1" prefHeight="259.0" prefWidth="566.0" spacing="10.0" />
                      </children>
