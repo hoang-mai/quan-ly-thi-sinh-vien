@@ -190,30 +190,7 @@ public class  CategoriesDao {
 	}
 
 	//đưa ra category cha
-	public Categories selectCategoryparent(String categoryName) {
-		Categories tmp = CategoriesDao.getInstance().selectCategorybyName(categoryName);
-		if (tmp.getCategories_parent() != null) {
-			Categories categories = new Categories();
-			Session session = null;
-			Transaction transaction = null;
 
-			try {
-				session = HibernateUtils.getSessionFactory().openSession();
-				transaction = session.beginTransaction();
-				categories = session.createQuery("FROM Categories c WHERE c.categoryId = :categoryId",
-						Categories.class).setParameter("categoryId", tmp.getCategories_parent().getCategoryId()).getSingleResult();
-				transaction.commit();
-
-				return categories;
-
-			} finally {
-				if (session != null) {
-					session.close();
-				}
-			}
-		}
-		return null;
-	}
 
 	//đưa ra số lượng câu hỏi có trong 1 category
 	public int CountQuestion(String categoryName) {
@@ -222,26 +199,7 @@ public class  CategoriesDao {
 	}
 
 	//get Child category
-	public List<Categories> getChildCategories(String categoryName) {
-		List<Categories> categories = new ArrayList<>();
-		Session session = null;
-		Transaction transaction = null;
 
-		try {
-			session = HibernateUtils.getSessionFactory().openSession();
-			transaction = session.beginTransaction();
-			categories = session.createQuery("FROM Categories c WHERE c.categories_parent.categoryName = :categoryName", Categories.class)
-					.setParameter("categoryName", categoryName).getResultList();
-			transaction.commit();
-
-			return categories;
-
-		} finally {
-			if (session != null) {
-				session.close();
-			}
-		}
-	}
 
 	// show all questions from subcategory
 	public List<Questions> selectQuestionfromSubCategory(String categoryName) {
@@ -267,7 +225,7 @@ public class  CategoriesDao {
 	}
 
 
-	//test
+
 
 }
 
